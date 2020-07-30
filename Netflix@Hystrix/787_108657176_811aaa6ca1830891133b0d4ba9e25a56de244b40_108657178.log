@@ -1,0 +1,408 @@
+Using worker: worker-linux-docker-a55e6d20.prod.travis-ci.org:travis-linux-15
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0cf04eb4[0K$ git clone --depth=50 --branch=master https://github.com/Netflix/Hystrix.git Netflix/Hystrix
+Cloning into 'Netflix/Hystrix'...
+remote: Counting objects: 3646, done.[K
+remote: Compressing objects:   0% (1/1317)   [Kremote: Compressing objects:   1% (14/1317)   [Kremote: Compressing objects:   2% (27/1317)   [Kremote: Compressing objects:   3% (40/1317)   [Kremote: Compressing objects:   4% (53/1317)   [Kremote: Compressing objects:   5% (66/1317)   [Kremote: Compressing objects:   6% (80/1317)   [Kremote: Compressing objects:   7% (93/1317)   [Kremote: Compressing objects:   8% (106/1317)   [Kremote: Compressing objects:   9% (119/1317)   [Kremote: Compressing objects:  10% (132/1317)   [Kremote: Compressing objects:  11% (145/1317)   [Kremote: Compressing objects:  12% (159/1317)   [Kremote: Compressing objects:  13% (172/1317)   [Kremote: Compressing objects:  14% (185/1317)   [Kremote: Compressing objects:  15% (198/1317)   [Kremote: Compressing objects:  16% (211/1317)   [Kremote: Compressing objects:  17% (224/1317)   [Kremote: Compressing objects:  18% (238/1317)   [Kremote: Compressing objects:  19% (251/1317)   [Kremote: Compressing objects:  20% (264/1317)   [Kremote: Compressing objects:  21% (277/1317)   [Kremote: Compressing objects:  22% (290/1317)   [Kremote: Compressing objects:  23% (303/1317)   [Kremote: Compressing objects:  24% (317/1317)   [Kremote: Compressing objects:  25% (330/1317)   [Kremote: Compressing objects:  26% (343/1317)   [Kremote: Compressing objects:  27% (356/1317)   [Kremote: Compressing objects:  28% (369/1317)   [Kremote: Compressing objects:  29% (382/1317)   [Kremote: Compressing objects:  30% (396/1317)   [Kremote: Compressing objects:  31% (409/1317)   [Kremote: Compressing objects:  32% (422/1317)   [Kremote: Compressing objects:  33% (435/1317)   [Kremote: Compressing objects:  34% (448/1317)   [Kremote: Compressing objects:  35% (461/1317)   [Kremote: Compressing objects:  36% (475/1317)   [Kremote: Compressing objects:  37% (488/1317)   [Kremote: Compressing objects:  38% (501/1317)   [Kremote: Compressing objects:  39% (514/1317)   [Kremote: Compressing objects:  40% (527/1317)   [Kremote: Compressing objects:  41% (540/1317)   [Kremote: Compressing objects:  42% (554/1317)   [Kremote: Compressing objects:  43% (567/1317)   [Kremote: Compressing objects:  44% (580/1317)   [Kremote: Compressing objects:  45% (593/1317)   [Kremote: Compressing objects:  46% (606/1317)   [Kremote: Compressing objects:  47% (619/1317)   [Kremote: Compressing objects:  48% (633/1317)   [Kremote: Compressing objects:  49% (646/1317)   [Kremote: Compressing objects:  50% (659/1317)   [Kremote: Compressing objects:  51% (672/1317)   [Kremote: Compressing objects:  52% (685/1317)   [Kremote: Compressing objects:  53% (699/1317)   [Kremote: Compressing objects:  54% (712/1317)   [Kremote: Compressing objects:  55% (725/1317)   [Kremote: Compressing objects:  56% (738/1317)   [Kremote: Compressing objects:  57% (751/1317)   [Kremote: Compressing objects:  58% (764/1317)   [Kremote: Compressing objects:  59% (778/1317)   [Kremote: Compressing objects:  60% (791/1317)   [Kremote: Compressing objects:  61% (804/1317)   [Kremote: Compressing objects:  62% (817/1317)   [Kremote: Compressing objects:  63% (830/1317)   [Kremote: Compressing objects:  64% (843/1317)   [Kremote: Compressing objects:  65% (857/1317)   [Kremote: Compressing objects:  66% (870/1317)   [Kremote: Compressing objects:  67% (883/1317)   [Kremote: Compressing objects:  68% (896/1317)   [Kremote: Compressing objects:  69% (909/1317)   [Kremote: Compressing objects:  70% (922/1317)   [Kremote: Compressing objects:  71% (936/1317)   [Kremote: Compressing objects:  72% (949/1317)   [Kremote: Compressing objects:  73% (962/1317)   [Kremote: Compressing objects:  74% (975/1317)   [Kremote: Compressing objects:  75% (988/1317)   [Kremote: Compressing objects:  76% (1001/1317)   [Kremote: Compressing objects:  77% (1015/1317)   [Kremote: Compressing objects:  78% (1028/1317)   [Kremote: Compressing objects:  79% (1041/1317)   [Kremote: Compressing objects:  80% (1054/1317)   [Kremote: Compressing objects:  81% (1067/1317)   [Kremote: Compressing objects:  82% (1080/1317)   [Kremote: Compressing objects:  83% (1094/1317)   [Kremote: Compressing objects:  84% (1107/1317)   [Kremote: Compressing objects:  85% (1120/1317)   [Kremote: Compressing objects:  86% (1133/1317)   [Kremote: Compressing objects:  87% (1146/1317)   [Kremote: Compressing objects:  88% (1159/1317)   [Kremote: Compressing objects:  89% (1173/1317)   [Kremote: Compressing objects:  90% (1186/1317)   [Kremote: Compressing objects:  91% (1199/1317)   [Kremote: Compressing objects:  92% (1212/1317)   [Kremote: Compressing objects:  93% (1225/1317)   [Kremote: Compressing objects:  94% (1238/1317)   [Kremote: Compressing objects:  95% (1252/1317)   [Kremote: Compressing objects:  96% (1265/1317)   [Kremote: Compressing objects:  97% (1278/1317)   [Kremote: Compressing objects:  98% (1291/1317)   [Kremote: Compressing objects:  99% (1304/1317)   [Kremote: Compressing objects: 100% (1317/1317)   [Kremote: Compressing objects: 100% (1317/1317), done.[K
+Receiving objects:   0% (1/3646)   Receiving objects:   1% (37/3646)   Receiving objects:   2% (73/3646)   Receiving objects:   3% (110/3646)   Receiving objects:   4% (146/3646)   Receiving objects:   5% (183/3646)   Receiving objects:   6% (219/3646)   Receiving objects:   7% (256/3646)   Receiving objects:   8% (292/3646)   Receiving objects:   9% (329/3646)   Receiving objects:  10% (365/3646)   Receiving objects:  11% (402/3646)   Receiving objects:  12% (438/3646)   Receiving objects:  13% (474/3646)   Receiving objects:  14% (511/3646)   Receiving objects:  15% (547/3646)   Receiving objects:  16% (584/3646)   Receiving objects:  17% (620/3646)   Receiving objects:  18% (657/3646)   Receiving objects:  19% (693/3646)   Receiving objects:  20% (730/3646)   Receiving objects:  21% (766/3646)   Receiving objects:  22% (803/3646)   Receiving objects:  23% (839/3646)   Receiving objects:  24% (876/3646)   Receiving objects:  25% (912/3646)   Receiving objects:  26% (948/3646)   Receiving objects:  27% (985/3646)   Receiving objects:  28% (1021/3646)   Receiving objects:  29% (1058/3646)   Receiving objects:  30% (1094/3646)   Receiving objects:  31% (1131/3646)   Receiving objects:  32% (1167/3646)   Receiving objects:  33% (1204/3646)   Receiving objects:  34% (1240/3646)   Receiving objects:  35% (1277/3646)   Receiving objects:  36% (1313/3646)   Receiving objects:  37% (1350/3646)   Receiving objects:  38% (1386/3646)   Receiving objects:  39% (1422/3646)   Receiving objects:  40% (1459/3646)   Receiving objects:  41% (1495/3646)   Receiving objects:  42% (1532/3646)   Receiving objects:  43% (1568/3646)   Receiving objects:  44% (1605/3646)   Receiving objects:  45% (1641/3646)   Receiving objects:  46% (1678/3646)   Receiving objects:  47% (1714/3646)   Receiving objects:  48% (1751/3646)   Receiving objects:  49% (1787/3646)   Receiving objects:  50% (1823/3646)   Receiving objects:  51% (1860/3646)   Receiving objects:  52% (1896/3646)   Receiving objects:  53% (1933/3646)   Receiving objects:  54% (1969/3646)   Receiving objects:  55% (2006/3646)   Receiving objects:  56% (2042/3646)   Receiving objects:  57% (2079/3646)   Receiving objects:  58% (2115/3646)   Receiving objects:  59% (2152/3646)   Receiving objects:  60% (2188/3646)   Receiving objects:  61% (2225/3646)   Receiving objects:  62% (2261/3646)   Receiving objects:  63% (2297/3646)   Receiving objects:  64% (2334/3646)   Receiving objects:  65% (2370/3646)   Receiving objects:  66% (2407/3646)   Receiving objects:  67% (2443/3646)   Receiving objects:  68% (2480/3646)   Receiving objects:  69% (2516/3646)   Receiving objects:  70% (2553/3646)   Receiving objects:  71% (2589/3646)   Receiving objects:  72% (2626/3646)   Receiving objects:  73% (2662/3646)   Receiving objects:  74% (2699/3646)   Receiving objects:  75% (2735/3646)   Receiving objects:  76% (2771/3646)   Receiving objects:  77% (2808/3646)   Receiving objects:  78% (2844/3646)   Receiving objects:  79% (2881/3646)   Receiving objects:  80% (2917/3646)   Receiving objects:  81% (2954/3646)   Receiving objects:  82% (2990/3646)   Receiving objects:  83% (3027/3646)   Receiving objects:  84% (3063/3646)   Receiving objects:  85% (3100/3646)   Receiving objects:  86% (3136/3646)   Receiving objects:  87% (3173/3646)   Receiving objects:  88% (3209/3646)   Receiving objects:  89% (3245/3646)   Receiving objects:  90% (3282/3646)   Receiving objects:  91% (3318/3646)   Receiving objects:  92% (3355/3646)   Receiving objects:  93% (3391/3646)   Receiving objects:  94% (3428/3646)   Receiving objects:  95% (3464/3646)   Receiving objects:  96% (3501/3646)   Receiving objects:  97% (3537/3646)   Receiving objects:  98% (3574/3646)   remote: Total 3646 (delta 1502), reused 3098 (delta 1142), pack-reused 0[K
+Receiving objects:  99% (3610/3646)   Receiving objects: 100% (3646/3646)   Receiving objects: 100% (3646/3646), 1.39 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1502)   Resolving deltas:   1% (18/1502)   Resolving deltas:   2% (43/1502)   Resolving deltas:   3% (48/1502)   Resolving deltas:   7% (112/1502)   Resolving deltas:   8% (121/1502)   Resolving deltas:  19% (297/1502)   Resolving deltas:  24% (370/1502)   Resolving deltas:  25% (383/1502)   Resolving deltas:  28% (422/1502)   Resolving deltas:  30% (453/1502)   Resolving deltas:  31% (466/1502)   Resolving deltas:  32% (485/1502)   Resolving deltas:  33% (496/1502)   Resolving deltas:  34% (514/1502)   Resolving deltas:  35% (526/1502)   Resolving deltas:  36% (543/1502)   Resolving deltas:  37% (560/1502)   Resolving deltas:  38% (573/1502)   Resolving deltas:  39% (588/1502)   Resolving deltas:  42% (634/1502)   Resolving deltas:  43% (647/1502)   Resolving deltas:  44% (661/1502)   Resolving deltas:  45% (681/1502)   Resolving deltas:  46% (694/1502)   Resolving deltas:  47% (706/1502)   Resolving deltas:  48% (732/1502)   Resolving deltas:  49% (745/1502)   Resolving deltas:  50% (754/1502)   Resolving deltas:  51% (772/1502)   Resolving deltas:  52% (787/1502)   Resolving deltas:  53% (798/1502)   Resolving deltas:  54% (813/1502)   Resolving deltas:  55% (827/1502)   Resolving deltas:  56% (843/1502)   Resolving deltas:  57% (857/1502)   Resolving deltas:  58% (872/1502)   Resolving deltas:  59% (887/1502)   Resolving deltas:  60% (902/1502)   Resolving deltas:  61% (923/1502)   Resolving deltas:  62% (942/1502)   Resolving deltas:  63% (947/1502)   Resolving deltas:  64% (968/1502)   Resolving deltas:  65% (986/1502)   Resolving deltas:  66% (1002/1502)   Resolving deltas:  67% (1007/1502)   Resolving deltas:  68% (1022/1502)   Resolving deltas:  70% (1059/1502)   Resolving deltas:  71% (1071/1502)   Resolving deltas:  72% (1094/1502)   Resolving deltas:  73% (1098/1502)   Resolving deltas:  74% (1119/1502)   Resolving deltas:  75% (1134/1502)   Resolving deltas:  76% (1148/1502)   Resolving deltas:  77% (1171/1502)   Resolving deltas:  78% (1173/1502)   Resolving deltas:  79% (1192/1502)   Resolving deltas:  81% (1231/1502)   Resolving deltas:  82% (1232/1502)   Resolving deltas:  83% (1252/1502)   Resolving deltas:  84% (1264/1502)   Resolving deltas:  85% (1281/1502)   Resolving deltas:  86% (1295/1502)   Resolving deltas:  87% (1309/1502)   Resolving deltas:  88% (1324/1502)   Resolving deltas:  89% (1337/1502)   Resolving deltas:  94% (1415/1502)   Resolving deltas:  95% (1427/1502)   Resolving deltas:  96% (1442/1502)   Resolving deltas:  97% (1458/1502)   Resolving deltas:  98% (1472/1502)   Resolving deltas:  99% (1497/1502)   Resolving deltas: 100% (1502/1502)   Resolving deltas: 100% (1502/1502), done.
+Checking connectivity... done.
+
+travis_time:end:0cf04eb4:start=1455229489137220471,finish=1455229490011652722,duration=874432251[0K$ cd Netflix/Hystrix
+$ git checkout -qf 811aaa6ca1830891133b0d4ba9e25a56de244b40
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from repository settings[0m
+$ export JAVA_OPTS=-Xmx200m
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:0ac1c050[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions/gradle-2.10-bin.zip
+..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/bin/gradle
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-extra-configurations-plugin/3.0.3/gradle-extra-configurations-plugin-3.0.3.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-netflixoss-project-plugin/3.2.3/gradle-netflixoss-project-plugin-3.2.3.pom
+Download https://jcenter.bintray.com/me/champeau/gradle/jmh-gradle-plugin/0.2.0/jmh-gradle-plugin-0.2.0.pom
+Download https://jcenter.bintray.com/net/saliman/gradle-cobertura-plugin/2.2.8/gradle-cobertura-plugin-2.2.8.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/3.0.1/gradle-contacts-plugin-3.0.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-dependency-lock-plugin/4.2.0/gradle-dependency-lock-plugin-4.2.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-info-plugin/3.0.3/gradle-info-plugin-3.0.3.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-bintray-plugin/3.3.4/nebula-bintray-plugin-3.3.4.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-core/3.0.1/nebula-core-3.0.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-project-plugin/3.0.3/nebula-project-plugin-3.0.3.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-publishing-plugin/4.4.4/nebula-publishing-plugin-4.4.4.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-release-plugin/4.0.1/nebula-release-plugin-4.0.1.pom
+Download https://jcenter.bintray.com/nl/javadude/gradle/plugins/license-gradle-plugin/0.11.0/license-gradle-plugin-0.11.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-scm-plugin/2.2.0/gradle-scm-plugin-2.2.0.pom
+Download https://jcenter.bintray.com/com/perforce/p4java-jfrog/2011.1.297684/p4java-jfrog-2011.1.297684.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.2.0.201312181205-r/org.eclipse.jgit-3.2.0.201312181205-r.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit-parent/3.2.0.201312181205-r/org.eclipse.jgit-parent-3.2.0.201312181205-r.pom
+Download https://jcenter.bintray.com/org/tmatesoft/svnkit/svnkit/1.8.5/svnkit-1.8.5.pom
+Download https://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/1.5/gradle-bintray-plugin-1.5.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor-gradle/4.0.0/build-info-extractor-gradle-4.0.0.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/32/commons-parent-32.pom
+Download https://jcenter.bintray.com/org/apache/apache/13/apache-13.pom
+Download https://jcenter.bintray.com/org/ajoberstar/gradle-git/1.4.1/gradle-git-1.4.1.pom
+Download https://jcenter.bintray.com/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.pom
+Download https://jcenter.bintray.com/com/mycila/parent-pom/5/parent-pom-5.pom
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.pom
+Download https://jcenter.bintray.com/com/google/guava/guava-parent/17.0/guava-parent-17.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://jcenter.bintray.com/org/codehaus/groovy/modules/http-builder/http-builder/0.7.2/http-builder-0.7.2.pom
+Download https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/15/commons-parent-15.pom
+Download https://jcenter.bintray.com/org/apache/apache/7/apache-7.pom
+Download https://jcenter.bintray.com/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download https://jcenter.bintray.com/org/apache/apache/4/apache-4.pom
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor/2.5.4/build-info-extractor-2.5.4.pom
+Download https://jcenter.bintray.com/org/ajoberstar/grgit/1.5.0/grgit-1.5.0.pom
+Download https://jcenter.bintray.com/com/github/zafarkhaja/java-semver/0.9.0/java-semver-0.9.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-plugin-api/3.0.1/maven-plugin-api-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven/3.0.1/maven-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/15/maven-parent-15.pom
+Download https://jcenter.bintray.com/org/apache/apache/6/apache-6.pom
+Download https://jcenter.bintray.com/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-project/3.0-alpha-2/maven-project-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven/3.0-alpha-2/maven-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/10/maven-parent-10.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.2.1/httpcomponents-client-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/project/6/project-6.pom
+Download https://jcenter.bintray.com/net/sf/json-lib/json-lib/2.3/json-lib-2.3.pom
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.pom
+Download https://jcenter.bintray.com/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.pom
+Download https://jcenter.bintray.com/org/apache/apache/3/apache-3.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-client/2.5.4/build-info-client-2.5.4.pom
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.pom
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream-parent/1.3.1/xstream-parent-1.3.1.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit.ui/4.1.1.201511131810-r/org.eclipse.jgit.ui-4.1.1.201511131810-r.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit-parent/4.1.1.201511131810-r/org.eclipse.jgit-parent-4.1.1.201511131810-r.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.jsch/0.0.9/jsch.agentproxy.jsch-0.0.9.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy/0.0.9/jsch.agentproxy-0.0.9.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/6/oss-parent-6.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.pageant/0.0.9/jsch.agentproxy.pageant-0.0.9.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.sshagent/0.0.9/jsch.agentproxy.sshagent-0.0.9.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-jna/0.0.9/jsch.agentproxy.usocket-jna-0.0.9.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-nc/0.0.9/jsch.agentproxy.usocket-nc-0.0.9.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.12/slf4j-parent-1.7.12.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-model/3.0.1/maven-model-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-artifact/3.0.1/maven-artifact-3.0.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-plexus/1.4.3.1/sisu-inject-plexus-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-plexus/1.4.3.1/guice-plexus-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-bean/1.4.3.1/guice-bean-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject/1.4.3.1/sisu-inject-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-parent/1.4.3.1/sisu-parent-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-interpolation/1.1/plexus-interpolation-1.1.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-compat/3.0-alpha-2/maven-compat-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-container-default/1.0-beta-3.0.5/plexus-container-default-1.0-beta-3.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-containers/1.0-beta-3.0.5/plexus-containers-1.0-beta-3.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
+Download https://jcenter.bintray.com/org/codehaus/woodstox/wstx-asl/3.2.6/wstx-asl-3.2.6.pom
+Download https://jcenter.bintray.com/org/sonatype/spice/model-builder/1.3/model-builder-1.3.pom
+Download https://jcenter.bintray.com/org/sonatype/spice/spice-parent/10/spice-parent-10.pom
+Download https://jcenter.bintray.com/org/sonatype/forge/forge-parent/3/forge-parent-3.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-project-builder/3.0-alpha-2/maven-project-builder-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.2.1/httpcomponents-core-4.2.1.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/22/commons-parent-22.pom
+Download https://jcenter.bintray.com/org/apache/apache/9/apache-9.pom
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download https://jcenter.bintray.com/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download https://jcenter.bintray.com/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.pom
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-api/2.5.4/build-info-api-2.5.4.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.pom
+Download https://jcenter.bintray.com/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.49/jsch-0.1.49.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.core/0.0.9/jsch.agentproxy.core-0.0.9.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/4.1.0/jna-4.1.0.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-bean/1.4.3.1/sisu-inject-bean-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon-provider-api/1.0-beta-4/wagon-provider-api-1.0-beta-4.pom
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon/1.0-beta-4/wagon-1.0-beta-4.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/8/maven-parent-8.pom
+Download https://jcenter.bintray.com/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.pom
+Download https://jcenter.bintray.com/org/apache/xbean/xbean/3.4/xbean-3.4.pom
+Download https://jcenter.bintray.com/com/google/code/google-collections/google-collect/snapshot-20080530/google-collect-snapshot-20080530.pom
+Download https://jcenter.bintray.com/stax/stax-api/1.0.1/stax-api-1.0.1.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-guice/2.9.1/sisu-guice-2.9.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-parent/2.9.1/guice-parent-2.9.1.pom
+Download https://jcenter.bintray.com/log4j/log4j/1.2.12/log4j-1.2.12.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.pom
+Download https://jcenter.bintray.com/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.svnkit-trilead-ssh2/0.0.7/jsch.agentproxy.svnkit-trilead-ssh2-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy/0.0.7/jsch.agentproxy-0.0.7.pom
+Download https://jcenter.bintray.com/org/tmatesoft/sqljet/sqljet/1.1.10/sqljet-1.1.10.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.5.2/platform-3.5.2.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.connector-factory/0.0.7/jsch.agentproxy.connector-factory-0.0.7.pom
+Download https://jcenter.bintray.com/de/regnis/q/sequence/sequence-library/1.0.2/sequence-library-1.0.2.pom
+Download https://jcenter.bintray.com/com/trilead/trilead-ssh2/1.0.0-build217/trilead-ssh2-1.0.0-build217.pom
+Download https://jcenter.bintray.com/org/antlr/antlr-runtime/3.4/antlr-runtime-3.4.pom
+Download https://jcenter.bintray.com/org/antlr/antlr-master/3.4/antlr-master-3.4.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/4.1.1.201511131810-r/org.eclipse.jgit-4.1.1.201511131810-r.pom
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://jcenter.bintray.com/org/eclipse/jdt/org.eclipse.jdt.annotation/1.1.0/org.eclipse.jdt.annotation-1.1.0.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.8/commons-codec-1.8.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/28/commons-parent-28.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.5/httpcore-4.2.5.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.2.5/httpcomponents-core-4.2.5.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/project/7/project-7.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.3.6/httpcomponents-client-4.3.6.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.53/jsch-0.1.53.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.3.3/httpcomponents-core-4.3.3.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-extra-configurations-plugin/3.0.3/gradle-extra-configurations-plugin-3.0.3.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-netflixoss-project-plugin/3.2.3/gradle-netflixoss-project-plugin-3.2.3.jar
+Download https://jcenter.bintray.com/me/champeau/gradle/jmh-gradle-plugin/0.2.0/jmh-gradle-plugin-0.2.0.jar
+Download https://jcenter.bintray.com/net/saliman/gradle-cobertura-plugin/2.2.8/gradle-cobertura-plugin-2.2.8.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/3.0.1/gradle-contacts-plugin-3.0.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-dependency-lock-plugin/4.2.0/gradle-dependency-lock-plugin-4.2.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-info-plugin/3.0.3/gradle-info-plugin-3.0.3.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-bintray-plugin/3.3.4/nebula-bintray-plugin-3.3.4.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-core/3.0.1/nebula-core-3.0.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-project-plugin/3.0.3/nebula-project-plugin-3.0.3.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-publishing-plugin/4.4.4/nebula-publishing-plugin-4.4.4.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-release-plugin/4.0.1/nebula-release-plugin-4.0.1.jar
+Download https://jcenter.bintray.com/nl/javadude/gradle/plugins/license-gradle-plugin/0.11.0/license-gradle-plugin-0.11.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-scm-plugin/2.2.0/gradle-scm-plugin-2.2.0.jar
+Download https://jcenter.bintray.com/com/perforce/p4java-jfrog/2011.1.297684/p4java-jfrog-2011.1.297684.jar
+Download https://jcenter.bintray.com/org/tmatesoft/svnkit/svnkit/1.8.5/svnkit-1.8.5.jar
+Download https://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/1.5/gradle-bintray-plugin-1.5.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor-gradle/4.0.0/build-info-extractor-gradle-4.0.0.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.jar
+Download https://jcenter.bintray.com/org/ajoberstar/gradle-git/1.4.1/gradle-git-1.4.1.jar
+Download https://jcenter.bintray.com/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.jar
+Download https://jcenter.bintray.com/org/codehaus/groovy/modules/http-builder/http-builder/0.7.2/http-builder-0.7.2.jar
+Download https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar
+Download https://jcenter.bintray.com/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.jar
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor/2.5.4/build-info-extractor-2.5.4.jar
+Download https://jcenter.bintray.com/org/ajoberstar/grgit/1.5.0/grgit-1.5.0.jar
+Download https://jcenter.bintray.com/com/github/zafarkhaja/java-semver/0.9.0/java-semver-0.9.0.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-plugin-api/3.0.1/maven-plugin-api-3.0.1.jar
+Download https://jcenter.bintray.com/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-project/3.0-alpha-2/maven-project-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+Download https://jcenter.bintray.com/net/sf/json-lib/json-lib/2.3/json-lib-2.3-jdk15.jar
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar
+Download https://jcenter.bintray.com/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-client/2.5.4/build-info-client-2.5.4.jar
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit.ui/4.1.1.201511131810-r/org.eclipse.jgit.ui-4.1.1.201511131810-r.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.jsch/0.0.9/jsch.agentproxy.jsch-0.0.9.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.pageant/0.0.9/jsch.agentproxy.pageant-0.0.9.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.sshagent/0.0.9/jsch.agentproxy.sshagent-0.0.9.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-jna/0.0.9/jsch.agentproxy.usocket-jna-0.0.9.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-nc/0.0.9/jsch.agentproxy.usocket-nc-0.0.9.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-model/3.0.1/maven-model-3.0.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-artifact/3.0.1/maven-artifact-3.0.1.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-plexus/1.4.3.1/sisu-inject-plexus-1.4.3.1.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-interpolation/1.1/plexus-interpolation-1.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-compat/3.0-alpha-2/maven-compat-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-container-default/1.0-beta-3.0.5/plexus-container-default-1.0-beta-3.0.5.jar
+Download https://jcenter.bintray.com/org/codehaus/woodstox/wstx-asl/3.2.6/wstx-asl-3.2.6.jar
+Download https://jcenter.bintray.com/org/sonatype/spice/model-builder/1.3/model-builder-1.3.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-project-builder/3.0-alpha-2/maven-project-builder-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+Download https://jcenter.bintray.com/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download https://jcenter.bintray.com/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-api/2.5.4/build-info-api-2.5.4.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.jar
+Download https://jcenter.bintray.com/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.core/0.0.9/jsch.agentproxy.core-0.0.9.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-bean/1.4.3.1/sisu-inject-bean-1.4.3.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon-provider-api/1.0-beta-4/wagon-provider-api-1.0-beta-4.jar
+Download https://jcenter.bintray.com/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+Download https://jcenter.bintray.com/com/google/code/google-collections/google-collect/snapshot-20080530/google-collect-snapshot-20080530.jar
+Download https://jcenter.bintray.com/stax/stax-api/1.0.1/stax-api-1.0.1.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-guice/2.9.1/sisu-guice-2.9.1-noaop.jar
+Download https://jcenter.bintray.com/log4j/log4j/1.2.12/log4j-1.2.12.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar
+Download https://jcenter.bintray.com/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.svnkit-trilead-ssh2/0.0.7/jsch.agentproxy.svnkit-trilead-ssh2-0.0.7.jar
+Download https://jcenter.bintray.com/org/tmatesoft/sqljet/sqljet/1.1.10/sqljet-1.1.10.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.5.2/platform-3.5.2.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.connector-factory/0.0.7/jsch.agentproxy.connector-factory-0.0.7.jar
+Download https://jcenter.bintray.com/de/regnis/q/sequence/sequence-library/1.0.2/sequence-library-1.0.2.jar
+Download https://jcenter.bintray.com/com/trilead/trilead-ssh2/1.0.0-build217/trilead-ssh2-1.0.0-build217.jar
+Download https://jcenter.bintray.com/org/antlr/antlr-runtime/3.4/antlr-runtime-3.4.jar
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/4.1.1.201511131810-r/org.eclipse.jgit-4.1.1.201511131810-r.jar
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.jar
+Download https://jcenter.bintray.com/org/eclipse/jdt/org.eclipse.jdt.annotation/1.1.0/org.eclipse.jdt.annotation-1.1.0.jar
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.8/commons-codec-1.8.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.3.6/httpclient-4.3.6.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.53/jsch-0.1.53.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.3.3/httpcore-4.3.3.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/Netflix/Hystrix/build.gradle' line: 11
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'nebula.netflixoss', version: '3.2.3']
+> Failed to apply plugin [class 'nebula.plugin.bintray.NebulaBintrayPublishingPlugin']
+   > Walk failure.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 44.705 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed. Retrying, 2 of 3.[0m
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/Netflix/Hystrix/build.gradle' line: 11
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'nebula.netflixoss', version: '3.2.3']
+> Failed to apply plugin [class 'nebula.plugin.bintray.NebulaBintrayPublishingPlugin']
+   > Walk failure.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 7.859 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed. Retrying, 3 of 3.[0m
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/Netflix/Hystrix/build.gradle' line: 11
+
+* What went wrong:
+An exception occurred applying plugin request [id: 'nebula.netflixoss', version: '3.2.3']
+> Failed to apply plugin [class 'nebula.plugin.bintray.NebulaBintrayPublishingPlugin']
+   > Walk failure.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 8.211 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed 3 times.[0m
+
+
+travis_time:end:0ac1c050:start=1455229492481812244,finish=1455229562733289452,duration=70251477208[0K
+[31;1mThe command "./gradlew assemble" failed and exited with 1 during .[0m
+
+Your build has been stopped.

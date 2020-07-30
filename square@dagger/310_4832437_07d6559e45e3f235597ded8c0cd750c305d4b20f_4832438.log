@@ -1,0 +1,227 @@
+Using worker: bluebox-linux-3.worker.travis-ci.org:travis-linux-13
+
+$ git clone --depth=100 --quiet git://github.com/square/dagger.git square/dagger
+$ cd square/dagger
+$ git fetch origin +refs/pull/163/merge: 
+remote: Counting objects: 41, done.[K
+remote: Compressing objects:   7% (1/13)   [Kremote: Compressing objects:  15% (2/13)   [Kremote: Compressing objects:  23% (3/13)   [Kremote: Compressing objects:  30% (4/13)   [Kremote: Compressing objects:  38% (5/13)   [Kremote: Compressing objects:  46% (6/13)   [Kremote: Compressing objects:  53% (7/13)   [Kremote: Compressing objects:  61% (8/13)   [Kremote: Compressing objects:  69% (9/13)   [Kremote: Compressing objects:  76% (10/13)   [Kremote: Compressing objects:  84% (11/13)   [Kremote: Compressing objects:  92% (12/13)   [Kremote: Compressing objects: 100% (13/13)   [Kremote: Compressing objects: 100% (13/13), done.[K
+remote: Total 27 (delta 6), reused 26 (delta 5)[K
+Unpacking objects:   3% (1/27)   Unpacking objects:   7% (2/27)   Unpacking objects:  11% (3/27)   Unpacking objects:  14% (4/27)   Unpacking objects:  18% (5/27)   Unpacking objects:  22% (6/27)   Unpacking objects:  25% (7/27)   Unpacking objects:  29% (8/27)   Unpacking objects:  33% (9/27)   Unpacking objects:  37% (10/27)   Unpacking objects:  40% (11/27)   Unpacking objects:  44% (12/27)   Unpacking objects:  48% (13/27)   Unpacking objects:  51% (14/27)   Unpacking objects:  55% (15/27)   Unpacking objects:  59% (16/27)   Unpacking objects:  62% (17/27)   Unpacking objects:  66% (18/27)   Unpacking objects:  70% (19/27)   Unpacking objects:  74% (20/27)   Unpacking objects:  77% (21/27)   Unpacking objects:  81% (22/27)   Unpacking objects:  85% (23/27)   Unpacking objects:  88% (24/27)   Unpacking objects:  92% (25/27)   Unpacking objects:  96% (26/27)   Unpacking objects: 100% (27/27)   Unpacking objects: 100% (27/27), done.
+From git://github.com/square/dagger
+ * branch            refs/pull/163/merge -> FETCH_HEAD
+$ git checkout -qf FETCH_HEAD
+$ java -version
+java version "1.7.0_09"
+OpenJDK Runtime Environment (IcedTea7 2.3.4) (7u9-2.3.4-0ubuntu1.12.04.1)
+OpenJDK 64-Bit Server VM (build 23.2-b09, mixed mode)
+$ javac -version
+javac 1.7.0_09
+$ mvn install clean --fail-never --quiet -DskipTests=true -Dinvoker.skip=true
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.9.1:checkstyle (default) on project dagger-compiler: An error has occurred in Checkstyle report generation. Failed during checkstyle execution: There are 1 checkstyle errors. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :dagger-compiler
+$ mvn verify
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Dagger (Parent)
+[INFO] Dagger
+[INFO] Dagger Compiler
+[INFO] Dagger AndroidManifest.xml Module Generator
+[INFO] Dagger Example
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger (Parent) 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-parent ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ dagger ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ dagger ---
+[INFO] Compiling 24 source files to /home/travis/build/square/dagger/core/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/square/dagger/core/src/main/java/dagger/internal/UniqueMap.java:[24,7] [serial] serializable class UniqueMap has no definition of serialVersionUID
+[WARNING] /home/travis/build/square/dagger/core/src/main/java/dagger/internal/plugins/reflect/ReflectiveModuleAdapter.java:[120,23] [rawtypes] found raw type: Binding
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ dagger ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ dagger ---
+[INFO] Compiling 10 source files to /home/travis/build/square/dagger/core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dagger ---
+[INFO] Surefire report directory: /home/travis/build/square/dagger/core/target/surefire-reports
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.pom
+3/3 KB            Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.pom (3 KB at 3.0 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-providers/2.10/surefire-providers-2.10.pom
+3/3 KB            Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-providers/2.10/surefire-providers-2.10.pom (3 KB at 6.8 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.jar
+4/33 KB   8/33 KB   9/33 KB   10/33 KB   14/33 KB   18/33 KB   22/33 KB   23/33 KB   26/33 KB   30/33 KB   33/33 KB              Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.jar (33 KB at 64.8 KB/sec)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dagger.SetBindingTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 sec
+Running dagger.MembersInjectorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running dagger.ProblemDetectorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running dagger.InjectionOfLazyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running dagger.InjectStaticsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running dagger.LazyInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running dagger.InjectionTest
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 sec
+Running dagger.ExtensionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec
+Running dagger.ModuleIncludesTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+Running dagger.internal.KeysTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec
+
+Results :
+
+Tests run: 91, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ dagger ---
+[INFO] Building jar: /home/travis/build/square/dagger/core/target/dagger-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger Compiler 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ dagger-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ dagger-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ dagger-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ dagger-compiler ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dagger-compiler ---
+[INFO] Surefire report directory: /home/travis/build/square/dagger/compiler/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dagger.internal.codegen.GraphVisualizerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec
+Running dagger.internal.codegen.DotWriterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+
+Results :
+
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ dagger-compiler ---
+[INFO] 
+[INFO] --- maven-invoker-plugin:1.7:install (integration-test) @ dagger-compiler ---
+[INFO] Installing /home/travis/build/square/dagger/core/pom.xml to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger/1.0-SNAPSHOT/dagger-1.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/dagger/core/target/dagger-1.0-SNAPSHOT.jar to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger/1.0-SNAPSHOT/dagger-1.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/dagger/pom.xml to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger-parent/1.0-SNAPSHOT/dagger-parent-1.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/dagger/compiler/pom.xml to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger-compiler/1.0-SNAPSHOT/dagger-compiler-1.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/dagger/compiler/target/dagger-compiler-1.0-SNAPSHOT.jar to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger-compiler/1.0-SNAPSHOT/dagger-compiler-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-invoker-plugin:1.7:run (integration-test) @ dagger-compiler ---
+[INFO] Building: uninjectable-supertype/pom.xml
+[INFO] ..SUCCESS (58.7 s)
+[INFO] Building: include-non-module/pom.xml
+[INFO] ..SUCCESS (8.4 s)
+[INFO] Building: inject-parameterized-type/pom.xml
+[INFO] ..SUCCESS (10.0 s)
+[INFO] Building: cyclic-deps/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (8.5 s)
+[INFO] Building: simple-missing-dependency-failure/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.6 s)
+[INFO] Building: extension-graph/pom.xml
+[INFO] ..SUCCESS (9.4 s)
+[INFO] Building: missing-at-inject-constructor/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.8 s)
+[INFO] Building: same-provides-method-name/pom.xml
+[INFO] ..SUCCESS (9.4 s)
+[INFO] Building: default-package-injected-type/pom.xml
+[INFO] ..SUCCESS (9.7 s)
+[INFO] Building: multiple-provides-methods/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (9.9 s)
+[INFO] -------------------------------------------------
+[INFO] Build Summary:
+[INFO]   Passed: 10, Failed: 0, Errors: 0, Skipped: 0
+[INFO] -------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-compiler ---
+[INFO] Starting audit...
+/home/travis/build/square/dagger/compiler/src/main/java/dagger/internal/codegen/FullGraphProcessor.java:68:14: '!' is followed by whitespace.
+Audit done.
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Dagger (Parent) ................................... SUCCESS [3.259s]
+[INFO] Dagger ............................................ SUCCESS [10.772s]
+[INFO] Dagger Compiler ................................... FAILURE [2:22.137s]
+[INFO] Dagger AndroidManifest.xml Module Generator ....... SKIPPED
+[INFO] Dagger Example .................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:36.733s
+[INFO] Finished at: Sat Feb 16 06:14:59 UTC 2013
+[INFO] Final Memory: 23M/187M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.9.1:checkstyle (default) on project dagger-compiler: An error has occurred in Checkstyle report generation. Failed during checkstyle execution: There are 1 checkstyle errors. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :dagger-compiler
+
+The command "mvn verify" exited with 1.
+
+Done. Your build exited with 1.

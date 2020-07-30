@@ -1,0 +1,756 @@
+Using worker: worker-linux-4-2.bb.travis-ci.org:travis-linux-10
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Sun Dec  7 05:49:51 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+5736160 https://github.com/travis-ci/travis-cookbooks/tree/5736160
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.3.3
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.0
+------------------------------------------------------------
+
+Build time:   2014-07-01 07:45:34 UTC
+Build number: none
+Revision:     b6ead6fa452dfdadec484059191eb641d817226c
+
+Groovy:       2.3.3
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:301e1aa0[0K$ git clone --depth=50 git://github.com/Netflix/Hystrix.git Netflix/Hystrix
+Cloning into 'Netflix/Hystrix'...
+remote: Counting objects: 2246, done.[K
+remote: Compressing objects:   0% (1/920)   [Kremote: Compressing objects:   1% (10/920)   [Kremote: Compressing objects:   2% (19/920)   [Kremote: Compressing objects:   3% (28/920)   [Kremote: Compressing objects:   4% (37/920)   [Kremote: Compressing objects:   5% (46/920)   [Kremote: Compressing objects:   6% (56/920)   [Kremote: Compressing objects:   7% (65/920)   [Kremote: Compressing objects:   8% (74/920)   [Kremote: Compressing objects:   9% (83/920)   [Kremote: Compressing objects:  10% (92/920)   [Kremote: Compressing objects:  11% (102/920)   [Kremote: Compressing objects:  12% (111/920)   [Kremote: Compressing objects:  13% (120/920)   [Kremote: Compressing objects:  14% (129/920)   [Kremote: Compressing objects:  15% (138/920)   [Kremote: Compressing objects:  16% (148/920)   [Kremote: Compressing objects:  17% (157/920)   [Kremote: Compressing objects:  18% (166/920)   [Kremote: Compressing objects:  19% (175/920)   [Kremote: Compressing objects:  20% (184/920)   [Kremote: Compressing objects:  21% (194/920)   [Kremote: Compressing objects:  22% (203/920)   [Kremote: Compressing objects:  23% (212/920)   [Kremote: Compressing objects:  24% (221/920)   [Kremote: Compressing objects:  25% (230/920)   [Kremote: Compressing objects:  26% (240/920)   [Kremote: Compressing objects:  27% (249/920)   [Kremote: Compressing objects:  28% (258/920)   [Kremote: Compressing objects:  29% (267/920)   [Kremote: Compressing objects:  30% (276/920)   [Kremote: Compressing objects:  31% (286/920)   [Kremote: Compressing objects:  32% (295/920)   [Kremote: Compressing objects:  33% (304/920)   [Kremote: Compressing objects:  34% (313/920)   [Kremote: Compressing objects:  35% (322/920)   [Kremote: Compressing objects:  36% (332/920)   [Kremote: Compressing objects:  37% (341/920)   [Kremote: Compressing objects:  38% (350/920)   [Kremote: Compressing objects:  39% (359/920)   [Kremote: Compressing objects:  40% (368/920)   [Kremote: Compressing objects:  41% (378/920)   [Kremote: Compressing objects:  42% (387/920)   [Kremote: Compressing objects:  43% (396/920)   [Kremote: Compressing objects:  44% (405/920)   [Kremote: Compressing objects:  45% (414/920)   [Kremote: Compressing objects:  46% (424/920)   [Kremote: Compressing objects:  47% (433/920)   [Kremote: Compressing objects:  48% (442/920)   [Kremote: Compressing objects:  49% (451/920)   [Kremote: Compressing objects:  50% (460/920)   [Kremote: Compressing objects:  51% (470/920)   [Kremote: Compressing objects:  52% (479/920)   [Kremote: Compressing objects:  53% (488/920)   [Kremote: Compressing objects:  54% (497/920)   [Kremote: Compressing objects:  55% (506/920)   [Kremote: Compressing objects:  56% (516/920)   [Kremote: Compressing objects:  57% (525/920)   [Kremote: Compressing objects:  58% (534/920)   [Kremote: Compressing objects:  59% (543/920)   [Kremote: Compressing objects:  60% (552/920)   [Kremote: Compressing objects:  61% (562/920)   [Kremote: Compressing objects:  62% (571/920)   [Kremote: Compressing objects:  63% (580/920)   [Kremote: Compressing objects:  64% (589/920)   [Kremote: Compressing objects:  65% (598/920)   [Kremote: Compressing objects:  66% (608/920)   [Kremote: Compressing objects:  67% (617/920)   [Kremote: Compressing objects:  68% (626/920)   [Kremote: Compressing objects:  69% (635/920)   [Kremote: Compressing objects:  70% (644/920)   [Kremote: Compressing objects:  71% (654/920)   [Kremote: Compressing objects:  72% (663/920)   [Kremote: Compressing objects:  73% (672/920)   [Kremote: Compressing objects:  74% (681/920)   [Kremote: Compressing objects:  75% (690/920)   [Kremote: Compressing objects:  76% (700/920)   [Kremote: Compressing objects:  77% (709/920)   [Kremote: Compressing objects:  78% (718/920)   [Kremote: Compressing objects:  79% (727/920)   [Kremote: Compressing objects:  80% (736/920)   [Kremote: Compressing objects:  81% (746/920)   [Kremote: Compressing objects:  82% (755/920)   [Kremote: Compressing objects:  83% (764/920)   [Kremote: Compressing objects:  84% (773/920)   [Kremote: Compressing objects:  85% (782/920)   [Kremote: Compressing objects:  86% (792/920)   [Kremote: Compressing objects:  87% (801/920)   [Kremote: Compressing objects:  88% (810/920)   [Kremote: Compressing objects:  89% (819/920)   [Kremote: Compressing objects:  90% (828/920)   [Kremote: Compressing objects:  91% (838/920)   [Kremote: Compressing objects:  92% (847/920)   [Kremote: Compressing objects:  93% (856/920)   [Kremote: Compressing objects:  94% (865/920)   [Kremote: Compressing objects:  95% (874/920)   [Kremote: Compressing objects:  96% (884/920)   [Kremote: Compressing objects:  97% (893/920)   [Kremote: Compressing objects:  98% (902/920)   [Kremote: Compressing objects:  99% (911/920)   [Kremote: Compressing objects: 100% (920/920)   [Kremote: Compressing objects: 100% (920/920), done.[K
+Receiving objects:   0% (1/2246)   Receiving objects:   1% (23/2246)   Receiving objects:   2% (45/2246)   Receiving objects:   3% (68/2246)   Receiving objects:   4% (90/2246)   Receiving objects:   5% (113/2246)   Receiving objects:   6% (135/2246)   Receiving objects:   7% (158/2246)   Receiving objects:   8% (180/2246)   Receiving objects:   9% (203/2246)   Receiving objects:  10% (225/2246)   Receiving objects:  11% (248/2246)   Receiving objects:  12% (270/2246)   Receiving objects:  13% (292/2246)   Receiving objects:  14% (315/2246)   Receiving objects:  15% (337/2246)   Receiving objects:  16% (360/2246)   Receiving objects:  17% (382/2246)   Receiving objects:  18% (405/2246)   Receiving objects:  19% (427/2246)   Receiving objects:  20% (450/2246)   Receiving objects:  21% (472/2246)   Receiving objects:  22% (495/2246)   Receiving objects:  23% (517/2246)   Receiving objects:  24% (540/2246)   Receiving objects:  25% (562/2246)   Receiving objects:  26% (584/2246)   Receiving objects:  27% (607/2246)   Receiving objects:  28% (629/2246)   Receiving objects:  29% (652/2246)   Receiving objects:  30% (674/2246)   Receiving objects:  31% (697/2246)   Receiving objects:  32% (719/2246)   Receiving objects:  33% (742/2246)   Receiving objects:  34% (764/2246)   Receiving objects:  35% (787/2246)   Receiving objects:  36% (809/2246)   Receiving objects:  37% (832/2246)   Receiving objects:  38% (854/2246)   Receiving objects:  39% (876/2246)   Receiving objects:  40% (899/2246)   Receiving objects:  41% (921/2246)   Receiving objects:  42% (944/2246)   Receiving objects:  43% (966/2246)   Receiving objects:  44% (989/2246)   Receiving objects:  45% (1011/2246)   Receiving objects:  46% (1034/2246)   Receiving objects:  47% (1056/2246)   Receiving objects:  48% (1079/2246)   Receiving objects:  49% (1101/2246)   Receiving objects:  50% (1123/2246)   Receiving objects:  51% (1146/2246)   Receiving objects:  52% (1168/2246)   Receiving objects:  53% (1191/2246)   Receiving objects:  54% (1213/2246)   Receiving objects:  55% (1236/2246)   Receiving objects:  56% (1258/2246)   Receiving objects:  57% (1281/2246)   Receiving objects:  58% (1303/2246)   Receiving objects:  59% (1326/2246)   Receiving objects:  60% (1348/2246)   Receiving objects:  61% (1371/2246)   Receiving objects:  62% (1393/2246)   Receiving objects:  63% (1415/2246)   Receiving objects:  64% (1438/2246)   Receiving objects:  65% (1460/2246)   Receiving objects:  66% (1483/2246)   Receiving objects:  67% (1505/2246)   Receiving objects:  68% (1528/2246)   Receiving objects:  69% (1550/2246)   Receiving objects:  70% (1573/2246)   Receiving objects:  71% (1595/2246)   Receiving objects:  72% (1618/2246)   Receiving objects:  73% (1640/2246)   Receiving objects:  74% (1663/2246)   Receiving objects:  75% (1685/2246)   Receiving objects:  76% (1707/2246)   Receiving objects:  77% (1730/2246)   Receiving objects:  78% (1752/2246)   Receiving objects:  79% (1775/2246)   Receiving objects:  80% (1797/2246)   Receiving objects:  81% (1820/2246)   Receiving objects:  82% (1842/2246)   Receiving objects:  83% (1865/2246)   Receiving objects:  84% (1887/2246)   Receiving objects:  85% (1910/2246)   Receiving objects:  86% (1932/2246)   Receiving objects:  87% (1955/2246)   Receiving objects:  88% (1977/2246)   remote: Total 2246 (delta 824), reused 2028 (delta 648)[K
+Receiving objects:  89% (1999/2246)   Receiving objects:  90% (2022/2246)   Receiving objects:  91% (2044/2246)   Receiving objects:  92% (2067/2246)   Receiving objects:  93% (2089/2246)   Receiving objects:  94% (2112/2246)   Receiving objects:  95% (2134/2246)   Receiving objects:  96% (2157/2246)   Receiving objects:  97% (2179/2246)   Receiving objects:  98% (2202/2246)   Receiving objects:  99% (2224/2246)   Receiving objects: 100% (2246/2246)   Receiving objects: 100% (2246/2246), 1.01 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/824)   Resolving deltas:   1% (12/824)   Resolving deltas:   2% (17/824)   Resolving deltas:  11% (93/824)   Resolving deltas:  12% (99/824)   Resolving deltas:  13% (114/824)   Resolving deltas:  14% (121/824)   Resolving deltas:  15% (124/824)   Resolving deltas:  16% (132/824)   Resolving deltas:  17% (144/824)   Resolving deltas:  18% (149/824)   Resolving deltas:  19% (159/824)   Resolving deltas:  20% (169/824)   Resolving deltas:  21% (174/824)   Resolving deltas:  23% (191/824)   Resolving deltas:  24% (200/824)   Resolving deltas:  25% (212/824)   Resolving deltas:  26% (216/824)   Resolving deltas:  29% (239/824)   Resolving deltas:  30% (251/824)   Resolving deltas:  31% (257/824)   Resolving deltas:  32% (264/824)   Resolving deltas:  33% (274/824)   Resolving deltas:  34% (281/824)   Resolving deltas:  35% (290/824)   Resolving deltas:  36% (303/824)   Resolving deltas:  37% (305/824)   Resolving deltas:  40% (330/824)   Resolving deltas:  41% (339/824)   Resolving deltas:  42% (347/824)   Resolving deltas:  43% (355/824)   Resolving deltas:  48% (403/824)   Resolving deltas:  49% (409/824)   Resolving deltas:  50% (415/824)   Resolving deltas:  52% (429/824)   Resolving deltas:  53% (438/824)   Resolving deltas:  56% (464/824)   Resolving deltas:  57% (470/824)   Resolving deltas:  58% (486/824)   Resolving deltas:  59% (487/824)   Resolving deltas:  60% (496/824)   Resolving deltas:  61% (507/824)   Resolving deltas:  62% (512/824)   Resolving deltas:  63% (520/824)   Resolving deltas:  64% (530/824)   Resolving deltas:  66% (546/824)   Resolving deltas:  67% (554/824)   Resolving deltas:  68% (561/824)   Resolving deltas:  69% (570/824)   Resolving deltas:  70% (578/824)   Resolving deltas:  71% (586/824)   Resolving deltas:  73% (607/824)   Resolving deltas:  74% (612/824)   Resolving deltas:  75% (619/824)   Resolving deltas:  76% (627/824)   Resolving deltas:  77% (638/824)   Resolving deltas:  78% (643/824)   Resolving deltas:  79% (653/824)   Resolving deltas:  80% (660/824)   Resolving deltas:  81% (668/824)   Resolving deltas:  82% (676/824)   Resolving deltas:  83% (684/824)   Resolving deltas:  84% (698/824)   Resolving deltas:  85% (703/824)   Resolving deltas:  86% (710/824)   Resolving deltas:  87% (721/824)   Resolving deltas:  88% (726/824)   Resolving deltas:  89% (734/824)   Resolving deltas:  90% (749/824)   Resolving deltas:  91% (751/824)   Resolving deltas:  92% (759/824)   Resolving deltas:  93% (767/824)   Resolving deltas:  94% (775/824)   Resolving deltas:  95% (788/824)   Resolving deltas:  96% (793/824)   Resolving deltas:  97% (800/824)   Resolving deltas: 100% (824/824)   Resolving deltas: 100% (824/824), done.
+Checking connectivity... done.
+travis_time:end:301e1aa0:start=1420592074761904048,finish=1420592075112215062,duration=350311014[0K$ cd Netflix/Hystrix
+travis_time:start:0173978a[0K$ git fetch origin +refs/pull/449/merge:
+remote: Counting objects: 28, done.[K
+remote: Compressing objects:   9% (1/11)   [Kremote: Compressing objects:  18% (2/11)   [Kremote: Compressing objects:  27% (3/11)   [Kremote: Compressing objects:  36% (4/11)   [Kremote: Compressing objects:  45% (5/11)   [Kremote: Compressing objects:  54% (6/11)   [Kremote: Compressing objects:  63% (7/11)   [Kremote: Compressing objects:  72% (8/11)   [Kremote: Compressing objects:  81% (9/11)   [Kremote: Compressing objects:  90% (10/11)   [Kremote: Compressing objects: 100% (11/11)   [Kremote: Compressing objects: 100% (11/11), done.[K
+remote: Total 28 (delta 10), reused 23 (delta 5)[K
+Unpacking objects:   3% (1/28)   Unpacking objects:   7% (2/28)   Unpacking objects:  10% (3/28)   Unpacking objects:  14% (4/28)   Unpacking objects:  17% (5/28)   Unpacking objects:  21% (6/28)   Unpacking objects:  25% (7/28)   Unpacking objects:  28% (8/28)   Unpacking objects:  32% (9/28)   Unpacking objects:  35% (10/28)   Unpacking objects:  39% (11/28)   Unpacking objects:  42% (12/28)   Unpacking objects:  46% (13/28)   Unpacking objects:  50% (14/28)   Unpacking objects:  53% (15/28)   Unpacking objects:  57% (16/28)   Unpacking objects:  60% (17/28)   Unpacking objects:  64% (18/28)   Unpacking objects:  67% (19/28)   Unpacking objects:  71% (20/28)   Unpacking objects:  75% (21/28)   Unpacking objects:  78% (22/28)   Unpacking objects:  82% (23/28)   Unpacking objects:  85% (24/28)   Unpacking objects:  89% (25/28)   Unpacking objects:  92% (26/28)   Unpacking objects:  96% (27/28)   Unpacking objects: 100% (28/28)   Unpacking objects: 100% (28/28), done.
+From git://github.com/Netflix/Hystrix
+ * branch            refs/pull/449/merge -> FETCH_HEAD
+travis_time:end:0173978a:start=1420592075119833024,finish=1420592075268685100,duration=148852076[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:32d01e60[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions/gradle-1.12-bin.zip
+........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-1.12-bin/2qvnajdoo11hasdfkikjaci26k/gradle-1.12-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-1.12-bin/2qvnajdoo11hasdfkikjaci26k
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-1.12-bin/2qvnajdoo11hasdfkikjaci26k/gradle-1.12/bin/gradle
+Download http://dl.bintray.com/content/netflixoss/external-gradle-plugins/nl/javadude/gradle/plugins/license-gradle-plugin/0.6.1/license-gradle-plugin-0.6.1.pom
+Download http://repo1.maven.org/maven2/com/mapvine/gradle-cobertura-plugin/0.1/gradle-cobertura-plugin-0.1.pom
+Download http://dl.bintray.com/content/netflixoss/external-gradle-plugins/gradle-release/gradle-release/1.1.5/gradle-release-1.1.5.pom
+Download http://repo1.maven.org/maven2/org/ajoberstar/gradle-git/0.5.0/gradle-git-0.5.0.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava/11.0.2/guava-11.0.2.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava-parent/11.0.2/guava-parent-11.0.2.pom
+Download http://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download http://repo1.maven.org/maven2/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.pom
+Download http://repo1.maven.org/maven2/com/mycila/parent-pom/5/parent-pom-5.pom
+Download http://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ui/2.2.0.201212191850-r/org.eclipse.jgit.ui-2.2.0.201212191850-r.pom
+Download http://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit-parent/2.2.0.201212191850-r/org.eclipse.jgit-parent-2.2.0.201212191850-r.pom
+Download http://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit/2.2.0.201212191850-r/org.eclipse.jgit-2.2.0.201212191850-r.pom
+Download http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+Download http://repo1.maven.org/maven2/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.pom
+Download http://repo1.maven.org/maven2/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+Download http://repo1.maven.org/maven2/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+Download http://repo1.maven.org/maven2/com/jcraft/jsch/0.1.44-1/jsch-0.1.44-1.pom
+Download http://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/6/oss-parent-6.pom
+Download http://dl.bintray.com/content/netflixoss/external-gradle-plugins/nl/javadude/gradle/plugins/license-gradle-plugin/0.6.1/license-gradle-plugin-0.6.1.jar
+Download http://repo1.maven.org/maven2/com/mapvine/gradle-cobertura-plugin/0.1/gradle-cobertura-plugin-0.1.jar
+Download http://dl.bintray.com/content/netflixoss/external-gradle-plugins/gradle-release/gradle-release/1.1.5/gradle-release-1.1.5.jar
+Download http://repo1.maven.org/maven2/org/ajoberstar/gradle-git/0.5.0/gradle-git-0.5.0.jar
+Download http://repo1.maven.org/maven2/com/google/guava/guava/11.0.2/guava-11.0.2.jar
+Download http://repo1.maven.org/maven2/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.jar
+Download http://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit.ui/2.2.0.201212191850-r/org.eclipse.jgit.ui-2.2.0.201212191850-r.jar
+Download http://repo1.maven.org/maven2/org/eclipse/jgit/org.eclipse.jgit/2.2.0.201212191850-r/org.eclipse.jgit-2.2.0.201212191850-r.jar
+Download http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+Download http://repo1.maven.org/maven2/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.jar
+Download http://repo1.maven.org/maven2/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+Download http://repo1.maven.org/maven2/com/jcraft/jsch/0.1.44-1/jsch-0.1.44-1.jar
+Script '/home/travis/build/Netflix/Hystrix/gradle/convention.gradle': line 24
+The ConfigurationContainer.add() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the create() method instead.
+The TaskContainer.add() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the create() method instead.
+Build file '/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-clj/build.gradle': line 3
+The RepositoryHandler.mavenRepo() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the maven() method instead.
+Download http://clojars.org/repo/clojuresque/clojuresque/1.5.8/clojuresque-1.5.8.pom
+Download http://clojars.org/repo/clojuresque/clojuresque/1.5.8/clojuresque-1.5.8.jar
+Download http://repo1.maven.org/maven2/org/clojure/tools.nrepl/0.2.1/tools.nrepl-0.2.1.pom
+Download http://repo1.maven.org/maven2/org/clojure/pom.contrib/0.0.26/pom.contrib-0.0.26.pom
+Download http://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download http://repo1.maven.org/maven2/org/clojure/clojure/1.4.0/clojure-1.4.0.pom
+Download http://repo1.maven.org/maven2/org/clojure/tools.nrepl/0.2.1/tools.nrepl-0.2.1.jar
+Download http://repo1.maven.org/maven2/org/clojure/clojure/1.4.0/clojure-1.4.0.jar
+Creating properties on demand (a.k.a. dynamic properties) has been deprecated and is scheduled to be removed in Gradle 2.0. Please read http://gradle.org/docs/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html for information on the replacement for dynamic properties.
+Deprecated dynamic property: "aspectjVersion" on "project ':hystrix-contrib:hystrix-javanica'", value: "1.7.4".
+Download http://repo1.maven.org/maven2/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.pom
+Download http://repo1.maven.org/maven2/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+:hystrix-contrib:compileJava UP-TO-DATE
+:hystrix-contrib:processResources UP-TO-DATE
+:hystrix-contrib:classes UP-TO-DATE
+:hystrix-contrib:jar
+:hystrix-contrib:javadoc UP-TO-DATE
+:hystrix-contrib:javadocJar
+:hystrix-contrib:sourcesJar
+:hystrix-contrib:signArchives SKIPPED
+:hystrix-contrib:assemble
+:hystrix-core:compileJava
+Download http://repo1.maven.org/maven2/com/netflix/archaius/archaius-core/0.4.1/archaius-core-0.4.1.pom
+Download http://repo1.maven.org/maven2/io/reactivex/rxjava/1.0.2/rxjava-1.0.2.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.0/slf4j-api-1.7.0.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-parent/1.7.0/slf4j-parent-1.7.0.pom
+Download http://repo1.maven.org/maven2/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/23/commons-parent-23.pom
+Download http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom
+Download http://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/17/commons-parent-17.pom
+Download http://repo1.maven.org/maven2/org/apache/apache/7/apache-7.pom
+Download http://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download http://repo1.maven.org/maven2/org/apache/apache/4/apache-4.pom
+Download http://repo1.maven.org/maven2/com/netflix/archaius/archaius-core/0.4.1/archaius-core-0.4.1.jar
+Download http://repo1.maven.org/maven2/io/reactivex/rxjava/1.0.2/rxjava-1.0.2.jar
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.0/slf4j-api-1.7.0.jar
+Download http://repo1.maven.org/maven2/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.jar
+Download http://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+Download http://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:118: warning: Unsafe is internal proprietary API and may be removed in a future release
+        private static final sun.misc.Unsafe UNSAFE;
+                                     ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:316: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final sun.misc.Unsafe UNSAFE;
+                                 ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:339: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static sun.misc.Unsafe getUnsafe() {
+                           ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:341: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return sun.misc.Unsafe.getUnsafe();
+                           ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:346: warning: Unsafe is internal proprietary API and may be removed in a future release
+                     .PrivilegedExceptionAction<sun.misc.Unsafe>() {
+                                                        ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:347: warning: Unsafe is internal proprietary API and may be removed in a future release
+                        public sun.misc.Unsafe run() throws Exception {
+                                       ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:349: warning: Unsafe is internal proprietary API and may be removed in a future release
+                                .Unsafe.class.getDeclaredField("theUnsafe");
+                                ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:351: warning: Unsafe is internal proprietary API and may be removed in a future release
+                            return (sun.misc.Unsafe) f.get(null);
+                                            ^
+9 warnings
+:hystrix-core:processResources UP-TO-DATE
+:hystrix-core:classes
+:hystrix-core:jar
+:hystrix-core:javadoc SKIPPED
+:hystrix-core:javadocJar
+:hystrix-core:sourcesJar
+:hystrix-core:signArchives SKIPPED
+:hystrix-core:assemble
+:hystrix-dashboard:javadoc
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.2.1/httpcomponents-client-4.2.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/project/6/project-6.pom
+Download http://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.7.0/slf4j-log4j12-1.7.0.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.2.1/httpcomponents-core-4.2.1.pom
+Download http://repo1.maven.org/maven2/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/22/commons-parent-22.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.jar
+Download http://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.7.0/slf4j-log4j12-1.7.0.jar
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.jar
+Download http://repo1.maven.org/maven2/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+Download http://repo1.maven.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+Download http://repo1.maven.org/maven2/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+:hystrix-dashboard:javadocJar
+:hystrix-dashboard:compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+
+:hystrix-dashboard:processResources
+:hystrix-dashboard:classes
+:hystrix-dashboard:jar
+:hystrix-dashboard:sourcesJar
+:hystrix-dashboard:war
+:hystrix-dashboard:signArchives SKIPPED
+:hystrix-dashboard:assemble
+:hystrix-examples:compileJava
+Download http://repo1.maven.org/maven2/junit/junit-dep/4.10/junit-dep-4.10.pom
+Download http://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.pom
+Download http://repo1.maven.org/maven2/org/hamcrest/hamcrest-parent/1.1/hamcrest-parent-1.1.pom
+Download http://repo1.maven.org/maven2/junit/junit-dep/4.10/junit-dep-4.10.jar
+Download http://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 warning
+:hystrix-examples:processResources UP-TO-DATE
+:hystrix-examples:classes
+:hystrix-examples:jar
+:hystrix-examples:javadoc
+:hystrix-examples:javadocJar
+:hystrix-examples:sourcesJar
+:hystrix-examples:signArchives SKIPPED
+:hystrix-examples:assemble
+:hystrix-contrib:hystrix-metrics-event-stream:compileJava
+Download http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.pom
+Download http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:hystrix-contrib:hystrix-metrics-event-stream:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-metrics-event-stream:classes
+:hystrix-contrib:hystrix-metrics-event-stream:jar
+:hystrix-contrib:hystrix-metrics-event-stream:javadoc/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-metrics-event-stream/src/main/java/com/netflix/hystrix/contrib/metrics/eventstream/HystrixMetricsPoller.java:74: warning - @param argument "MetricsAsJsonPollerListener" is not a parameter name.
+
+1 warning
+:hystrix-contrib:hystrix-request-servlet:compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+
+:hystrix-contrib:hystrix-request-servlet:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-request-servlet:classes
+:hystrix-contrib:hystrix-request-servlet:jar
+:hystrix-contrib:hystrix-request-servlet:javadoc
+:hystrix-examples-webapp:javadoc UP-TO-DATE
+:hystrix-examples-webapp:javadocJar
+:hystrix-examples-webapp:compileJava UP-TO-DATE
+:hystrix-examples-webapp:processResources UP-TO-DATE
+:hystrix-examples-webapp:classes UP-TO-DATE
+:hystrix-examples-webapp:jar
+:hystrix-examples-webapp:sourcesJar
+:hystrix-examples-webapp:war
+:hystrix-examples-webapp:signArchives SKIPPED
+:hystrix-examples-webapp:assemble
+:hystrix-contrib:hystrix-clj:compileClojure
+Download http://clojars.org/repo/clojuresque/runtime/1.5.8/runtime-1.5.8.pom
+Download http://clojars.org/repo/clojuresque/runtime/1.5.8/runtime-1.5.8.jar
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Reflection warning, com/netflix/hystrix/core.clj:640 - call to observeOne can't be resolved.
+:hystrix-contrib:hystrix-clj:compileJava UP-TO-DATE
+:hystrix-contrib:hystrix-clj:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-clj:classes
+:hystrix-contrib:hystrix-clj:jar
+:hystrix-contrib:hystrix-clj:javadoc UP-TO-DATE
+:hystrix-contrib:hystrix-clj:javadocJar
+:hystrix-contrib:hystrix-clj:sourcesJar
+:hystrix-contrib:hystrix-clj:signArchives SKIPPED
+:hystrix-contrib:hystrix-clj:assemble
+:hystrix-contrib:hystrix-codahale-metrics-publisher:compileJava
+Download http://repo1.maven.org/maven2/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.pom
+Download http://repo1.maven.org/maven2/com/codahale/metrics/metrics-parent/3.0.2/metrics-parent-3.0.2.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-parent/1.7.5/slf4j-parent-1.7.5.pom
+Download http://repo1.maven.org/maven2/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:hystrix-contrib:hystrix-codahale-metrics-publisher:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-codahale-metrics-publisher:classes
+:hystrix-contrib:hystrix-codahale-metrics-publisher:jar
+:hystrix-contrib:hystrix-codahale-metrics-publisher:javadoc
+:hystrix-contrib:hystrix-codahale-metrics-publisher:javadocJar
+:hystrix-contrib:hystrix-codahale-metrics-publisher:sourcesJar
+:hystrix-contrib:hystrix-codahale-metrics-publisher:signArchives SKIPPED
+:hystrix-contrib:hystrix-codahale-metrics-publisher:assemble
+:hystrix-contrib:hystrix-javanica:compileJava
+Download http://repo1.maven.org/maven2/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.pom
+Download http://repo1.maven.org/maven2/org/aspectj/aspectjrt/1.7.4/aspectjrt-1.7.4.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava/15.0/guava-15.0.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava-parent/15.0/guava-parent-15.0.pom
+Download http://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom
+Download http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.pom
+Download http://repo1.maven.org/maven2/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar
+Download http://repo1.maven.org/maven2/org/aspectj/aspectjrt/1.7.4/aspectjrt-1.7.4.jar
+Download http://repo1.maven.org/maven2/com/google/guava/guava/15.0/guava-15.0.jar
+Download http://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
+Download http://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:hystrix-contrib:hystrix-javanica:processResources
+:hystrix-contrib:hystrix-javanica:classes
+:hystrix-contrib:hystrix-javanica:jar
+:hystrix-contrib:hystrix-javanica:javadoc/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/annotation/HystrixCommand.java:57: warning - @HystrixCommand is an unknown tag.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/annotation/HystrixCommand.java:84: warning - @HystrixCommand(fallbackMethod is an unknown tag.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/BatchHystrixCommand.java:51: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/BatchHystrixCommand.java:51: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/BatchHystrixCommand.java:51: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:28: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/GenericCommand.java:40: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/GenericCommand.java:40: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/GenericCommand.java:40: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/GenericCommand.java:78: warning - Tag @link: reference not found: super#getFallback()
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:28: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/BatchHystrixCommand.java:51: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:28: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/GenericCommand.java:40: warning - Tag @inheritDoc cannot be used in constructor documentation.  It can only be used in the following types of documentation: method, inline text.
+
+18 warnings
+:hystrix-contrib:hystrix-javanica:javadocJar
+:hystrix-contrib:hystrix-javanica:sourcesJar
+:hystrix-contrib:hystrix-javanica:signArchives SKIPPED
+:hystrix-contrib:hystrix-javanica:assemble
+:hystrix-contrib:hystrix-metrics-event-stream:javadocJar
+:hystrix-contrib:hystrix-metrics-event-stream:sourcesJar
+:hystrix-contrib:hystrix-metrics-event-stream:signArchives SKIPPED
+:hystrix-contrib:hystrix-metrics-event-stream:assemble
+:hystrix-contrib:hystrix-network-auditor-agent:compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+
+:hystrix-contrib:hystrix-network-auditor-agent:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-network-auditor-agent:classes
+:hystrix-contrib:hystrix-network-auditor-agent:jar
+:hystrix-contrib:hystrix-network-auditor-agent:javadoc/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-network-auditor-agent/src/main/java/com/netflix/hystrix/contrib/networkauditor/HystrixNetworkAuditorEventListener.java:42: warning - End Delimiter } missing for possible See Tag in comment string: "Invoked by the {@link HystrixNetworkAuditorAgent} when network events occur.
+ <p>
+ An event may be the opening of a socket, channel or reading/writing bytes. It is not guaranteed to be a one-to-one relationship with a request/response.
+ <p>
+ No arguments are returned as it is left to the implementation to decide whether the current thread stacktrace should be captured or not.
+ <p>
+ Typical implementations will want to filter to non-Hystrix isolated network traffic with code such as this:
+ 
+ <pre> {@code
+ 
+ if (Hystrix.getCurrentThreadExecutingCommand() == null) {
+      // this event is not inside a Hystrix context (according to ThreadLocal variables)
+      StackTraceElement[] stack = Thread.currentThread().getStackTrace();
+      // increment counters, fire alerts, log stack traces etc
+ } </pre>"
+
+1 warning
+:hystrix-contrib:hystrix-network-auditor-agent:javadocJar
+:hystrix-contrib:hystrix-network-auditor-agent:sourcesJar
+:hystrix-contrib:hystrix-network-auditor-agent:signArchives SKIPPED
+:hystrix-contrib:hystrix-network-auditor-agent:assemble
+:hystrix-contrib:hystrix-request-servlet:javadocJar
+:hystrix-contrib:hystrix-request-servlet:sourcesJar
+:hystrix-contrib:hystrix-request-servlet:signArchives SKIPPED
+:hystrix-contrib:hystrix-request-servlet:assemble
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:compileJava
+Download http://repo1.maven.org/maven2/com/netflix/rxnetty/rx-netty/0.3.8/rx-netty-0.3.8.pom
+Download http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.pom
+Download http://repo1.maven.org/maven2/com/netflix/rxjava/rxjava-core/0.19.1/rxjava-core-0.19.1.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-codec-http/4.0.21.Final/netty-codec-http-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-parent/4.0.21.Final/netty-parent-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-codec/4.0.21.Final/netty-codec-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-handler/4.0.21.Final/netty-handler-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-transport/4.0.21.Final/netty-transport-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-buffer/4.0.21.Final/netty-buffer-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/io/netty/netty-common/4.0.21.Final/netty-common-4.0.21.Final.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-parent/1.7.6/slf4j-parent-1.7.6.pom
+Download http://repo1.maven.org/maven2/com/netflix/rxnetty/rx-netty/0.3.8/rx-netty-0.3.8.jar
+Download http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar
+Download http://repo1.maven.org/maven2/com/netflix/rxjava/rxjava-core/0.19.1/rxjava-core-0.19.1.jar
+Download http://repo1.maven.org/maven2/io/netty/netty-codec-http/4.0.21.Final/netty-codec-http-4.0.21.Final.jar
+Download http://repo1.maven.org/maven2/io/netty/netty-codec/4.0.21.Final/netty-codec-4.0.21.Final.jar
+Download http://repo1.maven.org/maven2/io/netty/netty-handler/4.0.21.Final/netty-handler-4.0.21.Final.jar
+Download http://repo1.maven.org/maven2/io/netty/netty-transport/4.0.21.Final/netty-transport-4.0.21.Final.jar
+Download http://repo1.maven.org/maven2/io/netty/netty-buffer/4.0.21.Final/netty-buffer-4.0.21.Final.jar
+Download http://repo1.maven.org/maven2/io/netty/netty-common/4.0.21.Final/netty-common-4.0.21.Final.jar
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:classes
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:jar
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:javadoc
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:javadocJar
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:sourcesJar
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:signArchives SKIPPED
+:hystrix-contrib:hystrix-rx-netty-metrics-stream:assemble
+:hystrix-contrib:hystrix-servo-metrics-publisher:compileJava
+Download http://repo1.maven.org/maven2/com/netflix/servo/servo-core/0.7.5/servo-core-0.7.5.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava/14.0.1/guava-14.0.1.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava-parent/14.0.1/guava-parent-14.0.1.pom
+Download http://repo1.maven.org/maven2/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.pom
+Download http://repo1.maven.org/maven2/com/netflix/servo/servo-core/0.7.5/servo-core-0.7.5.jar
+Download http://repo1.maven.org/maven2/com/google/guava/guava/14.0.1/guava-14.0.1.jar
+Download http://repo1.maven.org/maven2/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:hystrix-contrib:hystrix-servo-metrics-publisher:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-servo-metrics-publisher:classes
+:hystrix-contrib:hystrix-servo-metrics-publisher:jar
+:hystrix-contrib:hystrix-servo-metrics-publisher:javadoc
+:hystrix-contrib:hystrix-servo-metrics-publisher:javadocJar
+:hystrix-contrib:hystrix-servo-metrics-publisher:sourcesJar
+:hystrix-contrib:hystrix-servo-metrics-publisher:signArchives SKIPPED
+:hystrix-contrib:hystrix-servo-metrics-publisher:assemble
+:hystrix-contrib:hystrix-yammer-metrics-publisher:compileJava
+Download http://repo1.maven.org/maven2/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.pom
+Download http://repo1.maven.org/maven2/com/yammer/metrics/metrics-parent/2.2.0/metrics-parent-2.2.0.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.pom
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-parent/1.7.2/slf4j-parent-1.7.2.pom
+Download http://repo1.maven.org/maven2/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar
+Download http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:hystrix-contrib:hystrix-yammer-metrics-publisher:processResources UP-TO-DATE
+:hystrix-contrib:hystrix-yammer-metrics-publisher:classes
+:hystrix-contrib:hystrix-yammer-metrics-publisher:jar
+:hystrix-contrib:hystrix-yammer-metrics-publisher:javadoc
+:hystrix-contrib:hystrix-yammer-metrics-publisher:javadocJar
+:hystrix-contrib:hystrix-yammer-metrics-publisher:sourcesJar
+:hystrix-contrib:hystrix-yammer-metrics-publisher:signArchives SKIPPED
+:hystrix-contrib:hystrix-yammer-metrics-publisher:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 16.187 secs
+travis_time:end:32d01e60:start=1420592075536534461,finish=1420592152253869263,duration=76717334802[0Ktravis_fold:end:install[0Ktravis_time:start:0b229356[0K$ ./gradlew check
+Script '/home/travis/build/Netflix/Hystrix/gradle/convention.gradle': line 24
+The ConfigurationContainer.add() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the create() method instead.
+The TaskContainer.add() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the create() method instead.
+Build file '/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-clj/build.gradle': line 3
+The RepositoryHandler.mavenRepo() method has been deprecated and is scheduled to be removed in Gradle 2.0. Please use the maven() method instead.
+Creating properties on demand (a.k.a. dynamic properties) has been deprecated and is scheduled to be removed in Gradle 2.0. Please read http://gradle.org/docs/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html for information on the replacement for dynamic properties.
+Deprecated dynamic property: "aspectjVersion" on "project ':hystrix-contrib:hystrix-javanica'", value: "1.7.4".
+:hystrix-contrib:licenseMain UP-TO-DATE
+:hystrix-contrib:licenseTest UP-TO-DATE
+:hystrix-contrib:compileJava UP-TO-DATE
+:hystrix-contrib:processResources UP-TO-DATE
+:hystrix-contrib:classes UP-TO-DATE
+:hystrix-contrib:compileTestJava UP-TO-DATE
+:hystrix-contrib:processTestResources UP-TO-DATE
+:hystrix-contrib:testClasses UP-TO-DATE
+:hystrix-contrib:test UP-TO-DATE
+:hystrix-contrib:check UP-TO-DATE
+:hystrix-core:licenseMain
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/Hystrix.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixInvokable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandProperties.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCollapser.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommand.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCollapserProperties.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixRollingPercentile.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCircuitBreaker.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixRollingNumberEvent.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPoolMetrics.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixRequestCache.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCollapserKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/LongMaxUpdater.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/AbstractCommand.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixTimer.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/LongAdder.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixRequestLog.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/ExceptionThreadingUtility.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixObservableCollapser.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixObservableCommand.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandMetrics.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixInvokableInfo.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherFactory.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesCollapserDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/HystrixPlugins.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPoolProperties.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandGroupKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisher.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPoolKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestContext.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariableHolder.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/eventnotifier/HystrixEventNotifierDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesStrategyDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherCommand.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestBatch.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/CollapserTimer.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixObservable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPool.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/eventnotifier/HystrixEventNotifier.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContextCallable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixExecutable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixEventType.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContextRunnable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesChainedArchaiusProperty.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesFactory.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/exception/HystrixRuntimeException.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/CollapsedRequestObservableFunction.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariableLifecycle.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/exception/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesCommandDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesStrategy.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestCollapser.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/executionhook/HystrixCommandExecutionHook.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RealCollapserTimer.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategy.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/eventnotifier/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/HystrixCollapserBridge.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/executionhook/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContexSchedulerAction.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContextScheduler.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariableDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategyDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixRollingNumber.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherCommandDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesThreadPoolDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherThreadPool.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestCollapserFactory.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/exception/HystrixBadRequestException.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixProperty.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/executionhook/HystrixCommandExecutionHookDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherThreadPoolDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/README.txt
+:hystrix-core:licenseMain UP-TO-DATE
+:hystrix-core:licenseTest
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixObservableCommandTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixThreadPoolMetricsTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixRequestLogTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixRequestCacheTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixThreadPoolTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCircuitBreakerTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/util/ExceptionThreadingUtilityTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesChainedArchaiusPropertyTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/collapser/CollapsedRequestObservableFunctionTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/util/HystrixRollingNumberTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/util/HystrixRollingPercentileTest.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPool.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixObservableCommand.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/util/HystrixTimerTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCollapserTest.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandProperties.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommand.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandMetricsTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandPropertiesTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandTimeoutConcurrencyTesting.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixTimer.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixObservableCollapserTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixTest.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesChainedArchaiusProperty.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesCommandDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesCollapserDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesStrategy.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesFactory.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisher.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesThreadPoolDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesStrategyDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixProperty.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/HystrixPlugins.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixRollingNumber.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixRollingPercentile.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/HystrixRollingNumberEvent.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariableDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/ExceptionThreadingUtility.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/LongMaxUpdater.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/Hystrix.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/LongAdder.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/util/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCircuitBreaker.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCollapser.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/exception/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCollapserKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCollapserProperties.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandGroupKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestCollapser.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommandMetrics.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixEventType.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixExecutable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixInvokable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/CollapserTimer.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixInvokableInfo.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixObservable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixObservableCollapser.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixRequestCache.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixRequestLog.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPoolKey.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPoolMetrics.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixThreadPoolProperties.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/AbstractCommand.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategyTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherFactoryTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/properties/HystrixPropertyTest.java
+Ignoring header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/HystrixPluginsTest.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/CollapsedRequestObservableFunction.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/HystrixCollapserBridge.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/README.txt
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RealCollapserTimer.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestBatch.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestCollapserFactory.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/exception/HystrixBadRequestException.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/exception/HystrixRuntimeException.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategy.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategyDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContexSchedulerAction.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContextCallable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContextRunnable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixContextScheduler.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestContext.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariable.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariableHolder.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/HystrixRequestVariableLifecycle.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/concurrency/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/eventnotifier/HystrixEventNotifier.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/eventnotifier/HystrixEventNotifierDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/eventnotifier/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/executionhook/HystrixCommandExecutionHook.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/executionhook/HystrixCommandExecutionHookDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/executionhook/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherCommand.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherCommandDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherFactory.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/package-info.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherThreadPoolDefault.java
+Ignoring header in: hystrix-core/src/main/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherThreadPool.java
+:hystrix-core:licenseTest UP-TO-DATE
+:hystrix-core:compileJava UP-TO-DATE
+:hystrix-core:processResources UP-TO-DATE
+:hystrix-core:classes UP-TO-DATE
+:hystrix-core:compileTestJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:118: warning: Unsafe is internal proprietary API and may be removed in a future release
+        private static final sun.misc.Unsafe UNSAFE;
+                                     ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:316: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final sun.misc.Unsafe UNSAFE;
+                                 ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:339: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static sun.misc.Unsafe getUnsafe() {
+                           ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:341: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return sun.misc.Unsafe.getUnsafe();
+                           ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:346: warning: Unsafe is internal proprietary API and may be removed in a future release
+                     .PrivilegedExceptionAction<sun.misc.Unsafe>() {
+                                                        ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:347: warning: Unsafe is internal proprietary API and may be removed in a future release
+                        public sun.misc.Unsafe run() throws Exception {
+                                       ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:349: warning: Unsafe is internal proprietary API and may be removed in a future release
+                                .Unsafe.class.getDeclaredField("theUnsafe");
+                                ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:351: warning: Unsafe is internal proprietary API and may be removed in a future release
+                            return (sun.misc.Unsafe) f.get(null);
+                                            ^
+Note: /home/travis/build/Netflix/Hystrix/hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandPropertiesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/Netflix/Hystrix/hystrix-core/src/test/java/com/netflix/hystrix/HystrixCircuitBreakerTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 warnings
+
+:hystrix-core:processTestResources UP-TO-DATE
+:hystrix-core:testClasses
+:hystrix-core:test
+
+com.netflix.hystrix.strategy.HystrixPluginsTest > testRequestContextViaPluginInTimeout FAILED
+    java.lang.IllegalStateException at HystrixPluginsTest.java:178
+
+376 tests completed, 1 failed, 1 skipped
+:hystrix-core:test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':hystrix-core:test'.
+> There were failing tests. See the report at: file:///home/travis/build/Netflix/Hystrix/hystrix-core/build/reports/tests/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 55.659 secs
+travis_time:end:0b229356:start=1420592152261668762,finish=1420592208680597783,duration=56418929021[0K
+[31;1mThe command "./gradlew check" exited with 1.[0m
+
+Done. Your build exited with 1.

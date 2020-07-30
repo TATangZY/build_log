@@ -1,0 +1,137 @@
+Using worker: bluebox-linux-2.worker.travis-ci.org:travis-linux-5
+
+$ git clone --depth=100 --quiet git://github.com/square/dagger.git square/dagger
+$ cd square/dagger
+$ git fetch origin +refs/pull/169/merge: 
+remote: Counting objects: 51, done.[K
+remote: Compressing objects:   7% (1/14)   [Kremote: Compressing objects:  14% (2/14)   [Kremote: Compressing objects:  21% (3/14)   [Kremote: Compressing objects:  28% (4/14)   [Kremote: Compressing objects:  35% (5/14)   [Kremote: Compressing objects:  42% (6/14)   [Kremote: Compressing objects:  50% (7/14)   [Kremote: Compressing objects:  57% (8/14)   [Kremote: Compressing objects:  64% (9/14)   [Kremote: Compressing objects:  71% (10/14)   [Kremote: Compressing objects:  78% (11/14)   [Kremote: Compressing objects:  85% (12/14)   [Kremote: Compressing objects:  92% (13/14)   [Kremote: Compressing objects: 100% (14/14)   [Kremote: Compressing objects: 100% (14/14), done.[K
+remote: Total 32 (delta 10), reused 30 (delta 9)[K
+Unpacking objects:   3% (1/32)   Unpacking objects:   6% (2/32)   Unpacking objects:   9% (3/32)   Unpacking objects:  12% (4/32)   Unpacking objects:  15% (5/32)   Unpacking objects:  18% (6/32)   Unpacking objects:  21% (7/32)   Unpacking objects:  25% (8/32)   Unpacking objects:  28% (9/32)   Unpacking objects:  31% (10/32)   Unpacking objects:  34% (11/32)   Unpacking objects:  37% (12/32)   Unpacking objects:  40% (13/32)   Unpacking objects:  43% (14/32)   Unpacking objects:  46% (15/32)   Unpacking objects:  50% (16/32)   Unpacking objects:  53% (17/32)   Unpacking objects:  56% (18/32)   Unpacking objects:  59% (19/32)   Unpacking objects:  62% (20/32)   Unpacking objects:  65% (21/32)   Unpacking objects:  68% (22/32)   Unpacking objects:  71% (23/32)   Unpacking objects:  75% (24/32)   Unpacking objects:  78% (25/32)   Unpacking objects:  81% (26/32)   Unpacking objects:  84% (27/32)   Unpacking objects:  87% (28/32)   Unpacking objects:  90% (29/32)   Unpacking objects:  93% (30/32)   Unpacking objects:  96% (31/32)   Unpacking objects: 100% (32/32)   Unpacking objects: 100% (32/32), done.
+From git://github.com/square/dagger
+ * branch            refs/pull/169/merge -> FETCH_HEAD
+$ git checkout -qf FETCH_HEAD
+$ java -version
+java version "1.7.0_09"
+OpenJDK Runtime Environment (IcedTea7 2.3.4) (7u9-2.3.4-0ubuntu1.12.04.1)
+OpenJDK 64-Bit Server VM (build 23.2-b09, mixed mode)
+$ javac -version
+javac 1.7.0_09
+$ mvn install clean --fail-never --quiet -DskipTests=true -Dinvoker.skip=true
+$ mvn verify
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Dagger (Parent)
+[INFO] Dagger
+[INFO] Dagger Compiler
+[INFO] Dagger AndroidManifest.xml Module Generator
+[INFO] Dagger Example (Parent)
+[INFO] Dagger Example - Simple
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger (Parent) 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-parent ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ dagger ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ dagger ---
+[INFO] Compiling 24 source files to /home/travis/build/square/dagger/core/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/square/dagger/core/src/main/java/dagger/internal/UniqueMap.java:[24,7] [serial] serializable class UniqueMap has no definition of serialVersionUID
+[WARNING] /home/travis/build/square/dagger/core/src/main/java/dagger/internal/plugins/reflect/ReflectiveModuleAdapter.java:[120,23] [rawtypes] found raw type: Binding
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ dagger ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ dagger ---
+[INFO] Compiling 11 source files to /home/travis/build/square/dagger/core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dagger ---
+[INFO] Surefire report directory: /home/travis/build/square/dagger/core/target/surefire-reports
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.pom
+3/3 KB            Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.pom (3 KB at 3.6 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-providers/2.10/surefire-providers-2.10.pom
+3/3 KB            Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-providers/2.10/surefire-providers-2.10.pom (3 KB at 7.2 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.jar
+4/33 KB   8/33 KB   9/33 KB   13/33 KB   17/33 KB   21/33 KB   25/33 KB   27/33 KB   31/33 KB   33/33 KB              Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.jar (33 KB at 65.3 KB/sec)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dagger.internal.KeysTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 sec
+Running dagger.LazyInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
+Running dagger.ExtensionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec
+Running dagger.InjectionTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 sec
+Running dagger.SingletonTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+Running dagger.InjectStaticsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running dagger.ProblemDetectorTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 sec <<< FAILURE!
+Running dagger.MembersInjectorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+Running dagger.SetBindingTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+Running dagger.ModuleIncludesTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
+Running dagger.InjectionOfLazyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+
+Results :
+
+Tests in error: 
+  initializationError(dagger.ProblemDetectorTest): Method selfReferenceThroughProvider() should be public
+
+Tests run: 90, Failures: 0, Errors: 1, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Dagger (Parent) ................................... SUCCESS [2.625s]
+[INFO] Dagger ............................................ FAILURE [6.962s]
+[INFO] Dagger Compiler ................................... SKIPPED
+[INFO] Dagger AndroidManifest.xml Module Generator ....... SKIPPED
+[INFO] Dagger Example (Parent) ........................... SKIPPED
+[INFO] Dagger Example - Simple ........................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.174s
+[INFO] Finished at: Sun Feb 24 01:30:43 UTC 2013
+[INFO] Final Memory: 21M/190M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.10:test (default-test) on project dagger: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/travis/build/square/dagger/core/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :dagger
+
+The command "mvn verify" exited with 1.
+
+Done. Your build exited with 1.

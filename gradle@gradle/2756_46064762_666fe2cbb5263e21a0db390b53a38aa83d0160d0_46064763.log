@@ -1,0 +1,2913 @@
+Using worker: worker-linux-7-1.bb.travis-ci.org:travis-linux-19
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Sun Dec  7 05:49:51 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+5736160 https://github.com/travis-ci/travis-cookbooks/tree/5736160
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.3.3
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.0
+------------------------------------------------------------
+
+Build time:   2014-07-01 07:45:34 UTC
+Build number: none
+Revision:     b6ead6fa452dfdadec484059191eb641d817226c
+
+Groovy:       2.3.3
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:1163150d[0K$ git clone --depth=50 --branch=master git://github.com/gradle/gradle.git gradle/gradle
+Cloning into 'gradle/gradle'...
+remote: Counting objects: 14935, done.[K
+remote: Compressing objects:   0% (1/10364)   [Kremote: Compressing objects:   1% (104/10364)   [Kremote: Compressing objects:   2% (208/10364)   [Kremote: Compressing objects:   3% (311/10364)   [Kremote: Compressing objects:   4% (415/10364)   [Kremote: Compressing objects:   5% (519/10364)   [Kremote: Compressing objects:   6% (622/10364)   [Kremote: Compressing objects:   7% (726/10364)   [Kremote: Compressing objects:   8% (830/10364)   [Kremote: Compressing objects:   9% (933/10364)   [Kremote: Compressing objects:  10% (1037/10364)   [Kremote: Compressing objects:  11% (1141/10364)   [Kremote: Compressing objects:  12% (1244/10364)   [Kremote: Compressing objects:  13% (1348/10364)   [Kremote: Compressing objects:  14% (1451/10364)   [Kremote: Compressing objects:  15% (1555/10364)   [Kremote: Compressing objects:  16% (1659/10364)   [Kremote: Compressing objects:  17% (1762/10364)   [Kremote: Compressing objects:  18% (1866/10364)   [Kremote: Compressing objects:  19% (1970/10364)   [Kremote: Compressing objects:  20% (2073/10364)   [Kremote: Compressing objects:  21% (2177/10364)   [Kremote: Compressing objects:  22% (2281/10364)   [Kremote: Compressing objects:  23% (2384/10364)   [Kremote: Compressing objects:  24% (2488/10364)   [Kremote: Compressing objects:  25% (2591/10364)   [Kremote: Compressing objects:  26% (2695/10364)   [Kremote: Compressing objects:  27% (2799/10364)   [Kremote: Compressing objects:  28% (2902/10364)   [Kremote: Compressing objects:  29% (3006/10364)   [Kremote: Compressing objects:  30% (3110/10364)   [Kremote: Compressing objects:  31% (3213/10364)   [Kremote: Compressing objects:  32% (3317/10364)   [Kremote: Compressing objects:  33% (3421/10364)   [Kremote: Compressing objects:  34% (3524/10364)   [Kremote: Compressing objects:  35% (3628/10364)   [Kremote: Compressing objects:  36% (3732/10364)   [Kremote: Compressing objects:  37% (3835/10364)   [Kremote: Compressing objects:  38% (3939/10364)   [Kremote: Compressing objects:  39% (4042/10364)   [Kremote: Compressing objects:  40% (4146/10364)   [Kremote: Compressing objects:  41% (4250/10364)   [Kremote: Compressing objects:  42% (4353/10364)   [Kremote: Compressing objects:  43% (4457/10364)   [Kremote: Compressing objects:  44% (4561/10364)   [Kremote: Compressing objects:  45% (4664/10364)   [Kremote: Compressing objects:  46% (4768/10364)   [Kremote: Compressing objects:  47% (4872/10364)   [Kremote: Compressing objects:  48% (4975/10364)   [Kremote: Compressing objects:  49% (5079/10364)   [Kremote: Compressing objects:  50% (5182/10364)   [Kremote: Compressing objects:  51% (5286/10364)   [Kremote: Compressing objects:  52% (5390/10364)   [Kremote: Compressing objects:  53% (5493/10364)   [Kremote: Compressing objects:  54% (5597/10364)   [Kremote: Compressing objects:  55% (5701/10364)   [Kremote: Compressing objects:  56% (5804/10364)   [Kremote: Compressing objects:  56% (5808/10364)   [Kremote: Compressing objects:  57% (5908/10364)   [Kremote: Compressing objects:  58% (6012/10364)   [Kremote: Compressing objects:  59% (6115/10364)   [Kremote: Compressing objects:  60% (6219/10364)   [Kremote: Compressing objects:  61% (6323/10364)   [Kremote: Compressing objects:  62% (6426/10364)   [Kremote: Compressing objects:  63% (6530/10364)   [Kremote: Compressing objects:  64% (6633/10364)   [Kremote: Compressing objects:  65% (6737/10364)   [Kremote: Compressing objects:  66% (6841/10364)   [Kremote: Compressing objects:  67% (6944/10364)   [Kremote: Compressing objects:  68% (7048/10364)   [Kremote: Compressing objects:  69% (7152/10364)   [Kremote: Compressing objects:  70% (7255/10364)   [Kremote: Compressing objects:  71% (7359/10364)   [Kremote: Compressing objects:  72% (7463/10364)   [Kremote: Compressing objects:  73% (7566/10364)   [Kremote: Compressing objects:  74% (7670/10364)   [Kremote: Compressing objects:  75% (7773/10364)   [Kremote: Compressing objects:  76% (7877/10364)   [Kremote: Compressing objects:  77% (7981/10364)   [Kremote: Compressing objects:  78% (8084/10364)   [Kremote: Compressing objects:  79% (8188/10364)   [Kremote: Compressing objects:  80% (8292/10364)   [Kremote: Compressing objects:  81% (8395/10364)   [Kremote: Compressing objects:  82% (8499/10364)   [Kremote: Compressing objects:  83% (8603/10364)   [Kremote: Compressing objects:  84% (8706/10364)   [Kremote: Compressing objects:  85% (8810/10364)   [Kremote: Compressing objects:  86% (8914/10364)   [Kremote: Compressing objects:  87% (9017/10364)   [Kremote: Compressing objects:  88% (9121/10364)   [Kremote: Compressing objects:  89% (9224/10364)   [Kremote: Compressing objects:  90% (9328/10364)   [Kremote: Compressing objects:  91% (9432/10364)   [Kremote: Compressing objects:  92% (9535/10364)   [Kremote: Compressing objects:  93% (9639/10364)   [Kremote: Compressing objects:  94% (9743/10364)   [Kremote: Compressing objects:  95% (9846/10364)   [Kremote: Compressing objects:  96% (9950/10364)   [Kremote: Compressing objects:  97% (10054/10364)   [Kremote: Compressing objects:  98% (10157/10364)   [Kremote: Compressing objects:  99% (10261/10364)   [Kremote: Compressing objects: 100% (10364/10364)   [Kremote: Compressing objects: 100% (10364/10364), done.[K
+Receiving objects:   0% (1/14935)   Receiving objects:   1% (150/14935)   Receiving objects:   2% (299/14935)   Receiving objects:   3% (449/14935)   Receiving objects:   4% (598/14935)   Receiving objects:   5% (747/14935)   Receiving objects:   6% (897/14935)   Receiving objects:   7% (1046/14935)   Receiving objects:   8% (1195/14935)   Receiving objects:   9% (1345/14935)   Receiving objects:  10% (1494/14935)   Receiving objects:  11% (1643/14935)   Receiving objects:  12% (1793/14935)   Receiving objects:  13% (1942/14935)   Receiving objects:  14% (2091/14935)   Receiving objects:  15% (2241/14935)   Receiving objects:  16% (2390/14935)   Receiving objects:  17% (2539/14935)   Receiving objects:  18% (2689/14935)   Receiving objects:  19% (2838/14935)   Receiving objects:  20% (2987/14935)   Receiving objects:  21% (3137/14935)   Receiving objects:  22% (3286/14935)   Receiving objects:  23% (3436/14935)   Receiving objects:  24% (3585/14935)   Receiving objects:  25% (3734/14935)   Receiving objects:  26% (3884/14935)   Receiving objects:  27% (4033/14935)   Receiving objects:  28% (4182/14935)   Receiving objects:  29% (4332/14935)   Receiving objects:  30% (4481/14935)   Receiving objects:  31% (4630/14935)   Receiving objects:  32% (4780/14935)   Receiving objects:  33% (4929/14935)   Receiving objects:  34% (5078/14935)   Receiving objects:  35% (5228/14935)   Receiving objects:  36% (5377/14935)   Receiving objects:  37% (5526/14935)   Receiving objects:  38% (5676/14935)   Receiving objects:  39% (5825/14935)   Receiving objects:  40% (5974/14935)   Receiving objects:  41% (6124/14935)   Receiving objects:  42% (6273/14935)   Receiving objects:  43% (6423/14935)   Receiving objects:  44% (6572/14935)   Receiving objects:  45% (6721/14935)   Receiving objects:  46% (6871/14935)   Receiving objects:  47% (7020/14935)   Receiving objects:  48% (7169/14935)   Receiving objects:  49% (7319/14935)   Receiving objects:  50% (7468/14935)   Receiving objects:  51% (7617/14935)   Receiving objects:  52% (7767/14935)   Receiving objects:  53% (7916/14935)   Receiving objects:  54% (8065/14935)   Receiving objects:  55% (8215/14935)   Receiving objects:  56% (8364/14935)   Receiving objects:  57% (8513/14935)   Receiving objects:  58% (8663/14935)   Receiving objects:  59% (8812/14935)   Receiving objects:  60% (8961/14935)   Receiving objects:  61% (9111/14935)   Receiving objects:  62% (9260/14935)   Receiving objects:  63% (9410/14935)   Receiving objects:  64% (9559/14935)   Receiving objects:  65% (9708/14935)   Receiving objects:  66% (9858/14935)   Receiving objects:  67% (10007/14935)   Receiving objects:  68% (10156/14935)   Receiving objects:  69% (10306/14935)   Receiving objects:  70% (10455/14935)   Receiving objects:  71% (10604/14935)   Receiving objects:  72% (10754/14935)   Receiving objects:  73% (10903/14935)   Receiving objects:  74% (11052/14935)   Receiving objects:  75% (11202/14935)   Receiving objects:  76% (11351/14935)   Receiving objects:  77% (11500/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  78% (11650/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  79% (11799/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  80% (11948/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  81% (12098/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  82% (12247/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  83% (12397/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  84% (12546/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  85% (12695/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  86% (12845/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  87% (12994/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  88% (13143/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  89% (13293/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  90% (13442/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  91% (13591/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  92% (13741/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  93% (13890/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  94% (14039/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  95% (14189/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  96% (14338/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  97% (14487/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects:  98% (14637/14935), 6.83 MiB | 13.61 MiB/s   remote: Total 14935 (delta 4431), reused 8502 (delta 1766)[K
+Receiving objects:  99% (14786/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects: 100% (14935/14935), 6.83 MiB | 13.61 MiB/s   Receiving objects: 100% (14935/14935), 9.52 MiB | 13.61 MiB/s, done.
+Resolving deltas:   0% (0/4431)   Resolving deltas:   1% (52/4431)   Resolving deltas:   2% (90/4431)   Resolving deltas:   3% (135/4431)   Resolving deltas:   4% (183/4431)   Resolving deltas:   5% (222/4431)   Resolving deltas:   6% (266/4431)   Resolving deltas:   7% (314/4431)   Resolving deltas:   8% (356/4431)   Resolving deltas:   9% (407/4431)   Resolving deltas:  10% (444/4431)   Resolving deltas:  11% (491/4431)   Resolving deltas:  12% (535/4431)   Resolving deltas:  13% (582/4431)   Resolving deltas:  14% (628/4431)   Resolving deltas:  15% (665/4431)   Resolving deltas:  16% (709/4431)   Resolving deltas:  17% (757/4431)   Resolving deltas:  18% (798/4431)   Resolving deltas:  19% (849/4431)   Resolving deltas:  20% (889/4431)   Resolving deltas:  21% (931/4431)   Resolving deltas:  22% (977/4431)   Resolving deltas:  23% (1023/4431)   Resolving deltas:  24% (1064/4431)   Resolving deltas:  25% (1108/4431)   Resolving deltas:  26% (1155/4431)   Resolving deltas:  27% (1198/4431)   Resolving deltas:  28% (1243/4431)   Resolving deltas:  29% (1288/4431)   Resolving deltas:  30% (1330/4431)   Resolving deltas:  31% (1376/4431)   Resolving deltas:  32% (1419/4431)   Resolving deltas:  33% (1463/4431)   Resolving deltas:  34% (1508/4431)   Resolving deltas:  35% (1552/4431)   Resolving deltas:  36% (1597/4431)   Resolving deltas:  37% (1647/4431)   Resolving deltas:  38% (1684/4431)   Resolving deltas:  39% (1729/4431)   Resolving deltas:  40% (1773/4431)   Resolving deltas:  41% (1817/4431)   Resolving deltas:  42% (1862/4431)   Resolving deltas:  43% (1906/4431)   Resolving deltas:  44% (1950/4431)   Resolving deltas:  45% (1994/4431)   Resolving deltas:  46% (2040/4431)   Resolving deltas:  47% (2083/4431)   Resolving deltas:  48% (2131/4431)   Resolving deltas:  49% (2174/4431)   Resolving deltas:  50% (2223/4431)   Resolving deltas:  51% (2260/4431)   Resolving deltas:  52% (2305/4431)   Resolving deltas:  53% (2350/4431)   Resolving deltas:  54% (2393/4431)   Resolving deltas:  55% (2438/4431)   Resolving deltas:  56% (2482/4431)   Resolving deltas:  57% (2529/4431)   Resolving deltas:  58% (2588/4431)   Resolving deltas:  59% (2622/4431)   Resolving deltas:  60% (2671/4431)   Resolving deltas:  61% (2710/4431)   Resolving deltas:  62% (2750/4431)   Resolving deltas:  63% (2792/4431)   Resolving deltas:  64% (2838/4431)   Resolving deltas:  65% (2881/4431)   Resolving deltas:  66% (2925/4431)   Resolving deltas:  67% (2970/4431)   Resolving deltas:  68% (3014/4431)   Resolving deltas:  69% (3059/4431)   Resolving deltas:  70% (3102/4431)   Resolving deltas:  71% (3152/4431)   Resolving deltas:  72% (3192/4431)   Resolving deltas:  73% (3236/4431)   Resolving deltas:  74% (3291/4431)   Resolving deltas:  75% (3324/4431)   Resolving deltas:  76% (3370/4431)   Resolving deltas:  77% (3412/4431)   Resolving deltas:  78% (3468/4431)   Resolving deltas:  79% (3501/4431)   Resolving deltas:  80% (3545/4431)   Resolving deltas:  81% (3590/4431)   Resolving deltas:  82% (3634/4431)   Resolving deltas:  83% (3680/4431)   Resolving deltas:  84% (3724/4431)   Resolving deltas:  85% (3767/4431)   Resolving deltas:  86% (3811/4431)   Resolving deltas:  87% (3856/4431)   Resolving deltas:  88% (3900/4431)   Resolving deltas:  89% (3947/4431)   Resolving deltas:  90% (3988/4431)   Resolving deltas:  91% (4033/4431)   Resolving deltas:  92% (4078/4431)   Resolving deltas:  93% (4123/4431)   Resolving deltas:  94% (4166/4431)   Resolving deltas:  95% (4210/4431)   Resolving deltas:  96% (4254/4431)   Resolving deltas:  97% (4300/4431)   Resolving deltas:  98% (4343/4431)   Resolving deltas:  99% (4387/4431)   Resolving deltas: 100% (4431/4431)   Resolving deltas: 100% (4431/4431), done.
+Checking connectivity... done.
+travis_time:end:1163150d:start=1420547906941992300,finish=1420547911008175375,duration=4066183075[0K$ cd gradle/gradle
+$ git checkout -qf 666fe2cbb5263e21a0db390b53a38aa83d0160d0
+travis_fold:end:git.checkout[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TERM=dumb
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:04fba490[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions-snapshots/gradle-2.3-20141215231546+0000-bin.zip
+...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.3-20141215231546+0000-bin/dhufidesfadtpqffb71sm0keg/gradle-2.3-20141215231546+0000-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-2.3-20141215231546+0000-bin/dhufidesfadtpqffb71sm0keg
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.3-20141215231546+0000-bin/dhufidesfadtpqffb71sm0keg/gradle-2.3-20141215231546+0000/bin/gradle
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/14.0.1/guava-jdk5-14.0.1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-parent-jdk5/14.0.1/guava-parent-jdk5-14.0.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://repo.gradle.org/gradle/libs/commons-lang/commons-lang/2.6/commons-lang-2.6.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/17/commons-parent-17.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/7/apache-7.pom
+Download https://repo.gradle.org/gradle/libs/org/pegdown/pegdown/1.1.0/pegdown-1.1.0.pom
+Download https://repo.gradle.org/gradle/libs/org/jsoup/jsoup/1.6.3/jsoup-1.6.3.pom
+Download https://repo.gradle.org/gradle/libs/org/gradle/jarjar/jarjar/1.2.1/jarjar-1.2.1.pom
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-core/1.0.2/parboiled-core-1.0.2.pom
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-java/1.0.2/parboiled-java-1.0.2.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm/3.3.1/asm-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-parent/3.3.1/asm-parent-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-util/3.3.1/asm-util-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-tree/3.3.1/asm-tree-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-analysis/3.3.1/asm-analysis-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/14.0.1/guava-jdk5-14.0.1.jar
+Download https://repo.gradle.org/gradle/libs/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+Download https://repo.gradle.org/gradle/libs/org/pegdown/pegdown/1.1.0/pegdown-1.1.0.jar
+Download https://repo.gradle.org/gradle/libs/org/jsoup/jsoup/1.6.3/jsoup-1.6.3.jar
+Download https://repo.gradle.org/gradle/libs/org/gradle/jarjar/jarjar/1.2.1/jarjar-1.2.1.jar
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-core/1.0.2/parboiled-core-1.0.2.jar
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-java/1.0.2/parboiled-java-1.0.2.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm/3.3.1/asm-3.3.1.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm-util/3.3.1/asm-util-3.3.1.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm-tree/3.3.1/asm-tree-3.3.1.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm-analysis/3.3.1/asm-analysis-3.3.1.jar
+:buildSrc:clean UP-TO-DATE
+:buildSrc:compileJava UP-TO-DATE
+:buildSrc:compileGroovy
+:buildSrc:processResources
+:buildSrc:classes
+:buildSrc:jar
+:buildSrc:assemble
+:buildSrc:checkstyleMain
+Download https://repo.gradle.org/gradle/libs/com/puppycrawl/tools/checkstyle/5.7/checkstyle-5.7.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://repo.gradle.org/gradle/libs/antlr/antlr/2.7.7/antlr-2.7.7.pom
+Download https://repo.gradle.org/gradle/libs/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/4/apache-4.pom
+Download https://repo.gradle.org/gradle/libs/commons-cli/commons-cli/1.2/commons-cli-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download https://repo.gradle.org/gradle/libs/com/puppycrawl/tools/checkstyle/5.7/checkstyle-5.7.jar
+Download https://repo.gradle.org/gradle/libs/antlr/antlr/2.7.7/antlr-2.7.7.jar
+Download https://repo.gradle.org/gradle/libs/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.jar
+Download https://repo.gradle.org/gradle/libs/commons-cli/commons-cli/1.2/commons-cli-1.2.jar
+:buildSrc:compileTestJava UP-TO-DATE
+:buildSrc:compileTestGroovy
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.11/junit-4.11.pom
+Download https://repo.gradle.org/gradle/libs/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.pom
+Download https://repo.gradle.org/gradle/libs/cglib/cglib-nodep/2.2/cglib-nodep-2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/objenesis/objenesis/1.2/objenesis-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/objenesis/objenesis-parent/1.2/objenesis-parent-1.2.pom
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.11/junit-4.11.jar
+Download https://repo.gradle.org/gradle/libs/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.jar
+Download https://repo.gradle.org/gradle/libs/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar
+Download https://repo.gradle.org/gradle/libs/org/objenesis/objenesis/1.2/objenesis-1.2.jar
+:buildSrc:processTestResources
+:buildSrc:testClasses
+:buildSrc:checkstyleTest UP-TO-DATE
+:buildSrc:codenarcMain
+Download https://repo.gradle.org/gradle/libs/org/codenarc/CodeNarc/0.21/CodeNarc-0.21.pom
+Download https://repo.gradle.org/gradle/libs/org/gmetrics/GMetrics/0.5/GMetrics-0.5.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy-all/2.3.6/groovy-all-2.3.6.pom
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.8.2/junit-4.8.2.pom
+Download https://repo.gradle.org/gradle/libs/org/codenarc/CodeNarc/0.21/CodeNarc-0.21.jar
+Download https://repo.gradle.org/gradle/libs/org/gmetrics/GMetrics/0.5/GMetrics-0.5.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy-all/2.3.6/groovy-all-2.3.6.jar
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.8.2/junit-4.8.2.jar
+:buildSrc:codenarcTest
+:buildSrc:test
+:buildSrc:check
+:buildSrc:build
+Downloading the released versions from: https://services.gradle.org/versions/all
+Download https://repo1.maven.org/maven2/com/uwyn/jhighlight/1.0/jhighlight-1.0.pom
+Download https://repo1.maven.org/maven2/com/uwyn/jhighlight/1.0/jhighlight-1.0.jar
+ComponentMetadataHandler.eachComponent() is deprecated and will be removed in the next minor release. Use ComponentMetadataHandler.all() instead.
+Download https://repo.gradle.org/gradle/libs/docbook/docbook-xsl/1.75.2/docbook-xsl-1.75.2.pom
+Download https://repo.gradle.org/gradle/libs/docbook/docbook-xsl/1.75.2/docbook-xsl-1.75.2.zip
+:assemble UP-TO-DATE
+:announce:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/slf4j-parent/1.7.7/slf4j-parent-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/ow2/asm/asm-all/5.0.3/asm-all-5.0.3.pom
+Download https://repo.gradle.org/gradle/libs/org/ow2/asm/asm-parent/5.0.3/asm-parent-5.0.3.pom
+Download https://repo.gradle.org/gradle/libs/org/ow2/ow2/1.3/ow2-1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant/1.9.3/ant-1.9.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant-parent/1.9.3/ant-parent-1.9.3.pom
+Download https://repo.gradle.org/gradle/libs/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download https://repo.gradle.org/gradle/libs/commons-io/commons-io/1.4/commons-io-1.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/7/commons-parent-7.pom
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-core/1.0.13/logback-core-1.0.13.pom
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-parent/1.0.13/logback-parent-1.0.13.pom
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-classic/1.0.13/logback-classic-1.0.13.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/17.0/guava-jdk5-17.0.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-parent-jdk5/17.0/guava-parent-jdk5-17.0.pom
+Download https://repo.gradle.org/gradle/libs/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jul-to-slf4j/1.7.7/jul-to-slf4j-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/com/googlecode/jarjar/jarjar/1.3/jarjar-1.3.pom
+Download https://repo.gradle.org/gradle/libs/javax/inject/javax.inject/1/javax.inject-1.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/jna/3.2.7/jna-3.2.7.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform/0.10/native-platform-0.10.pom
+Download https://repo.gradle.org/gradle/libs/org/fusesource/jansi/jansi/1.2.1/jansi-1.2.1.pom
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/kryo/kryo/2.20/kryo-2.20.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-i386/0.10/native-platform-osx-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-amd64/0.10/native-platform-osx-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-amd64/0.10/native-platform-linux-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-i386/0.10/native-platform-linux-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-amd64/0.10/native-platform-windows-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-i386/0.10/native-platform-windows-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-i386/0.10/native-platform-freebsd-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-amd64/0.10/native-platform-freebsd-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07.pom
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar
+:baseServices:classpathManifest
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/17.0/guava-jdk5-17.0.jar
+:baseServices:compileJavaNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:baseServices:compileGroovy UP-TO-DATE
+:baseServices:processResources UP-TO-DATE
+:baseServices:classes
+:baseServices:jar
+:baseServicesGroovy:classpathManifest
+:baseServicesGroovy:compileJava UP-TO-DATE
+:baseServicesGroovy:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/base-services-groovy/src/main/groovy/org/gradle/api/specs/AndSpec.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:baseServicesGroovy:processResources UP-TO-DATE
+:baseServicesGroovy:classes
+:baseServicesGroovy:jar
+:cli:classpathManifest
+:cli:compileJava
+:cli:compileGroovy UP-TO-DATE
+:cli:processResources UP-TO-DATE
+:cli:classes
+:cli:jar
+:determineCommitId
+:createBuildReceipt
+:core:buildReceiptResource
+:core:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/ow2/asm/asm-all/5.0.3/asm-all-5.0.3.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant/1.9.3/ant-1.9.3.jar
+Download https://repo.gradle.org/gradle/libs/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download https://repo.gradle.org/gradle/libs/commons-io/commons-io/1.4/commons-io-1.4.jar
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-core/1.0.13/logback-core-1.0.13.jar
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-classic/1.0.13/logback-classic-1.0.13.jar
+Download https://repo.gradle.org/gradle/libs/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jul-to-slf4j/1.7.7/jul-to-slf4j-1.7.7.jar
+Download https://repo.gradle.org/gradle/libs/com/googlecode/jarjar/jarjar/1.3/jarjar-1.3.jar
+Download https://repo.gradle.org/gradle/libs/javax/inject/javax.inject/1/javax.inject-1.jar
+Download https://repo.gradle.org/gradle/libs/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.jar
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
+:messaging:classpathManifest
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/kryo/kryo/2.20/kryo-2.20.jar
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-shaded.jar
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar
+:messaging:compileJavaNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:messaging:compileGroovy UP-TO-DATE
+:messaging:processResources UP-TO-DATE
+:messaging:classes
+:messaging:jar
+:modelCore:classpathManifest
+:modelCore:compileJava
+:modelCore:compileGroovy UP-TO-DATE
+:modelCore:processResources UP-TO-DATE
+:modelCore:classes
+:modelCore:jar
+:modelGroovy:classpathManifest
+:modelGroovy:compileJava
+:modelGroovy:compileGroovy UP-TO-DATE
+:modelGroovy:processResources UP-TO-DATE
+:modelGroovy:classes
+:modelGroovy:jar
+:native:classpathManifest
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/jna/3.2.7/jna-3.2.7.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform/0.10/native-platform-0.10.jar
+Download https://repo.gradle.org/gradle/libs/org/fusesource/jansi/jansi/1.2.1/jansi-1.2.1.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-i386/0.10/native-platform-osx-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-amd64/0.10/native-platform-osx-amd64-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-amd64/0.10/native-platform-linux-amd64-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-i386/0.10/native-platform-linux-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-amd64/0.10/native-platform-windows-amd64-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-i386/0.10/native-platform-windows-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-i386/0.10/native-platform-freebsd-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-amd64/0.10/native-platform-freebsd-amd64-0.10.jar
+:native:compileJavaNote: /home/travis/build/gradle/gradle/subprojects/native/src/main/java/org/gradle/internal/nativeintegration/services/NativeServices.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:native:compileGroovy UP-TO-DATE
+:native:processResources UP-TO-DATE
+:native:classes
+:native:jar
+:resources:classpathManifest
+:resources:compileJava
+:resources:compileGroovy UP-TO-DATE
+:resources:processResources UP-TO-DATE
+:resources:classes
+:resources:jar
+:core:compileJava UP-TO-DATE
+:core:compileGroovyNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:core:pluginsManifest
+:core:processResources
+:core:classes
+:core:jar
+:docs:classpathManifest
+:docs:compileJava UP-TO-DATE
+:docs:compileGroovy UP-TO-DATE
+:docs:dslMetaData
+Parsed 1024 classes in 5.83 secs
+:docs:defaultImports
+Multiple DSL types have short name 'MavenPom'
+    * org.gradle.api.publish.maven.MavenPom
+    * org.gradle.api.artifacts.maven.MavenPom
+Multiple DSL types have short name 'Jar'
+    * org.gradle.jvm.tasks.Jar
+    * org.gradle.api.tasks.bundling.Jar
+:docs:processResources UP-TO-DATE
+:docs:classes
+:docs:jar
+:announce:compileJava UP-TO-DATE
+:announce:compileGroovy
+:announce:processResources
+:announce:classes
+:announce:jar
+:announce:assemble
+:antlr:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/testng/testng/6.3.1/testng-6.3.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/oss/oss-parent/3/oss-parent-3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-parent/19/maven-parent-19.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/9/apache-9.pom
+Download https://repo.gradle.org/gradle/libs/com/jcraft/jsch/0.1.51/jsch-0.1.51.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/oss/oss-parent/6/oss-parent-6.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/xbean/xbean/3.4/xbean-3.4.pom
+Download https://repo.gradle.org/gradle/libs/org/bouncycastle/bcprov-jdk15on/1.51/bcprov-jdk15on-1.51.pom
+Download https://repo.gradle.org/gradle/libs/com/googlecode/jatl/jatl/0.2.2/jatl-0.2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/beanshell/bsh/2.0b4/bsh-2.0b4.pom
+Download https://repo.gradle.org/gradle/libs/org/beanshell/beanshell/2.0b4/beanshell-2.0b4.pom
+Download https://repo.gradle.org/gradle/libs/com/beust/jcommander/1.12/jcommander-1.12.pom
+Download https://repo.gradle.org/gradle/libs/org/yaml/snakeyaml/1.6/snakeyaml-1.6.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpclient/4.2.2/httpclient-4.2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcomponents-client/4.2.2/httpcomponents-client-4.2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/project/6/project-6.pom
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/nekohtml/nekohtml/1.9.14/nekohtml-1.9.14.pom
+Download https://repo.gradle.org/gradle/libs/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/22/commons-parent-22.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcore/4.2.2/httpcore-4.2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcomponents-core/4.2.2/httpcomponents-core-4.2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/samba/jcifs/jcifs/1.3.17/jcifs-1.3.17.pom
+Download https://repo.gradle.org/gradle/libs/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Download https://repo.gradle.org/gradle/libs/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/3/apache-3.pom
+Download https://repo.gradle.org/gradle/libs/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+:dependencyManagement:jarJarMaven3
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-core/3.0.4/maven-core-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven/3.0.4/maven-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-parent/21/maven-parent-21.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/10/apache-10.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/spice/spice-parent/12/spice-parent-12.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/forge/forge-parent/4/forge-parent-4.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether/1.13.1/aether-1.13.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-provider-api/2.4/wagon-provider-api-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon/2.4/wagon-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-parent/23/maven-parent-23.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/13/apache-13.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-aether-provider/3.0.4/maven-aether-provider-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-repository-metadata/3.0.4/maven-repository-metadata-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-classworlds/2.4/plexus-classworlds-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-model/3.0.4/maven-model-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-http/2.4/wagon-http-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-providers/2.4/wagon-providers-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-settings-builder/3.0.4/maven-settings-builder-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-compat/3.0.4/maven-compat-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-plugin-api/3.0.4/maven-plugin-api-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-artifact/3.0.4/maven-artifact-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-settings/3.0.4/maven-settings-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/plexus/plexus-cipher/1.7/plexus-cipher-1.7.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/spice/spice-parent/15/spice-parent-15.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-model-builder/3.0.4/maven-model-builder-3.0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-utils/2.0.6/plexus-utils-2.0.6.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-http-shared4/2.4/wagon-http-shared4-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-core/3.0.4/maven-core-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-provider-api/2.4/wagon-provider-api-2.4.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-aether-provider/3.0.4/maven-aether-provider-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-repository-metadata/3.0.4/maven-repository-metadata-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-classworlds/2.4/plexus-classworlds-2.4.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-connector-wagon/1.13.1/aether-connector-wagon-1.13.1.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-model/3.0.4/maven-model-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-http/2.4/wagon-http-2.4.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-settings-builder/3.0.4/maven-settings-builder-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-compat/3.0.4/maven-compat-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-plugin-api/3.0.4/maven-plugin-api-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-artifact/3.0.4/maven-artifact-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-settings/3.0.4/maven-settings-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/plexus/plexus-cipher/1.7/plexus-cipher-1.7.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-model-builder/3.0.4/maven-model-builder-3.0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-utils/2.0.6/plexus-utils-2.0.6.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/wagon/wagon-http-shared4/2.4/wagon-http-shared4-2.4.jar
+:dependencyManagement:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/maven/maven-ant-tasks/2.1.3/maven-ant-tasks-2.1.3.jar
+Download https://repo.gradle.org/gradle/libs/com/jcraft/jsch/0.1.51/jsch-0.1.51.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+Download https://repo.gradle.org/gradle/libs/org/bouncycastle/bcprov-jdk15on/1.51/bcprov-jdk15on-1.51.jar
+:resourcesHttp:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpclient/4.2.2/httpclient-4.2.2.jar
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/nekohtml/nekohtml/1.9.14/nekohtml-1.9.14.jar
+Download https://repo.gradle.org/gradle/libs/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcore/4.2.2/httpcore-4.2.2.jar
+Download https://repo.gradle.org/gradle/libs/org/samba/jcifs/jcifs/1.3.17/jcifs-1.3.17.jar
+Download https://repo.gradle.org/gradle/libs/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+Download https://repo.gradle.org/gradle/libs/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+:resourcesHttp:compileJava
+:resourcesHttp:compileGroovy UP-TO-DATE
+:resourcesHttp:processResources UP-TO-DATE
+:resourcesHttp:classes
+:resourcesHttp:jar
+:dependencyManagement:compileJavaNote: /home/travis/build/gradle/gradle/subprojects/dependency-management/src/main/java/org/gradle/api/internal/artifacts/dsl/DefaultComponentMetadataHandler.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:dependencyManagement:compileGroovy UP-TO-DATE
+:dependencyManagement:processResources
+:dependencyManagement:classes
+:dependencyManagement:jar
+:diagnostics:classpathManifest
+:platformBase:classpathManifest
+:platformBase:compileJava
+:platformBase:compileGroovy UP-TO-DATE
+:platformBase:processResources
+:platformBase:classes
+:platformBase:jar
+:reporting:classpathManifest
+Download https://repo.gradle.org/gradle/libs/com/googlecode/jatl/jatl/0.2.2/jatl-0.2.2.jar
+:reporting:compileJava UP-TO-DATE
+:reporting:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/reporting/src/main/groovy/org/gradle/api/reporting/plugins/BuildDashboardPlugin.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:reporting:processResources
+:reporting:reportResources
+Download http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
+:reporting:classes
+:reporting:jar
+:diagnostics:compileJava UP-TO-DATE
+:diagnostics:compileGroovy
+:diagnostics:processResources
+:diagnostics:classes
+:diagnostics:jar
+:languageGroovy:classpathManifest
+:languageJava:classpathManifest
+:languageJvm:classpathManifest
+:platformJvm:classpathManifest
+:platformJvm:compileJava
+:platformJvm:compileGroovy UP-TO-DATE
+:platformJvm:processResources
+:platformJvm:classes
+:platformJvm:jar
+:languageJvm:compileJava
+:languageJvm:compileGroovy UP-TO-DATE
+:languageJvm:processResources
+:languageJvm:classes
+:languageJvm:jar
+:languageJava:compileJava
+:languageJava:compileGroovy UP-TO-DATE
+:languageJava:processResources
+:languageJava:classes
+:languageJava:jar
+:languageGroovy:compileJava
+:languageGroovy:compileGroovy UP-TO-DATE
+:languageGroovy:processResources UP-TO-DATE
+:languageGroovy:classes
+:languageGroovy:jar
+:plugins:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/testng/testng/6.3.1/testng-6.3.1.jar
+Download https://repo.gradle.org/gradle/libs/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar
+Download https://repo.gradle.org/gradle/libs/com/beust/jcommander/1.12/jcommander-1.12.jar
+Download https://repo.gradle.org/gradle/libs/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar
+Download https://repo.gradle.org/gradle/libs/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+:plugins:compileJava UP-TO-DATE
+:plugins:compileGroovyNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:plugins:processResources
+:wrapper:classpathManifest
+:wrapper:compileJava
+:wrapper:compileGroovy UP-TO-DATE
+:wrapper:processResources UP-TO-DATE
+:wrapper:classes
+:wrapper:executableJar
+:plugins:wrapperJar
+:plugins:classes
+:plugins:jar
+:antlr:compileJava UP-TO-DATE
+:antlr:compileGroovy
+:antlr:processResources
+:antlr:classes
+:antlr:jar
+:antlr:assemble
+:baseServices:generatePom
+:baseServices:assemble
+:baseServicesGroovy:generatePom
+:baseServicesGroovy:assemble
+:buildComparison:classpathManifest
+:ear:classpathManifest
+:ear:compileJava UP-TO-DATE
+:ear:compileGroovy
+:ear:processResources
+:ear:classes
+:ear:jar
+:toolingApi:classpathManifest
+:wrapper:jar
+:toolingApi:compileJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:toolingApi:compileGroovy UP-TO-DATE
+:toolingApi:processResources UP-TO-DATE
+:toolingApi:classes
+:toolingApi:jar
+:buildComparison:compileJava UP-TO-DATE
+:buildComparison:compileGroovyNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:docs:configureCss
+Download http://themes.googleusercontent.com/static/fonts/lato/v6/v0SdcGFAl2aezM9Vq_aFTQ.ttf
+Download http://themes.googleusercontent.com/static/fonts/lato/v6/LqowQDslGv4DmUBAfWa2Vw.ttf
+Download http://themes.googleusercontent.com/static/fonts/lato/v6/DvlFBScY1r-FMtZSYIYoYw.ttf
+Download http://themes.googleusercontent.com/static/fonts/lato/v6/HkF_qI1x_noxlxhrhMQYEKCWcynf_cDxXwCLxiixG1c.ttf
+Download http://themes.googleusercontent.com/static/fonts/ubuntumono/v3/ViZhet7Ak-LRXZMXzuAfkZ0EAVxt0G0biEntp43Qt6E.ttf
+Download http://themes.googleusercontent.com/static/fonts/ubuntumono/v3/KAKuHXAHZOeECOWAHsRKA-LrC4Du4e_yfTJ8Ol60xk0.ttf
+Download http://themes.googleusercontent.com/static/fonts/ubuntumono/v3/ceqTZGKHipo8pJj4molytp_TkvowlIOtbR7ePgFOpF4.ttf
+Download http://themes.googleusercontent.com/static/fonts/ubuntumono/v3/n_d8tv_JOIiYyMXR4eaV9WsGzsqhEorxQDpu60nfWEc.ttf
+:docs:css
+:buildComparison:processResources
+:buildComparison:classes
+:buildComparison:jar
+:buildComparison:assemble
+:buildInit:classpathManifest
+:buildInit:compileJava UP-TO-DATE
+:buildInit:compileGroovyNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:buildInit:generateTemplateVersionFile
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-library/2.11.4/scala-library-2.11.4.pom
+Download https://repo.gradle.org/gradle/libs/org/scalatest/scalatest_2.11/3.0.0-SNAP4/scalatest_2.11-3.0.0-SNAP4.pom
+Download https://repo.gradle.org/gradle/libs/org/scalatest/scalatest_2.11/3.0.0-SNAP3/scalatest_2.11-3.0.0-SNAP3.pom
+Download https://repo.gradle.org/gradle/libs/org/scalatest/scalatest_2.11/3.0.0-SNAP2/scalatest_2.11-3.0.0-SNAP2.pom
+Download https://repo.gradle.org/gradle/libs/org/scalatest/scalatest_2.11/3.0.0-SNAP1/scalatest_2.11-3.0.0-SNAP1.pom
+Download https://repo.gradle.org/gradle/libs/org/scalatest/scalatest_2.11/2.2.3/scalatest_2.11-2.2.3.pom
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/modules/scala-xml_2.11/1.0.3/scala-xml_2.11-1.0.3.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy/2.4.0-rc-1/groovy-2.4.0-rc-1.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy/2.4.0-beta-4/groovy-2.4.0-beta-4.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy/2.4.0-beta-3/groovy-2.4.0-beta-3.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy/2.4.0-beta-2/groovy-2.4.0-beta-2.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy/2.4.0-beta-1/groovy-2.4.0-beta-1.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy/2.3.9/groovy-2.3.9.pom
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.12/junit-4.12.pom
+:buildInit:processResources
+:buildInit:classes
+:buildInit:jar
+:buildInit:assemble
+:cli:assemble
+:codeQuality:classpathManifest
+:codeQuality:compileJava UP-TO-DATE
+:codeQuality:compileGroovy
+Download https://repo.gradle.org/gradle/libs/com/google/code/findbugs/findbugs/2.0.1/findbugs-2.0.1.pom
+Download https://repo.gradle.org/gradle/libs/dom4j/dom4j/1.6.1/dom4j-1.6.1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/code/findbugs/findbugs/2.0.1/findbugs-2.0.1.jar
+Download https://repo.gradle.org/gradle/libs/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+:codeQuality:processResources
+:codeQuality:classes
+:codeQuality:jar
+:codeQuality:assemble
+:core:generatePom
+:core:assemble
+:cunit:classpathManifest
+:languageNative:classpathManifest
+:platformNative:classpathManifest
+:platformNative:compileJava UP-TO-DATE
+:platformNative:compileGroovy
+:platformNative:processResources
+:platformNative:classes
+:platformNative:jar
+:languageNative:compileJava
+:languageNative:compileGroovy UP-TO-DATE
+:languageNative:processResources
+:languageNative:classes
+:languageNative:jar
+:cunit:compileJava
+:cunit:compileGroovy UP-TO-DATE
+:cunit:processResources
+:cunit:classes
+:cunit:jar
+:cunit:assemble
+:dependencyManagement:assemble
+:diagnostics:assemble
+:docs:dslDocbook
+class org.gradle.api.plugins.antlr.AntlrSourceVirtualDirectory: Could not generate link for unknown class 'org.gradle.api.internal.DynamicObjectAware'
+property org.gradle.buildinit.tasks.InitBuild.type: Could not locate target class 'null' for field value link 'BuildInitTypeIds#POM'
+property org.gradle.buildinit.tasks.InitBuild.type: Could not locate target class 'null' for field value link 'BuildInitTypeIds#BASIC'
+:docs:samples
+:docs:userguideStyleSheets
+:docs:userguideFragmentSrc
+:docs:distDocs
+Download https://repo.gradle.org/gradle/libs/xalan/xalan/2.7.1/xalan-2.7.1.pom
+Download https://repo.gradle.org/gradle/libs/xhtmlrenderer/xhtmlrenderer/R8rc1/xhtmlrenderer-R8rc1.pom
+Download https://repo.gradle.org/gradle/libs/xslthl/xslthl/2.0.1/xslthl-2.0.1.pom
+Download https://repo.gradle.org/gradle/libs/xalan/serializer/2.7.1/serializer-2.7.1.pom
+Download https://repo.gradle.org/gradle/libs/itext/itext/2.0.8/itext-2.0.8.pom
+Download https://repo.gradle.org/gradle/libs/xalan/xalan/2.7.1/xalan-2.7.1.jar
+Download https://repo.gradle.org/gradle/libs/xhtmlrenderer/xhtmlrenderer/R8rc1/xhtmlrenderer-R8rc1.jar
+Download https://repo.gradle.org/gradle/libs/xslthl/xslthl/2.0.1/xslthl-2.0.1.jar
+Download https://repo.gradle.org/gradle/libs/xalan/serializer/2.7.1/serializer-2.7.1.jar
+Download https://repo.gradle.org/gradle/libs/itext/itext/2.0.8/itext-2.0.8.jar
+:docs:dslStandaloneDocbook
+:docs:dslHtml
+:docs:configureGroovydocAll
+:ide:classpathManifest
+Download https://repo.gradle.org/gradle/libs/jaxen/jaxen/1.1/jaxen-1.1.pom
+:languageScala:classpathManifest
+:languageScala:compileJava
+Download https://repo.gradle.org/gradle/libs/com/typesafe/zinc/zinc/0.3.0/zinc-0.3.0.pom
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.pom
+Download https://repo.gradle.org/gradle/libs/com/typesafe/sbt/incremental-compiler/0.13.0/incremental-compiler-0.13.0.pom
+Download https://repo.gradle.org/gradle/libs/com/typesafe/sbt/compiler-interface/0.13.0/compiler-interface-0.13.0.pom
+Download https://repo.gradle.org/gradle/libs/com/typesafe/sbt/sbt-interface/0.13.0/sbt-interface-0.13.0.pom
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.pom
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.pom
+Download https://repo.gradle.org/gradle/libs/com/typesafe/zinc/zinc/0.3.0/zinc-0.3.0.jar
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-library/2.10.2/scala-library-2.10.2.jar
+Download https://repo.gradle.org/gradle/libs/com/typesafe/sbt/incremental-compiler/0.13.0/incremental-compiler-0.13.0.jar
+Download https://repo.gradle.org/gradle/libs/com/typesafe/sbt/compiler-interface/0.13.0/compiler-interface-0.13.0-sources.jar
+Download https://repo.gradle.org/gradle/libs/com/typesafe/sbt/sbt-interface/0.13.0/sbt-interface-0.13.0.jar
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-compiler/2.10.2/scala-compiler-2.10.2.jar
+Download https://repo.gradle.org/gradle/libs/org/scala-lang/scala-reflect/2.10.2/scala-reflect-2.10.2.jar
+:languageScala:compileGroovy UP-TO-DATE
+:languageScala:processResources
+:languageScala:classes
+:languageScala:jar
+:launcher:classpathManifest
+:openApi:classpathManifest
+:openApi:compileJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:openApi:compileGroovy UP-TO-DATE
+:openApi:processResources UP-TO-DATE
+:openApi:classes
+:openApi:jar
+:ui:classpathManifest
+Download https://repo.gradle.org/gradle/libs/jaxen/jaxen/1.1/jaxen-1.1.jar
+:ui:compileJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:ui:compileGroovy UP-TO-DATE
+:ui:processResources
+:ui:classes
+:ui:jar
+:launcher:compileJavaNote: /home/travis/build/gradle/gradle/subprojects/launcher/src/main/java/org/gradle/tooling/internal/provider/DefaultConnection.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:launcher:compileGroovy UP-TO-DATE
+:launcher:processResources
+:launcher:classes
+:launcher:jar
+:scala:classpathManifest
+:scala:compileJava UP-TO-DATE
+:scala:compileGroovy
+:scala:processResources
+:scala:classes
+:scala:jar
+:ide:compileJava UP-TO-DATE
+:ide:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/ide/src/main/groovy/org/gradle/plugins/ide/internal/tooling/IdeaModelBuilder.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/gradle/gradle/subprojects/ide/build/tmp/compileGroovy/groovy-java-stubs/org/gradle/plugins/ide/idea/model/SingleEntryModuleLibrary.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:ide:processResources
+:ide:classes
+:ide:jar
+:ideNative:classpathManifest
+:ideNative:compileJava UP-TO-DATE
+:ideNative:compileGroovy
+:ideNative:processResources
+:ideNative:classes
+:ivy:classpathManifest
+:publish:classpathManifest
+:publish:compileJava UP-TO-DATE
+:publish:compileGroovy
+:publish:processResources
+:publish:classes
+:publish:jar
+:ivy:compileJava
+:ivy:compileGroovy UP-TO-DATE
+:ivy:processResources
+:ivy:classes
+:jacoco:classpathManifest
+:jacoco:compileJava UP-TO-DATE
+:jacoco:compileGroovy
+:jacoco:processResources
+:jacoco:classes
+:jacoco:jar
+:javascript:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/mozilla/rhino/1.7R3/rhino-1.7R3.pom
+Download https://repo.gradle.org/gradle/libs/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/simpleframework/simple/4.1.21/simple-4.1.21.pom
+Download https://repo.gradle.org/gradle/libs/org/mozilla/rhino/1.7R3/rhino-1.7R3.jar
+Download https://repo.gradle.org/gradle/libs/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+Download https://repo.gradle.org/gradle/libs/org/simpleframework/simple/4.1.21/simple-4.1.21.jar
+:javascript:compileJava UP-TO-DATE
+:javascript:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/javascript/src/main/groovy/org/gradle/plugins/javascript/rhino/worker/internal/RhinoServer.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:javascript:processResources
+:javascript:classes
+:javascript:jar
+:jetty:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty/6.1.25/jetty-6.1.25.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/project/6.1.25/project-6.1.25.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-parent/10/jetty-parent-10.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-parent/14/jetty-parent-14.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-util/6.1.25/jetty-util-6.1.25.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-parent/7/jetty-parent-7.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-plus/6.1.25/jetty-plus-6.1.25.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/project/6.1.14/project-6.1.14.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-annotations/6.1.25/jetty-annotations-6.1.25.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/geronimo/specs/geronimo-annotation_1.0_spec/1.0/geronimo-annotation_1.0_spec-1.0.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/geronimo/specs/specs/1.2/specs-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/geronimo/genesis/config/project-config/1.1/project-config-1.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/geronimo/genesis/config/config/1.1/config-1.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/geronimo/genesis/genesis/1.1/genesis-1.1.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-naming/6.1.25/jetty-naming-6.1.25.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jdt/core/3.1.1/core-3.1.1.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.pom
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty/6.1.25/jetty-6.1.25.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-util/6.1.25/jetty-util-6.1.25.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-plus/6.1.25/jetty-plus-6.1.25.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-annotations/6.1.25/jetty-annotations-6.1.25.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/geronimo/specs/geronimo-annotation_1.0_spec/1.0/geronimo-annotation_1.0_spec-1.0.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jetty-naming/6.1.25/jetty-naming-6.1.25.jar
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar
+Download https://repo.gradle.org/gradle/libs/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar
+:jetty:compileJava
+:jetty:compileGroovy UP-TO-DATE
+:jetty:processResources
+:jetty:classes
+:maven:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/sonatype/pmaven/pmaven-common/0.8-20100325/pmaven-common-0.8-20100325.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/pmaven/pmaven-groovy/0.8-20100325/pmaven-groovy-0.8-20100325.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-component-annotations/1.5.2/plexus-component-annotations-1.5.2.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-containers/1.5.2/plexus-containers-1.5.2.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus/2.0.3/plexus-2.0.3.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/pmaven/pmaven-common/0.8-20100325/pmaven-common-0.8-20100325.jar
+Download https://repo.gradle.org/gradle/libs/org/sonatype/pmaven/pmaven-groovy/0.8-20100325/pmaven-groovy-0.8-20100325.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/plexus/plexus-component-annotations/1.5.2/plexus-component-annotations-1.5.2.jar
+:maven:compileJava
+:maven:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/maven/src/main/groovy/org/gradle/api/publication/maven/internal/DefaultMavenRepositoryHandlerConvention.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:maven:processResources
+:maven:classes
+:maven:jar
+:osgi:classpathManifest
+Download https://repo.gradle.org/gradle/libs/biz/aQute/bnd/bndlib/2.1.0/bndlib-2.1.0.pom
+Download https://repo.gradle.org/gradle/libs/biz/aQute/bnd/parent/2.1.0/parent-2.1.0.pom
+Download https://repo.gradle.org/gradle/libs/biz/aQute/bnd/bndlib/2.1.0/bndlib-2.1.0.jar
+:osgi:compileJava UP-TO-DATE
+:osgi:compileGroovy
+:osgi:processResources
+:osgi:classes
+:performance:classpathManifest
+:performance:compileJava UP-TO-DATE
+:performance:compileGroovy UP-TO-DATE
+:performance:processResources UP-TO-DATE
+:performance:reportResources
+Download https://repo.gradle.org/gradle/libs/flot/flot/0.8.1/flot-0.8.1.pom
+Download https://repo.gradle.org/gradle/libs/flot/flot/0.8.1/flot-0.8.1-min.js
+:performance:classes
+:platformPlay:classpathManifest
+:platformPlay:compileJava
+:platformPlay:compileGroovy UP-TO-DATE
+:platformPlay:processResources
+:platformPlay:classes
+:pluginDevelopment:classpathManifest
+:pluginDevelopment:compileJava
+:pluginDevelopment:compileGroovy UP-TO-DATE
+:pluginDevelopment:processResources
+:pluginDevelopment:classes
+:pluginUse:classpathManifest
+:pluginUse:compileJava
+:pluginUse:compileGroovy UP-TO-DATE
+:pluginUse:processResources
+:pluginUse:classes
+:signing:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/bouncycastle/bcpg-jdk15on/1.51/bcpg-jdk15on-1.51.pom
+Download https://repo.gradle.org/gradle/libs/org/bouncycastle/bcpg-jdk15on/1.51/bcpg-jdk15on-1.51.jar
+:signing:compileJava UP-TO-DATE
+:signing:compileGroovy
+:signing:processResources
+:signing:classes
+:sonar:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar-batch-bootstrapper/2.9/sonar-batch-bootstrapper-2.9.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar/2.9/sonar-2.9.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar-batch-bootstrapper/2.9/sonar-batch-bootstrapper-2.9.jar
+:sonar:compileJava UP-TO-DATE
+:sonar:compileGroovy
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar-batch/2.9/sonar-batch-2.9.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar-plugin-api/2.9/sonar-plugin-api-2.9.pom
+Download https://repo.gradle.org/gradle/libs/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar-batch/2.9/sonar-batch-2.9.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/sonar/sonar-plugin-api/2.9/sonar-plugin-api-2.9.jar
+Download https://repo.gradle.org/gradle/libs/commons-configuration/commons-configuration/1.6/commons-configuration-1.6.jar
+:sonar:processResources
+:sonar:classes
+:docs:groovydocAll
+[ant:groovydoc] java.lang.IllegalArgumentException: Illegal group reference
+[ant:groovydoc] 	at java.util.regex.Matcher.appendReplacement(Matcher.java:808)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.SimpleGroovyClassDoc.encodeAngleBracketsInTagBody(SimpleGroovyClassDoc.java:918)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.SimpleGroovyClassDoc.replaceTags(SimpleGroovyClassDoc.java:816)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.SimpleGroovyMemberDoc.commentText(SimpleGroovyMemberDoc.java:43)
+[ant:groovydoc] 	at org.codehaus.groovy.groovydoc.GroovyDoc$commentText$6.call(Unknown Source)
+[ant:groovydoc] 	at groovy.tmp.templates.GStringTemplateScript11$_getTemplate_closure1_closure35.doCall(GStringTemplateScript11.groovy:766)
+[ant:groovydoc] 	at sun.reflect.GeneratedMethodAccessor1150.invoke(Unknown Source)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+[ant:groovydoc] 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:278)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:423)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:439)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:1379)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:1372)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.dgm$149.invoke(Unknown Source)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:271)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:53)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+[ant:groovydoc] 	at groovy.tmp.templates.GStringTemplateScript11$_getTemplate_closure1.doCall(GStringTemplateScript11.groovy:760)
+[ant:groovydoc] 	at sun.reflect.GeneratedMethodAccessor1167.invoke(Unknown Source)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+[ant:groovydoc] 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:278)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:423)
+[ant:groovydoc] 	at groovy.lang.Closure$WritableClosure.writeTo(Closure.java:853)
+[ant:groovydoc] 	at groovy.lang.Closure$WritableClosure.toString(Closure.java:979)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocTemplateEngine.applyClassTemplates(GroovyDocTemplateEngine.java:87)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocWriter.writeClassToOutput(GroovyDocWriter.java:56)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocWriter.writeClasses(GroovyDocWriter.java:47)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocTool.renderToOutput(GroovyDocTool.java:98)
+[ant:groovydoc] 	at org.codehaus.groovy.ant.Groovydoc.execute(Groovydoc.java:445)
+[ant:groovydoc] 	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+[ant:groovydoc] 	at groovy.util.AntBuilder.performTask(AntBuilder.java:319)
+[ant:groovydoc] 	at groovy.util.AntBuilder.nodeCompleted(AntBuilder.java:264)
+[ant:groovydoc] 	at org.gradle.api.internal.project.ant.BasicAntBuilder.nodeCompleted(BasicAntBuilder.java:77)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:230)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:53)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:55)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+[ant:groovydoc] 	at org.gradle.api.internal.project.AntBuilderDelegate.nodeCompleted(DefaultIsolatedAntBuilder.groovy:173)
+[ant:groovydoc] 	at groovy.util.BuilderSupport.doInvokeMethod(BuilderSupport.java:147)
+[ant:groovydoc] 	at groovy.util.BuilderSupport.invokeMethod(BuilderSupport.java:64)
+[ant:groovydoc] 	at org.gradle.api.tasks.javadoc.AntGroovydoc$2.doCall(AntGroovydoc.java:87)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+[ant:groovydoc] 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1207)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:423)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:439)
+[ant:groovydoc] 	at org.gradle.api.internal.ClosureBackedAction.execute(ClosureBackedAction.java:67)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil.configure(ConfigureUtil.java:130)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil.configure(ConfigureUtil.java:91)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil$configure.call(Unknown Source)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil$configure.call(Unknown Source)
+[ant:groovydoc] 	at org.gradle.api.internal.project.DefaultIsolatedAntBuilder.execute(DefaultIsolatedAntBuilder.groovy:104)
+[ant:groovydoc] 	at org.gradle.api.tasks.javadoc.AntGroovydoc.execute(AntGroovydoc.java:77)
+[ant:groovydoc] 	at org.gradle.api.tasks.javadoc.Groovydoc.generate(Groovydoc.java:75)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:63)
+[ant:groovydoc] 	at org.gradle.api.internal.project.taskfactory.AnnotationProcessingTaskFactory$StandardTaskAction.doExecute(AnnotationProcessingTaskFactory.java:218)
+[ant:groovydoc] 	at org.gradle.api.internal.project.taskfactory.AnnotationProcessingTaskFactory$StandardTaskAction.execute(AnnotationProcessingTaskFactory.java:211)
+[ant:groovydoc] 	at org.gradle.api.internal.project.taskfactory.AnnotationProcessingTaskFactory$StandardTaskAction.execute(AnnotationProcessingTaskFactory.java:200)
+[ant:groovydoc] 	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:585)
+[ant:groovydoc] 	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:568)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeAction(ExecuteActionsTaskExecuter.java:80)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:61)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:46)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.PostExecutionAnalysisTaskExecuter.execute(PostExecutionAnalysisTaskExecuter.java:35)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipUpToDateTaskExecuter.execute(SkipUpToDateTaskExecuter.java:64)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:58)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:42)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:52)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:53)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
+[ant:groovydoc] 	at org.gradle.api.internal.AbstractTask.executeWithoutThrowingTaskFailure(AbstractTask.java:306)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.executeTask(AbstractTaskPlanExecutor.java:79)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.processTask(AbstractTaskPlanExecutor.java:63)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.run(AbstractTaskPlanExecutor.java:51)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor.process(DefaultTaskPlanExecutor.java:23)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter.execute(DefaultTaskGraphExecuter.java:88)
+[ant:groovydoc] 	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:29)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:62)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.access$200(DefaultBuildExecuter.java:23)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter$2.proceed(DefaultBuildExecuter.java:68)
+[ant:groovydoc] 	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:32)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:62)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:55)
+[ant:groovydoc] 	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:149)
+[ant:groovydoc] 	at org.gradle.initialization.DefaultGradleLauncher.doBuild(DefaultGradleLauncher.java:106)
+[ant:groovydoc] 	at org.gradle.initialization.DefaultGradleLauncher.run(DefaultGradleLauncher.java:86)
+[ant:groovydoc] 	at org.gradle.launcher.exec.InProcessBuildActionExecuter$DefaultBuildController.run(InProcessBuildActionExecuter.java:80)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExecuteBuildAction.run(ExecuteBuildAction.java:33)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExecuteBuildAction.run(ExecuteBuildAction.java:24)
+[ant:groovydoc] 	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:36)
+[ant:groovydoc] 	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:26)
+[ant:groovydoc] 	at org.gradle.launcher.cli.RunBuildAction.run(RunBuildAction.java:51)
+[ant:groovydoc] 	at org.gradle.internal.Actions$RunnableActionAdapter.execute(Actions.java:169)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$ParseAndBuildAction.execute(CommandLineActionFactory.java:237)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$ParseAndBuildAction.execute(CommandLineActionFactory.java:210)
+[ant:groovydoc] 	at org.gradle.launcher.cli.JavaRuntimeValidationAction.execute(JavaRuntimeValidationAction.java:35)
+[ant:groovydoc] 	at org.gradle.launcher.cli.JavaRuntimeValidationAction.execute(JavaRuntimeValidationAction.java:24)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$WithLogging.execute(CommandLineActionFactory.java:206)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$WithLogging.execute(CommandLineActionFactory.java:169)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:33)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:22)
+[ant:groovydoc] 	at org.gradle.launcher.Main.doAction(Main.java:33)
+[ant:groovydoc] 	at org.gradle.launcher.bootstrap.EntryPoint.run(EntryPoint.java:45)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.gradle.launcher.bootstrap.ProcessBootstrap.runNoExit(ProcessBootstrap.java:54)
+[ant:groovydoc] 	at org.gradle.launcher.bootstrap.ProcessBootstrap.run(ProcessBootstrap.java:35)
+[ant:groovydoc] 	at org.gradle.launcher.GradleMain.main(GradleMain.java:23)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.gradle.wrapper.BootstrapMainStarter.start(BootstrapMainStarter.java:30)
+[ant:groovydoc] 	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:127)
+[ant:groovydoc] 	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:61)
+[ant:groovydoc] java.lang.IllegalArgumentException: Illegal group reference
+[ant:groovydoc] 	at java.util.regex.Matcher.appendReplacement(Matcher.java:808)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.SimpleGroovyClassDoc.encodeAngleBracketsInTagBody(SimpleGroovyClassDoc.java:918)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.SimpleGroovyClassDoc.replaceTags(SimpleGroovyClassDoc.java:816)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.SimpleGroovyMemberDoc.commentText(SimpleGroovyMemberDoc.java:43)
+[ant:groovydoc] 	at org.codehaus.groovy.groovydoc.GroovyDoc$commentText$6.call(Unknown Source)
+[ant:groovydoc] 	at groovy.tmp.templates.GStringTemplateScript11$_getTemplate_closure1_closure35.doCall(GStringTemplateScript11.groovy:766)
+[ant:groovydoc] 	at sun.reflect.GeneratedMethodAccessor1150.invoke(Unknown Source)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+[ant:groovydoc] 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:278)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:423)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:439)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:1379)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:1372)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.dgm$149.invoke(Unknown Source)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:271)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:53)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+[ant:groovydoc] 	at groovy.tmp.templates.GStringTemplateScript11$_getTemplate_closure1.doCall(GStringTemplateScript11.groovy:760)
+[ant:groovydoc] 	at sun.reflect.GeneratedMethodAccessor1167.invoke(Unknown Source)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+[ant:groovydoc] 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:278)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:423)
+[ant:groovydoc] 	at groovy.lang.Closure$WritableClosure.writeTo(Closure.java:853)
+[ant:groovydoc] 	at groovy.lang.Closure$WritableClosure.toString(Closure.java:979)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocTemplateEngine.applyClassTemplates(GroovyDocTemplateEngine.java:87)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocWriter.writeClassToOutput(GroovyDocWriter.java:56)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocWriter.writeClasses(GroovyDocWriter.java:47)
+[ant:groovydoc] 	at org.codehaus.groovy.tools.groovydoc.GroovyDocTool.renderToOutput(GroovyDocTool.java:98)
+[ant:groovydoc] 	at org.codehaus.groovy.ant.Groovydoc.execute(Groovydoc.java:445)
+[ant:groovydoc] 	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+[ant:groovydoc] 	at groovy.util.AntBuilder.performTask(AntBuilder.java:319)
+[ant:groovydoc] 	at groovy.util.AntBuilder.nodeCompleted(AntBuilder.java:264)
+[ant:groovydoc] 	at org.gradle.api.internal.project.ant.BasicAntBuilder.nodeCompleted(BasicAntBuilder.java:77)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:230)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:53)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:55)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:120)
+[ant:groovydoc] 	at org.gradle.api.internal.project.AntBuilderDelegate.nodeCompleted(DefaultIsolatedAntBuilder.groovy:173)
+[ant:groovydoc] 	at groovy.util.BuilderSupport.doInvokeMethod(BuilderSupport.java:147)
+[ant:groovydoc] 	at groovy.util.BuilderSupport.invokeMethod(BuilderSupport.java:64)
+[ant:groovydoc] 	at org.gradle.api.tasks.javadoc.AntGroovydoc$2.doCall(AntGroovydoc.java:87)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+[ant:groovydoc] 	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:324)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1207)
+[ant:groovydoc] 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1016)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:423)
+[ant:groovydoc] 	at groovy.lang.Closure.call(Closure.java:439)
+[ant:groovydoc] 	at org.gradle.api.internal.ClosureBackedAction.execute(ClosureBackedAction.java:67)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil.configure(ConfigureUtil.java:130)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil.configure(ConfigureUtil.java:91)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil$configure.call(Unknown Source)
+[ant:groovydoc] 	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+[ant:groovydoc] 	at org.gradle.util.ConfigureUtil$configure.call(Unknown Source)
+[ant:groovydoc] 	at org.gradle.api.internal.project.DefaultIsolatedAntBuilder.execute(DefaultIsolatedAntBuilder.groovy:104)
+[ant:groovydoc] 	at org.gradle.api.tasks.javadoc.AntGroovydoc.execute(AntGroovydoc.java:77)
+[ant:groovydoc] 	at org.gradle.api.tasks.javadoc.Groovydoc.generate(Groovydoc.java:75)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:63)
+[ant:groovydoc] 	at org.gradle.api.internal.project.taskfactory.AnnotationProcessingTaskFactory$StandardTaskAction.doExecute(AnnotationProcessingTaskFactory.java:218)
+[ant:groovydoc] 	at org.gradle.api.internal.project.taskfactory.AnnotationProcessingTaskFactory$StandardTaskAction.execute(AnnotationProcessingTaskFactory.java:211)
+[ant:groovydoc] 	at org.gradle.api.internal.project.taskfactory.AnnotationProcessingTaskFactory$StandardTaskAction.execute(AnnotationProcessingTaskFactory.java:200)
+[ant:groovydoc] 	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:585)
+[ant:groovydoc] 	at org.gradle.api.internal.AbstractTask$TaskActionWrapper.execute(AbstractTask.java:568)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeAction(ExecuteActionsTaskExecuter.java:80)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:61)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:46)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.PostExecutionAnalysisTaskExecuter.execute(PostExecutionAnalysisTaskExecuter.java:35)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipUpToDateTaskExecuter.execute(SkipUpToDateTaskExecuter.java:64)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:58)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:42)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:52)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:53)
+[ant:groovydoc] 	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
+[ant:groovydoc] 	at org.gradle.api.internal.AbstractTask.executeWithoutThrowingTaskFailure(AbstractTask.java:306)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.executeTask(AbstractTaskPlanExecutor.java:79)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.processTask(AbstractTaskPlanExecutor.java:63)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.AbstractTaskPlanExecutor$TaskExecutorWorker.run(AbstractTaskPlanExecutor.java:51)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor.process(DefaultTaskPlanExecutor.java:23)
+[ant:groovydoc] 	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter.execute(DefaultTaskGraphExecuter.java:88)
+[ant:groovydoc] 	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:29)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:62)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.access$200(DefaultBuildExecuter.java:23)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter$2.proceed(DefaultBuildExecuter.java:68)
+[ant:groovydoc] 	at org.gradle.execution.DryRunBuildExecutionAction.execute(DryRunBuildExecutionAction.java:32)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:62)
+[ant:groovydoc] 	at org.gradle.execution.DefaultBuildExecuter.execute(DefaultBuildExecuter.java:55)
+[ant:groovydoc] 	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:149)
+[ant:groovydoc] 	at org.gradle.initialization.DefaultGradleLauncher.doBuild(DefaultGradleLauncher.java:106)
+[ant:groovydoc] 	at org.gradle.initialization.DefaultGradleLauncher.run(DefaultGradleLauncher.java:86)
+[ant:groovydoc] 	at org.gradle.launcher.exec.InProcessBuildActionExecuter$DefaultBuildController.run(InProcessBuildActionExecuter.java:80)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExecuteBuildAction.run(ExecuteBuildAction.java:33)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExecuteBuildAction.run(ExecuteBuildAction.java:24)
+[ant:groovydoc] 	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:36)
+[ant:groovydoc] 	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:26)
+[ant:groovydoc] 	at org.gradle.launcher.cli.RunBuildAction.run(RunBuildAction.java:51)
+[ant:groovydoc] 	at org.gradle.internal.Actions$RunnableActionAdapter.execute(Actions.java:169)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$ParseAndBuildAction.execute(CommandLineActionFactory.java:237)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$ParseAndBuildAction.execute(CommandLineActionFactory.java:210)
+[ant:groovydoc] 	at org.gradle.launcher.cli.JavaRuntimeValidationAction.execute(JavaRuntimeValidationAction.java:35)
+[ant:groovydoc] 	at org.gradle.launcher.cli.JavaRuntimeValidationAction.execute(JavaRuntimeValidationAction.java:24)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$WithLogging.execute(CommandLineActionFactory.java:206)
+[ant:groovydoc] 	at org.gradle.launcher.cli.CommandLineActionFactory$WithLogging.execute(CommandLineActionFactory.java:169)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:33)
+[ant:groovydoc] 	at org.gradle.launcher.cli.ExceptionReportingAction.execute(ExceptionReportingAction.java:22)
+[ant:groovydoc] 	at org.gradle.launcher.Main.doAction(Main.java:33)
+[ant:groovydoc] 	at org.gradle.launcher.bootstrap.EntryPoint.run(EntryPoint.java:45)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.gradle.launcher.bootstrap.ProcessBootstrap.runNoExit(ProcessBootstrap.java:54)
+[ant:groovydoc] 	at org.gradle.launcher.bootstrap.ProcessBootstrap.run(ProcessBootstrap.java:35)
+[ant:groovydoc] 	at org.gradle.launcher.GradleMain.main(GradleMain.java:23)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ant:groovydoc] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+[ant:groovydoc] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ant:groovydoc] 	at java.lang.reflect.Method.invoke(Method.java:606)
+[ant:groovydoc] 	at org.gradle.wrapper.BootstrapMainStarter.start(BootstrapMainStarter.java:30)
+[ant:groovydoc] 	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:127)
+[ant:groovydoc] 	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:61)
+:docs:javadocAll/home/travis/build/gradle/gradle/subprojects/language-java/src/main/java/org/gradle/api/tasks/compile/package-info.java:20: warning: a package-info.java file has already been seen for package org.gradle.api.tasks.compile
+package org.gradle.api.tasks.compile;
+                            ^
+javadoc: warning - Multiple sources of package comments found for package "org.gradle.api.tasks.compile"
+/home/travis/build/gradle/gradle/subprojects/language-jvm/src/main/java/org/gradle/api/tasks/compile/package-info.java:20: warning: a package-info.java file has already been seen for package org.gradle.api.tasks.compile
+package org.gradle.api.tasks.compile;
+                            ^
+/home/travis/build/gradle/gradle/subprojects/plugins/src/main/groovy/org/gradle/jvm/package-info.java:20: warning: a package-info.java file has already been seen for package org.gradle.jvm
+package org.gradle.jvm;
+                  ^
+javadoc: warning - Multiple sources of package comments found for package "org.gradle.jvm"
+/home/travis/build/gradle/gradle/subprojects/scala/src/main/groovy/org/gradle/api/tasks/scala/package-info.java:20: warning: a package-info.java file has already been seen for package org.gradle.api.tasks.scala
+package org.gradle.api.tasks.scala;
+                            ^
+javadoc: warning - Multiple sources of package comments found for package "org.gradle.api.tasks.scala"
+/home/travis/build/gradle/gradle/subprojects/core/src/main/groovy/org/gradle/api/tasks/incremental/IncrementalTaskInputs.java:73: warning - @InputDirectory is an unknown tag.
+/home/travis/build/gradle/gradle/subprojects/core/src/main/groovy/org/gradle/api/tasks/incremental/IncrementalTaskInputs.java:73: warning - @OutputDirectory is an unknown tag.
+/home/travis/build/gradle/gradle/subprojects/core/src/main/groovy/org/gradle/api/tasks/incremental/IncrementalTaskInputs.java:73: warning - @TaskAction is an unknown tag.
+/home/travis/build/gradle/gradle/subprojects/platform-native/src/main/groovy/org/gradle/nativeplatform/NativeComponentSpec.java:30: warning - @inheritDoc used but getNativeBinaries() does not override or implement any method.
+/home/travis/build/gradle/gradle/subprojects/platform-native/src/main/groovy/org/gradle/nativeplatform/NativeComponentSpec.java:30: warning - @inheritDoc used but getNativeBinaries() does not override or implement any method.
+/home/travis/build/gradle/gradle/subprojects/platform-play/src/main/java/org/gradle/play/tasks/RoutesCompile.java:96: warning - @return tag cannot be used in method with void return type.
+/home/travis/build/gradle/gradle/subprojects/scala/src/main/groovy/org/gradle/api/tasks/ScalaRuntime.java:52: warning - Tag @link: reference not found: org.gradle.api.plugins.scala.ScalaBasePlugin
+/home/travis/build/gradle/gradle/subprojects/platform-native/src/main/groovy/org/gradle/nativeplatform/NativeComponentSpec.java:30: warning - @inheritDoc used but getNativeBinaries() does not override or implement any method.
+
+15 warnings
+:docs:releaseNotesMarkdown
+:docs:releaseNotes
+Download http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js
+Download https://repo.gradle.org/gradle/gradle-build-internal/com/drewwilson/code/jquery.tipTip/1.3/jquery.tipTip-1.3.pom
+Download https://repo.gradle.org/gradle/gradle-build-internal/com/drewwilson/code/jquery.tipTip/1.3/jquery.tipTip-1.3-minified.js
+:docs:samplesDocbook
+:docs:userguideDocbook
+:docs:userguideHtml
+:docs:pdfUserguideDocbook
+:docs:pdfUserguideXhtml
+:docs:userguidePdf
+:docs:userguideSingleHtml
+:docs:userguide
+:ideNative:jar
+:ivy:jar
+:jetty:jar
+:launcher:startScripts
+:osgi:jar
+:platformPlay:jar
+:pluginDevelopment:jar
+:pluginUse:jar
+:signing:jar
+:sonar:jar
+:distributions:allZip
+:distributions:binZip
+:distributions:srcZip
+:distributions:assemble
+:docs:assemble
+:ear:assemble
+:ide:assemble
+:ideNative:assemble
+:integTest:classpathManifest
+:integTest:compileJava UP-TO-DATE
+:integTest:compileGroovy UP-TO-DATE
+:integTest:processResources UP-TO-DATE
+:integTest:classes
+:integTest:jar
+:integTest:assemble
+:internalIntegTesting:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/littleshoot/littleproxy/0.4/littleproxy-0.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/sshd/sshd-core/0.13.0/sshd-core-0.13.0.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/sshd/sshd/0.13.0/sshd-0.13.0.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/15/apache-15.pom
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock/2.5.1/jmock-2.5.1.pom
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock-parent/2.5.1/jmock-parent-2.5.1.pom
+Download https://repo.gradle.org/gradle/libs/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock-junit4/2.5.1/jmock-junit4-2.5.1.pom
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock-legacy/2.5.1/jmock-legacy-2.5.1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom
+Download https://repo.gradle.org/gradle/libs/org/jboss/netty/netty/3.2.4.Final/netty-3.2.4.Final.pom
+Download https://repo.gradle.org/gradle/libs/org/jboss/jboss-parent/5/jboss-parent-5.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/mina/mina-core/2.0.8/mina-core-2.0.8.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/mina/mina-parent/2.0.8/mina-parent-2.0.8.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/14/apache-14.pom
+Download https://repo.gradle.org/gradle/libs/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/littleshoot/littleproxy/0.4/littleproxy-0.4.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/sshd/sshd-core/0.13.0/sshd-core-0.13.0.jar
+Download https://repo.gradle.org/gradle/libs/org/jboss/netty/netty/3.2.4.Final/netty-3.2.4.Final.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/mina/mina-core/2.0.8/mina-core-2.0.8.jar
+:internalTesting:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock/2.5.1/jmock-2.5.1.jar
+Download https://repo.gradle.org/gradle/libs/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock-junit4/2.5.1/jmock-junit4-2.5.1.jar
+Download https://repo.gradle.org/gradle/libs/org/jmock/jmock-legacy/2.5.1/jmock-legacy-2.5.1.jar
+Download https://repo.gradle.org/gradle/libs/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+Download https://repo.gradle.org/gradle/libs/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar
+:internalTesting:compileJava UP-TO-DATE
+:internalTesting:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/internal-testing/src/main/groovy/org/gradle/test/fixtures/file/TestFile.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:internalTesting:processResources UP-TO-DATE
+:internalTesting:classes
+:internalTesting:jar
+:core:compileTestFixturesJava UP-TO-DATE
+:core:compileTestFixturesGroovyNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:core:processTestFixturesResources UP-TO-DATE
+:core:testFixturesClasses
+:internalIntegTesting:compileJava UP-TO-DATE
+:internalIntegTesting:compileGroovyNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:internalIntegTesting:prepareVersionsInfo
+:internalIntegTesting:processResources
+:internalIntegTesting:classes
+:internalIntegTesting:jar
+:internalIntegTesting:assemble
+:internalTesting:assemble
+:ivy:assemble
+:jacoco:assemble
+:javascript:assemble
+:jetty:assemble
+:languageGroovy:assemble
+:languageJava:assemble
+:languageJvm:assemble
+:languageNative:assemble
+:languageScala:assemble
+:launcher:assemble
+:maven:assemble
+:messaging:generatePom
+:messaging:assemble
+:modelCore:assemble
+:modelGroovy:assemble
+:native:assemble
+:openApi:assemble
+:osgi:assemble
+:performance:jar
+:performance:assemble
+:platformBase:assemble
+:platformJvm:assemble
+:platformNative:assemble
+:platformPlay:assemble
+:pluginDevelopment:assemble
+:pluginUse:assemble
+:plugins:assemble
+:publish:assemble
+:reporting:assemble
+:resources:generatePom
+:resources:assemble
+:resourcesHttp:assemble
+:scala:assemble
+:signing:assemble
+:sonar:assemble
+:toolingApi:generatePom
+:toolingApi:assemble
+:ui:assemble
+:wrapper:generatePom
+:wrapper:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 15 mins 12.981 secs
+travis_time:end:04fba490:start=1420547912153834443,finish=1420548826277577181,duration=914123742738[0Ktravis_fold:end:install[0Ktravis_time:start:261cf892[0K$ ./gradlew pullRequestValidation
+:buildSrc:compileJava UP-TO-DATE
+:buildSrc:compileGroovy UP-TO-DATE
+:buildSrc:processResources UP-TO-DATE
+:buildSrc:classes UP-TO-DATE
+:buildSrc:jar UP-TO-DATE
+:buildSrc:assemble UP-TO-DATE
+:buildSrc:checkstyleMain UP-TO-DATE
+:buildSrc:compileTestJava UP-TO-DATE
+:buildSrc:compileTestGroovy UP-TO-DATE
+:buildSrc:processTestResources UP-TO-DATE
+:buildSrc:testClasses UP-TO-DATE
+:buildSrc:checkstyleTest UP-TO-DATE
+:buildSrc:codenarcMain UP-TO-DATE
+:buildSrc:codenarcTest UP-TO-DATE
+:buildSrc:test UP-TO-DATE
+:buildSrc:check UP-TO-DATE
+:buildSrc:build UP-TO-DATE
+ComponentMetadataHandler.eachComponent() is deprecated and will be removed in the next minor release. Use ComponentMetadataHandler.all() instead.
+:docs:checkstyleApi
+:docs:classpathManifest UP-TO-DATE
+:docs:compileJava UP-TO-DATE
+:docs:compileGroovy UP-TO-DATE
+:docs:dslMetaData UP-TO-DATE
+:docs:defaultImports UP-TO-DATE
+:docs:processResources UP-TO-DATE
+:docs:classes UP-TO-DATE
+:docs:checkstyleMain UP-TO-DATE
+:baseServices:classpathManifest UP-TO-DATE
+:baseServices:compileJava UP-TO-DATE
+:baseServices:compileGroovy UP-TO-DATE
+:baseServices:processResources UP-TO-DATE
+:baseServices:classes UP-TO-DATE
+:baseServices:jar UP-TO-DATE
+:baseServicesGroovy:classpathManifest UP-TO-DATE
+:baseServicesGroovy:compileJava UP-TO-DATE
+:baseServicesGroovy:compileGroovy UP-TO-DATE
+:baseServicesGroovy:processResources UP-TO-DATE
+:baseServicesGroovy:classes UP-TO-DATE
+:baseServicesGroovy:jar UP-TO-DATE
+:cli:classpathManifest UP-TO-DATE
+:cli:compileJava UP-TO-DATE
+:cli:compileGroovy UP-TO-DATE
+:cli:processResources UP-TO-DATE
+:cli:classes UP-TO-DATE
+:cli:jar UP-TO-DATE
+:determineCommitId
+:createBuildReceipt
+:core:buildReceiptResource UP-TO-DATE
+:core:classpathManifest UP-TO-DATE
+:messaging:classpathManifest UP-TO-DATE
+:messaging:compileJava UP-TO-DATE
+:messaging:compileGroovy UP-TO-DATE
+:messaging:processResources UP-TO-DATE
+:messaging:classes UP-TO-DATE
+:messaging:jar UP-TO-DATE
+:modelCore:classpathManifest UP-TO-DATE
+:modelCore:compileJava UP-TO-DATE
+:modelCore:compileGroovy UP-TO-DATE
+:modelCore:processResources UP-TO-DATE
+:modelCore:classes UP-TO-DATE
+:modelCore:jar UP-TO-DATE
+:modelGroovy:classpathManifest UP-TO-DATE
+:modelGroovy:compileJava UP-TO-DATE
+:modelGroovy:compileGroovy UP-TO-DATE
+:modelGroovy:processResources UP-TO-DATE
+:modelGroovy:classes UP-TO-DATE
+:modelGroovy:jar UP-TO-DATE
+:native:classpathManifest UP-TO-DATE
+:native:compileJava UP-TO-DATE
+:native:compileGroovy UP-TO-DATE
+:native:processResources UP-TO-DATE
+:native:classes UP-TO-DATE
+:native:jar UP-TO-DATE
+:resources:classpathManifest UP-TO-DATE
+:resources:compileJava UP-TO-DATE
+:resources:compileGroovy UP-TO-DATE
+:resources:processResources UP-TO-DATE
+:resources:classes UP-TO-DATE
+:resources:jar UP-TO-DATE
+:core:compileJava UP-TO-DATE
+:core:compileGroovy UP-TO-DATE
+:core:pluginsManifest UP-TO-DATE
+:core:processResources UP-TO-DATE
+:core:classes UP-TO-DATE
+:core:jar UP-TO-DATE
+:docs:jar UP-TO-DATE
+:docs:compileTestJava UP-TO-DATE
+:docs:compileTestGroovy
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-spock/0.9.3/geb-spock-0.9.3.pom
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-htmlunit-driver/2.42.2/selenium-htmlunit-driver-2.42.2.pom
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-parent/2.42.2/selenium-parent-2.42.2.pom
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-core/0.9.3/geb-core-0.9.3.pom
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-remote-driver/2.42.2/selenium-remote-driver-2.42.2.pom
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/htmlunit/htmlunit/2.14/htmlunit-2.14.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpclient/4.3.2/httpclient-4.3.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcomponents-client/4.3.2/httpcomponents-client-4.3.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/project/7/project-7.pom
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-ast/0.9.3/geb-ast-0.9.3.pom
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-waiting/0.9.3/geb-waiting-0.9.3.pom
+Download https://repo.gradle.org/gradle/libs/org/json/json/20080701/json-20080701.pom
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-api/2.42.2/selenium-api-2.42.2.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava/15.0/guava-15.0.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-parent/15.0/guava-parent-15.0.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-exec/1.1/commons-exec-1.1.pom
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/jna/3.4.0/jna-3.4.0.pom
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/platform/3.4.0/platform-3.4.0.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/32/commons-parent-32.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpmime/4.3.2/httpmime-4.3.2.pom
+Download https://repo.gradle.org/gradle/libs/commons-codec/commons-codec/1.9/commons-codec-1.9.pom
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/htmlunit/htmlunit-core-js/2.14/htmlunit-core-js-2.14.pom
+Download https://repo.gradle.org/gradle/libs/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/nekohtml/nekohtml/1.9.20/nekohtml-1.9.20.pom
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/cssparser/cssparser/0.9.13/cssparser-0.9.13.pom
+Download https://repo.gradle.org/gradle/libs/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/28/commons-parent-28.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-websocket/8.1.14.v20131031/jetty-websocket-8.1.14.v20131031.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-project/8.1.14.v20131031/jetty-project-8.1.14.v20131031.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-parent/20/jetty-parent-20.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcore/4.3.1/httpcore-4.3.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcomponents-core/4.3.1/httpcomponents-core-4.3.1.pom
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-implicit-assertions/0.9.3/geb-implicit-assertions-0.9.3.pom
+Download https://repo.gradle.org/gradle/libs/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.pom
+Download https://repo.gradle.org/gradle/libs/org/w3c/css/sac/1.3/sac-1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-util/8.1.14.v20131031/jetty-util-8.1.14.v20131031.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-io/8.1.14.v20131031/jetty-io-8.1.14.v20131031.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-http/8.1.14.v20131031/jetty-http-8.1.14.v20131031.pom
+Download https://repo.gradle.org/gradle/libs/commons-io/commons-io/2.4/commons-io-2.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/25/commons-parent-25.pom
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-spock/0.9.3/geb-spock-0.9.3.jar
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-htmlunit-driver/2.42.2/selenium-htmlunit-driver-2.42.2.jar
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-core/0.9.3/geb-core-0.9.3.jar
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-remote-driver/2.42.2/selenium-remote-driver-2.42.2.jar
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/htmlunit/htmlunit/2.14/htmlunit-2.14.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpclient/4.3.2/httpclient-4.3.2.jar
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-ast/0.9.3/geb-ast-0.9.3.jar
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-waiting/0.9.3/geb-waiting-0.9.3.jar
+Download https://repo.gradle.org/gradle/libs/org/json/json/20080701/json-20080701.jar
+Download https://repo.gradle.org/gradle/libs/org/seleniumhq/selenium/selenium-api/2.42.2/selenium-api-2.42.2.jar
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava/15.0/guava-15.0.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpmime/4.3.2/httpmime-4.3.2.jar
+Download https://repo.gradle.org/gradle/libs/commons-codec/commons-codec/1.9/commons-codec-1.9.jar
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/htmlunit/htmlunit-core-js/2.14/htmlunit-core-js-2.14.jar
+Download https://repo.gradle.org/gradle/libs/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/nekohtml/nekohtml/1.9.20/nekohtml-1.9.20.jar
+Download https://repo.gradle.org/gradle/libs/net/sourceforge/cssparser/cssparser/0.9.13/cssparser-0.9.13.jar
+Download https://repo.gradle.org/gradle/libs/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-websocket/8.1.14.v20131031/jetty-websocket-8.1.14.v20131031.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/httpcomponents/httpcore/4.3.1/httpcore-4.3.1.jar
+Download https://repo.gradle.org/gradle/libs/org/gebish/geb-implicit-assertions/0.9.3/geb-implicit-assertions-0.9.3.jar
+Download https://repo.gradle.org/gradle/libs/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar
+Download https://repo.gradle.org/gradle/libs/org/w3c/css/sac/1.3/sac-1.3.jar
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-util/8.1.14.v20131031/jetty-util-8.1.14.v20131031.jar
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-io/8.1.14.v20131031/jetty-io-8.1.14.v20131031.jar
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jetty/jetty-http/8.1.14.v20131031/jetty-http-8.1.14.v20131031.jar
+Download https://repo.gradle.org/gradle/libs/commons-io/commons-io/2.4/commons-io-2.4.jar
+:docs:processTestResources UP-TO-DATE
+:docs:testClasses
+:docs:checkstyleTest UP-TO-DATE
+:docs:checkstyleGroovy UP-TO-DATE
+:docs:checkstyleTestGroovy
+:docs:codenarcMain UP-TO-DATE
+:docs:codenarcTest
+:docs:codeQuality
+:announce:checkstyleGroovy
+:announce:classpathManifest UP-TO-DATE
+:announce:compileJava UP-TO-DATE
+:announce:compileGroovy UP-TO-DATE
+:announce:processResources UP-TO-DATE
+:announce:classes UP-TO-DATE
+:internalTesting:classpathManifest UP-TO-DATE
+:internalTesting:compileJava UP-TO-DATE
+:internalTesting:compileGroovy UP-TO-DATE
+:internalTesting:processResources UP-TO-DATE
+:internalTesting:classes UP-TO-DATE
+:internalTesting:jar UP-TO-DATE
+:core:compileTestFixturesJava UP-TO-DATE
+:core:compileTestFixturesGroovy UP-TO-DATE
+:core:processTestFixturesResources UP-TO-DATE
+:core:testFixturesClasses UP-TO-DATE
+:announce:compileTestJava UP-TO-DATE
+:announce:compileTestGroovy
+:announce:processTestResources UP-TO-DATE
+:announce:testClasses
+:dependencyManagement:jarJarMaven3 UP-TO-DATE
+:dependencyManagement:classpathManifest UP-TO-DATE
+:resourcesHttp:classpathManifest UP-TO-DATE
+:resourcesHttp:compileJava UP-TO-DATE
+:resourcesHttp:compileGroovy UP-TO-DATE
+:resourcesHttp:processResources UP-TO-DATE
+:resourcesHttp:classes UP-TO-DATE
+:resourcesHttp:jar UP-TO-DATE
+:dependencyManagement:compileJava UP-TO-DATE
+:dependencyManagement:compileGroovy UP-TO-DATE
+:dependencyManagement:processResources UP-TO-DATE
+:dependencyManagement:classes UP-TO-DATE
+:dependencyManagement:jar UP-TO-DATE
+:internalIntegTesting:classpathManifest UP-TO-DATE
+:launcher:classpathManifest UP-TO-DATE
+:openApi:classpathManifest UP-TO-DATE
+:openApi:compileJava UP-TO-DATE
+:openApi:compileGroovy UP-TO-DATE
+:openApi:processResources UP-TO-DATE
+:openApi:classes UP-TO-DATE
+:openApi:jar UP-TO-DATE
+:toolingApi:classpathManifest UP-TO-DATE
+:wrapper:classpathManifest UP-TO-DATE
+:wrapper:compileJava UP-TO-DATE
+:wrapper:compileGroovy UP-TO-DATE
+:wrapper:processResources UP-TO-DATE
+:wrapper:classes UP-TO-DATE
+:wrapper:jar UP-TO-DATE
+:toolingApi:compileJava UP-TO-DATE
+:toolingApi:compileGroovy UP-TO-DATE
+:toolingApi:processResources UP-TO-DATE
+:toolingApi:classes UP-TO-DATE
+:toolingApi:jar UP-TO-DATE
+:ui:classpathManifest UP-TO-DATE
+:ui:compileJava UP-TO-DATE
+:ui:compileGroovy UP-TO-DATE
+:ui:processResources UP-TO-DATE
+:ui:classes UP-TO-DATE
+:ui:jar UP-TO-DATE
+:launcher:compileJava UP-TO-DATE
+:launcher:compileGroovy UP-TO-DATE
+:launcher:processResources UP-TO-DATE
+:launcher:classes UP-TO-DATE
+:launcher:jar UP-TO-DATE
+:internalIntegTesting:compileJava UP-TO-DATE
+:internalIntegTesting:compileGroovy UP-TO-DATE
+:internalIntegTesting:prepareVersionsInfo UP-TO-DATE
+:internalIntegTesting:processResources UP-TO-DATE
+:internalIntegTesting:classes UP-TO-DATE
+:internalIntegTesting:jar UP-TO-DATE
+:pluginUse:classpathManifest UP-TO-DATE
+:pluginUse:compileJava UP-TO-DATE
+:pluginUse:compileGroovy UP-TO-DATE
+:pluginUse:processResources UP-TO-DATE
+:pluginUse:classes UP-TO-DATE
+:pluginUse:jar UP-TO-DATE
+:announce:compileIntegTestJava UP-TO-DATE
+:announce:compileIntegTestGroovy
+:announce:processIntegTestResources UP-TO-DATE
+:announce:integTestClasses
+:announce:checkstyleIntegTest UP-TO-DATE
+:announce:checkstyleIntegTestGroovy
+:announce:checkstyleMain
+:announce:checkstyleTest UP-TO-DATE
+:announce:checkstyleTestGroovy
+:announce:codenarcIntegTest
+:announce:codenarcMain
+:announce:codenarcTest
+:announce:codeQuality
+:diagnostics:classpathManifest UP-TO-DATE
+:platformBase:classpathManifest UP-TO-DATE
+:platformBase:compileJava UP-TO-DATE
+:platformBase:compileGroovy UP-TO-DATE
+:platformBase:processResources UP-TO-DATE
+:platformBase:classes UP-TO-DATE
+:platformBase:jar UP-TO-DATE
+:reporting:classpathManifest UP-TO-DATE
+:reporting:compileJava UP-TO-DATE
+:reporting:compileGroovy UP-TO-DATE
+:reporting:processResources UP-TO-DATE
+:reporting:reportResources UP-TO-DATE
+:reporting:classes UP-TO-DATE
+:reporting:jar UP-TO-DATE
+:diagnostics:compileJava UP-TO-DATE
+:diagnostics:compileGroovy UP-TO-DATE
+:diagnostics:processResources UP-TO-DATE
+:diagnostics:classes UP-TO-DATE
+:diagnostics:jar UP-TO-DATE
+:languageGroovy:classpathManifest UP-TO-DATE
+:languageJava:classpathManifest UP-TO-DATE
+:languageJvm:classpathManifest UP-TO-DATE
+:platformJvm:classpathManifest UP-TO-DATE
+:platformJvm:compileJava UP-TO-DATE
+:platformJvm:compileGroovy UP-TO-DATE
+:platformJvm:processResources UP-TO-DATE
+:platformJvm:classes UP-TO-DATE
+:platformJvm:jar UP-TO-DATE
+:languageJvm:compileJava UP-TO-DATE
+:languageJvm:compileGroovy UP-TO-DATE
+:languageJvm:processResources UP-TO-DATE
+:languageJvm:classes UP-TO-DATE
+:languageJvm:jar UP-TO-DATE
+:languageJava:compileJava UP-TO-DATE
+:languageJava:compileGroovy UP-TO-DATE
+:languageJava:processResources UP-TO-DATE
+:languageJava:classes UP-TO-DATE
+:languageJava:jar UP-TO-DATE
+:languageGroovy:compileJava UP-TO-DATE
+:languageGroovy:compileGroovy UP-TO-DATE
+:languageGroovy:processResources UP-TO-DATE
+:languageGroovy:classes UP-TO-DATE
+:languageGroovy:jar UP-TO-DATE
+:plugins:classpathManifest UP-TO-DATE
+:plugins:compileJava UP-TO-DATE
+:plugins:compileGroovy UP-TO-DATE
+:plugins:processResources UP-TO-DATE
+:wrapper:executableJar UP-TO-DATE
+:plugins:wrapperJar UP-TO-DATE
+:plugins:classes UP-TO-DATE
+:plugins:jar UP-TO-DATE
+:antlr:checkstyleGroovy UP-TO-DATE
+:antlr:classpathManifest UP-TO-DATE
+:antlr:compileJava UP-TO-DATE
+:antlr:compileGroovy UP-TO-DATE
+:antlr:processResources UP-TO-DATE
+:antlr:classes UP-TO-DATE
+:antlr:compileTestJava UP-TO-DATE
+:antlr:compileTestGroovy
+:antlr:processTestResources UP-TO-DATE
+:antlr:testClasses
+:antlr:compileIntegTestJava UP-TO-DATE
+:antlr:compileIntegTestGroovy
+:antlr:processIntegTestResources UP-TO-DATE
+:antlr:integTestClasses
+:antlr:checkstyleIntegTest UP-TO-DATE
+:antlr:checkstyleIntegTestGroovy
+:antlr:checkstyleMain
+:antlr:checkstyleTest UP-TO-DATE
+:antlr:checkstyleTestGroovy
+:antlr:codenarcIntegTest
+:antlr:codenarcMain UP-TO-DATE
+:antlr:codenarcTest
+:antlr:codeQuality
+:baseServices:checkstyleGroovy UP-TO-DATE
+:baseServices:checkstyleMain
+:baseServices:compileTestJava UP-TO-DATE
+:baseServices:compileTestGroovy
+:baseServices:processTestResources
+:baseServices:testClasses
+:baseServices:checkstyleTest
+:baseServices:checkstyleTestGroovy
+:baseServices:classycleMain
+Download https://repo.gradle.org/gradle/libs/classycle/classycle/1.4/classycle-1.4.pom
+Download https://repo.gradle.org/gradle/libs/classycle/classycle/1.4/classycle-1.4.jar
+:baseServices:classycleTest
+:baseServices:codenarcMain UP-TO-DATE
+:baseServices:codenarcTest
+:baseServices:codeQuality
+:baseServicesGroovy:checkstyleGroovy UP-TO-DATE
+:baseServicesGroovy:checkstyleMain
+:baseServicesGroovy:compileTestJava UP-TO-DATE
+:baseServicesGroovy:compileTestGroovyNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:baseServicesGroovy:processTestResources UP-TO-DATE
+:baseServicesGroovy:testClasses
+:baseServicesGroovy:checkstyleTest
+:baseServicesGroovy:checkstyleTestGroovy
+:baseServicesGroovy:classycleMain
+:baseServicesGroovy:classycleTest
+:baseServicesGroovy:codenarcMain UP-TO-DATE
+:baseServicesGroovy:codenarcTest
+:baseServicesGroovy:codeQuality
+:ear:classpathManifest UP-TO-DATE
+:ear:compileJava UP-TO-DATE
+:ear:compileGroovy UP-TO-DATE
+:ear:processResources UP-TO-DATE
+:ear:classes UP-TO-DATE
+:ear:jar UP-TO-DATE
+:buildComparison:checkstyleGroovy
+:buildComparison:classpathManifest UP-TO-DATE
+:buildComparison:compileJava UP-TO-DATE
+:buildComparison:compileGroovy UP-TO-DATE
+:docs:configureCss
+:docs:css UP-TO-DATE
+:buildComparison:processResources UP-TO-DATE
+:buildComparison:classes UP-TO-DATE
+:buildComparison:compileTestFixturesJava UP-TO-DATE
+:buildComparison:compileTestFixturesGroovy
+:buildComparison:processTestFixturesResources UP-TO-DATE
+:buildComparison:testFixturesClasses
+:buildComparison:compileTestJava UP-TO-DATE
+:buildComparison:compileTestGroovy
+:buildComparison:processTestResources UP-TO-DATE
+:buildComparison:testClasses
+:buildComparison:compileIntegTestJava UP-TO-DATE
+:buildComparison:compileIntegTestGroovy
+:buildComparison:processIntegTestResources
+:buildComparison:integTestClasses
+:buildComparison:checkstyleIntegTest UP-TO-DATE
+:buildComparison:checkstyleIntegTestGroovy
+:buildComparison:checkstyleMain
+:buildComparison:checkstyleTest UP-TO-DATE
+:buildComparison:checkstyleTestFixtures UP-TO-DATE
+:buildComparison:checkstyleTestFixturesGroovy
+:buildComparison:checkstyleTestGroovy
+:buildComparison:codenarcIntegTest
+:buildComparison:codenarcMain
+:buildComparison:codenarcTest
+:buildComparison:codenarcTestFixtures
+:buildComparison:codeQuality
+:buildInit:checkstyleGroovy
+:buildInit:classpathManifest UP-TO-DATE
+:buildInit:compileJava UP-TO-DATE
+:buildInit:compileGroovy UP-TO-DATE
+:buildInit:generateTemplateVersionFile UP-TO-DATE
+:buildInit:processResources UP-TO-DATE
+:buildInit:classes UP-TO-DATE
+:buildInit:compileTestJava UP-TO-DATE
+:buildInit:compileTestGroovy
+:buildInit:processTestResources UP-TO-DATE
+:buildInit:testClasses
+:buildInit:compileIntegTestJava UP-TO-DATE
+:buildInit:compileIntegTestGroovy
+:buildInit:processIntegTestResources
+:buildInit:integTestClasses
+:buildInit:checkstyleIntegTest UP-TO-DATE
+:buildInit:checkstyleIntegTestGroovy
+:buildInit:checkstyleMain
+:buildInit:checkstyleTest
+:buildInit:checkstyleTestGroovy
+:buildInit:classycleIntegTest
+:buildInit:classycleMain
+:buildInit:classycleTest
+:buildInit:codenarcIntegTest
+:buildInit:codenarcMain
+:buildInit:codenarcTest
+:buildInit:codeQuality
+:cli:checkstyleGroovy UP-TO-DATE
+:cli:checkstyleMain
+:cli:compileTestJava UP-TO-DATE
+:cli:compileTestGroovy
+:cli:processTestResources UP-TO-DATE
+:cli:testClasses
+:cli:checkstyleTest UP-TO-DATE
+:cli:checkstyleTestGroovy
+:cli:classycleMain
+:cli:classycleTest
+:cli:codenarcMain UP-TO-DATE
+:cli:codenarcTest
+:cli:codeQuality
+:codeQuality:checkstyleGroovy
+:codeQuality:classpathManifest UP-TO-DATE
+:codeQuality:compileJava UP-TO-DATE
+:codeQuality:compileGroovy UP-TO-DATE
+:codeQuality:processResources UP-TO-DATE
+:codeQuality:classes UP-TO-DATE
+:codeQuality:compileTestJava UP-TO-DATE
+:codeQuality:compileTestGroovy
+:codeQuality:processTestResources UP-TO-DATE
+:codeQuality:testClasses
+:codeQuality:compileIntegTestJava UP-TO-DATE
+:codeQuality:compileIntegTestGroovy
+:codeQuality:processIntegTestResources UP-TO-DATE
+:codeQuality:integTestClasses
+:codeQuality:checkstyleIntegTest UP-TO-DATE
+:codeQuality:checkstyleIntegTestGroovy
+:codeQuality:checkstyleMain
+:codeQuality:checkstyleTest UP-TO-DATE
+:codeQuality:checkstyleTestGroovy
+:codeQuality:codenarcIntegTest
+:codeQuality:codenarcMain
+:codeQuality:codenarcTest
+:codeQuality:codeQuality
+:core:checkstyleGroovy
+:messaging:compileTestFixturesJava UP-TO-DATE
+:messaging:compileTestFixturesGroovy
+:messaging:processTestFixturesResources UP-TO-DATE
+:messaging:testFixturesClasses
+:core:compileTestJava UP-TO-DATE
+:core:compileTestGroovyNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:core:processTestResources
+:core:testClasses
+:core:compileIntegTestJava UP-TO-DATE
+:core:compileIntegTestGroovy
+:core:processIntegTestResources
+:core:integTestClasses
+:core:checkstyleIntegTest
+:core:checkstyleIntegTestGroovy
+:core:checkstyleMain
+:core:checkstyleTest
+:core:checkstyleTestFixtures
+:core:checkstyleTestFixturesGroovy
+:core:checkstyleTestGroovy
+:core:codenarcIntegTest
+:core:codenarcMain
+:core:codenarcTest
+:core:codenarcTestFixtures
+:core:codeQuality
+:languageNative:classpathManifest UP-TO-DATE
+:platformNative:classpathManifest UP-TO-DATE
+:platformNative:compileJava UP-TO-DATE
+:platformNative:compileGroovy UP-TO-DATE
+:platformNative:processResources UP-TO-DATE
+:platformNative:classes UP-TO-DATE
+:platformNative:jar UP-TO-DATE
+:languageNative:compileJava UP-TO-DATE
+:languageNative:compileGroovy UP-TO-DATE
+:languageNative:processResources UP-TO-DATE
+:languageNative:classes UP-TO-DATE
+:languageNative:jar UP-TO-DATE
+:cunit:checkstyleGroovy UP-TO-DATE
+:cunit:classpathManifest UP-TO-DATE
+:cunit:compileJava UP-TO-DATE
+:cunit:compileGroovy UP-TO-DATE
+:cunit:processResources UP-TO-DATE
+:cunit:classes UP-TO-DATE
+:platformNative:compileTestFixturesJava UP-TO-DATE
+:platformNative:compileTestFixturesGroovy
+:platformNative:processTestFixturesResources UP-TO-DATE
+:platformNative:testFixturesClasses
+:diagnostics:compileTestFixturesJava UP-TO-DATE
+:diagnostics:compileTestFixturesGroovy
+:diagnostics:processTestFixturesResources UP-TO-DATE
+:diagnostics:testFixturesClasses
+:cunit:compileTestJava UP-TO-DATE
+:cunit:compileTestGroovy
+:cunit:processTestResources UP-TO-DATE
+:cunit:testClasses
+:cunit:compileIntegTestJava UP-TO-DATE
+:cunit:compileIntegTestGroovy
+:cunit:processIntegTestResources UP-TO-DATE
+:cunit:integTestClasses
+:cunit:checkstyleIntegTest UP-TO-DATE
+:cunit:checkstyleIntegTestGroovy
+:cunit:checkstyleMain
+:cunit:checkstyleTest UP-TO-DATE
+:cunit:checkstyleTestGroovy
+:cunit:classycleIntegTest
+:cunit:classycleMain
+:cunit:classycleTest
+:cunit:codenarcIntegTest
+:cunit:codenarcMain UP-TO-DATE
+:cunit:codenarcTest
+:cunit:codeQuality
+:dependencyManagement:checkstyleGroovy UP-TO-DATE
+:dependencyManagement:compileTestFixturesJava UP-TO-DATE
+:dependencyManagement:compileTestFixturesGroovy
+:dependencyManagement:processTestFixturesResources UP-TO-DATE
+:dependencyManagement:testFixturesClasses
+:ivy:classpathManifest UP-TO-DATE
+:publish:classpathManifest UP-TO-DATE
+:publish:compileJava UP-TO-DATE
+:publish:compileGroovy UP-TO-DATE
+:publish:processResources UP-TO-DATE
+:publish:classes UP-TO-DATE
+:publish:jar UP-TO-DATE
+:ivy:compileJava UP-TO-DATE
+:ivy:compileGroovy UP-TO-DATE
+:ivy:processResources UP-TO-DATE
+:ivy:classes UP-TO-DATE
+:ivy:jar UP-TO-DATE
+:maven:classpathManifest UP-TO-DATE
+:maven:compileJava UP-TO-DATE
+:maven:compileGroovy UP-TO-DATE
+:maven:processResources UP-TO-DATE
+:maven:classes UP-TO-DATE
+:maven:jar UP-TO-DATE
+:dependencyManagement:compileTestJava UP-TO-DATE
+:dependencyManagement:compileTestGroovyNote: /home/travis/build/gradle/gradle/subprojects/dependency-management/src/test/groovy/org/gradle/api/internal/artifacts/DefaultResolvedDependencyTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:dependencyManagement:processTestResources
+:dependencyManagement:testClasses
+:dependencyManagement:compileIntegTestJava UP-TO-DATE
+:dependencyManagement:compileIntegTestGroovy
+:dependencyManagement:processIntegTestResources
+:dependencyManagement:integTestClasses
+:dependencyManagement:checkstyleIntegTest UP-TO-DATE
+:dependencyManagement:checkstyleIntegTestGroovy
+:dependencyManagement:checkstyleMain
+:dependencyManagement:checkstyleTest
+:dependencyManagement:checkstyleTestFixtures UP-TO-DATE
+:dependencyManagement:checkstyleTestFixturesGroovy
+:dependencyManagement:checkstyleTestGroovy
+:dependencyManagement:codenarcIntegTest
+:dependencyManagement:codenarcMain UP-TO-DATE
+:dependencyManagement:codenarcTest
+:dependencyManagement:codenarcTestFixtures
+:dependencyManagement:codeQuality
+:diagnostics:checkstyleGroovy
+:diagnostics:compileTestJava UP-TO-DATE
+:diagnostics:compileTestGroovy
+:diagnostics:processTestResources UP-TO-DATE
+:diagnostics:testClasses
+:diagnostics:compileIntegTestJava UP-TO-DATE
+:diagnostics:compileIntegTestGroovy
+:diagnostics:processIntegTestResources
+:diagnostics:integTestClasses
+:diagnostics:checkstyleIntegTest
+:diagnostics:checkstyleIntegTestGroovy
+:diagnostics:checkstyleMain
+:diagnostics:checkstyleTest
+:diagnostics:checkstyleTestFixtures UP-TO-DATE
+:diagnostics:checkstyleTestFixturesGroovy
+:diagnostics:checkstyleTestGroovy
+:diagnostics:codenarcIntegTest
+:diagnostics:codenarcMain
+:diagnostics:codenarcTest
+:diagnostics:codenarcTestFixtures
+:diagnostics:codeQuality
+:distributions:checkstyleGroovy UP-TO-DATE
+:distributions:classpathManifest
+:distributions:compileJava UP-TO-DATE
+:distributions:compileGroovy UP-TO-DATE
+:distributions:processResources UP-TO-DATE
+:distributions:classes
+:distributions:compileTestJava UP-TO-DATE
+:distributions:compileTestGroovy UP-TO-DATE
+:distributions:processTestResources UP-TO-DATE
+:distributions:testClasses UP-TO-DATE
+:distributions:compileIntegTestJava UP-TO-DATE
+:distributions:compileIntegTestGroovy
+:distributions:processIntegTestResources UP-TO-DATE
+:distributions:integTestClasses
+:distributions:checkstyleIntegTest UP-TO-DATE
+:distributions:checkstyleIntegTestGroovy
+:distributions:checkstyleMain UP-TO-DATE
+:distributions:checkstyleTest UP-TO-DATE
+:distributions:checkstyleTestGroovy UP-TO-DATE
+:distributions:codenarcIntegTest
+:distributions:codenarcMain UP-TO-DATE
+:distributions:codenarcTest UP-TO-DATE
+:distributions:codeQuality
+:ear:checkstyleGroovy
+:ear:compileTestJava UP-TO-DATE
+:ear:compileTestGroovy
+:ear:processTestResources UP-TO-DATE
+:ear:testClasses
+:ear:compileIntegTestJava UP-TO-DATE
+:ear:compileIntegTestGroovy
+:ear:processIntegTestResources
+:ear:integTestClasses
+:ear:checkstyleIntegTest UP-TO-DATE
+:ear:checkstyleIntegTestGroovy
+:ear:checkstyleMain
+:ear:checkstyleTest UP-TO-DATE
+:ear:checkstyleTestGroovy
+:ear:codenarcIntegTest
+:ear:codenarcMain
+:ear:codenarcTest
+:ear:codeQuality
+:languageScala:classpathManifest UP-TO-DATE
+:languageScala:compileJava UP-TO-DATE
+:languageScala:compileGroovy UP-TO-DATE
+:languageScala:processResources UP-TO-DATE
+:languageScala:classes UP-TO-DATE
+:languageScala:jar UP-TO-DATE
+:scala:classpathManifest UP-TO-DATE
+:scala:compileJava UP-TO-DATE
+:scala:compileGroovy UP-TO-DATE
+:scala:processResources UP-TO-DATE
+:scala:classes UP-TO-DATE
+:scala:jar UP-TO-DATE
+:ide:checkstyleGroovy
+:ide:classpathManifest UP-TO-DATE
+:ide:compileJava UP-TO-DATE
+:ide:compileGroovy UP-TO-DATE
+:ide:processResources UP-TO-DATE
+:ide:classes UP-TO-DATE
+:ide:compileTestJava UP-TO-DATE
+:ide:compileTestGroovy
+Download https://repo.gradle.org/gradle/libs/xmlunit/xmlunit/1.3/xmlunit-1.3.pom
+Download https://repo.gradle.org/gradle/libs/xmlunit/xmlunit/1.3/xmlunit-1.3.jar
+:ide:processTestResources
+:ide:testClasses
+:ide:compileIntegTestJava UP-TO-DATE
+:ide:compileIntegTestGroovy
+:ide:processIntegTestResources
+:ide:integTestClasses
+:ide:checkstyleIntegTest UP-TO-DATE
+:ide:checkstyleIntegTestGroovy
+:ide:checkstyleMain
+:ide:checkstyleTest UP-TO-DATE
+:ide:checkstyleTestGroovy
+:ide:codenarcIntegTest
+:ide:codenarcMain
+:ide:codenarcTest
+:ide:codeQuality
+:ide:jar UP-TO-DATE
+:ideNative:checkstyleGroovy
+:ideNative:classpathManifest UP-TO-DATE
+:ideNative:compileJava UP-TO-DATE
+:ideNative:compileGroovy UP-TO-DATE
+:ideNative:processResources UP-TO-DATE
+:ideNative:classes UP-TO-DATE
+:ideNative:compileTestJava UP-TO-DATE
+:ideNative:compileTestGroovy
+:ideNative:processTestResources UP-TO-DATE
+:ideNative:testClasses
+:ideNative:compileIntegTestJava UP-TO-DATE
+:ideNative:compileIntegTestGroovy
+:ideNative:processIntegTestResources UP-TO-DATE
+:ideNative:integTestClasses
+:ideNative:checkstyleIntegTest UP-TO-DATE
+:ideNative:checkstyleIntegTestGroovy
+:ideNative:checkstyleMain
+:ideNative:checkstyleTest UP-TO-DATE
+:ideNative:checkstyleTestGroovy
+:ideNative:classycleIntegTest
+:ideNative:classycleMain
+:ideNative:classycleTest
+:ideNative:codenarcIntegTest
+:ideNative:codenarcMain
+:ideNative:codenarcTest
+:ideNative:codeQuality
+:integTest:checkstyleGroovy UP-TO-DATE
+:codeQuality:jar UP-TO-DATE
+:integTest:classpathManifest UP-TO-DATE
+:integTest:compileJava UP-TO-DATE
+:integTest:compileGroovy UP-TO-DATE
+:integTest:processResources UP-TO-DATE
+:integTest:classes UP-TO-DATE
+:integTest:compileTestJava UP-TO-DATE
+:integTest:compileTestGroovy UP-TO-DATE
+:integTest:processTestResources UP-TO-DATE
+:integTest:testClasses UP-TO-DATE
+:jacoco:classpathManifest UP-TO-DATE
+:jacoco:compileJava UP-TO-DATE
+:jacoco:compileGroovy UP-TO-DATE
+:jacoco:processResources UP-TO-DATE
+:jacoco:classes UP-TO-DATE
+:jacoco:jar UP-TO-DATE
+:signing:classpathManifest UP-TO-DATE
+:signing:compileJava UP-TO-DATE
+:signing:compileGroovy UP-TO-DATE
+:signing:processResources UP-TO-DATE
+:signing:classes UP-TO-DATE
+:signing:jar UP-TO-DATE
+:sonar:classpathManifest UP-TO-DATE
+:sonar:compileJava UP-TO-DATE
+:sonar:compileGroovy UP-TO-DATE
+:sonar:processResources UP-TO-DATE
+:sonar:classes UP-TO-DATE
+:sonar:jar UP-TO-DATE
+:integTest:compileIntegTestJava UP-TO-DATE
+:integTest:compileIntegTestGroovy
+:integTest:processIntegTestResources
+:integTest:integTestClasses
+:integTest:checkstyleIntegTest
+:integTest:checkstyleIntegTestGroovy
+:integTest:checkstyleMain UP-TO-DATE
+:integTest:checkstyleTest UP-TO-DATE
+:integTest:checkstyleTestGroovy UP-TO-DATE
+:integTest:classycleIntegTest
+:integTest:classycleMain
+:integTest:classycleTest
+:integTest:codenarcIntegTest
+:integTest:codenarcMain UP-TO-DATE
+:integTest:codenarcTest UP-TO-DATE
+:integTest:codeQuality
+:internalIntegTesting:checkstyleGroovy
+:internalIntegTesting:checkstyleMain
+:internalIntegTesting:compileTestJava UP-TO-DATE
+:internalIntegTesting:compileTestGroovy
+:internalIntegTesting:processTestResources UP-TO-DATE
+:internalIntegTesting:testClasses
+:internalIntegTesting:checkstyleTest UP-TO-DATE
+:internalIntegTesting:checkstyleTestGroovy
+:internalIntegTesting:classycleMain
+:internalIntegTesting:classycleTest
+:internalIntegTesting:codenarcMain
+:internalIntegTesting:codenarcTest
+:internalIntegTesting:codeQuality
+:internalTesting:checkstyleGroovy
+:internalTesting:checkstyleMain
+:internalTesting:compileTestJava UP-TO-DATE
+:internalTesting:compileTestGroovy
+:internalTesting:processTestResources UP-TO-DATE
+:internalTesting:testClasses
+:internalTesting:checkstyleTest UP-TO-DATE
+:internalTesting:checkstyleTestGroovy
+:internalTesting:classycleMain
+:internalTesting:classycleTest
+:internalTesting:codenarcMain
+:internalTesting:codenarcTest
+:internalTesting:codeQuality
+:ivy:checkstyleGroovy UP-TO-DATE
+:modelCore:compileTestFixturesJava UP-TO-DATE
+:modelCore:compileTestFixturesGroovy
+:modelCore:processTestFixturesResources UP-TO-DATE
+:modelCore:testFixturesClasses
+:ivy:compileTestJava UP-TO-DATE
+:ivy:compileTestGroovy
+:ivy:processTestResources UP-TO-DATE
+:ivy:testClasses
+:ivy:compileIntegTestJava UP-TO-DATE
+:ivy:compileIntegTestGroovy
+:ivy:processIntegTestResources UP-TO-DATE
+:ivy:integTestClasses
+:ivy:checkstyleIntegTest UP-TO-DATE
+:ivy:checkstyleIntegTestGroovy
+:ivy:checkstyleMain
+:ivy:checkstyleTest UP-TO-DATE
+:ivy:checkstyleTestGroovy
+:ivy:classycleIntegTest
+:ivy:classycleMain
+:ivy:classycleTest
+:ivy:codenarcIntegTest
+:ivy:codenarcMain UP-TO-DATE
+:ivy:codenarcTest
+:ivy:codeQuality
+:jacoco:checkstyleGroovy
+:jacoco:compileTestJava UP-TO-DATE
+:jacoco:compileTestGroovy
+:jacoco:processTestResources UP-TO-DATE
+:jacoco:testClasses
+:jacoco:compileIntegTestJava UP-TO-DATE
+:jacoco:compileIntegTestGroovy
+:jacoco:processIntegTestResources UP-TO-DATE
+:jacoco:integTestClasses
+:jacoco:checkstyleIntegTest UP-TO-DATE
+:jacoco:checkstyleIntegTestGroovy
+:jacoco:checkstyleMain
+:jacoco:checkstyleTest UP-TO-DATE
+:jacoco:checkstyleTestGroovy
+:jacoco:codenarcIntegTest
+:jacoco:codenarcMain
+:jacoco:codenarcTest
+:jacoco:codeQuality
+:javascript:checkstyleGroovy
+:javascript:classpathManifest UP-TO-DATE
+:javascript:compileJava UP-TO-DATE
+:javascript:compileGroovy UP-TO-DATE
+:javascript:processResources UP-TO-DATE
+:javascript:classes UP-TO-DATE
+:javascript:compileTestFixturesJava UP-TO-DATE
+:javascript:compileTestFixturesGroovy
+:javascript:processTestFixturesResources UP-TO-DATE
+:javascript:testFixturesClasses
+:javascript:compileTestJava UP-TO-DATE
+:javascript:compileTestGroovy
+:javascript:processTestResources UP-TO-DATE
+:javascript:testClasses
+:javascript:compileIntegTestJava UP-TO-DATE
+:javascript:compileIntegTestGroovy
+:javascript:processIntegTestResources UP-TO-DATE
+:javascript:integTestClasses
+:javascript:checkstyleIntegTest UP-TO-DATE
+:javascript:checkstyleIntegTestGroovy
+:javascript:checkstyleMain
+:javascript:checkstyleTest UP-TO-DATE
+:javascript:checkstyleTestFixtures UP-TO-DATE
+:javascript:checkstyleTestFixturesGroovy
+:javascript:checkstyleTestGroovy
+:javascript:codenarcIntegTest
+:javascript:codenarcMain
+:javascript:codenarcTest
+:javascript:codenarcTestFixtures
+:javascript:codeQuality
+:jetty:checkstyleGroovy UP-TO-DATE
+:jetty:classpathManifest UP-TO-DATE
+:jetty:compileJava UP-TO-DATE
+:jetty:compileGroovy UP-TO-DATE
+:jetty:processResources UP-TO-DATE
+:jetty:classes UP-TO-DATE
+:jetty:checkstyleMain
+:jetty:compileTestJava UP-TO-DATE
+:jetty:compileTestGroovy
+:jetty:processTestResources UP-TO-DATE
+:jetty:testClasses
+:jetty:checkstyleTest UP-TO-DATE
+:jetty:checkstyleTestGroovy
+:jetty:codenarcMain UP-TO-DATE
+:jetty:codenarcTest
+:jetty:codeQuality
+:languageGroovy:checkstyleGroovy UP-TO-DATE
+:languageGroovy:compileTestJava UP-TO-DATE
+:languageGroovy:compileTestGroovy
+:languageGroovy:processTestResources UP-TO-DATE
+:languageGroovy:testClasses
+:languageGroovy:compileIntegTestJava UP-TO-DATE
+:languageGroovy:compileIntegTestGroovy
+:languageGroovy:processIntegTestResources UP-TO-DATE
+:languageGroovy:integTestClasses
+:languageGroovy:checkstyleIntegTest UP-TO-DATE
+:languageGroovy:checkstyleIntegTestGroovy
+:languageGroovy:checkstyleMain
+:languageGroovy:checkstyleTest
+:languageGroovy:checkstyleTestGroovy
+:languageGroovy:classycleIntegTest
+:languageGroovy:classycleMain
+:languageGroovy:classycleTest
+:languageGroovy:codenarcIntegTest
+:languageGroovy:codenarcMain UP-TO-DATE
+:languageGroovy:codenarcTest
+:languageGroovy:codeQuality
+:languageJava:checkstyleGroovy UP-TO-DATE
+:languageJvm:compileTestFixturesJava UP-TO-DATE
+:languageJvm:compileTestFixturesGroovy
+:languageJvm:processTestFixturesResources UP-TO-DATE
+:languageJvm:testFixturesClasses
+:platformBase:compileTestFixturesJava UP-TO-DATE
+:platformBase:compileTestFixturesGroovy
+:platformBase:processTestFixturesResources UP-TO-DATE
+:platformBase:testFixturesClasses
+:languageJava:compileTestJava UP-TO-DATE
+:languageJava:compileTestGroovy
+:languageJava:processTestResources UP-TO-DATE
+:languageJava:testClasses
+:languageJava:compileIntegTestJava UP-TO-DATE
+:languageJava:compileIntegTestGroovy
+:languageJava:processIntegTestResources
+:languageJava:integTestClasses
+:languageJava:checkstyleIntegTest UP-TO-DATE
+:languageJava:checkstyleIntegTestGroovy
+:languageJava:checkstyleMain
+:languageJava:checkstyleTest
+:languageJava:checkstyleTestGroovy
+:languageJava:classycleIntegTest
+:languageJava:classycleMain
+:languageJava:classycleTest
+:languageJava:codenarcIntegTest
+:languageJava:codenarcMain UP-TO-DATE
+:languageJava:codenarcTest
+:languageJava:codeQuality
+:languageJvm:checkstyleGroovy UP-TO-DATE
+:languageJvm:compileTestJava UP-TO-DATE
+:languageJvm:compileTestGroovy
+:languageJvm:processTestResources UP-TO-DATE
+:languageJvm:testClasses
+:languageJvm:compileIntegTestJava UP-TO-DATE
+:languageJvm:compileIntegTestGroovy
+:languageJvm:processIntegTestResources UP-TO-DATE
+:languageJvm:integTestClasses
+:languageJvm:checkstyleIntegTest UP-TO-DATE
+:languageJvm:checkstyleIntegTestGroovy
+:languageJvm:checkstyleMain
+:languageJvm:checkstyleTest UP-TO-DATE
+:languageJvm:checkstyleTestFixtures
+:languageJvm:checkstyleTestFixturesGroovy
+:languageJvm:checkstyleTestGroovy
+:languageJvm:classycleIntegTest
+:languageJvm:classycleMain
+:languageJvm:classycleTest
+:languageJvm:classycleTestFixtures
+:languageJvm:codenarcIntegTest
+:languageJvm:codenarcMain UP-TO-DATE
+:languageJvm:codenarcTest
+:languageJvm:codenarcTestFixtures
+:languageJvm:codeQuality
+:languageNative:checkstyleGroovy UP-TO-DATE
+:languageNative:compileTestJava UP-TO-DATE
+:languageNative:compileTestGroovy
+:languageNative:processTestResources UP-TO-DATE
+:languageNative:testClasses
+:languageNative:compileIntegTestJava UP-TO-DATE
+:languageNative:compileIntegTestGroovy
+:languageNative:processIntegTestResources UP-TO-DATE
+:languageNative:integTestClasses
+:languageNative:checkstyleIntegTest UP-TO-DATE
+:languageNative:checkstyleIntegTestGroovy
+:languageNative:checkstyleMain
+:languageNative:checkstyleTest UP-TO-DATE
+:languageNative:checkstyleTestGroovy
+:languageNative:classycleIntegTest
+:languageNative:classycleMain
+:languageNative:classycleTest
+:languageNative:codenarcIntegTest
+:languageNative:codenarcMain UP-TO-DATE
+:languageNative:codenarcTest
+:languageNative:codeQuality
+:languageScala:checkstyleGroovy UP-TO-DATE
+:languageScala:compileTestJava UP-TO-DATE
+:languageScala:compileTestGroovy
+:languageScala:processTestResources UP-TO-DATE
+:languageScala:testClasses
+:languageScala:compileIntegTestJava UP-TO-DATE
+:languageScala:compileIntegTestGroovy
+:languageScala:processIntegTestResources UP-TO-DATE
+:languageScala:integTestClasses
+:languageScala:checkstyleIntegTest UP-TO-DATE
+:languageScala:checkstyleIntegTestGroovy
+:languageScala:checkstyleMain
+:languageScala:checkstyleTest UP-TO-DATE
+:languageScala:checkstyleTestGroovy
+:languageScala:codenarcIntegTest
+:languageScala:codenarcMain UP-TO-DATE
+:languageScala:codenarcTest
+:languageScala:codeQuality
+:launcher:checkstyleGroovy UP-TO-DATE
+:launcher:compileTestFixturesJava UP-TO-DATE
+:launcher:compileTestFixturesGroovy
+:launcher:processTestFixturesResources UP-TO-DATE
+:launcher:testFixturesClasses
+:launcher:compileTestJava UP-TO-DATE
+:launcher:compileTestGroovy
+:launcher:processTestResources UP-TO-DATE
+:launcher:testClasses
+:launcher:compileIntegTestJava UP-TO-DATE
+:launcher:compileIntegTestGroovy
+:launcher:processIntegTestResources UP-TO-DATE
+:launcher:integTestClasses
+:launcher:checkstyleIntegTest
+:launcher:checkstyleIntegTestGroovy
+:launcher:checkstyleMain
+:launcher:checkstyleTest
+:launcher:checkstyleTestFixtures
+:launcher:checkstyleTestFixturesGroovy
+:launcher:checkstyleTestGroovy
+:launcher:classycleIntegTest
+:launcher:classycleMain
+:launcher:classycleTest
+:launcher:classycleTestFixtures
+:launcher:codenarcIntegTest
+:launcher:codenarcMain UP-TO-DATE
+:launcher:codenarcTest
+:launcher:codenarcTestFixtures
+:launcher:codeQuality
+:maven:checkstyleGroovy
+:maven:compileTestJava UP-TO-DATE
+:maven:compileTestGroovyNote: /home/travis/build/gradle/gradle/subprojects/maven/src/test/groovy/org/gradle/api/publication/maven/internal/ant/DefaultExcludeRuleConverterTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:maven:processTestResources UP-TO-DATE
+:maven:testClasses
+:maven:compileIntegTestJava UP-TO-DATE
+:maven:compileIntegTestGroovy
+:maven:processIntegTestResources
+:maven:integTestClasses
+:maven:checkstyleIntegTest UP-TO-DATE
+:maven:checkstyleIntegTestGroovy
+:maven:checkstyleMain
+:maven:checkstyleTest
+:maven:checkstyleTestGroovy
+:maven:codenarcIntegTest
+:maven:codenarcMain
+:maven:codenarcTest
+:maven:codeQuality
+:messaging:checkstyleGroovy UP-TO-DATE
+:messaging:compileTestJava UP-TO-DATE
+:messaging:compileTestGroovy
+:messaging:processTestResources UP-TO-DATE
+:messaging:testClasses
+:messaging:compileIntegTestJava UP-TO-DATE
+:messaging:compileIntegTestGroovy
+:messaging:processIntegTestResources UP-TO-DATE
+:messaging:integTestClasses
+:messaging:checkstyleIntegTest UP-TO-DATE
+:messaging:checkstyleIntegTestGroovy
+:messaging:checkstyleMain
+:messaging:checkstyleTest
+:messaging:checkstyleTestFixtures UP-TO-DATE
+:messaging:checkstyleTestFixturesGroovy
+:messaging:checkstyleTestGroovy
+:messaging:codenarcIntegTest
+:messaging:codenarcMain UP-TO-DATE
+:messaging:codenarcTest
+:messaging:codenarcTestFixtures
+:messaging:codeQuality
+:modelCore:checkstyleGroovy UP-TO-DATE
+:modelCore:compileTestJava UP-TO-DATE
+:modelCore:compileTestGroovy
+:modelCore:processTestResources UP-TO-DATE
+:modelCore:testClasses
+:modelCore:compileIntegTestJava UP-TO-DATE
+:modelCore:compileIntegTestGroovy
+:modelCore:processIntegTestResources UP-TO-DATE
+:modelCore:integTestClasses
+:modelCore:checkstyleIntegTest UP-TO-DATE
+:modelCore:checkstyleIntegTestGroovy
+:modelCore:checkstyleMain
+:modelCore:checkstyleTest
+:modelCore:checkstyleTestFixtures
+:modelCore:checkstyleTestFixturesGroovy
+:modelCore:checkstyleTestGroovy
+:modelCore:classycleIntegTest
+:modelCore:classycleMain
+:modelCore:classycleTest
+:modelCore:classycleTestFixtures
+:modelCore:codenarcIntegTest
+:modelCore:codenarcMain UP-TO-DATE
+:modelCore:codenarcTest
+:modelCore:codenarcTestFixtures
+:modelCore:codeQuality
+:modelGroovy:checkstyleGroovy UP-TO-DATE
+:modelGroovy:compileTestJava UP-TO-DATE
+:modelGroovy:compileTestGroovy
+:modelGroovy:processTestResources UP-TO-DATE
+:modelGroovy:testClasses
+:modelGroovy:compileIntegTestJava UP-TO-DATE
+:modelGroovy:compileIntegTestGroovy
+:modelGroovy:processIntegTestResources UP-TO-DATE
+:modelGroovy:integTestClasses
+:modelGroovy:checkstyleIntegTest UP-TO-DATE
+:modelGroovy:checkstyleIntegTestGroovy
+:modelGroovy:checkstyleMain
+:modelGroovy:checkstyleTest
+:modelGroovy:checkstyleTestGroovy
+:modelGroovy:classycleIntegTest
+:modelGroovy:classycleMain
+:modelGroovy:classycleTest
+:modelGroovy:codenarcIntegTest
+:modelGroovy:codenarcMain UP-TO-DATE
+:modelGroovy:codenarcTest
+:modelGroovy:codeQuality
+:native:checkstyleGroovy UP-TO-DATE
+:native:checkstyleMain
+:native:compileTestJava UP-TO-DATE
+:native:compileTestGroovy
+:native:processTestResources UP-TO-DATE
+:native:testClasses
+:native:checkstyleTest UP-TO-DATE
+:native:checkstyleTestGroovy
+:native:classycleMain
+:native:classycleTest
+:native:codenarcMain UP-TO-DATE
+:native:codenarcTest
+:native:codeQuality
+:openApi:checkstyleGroovy UP-TO-DATE
+:openApi:compileTestJava UP-TO-DATE
+:openApi:compileTestGroovy UP-TO-DATE
+:openApi:processTestResources UP-TO-DATE
+:openApi:testClasses UP-TO-DATE
+:openApi:compileIntegTestJava UP-TO-DATE
+:openApi:compileIntegTestGroovy
+:openApi:processIntegTestResources UP-TO-DATE
+:openApi:integTestClasses
+:openApi:checkstyleIntegTest UP-TO-DATE
+:openApi:checkstyleIntegTestGroovy
+:openApi:checkstyleMain
+:openApi:checkstyleTest UP-TO-DATE
+:openApi:checkstyleTestGroovy UP-TO-DATE
+:openApi:codenarcIntegTest
+:openApi:codenarcMain UP-TO-DATE
+:openApi:codenarcTest UP-TO-DATE
+:openApi:codeQuality
+:osgi:checkstyleGroovy
+:osgi:classpathManifest UP-TO-DATE
+:osgi:compileJava UP-TO-DATE
+:osgi:compileGroovy UP-TO-DATE
+:osgi:processResources UP-TO-DATE
+:osgi:classes UP-TO-DATE
+:osgi:compileTestJava UP-TO-DATE
+:osgi:compileTestGroovy
+:osgi:processTestResources UP-TO-DATE
+:osgi:testClasses
+:osgi:compileIntegTestJava UP-TO-DATE
+:osgi:compileIntegTestGroovy
+:osgi:processIntegTestResources UP-TO-DATE
+:osgi:integTestClasses
+:osgi:checkstyleIntegTest UP-TO-DATE
+:osgi:checkstyleIntegTestGroovy
+:osgi:checkstyleMain
+:osgi:checkstyleTest
+:osgi:checkstyleTestGroovy
+:osgi:codenarcIntegTest
+:osgi:codenarcMain
+:osgi:codenarcTest
+:osgi:codeQuality
+:performance:checkstyleGroovy UP-TO-DATE
+:performance:classpathManifest UP-TO-DATE
+:performance:compileJava UP-TO-DATE
+:performance:compileGroovy UP-TO-DATE
+:performance:processResources UP-TO-DATE
+:performance:reportResources UP-TO-DATE
+:performance:classes UP-TO-DATE
+:performance:compileTestFixturesJava UP-TO-DATE
+:performance:compileTestFixturesGroovy
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jgit/org.eclipse.jgit/3.0.0.201306101825-r/org.eclipse.jgit-3.0.0.201306101825-r.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jgit/org.eclipse.jgit-parent/3.0.0.201306101825-r/org.eclipse.jgit-parent-3.0.0.201306101825-r.pom
+Download https://repo.gradle.org/gradle/libs/commons-lang/commons-lang/2.5/commons-lang-2.5.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/12/commons-parent-12.pom
+Download https://repo.gradle.org/gradle/libs/com/googlecode/javaewah/JavaEWAH/0.5.6/JavaEWAH-0.5.6.pom
+Download https://repo.gradle.org/gradle/libs/org/eclipse/jgit/org.eclipse.jgit/3.0.0.201306101825-r/org.eclipse.jgit-3.0.0.201306101825-r.jar
+Download https://repo.gradle.org/gradle/libs/com/googlecode/javaewah/JavaEWAH/0.5.6/JavaEWAH-0.5.6.jar
+:performance:processTestFixturesResources
+:performance:testFixturesClasses
+:performance:compileTestJava UP-TO-DATE
+:performance:compileTestGroovy
+:performance:processTestResources
+:performance:testClasses
+:performance:compileIntegTestJava UP-TO-DATE
+:performance:compileIntegTestGroovy
+:performance:processIntegTestResources UP-TO-DATE
+:performance:integTestClasses
+:performance:checkstyleIntegTest UP-TO-DATE
+:performance:checkstyleIntegTestGroovy
+:performance:checkstyleMain UP-TO-DATE
+:performance:checkstyleTest UP-TO-DATE
+:performance:checkstyleTestFixtures
+:performance:checkstyleTestFixturesGroovy
+:performance:checkstyleTestGroovy
+:performance:classycleIntegTest
+:performance:classycleMain
+:performance:classycleTest
+:performance:classycleTestFixtures
+:performance:codenarcIntegTest
+:performance:codenarcMain UP-TO-DATE
+:performance:codenarcTest
+:performance:codenarcTestFixtures
+:performance:codeQuality
+:platformBase:checkstyleGroovy UP-TO-DATE
+:platformBase:compileTestJava UP-TO-DATE
+:platformBase:compileTestGroovy
+:platformBase:processTestResources UP-TO-DATE
+:platformBase:testClasses
+:platformBase:compileIntegTestJava UP-TO-DATE
+:platformBase:compileIntegTestGroovy
+:platformBase:processIntegTestResources UP-TO-DATE
+:platformBase:integTestClasses
+:platformBase:checkstyleIntegTest UP-TO-DATE
+:platformBase:checkstyleIntegTestGroovy
+:platformBase:checkstyleMain
+:platformBase:checkstyleTest UP-TO-DATE
+:platformBase:checkstyleTestFixtures UP-TO-DATE
+:platformBase:checkstyleTestFixturesGroovy
+:platformBase:checkstyleTestGroovy
+:platformBase:classycleIntegTest
+:platformBase:classycleMain
+:platformBase:classycleTest
+:platformBase:classycleTestFixtures
+:platformBase:codenarcIntegTest
+:platformBase:codenarcMain UP-TO-DATE
+:platformBase:codenarcTest
+:platformBase:codenarcTestFixtures
+:platformBase:codeQuality
+:platformJvm:checkstyleGroovy UP-TO-DATE
+:platformJvm:compileTestJava UP-TO-DATE
+:platformJvm:compileTestGroovy
+:platformJvm:processTestResources UP-TO-DATE
+:platformJvm:testClasses
+:platformJvm:compileIntegTestJava UP-TO-DATE
+:platformJvm:compileIntegTestGroovy
+:platformJvm:processIntegTestResources UP-TO-DATE
+:platformJvm:integTestClasses
+:platformJvm:checkstyleIntegTest UP-TO-DATE
+:platformJvm:checkstyleIntegTestGroovy
+:platformJvm:checkstyleMain
+:platformJvm:checkstyleTest UP-TO-DATE
+:platformJvm:checkstyleTestGroovy
+:platformJvm:classycleIntegTest
+:platformJvm:classycleMain
+:platformJvm:classycleTest
+:platformJvm:codenarcIntegTest
+:platformJvm:codenarcMain UP-TO-DATE
+:platformJvm:codenarcTest
+:platformJvm:codeQuality
+:platformNative:checkstyleGroovy
+:platformNative:compileTestJava UP-TO-DATE
+:platformNative:compileTestGroovy
+:platformNative:processTestResources UP-TO-DATE
+:platformNative:testClasses
+:platformNative:compileIntegTestJava UP-TO-DATE
+:platformNative:compileIntegTestGroovy
+:platformNative:processIntegTestResources UP-TO-DATE
+:platformNative:integTestClasses
+:platformNative:checkstyleIntegTest UP-TO-DATE
+:platformNative:checkstyleIntegTestGroovy
+:platformNative:checkstyleMain
+:platformNative:checkstyleTest UP-TO-DATE
+:platformNative:checkstyleTestFixtures
+:platformNative:checkstyleTestFixturesGroovy
+:platformNative:checkstyleTestGroovy
+:platformNative:classycleIntegTest
+:platformNative:classycleMain
+:platformNative:classycleTest
+:platformNative:classycleTestFixtures
+:platformNative:codenarcIntegTest
+:platformNative:codenarcMain
+:platformNative:codenarcTest
+:platformNative:codenarcTestFixtures
+:platformNative:codeQuality
+:javascript:jar UP-TO-DATE
+:platformPlay:checkstyleGroovy UP-TO-DATE
+:platformPlay:classpathManifest UP-TO-DATE
+:platformPlay:compileJava UP-TO-DATE
+:platformPlay:compileGroovy UP-TO-DATE
+:platformPlay:processResources UP-TO-DATE
+:platformPlay:classes UP-TO-DATE
+:platformPlay:compileTestJava UP-TO-DATE
+:platformPlay:compileTestGroovy
+:platformPlay:processTestResources UP-TO-DATE
+:platformPlay:testClasses
+:platformPlay:compileIntegTestJava UP-TO-DATE
+:platformPlay:compileIntegTestGroovy
+:platformPlay:processIntegTestResources
+:platformPlay:integTestClasses
+:platformPlay:checkstyleIntegTest UP-TO-DATE
+:platformPlay:checkstyleIntegTestGroovy
+:platformPlay:checkstyleMain
+:platformPlay:checkstyleTest UP-TO-DATE
+:platformPlay:checkstyleTestGroovy
+:platformPlay:classycleIntegTest
+:platformPlay:classycleMain
+:platformPlay:classycleTest
+:platformPlay:codenarcIntegTest
+:platformPlay:codenarcMain UP-TO-DATE
+:platformPlay:codenarcTest
+:platformPlay:codeQuality
+:pluginDevelopment:checkstyleGroovy UP-TO-DATE
+:pluginDevelopment:classpathManifest UP-TO-DATE
+:pluginDevelopment:compileJava UP-TO-DATE
+:pluginDevelopment:compileGroovy UP-TO-DATE
+:pluginDevelopment:processResources UP-TO-DATE
+:pluginDevelopment:classes UP-TO-DATE
+:pluginDevelopment:compileTestJava UP-TO-DATE
+:pluginDevelopment:compileTestGroovy
+:pluginDevelopment:processTestResources UP-TO-DATE
+:pluginDevelopment:testClasses
+:pluginDevelopment:compileIntegTestJava UP-TO-DATE
+:pluginDevelopment:compileIntegTestGroovy
+:pluginDevelopment:processIntegTestResources UP-TO-DATE
+:pluginDevelopment:integTestClasses
+:pluginDevelopment:checkstyleIntegTest UP-TO-DATE
+:pluginDevelopment:checkstyleIntegTestGroovy
+:pluginDevelopment:checkstyleMain
+:pluginDevelopment:checkstyleTest UP-TO-DATE
+:pluginDevelopment:checkstyleTestGroovy
+:pluginDevelopment:classycleIntegTest
+:pluginDevelopment:classycleMain
+:pluginDevelopment:classycleTest
+:pluginDevelopment:codenarcIntegTest
+:pluginDevelopment:codenarcMain UP-TO-DATE
+:pluginDevelopment:codenarcTest
+:pluginDevelopment:codeQuality
+:pluginUse:checkstyleGroovy UP-TO-DATE
+:pluginUse:compileTestFixturesJava UP-TO-DATE
+:pluginUse:compileTestFixturesGroovy
+:pluginUse:processTestFixturesResources UP-TO-DATE
+:pluginUse:testFixturesClasses
+:pluginUse:compileTestJava UP-TO-DATE
+:pluginUse:compileTestGroovy
+:pluginUse:processTestResources UP-TO-DATE
+:pluginUse:testClasses
+:pluginUse:compileIntegTestJava UP-TO-DATE
+:pluginUse:compileIntegTestGroovy
+:pluginUse:processIntegTestResources UP-TO-DATE
+:pluginUse:integTestClasses
+:pluginUse:checkstyleIntegTest UP-TO-DATE
+:pluginUse:checkstyleIntegTestGroovy
+:pluginUse:checkstyleMain
+:pluginUse:checkstyleTest UP-TO-DATE
+:pluginUse:checkstyleTestFixtures UP-TO-DATE
+:pluginUse:checkstyleTestFixturesGroovy
+:pluginUse:checkstyleTestGroovy
+:pluginUse:classycleIntegTest
+:pluginUse:classycleMain
+:pluginUse:classycleTest
+:pluginUse:classycleTestFixtures
+:pluginUse:codenarcIntegTest
+:pluginUse:codenarcMain UP-TO-DATE
+:pluginUse:codenarcTest
+:pluginUse:codenarcTestFixtures
+:pluginUse:codeQuality
+:plugins:checkstyleGroovy
+:plugins:compileTestFixturesJava UP-TO-DATE
+:plugins:compileTestFixturesGroovy
+:plugins:processTestFixturesResources UP-TO-DATE
+:plugins:testFixturesClasses
+:plugins:compileTestJava UP-TO-DATE
+:plugins:compileTestGroovy
+Download https://repo.gradle.org/gradle/libs/com/google/inject/guice/2.0/guice-2.0.pom
+Download https://repo.gradle.org/gradle/libs/com/google/inject/guice-parent/2.0/guice-parent-2.0.pom
+Download https://repo.gradle.org/gradle/libs/com/google/google/1/google-1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/inject/guice/2.0/guice-2.0.jar
+Note: /home/travis/build/gradle/gradle/subprojects/plugins/src/test/groovy/org/gradle/api/internal/tasks/testing/junit/report/LocaleSafeDecimalFormatTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/gradle/gradle/subprojects/plugins/src/test/groovy/org/gradle/api/tasks/compile/GroovyCompileTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+:plugins:processTestResources UP-TO-DATE
+:plugins:testClasses
+:plugins:compileIntegTestJava UP-TO-DATE
+:plugins:compileIntegTestGroovy
+:plugins:processIntegTestResources
+:plugins:integTestClasses
+:plugins:checkstyleIntegTest UP-TO-DATE
+:plugins:checkstyleIntegTestGroovy
+:plugins:checkstyleMain
+:plugins:checkstyleTest
+:plugins:checkstyleTestFixtures
+:plugins:checkstyleTestFixturesGroovy
+:plugins:checkstyleTestGroovy
+:plugins:codenarcIntegTest
+:plugins:codenarcMain
+:plugins:codenarcTest
+:plugins:codenarcTestFixtures
+:plugins:codeQuality
+:publish:checkstyleGroovy UP-TO-DATE
+:publish:compileTestJava UP-TO-DATE
+:publish:compileTestGroovy
+:publish:processTestResources UP-TO-DATE
+:publish:testClasses
+:publish:compileIntegTestJava UP-TO-DATE
+:publish:compileIntegTestGroovy
+:publish:processIntegTestResources UP-TO-DATE
+:publish:integTestClasses
+:publish:checkstyleIntegTest UP-TO-DATE
+:publish:checkstyleIntegTestGroovy
+:publish:checkstyleMain
+:publish:checkstyleTest UP-TO-DATE
+:publish:checkstyleTestGroovy
+:publish:classycleIntegTest
+:publish:classycleMain
+:publish:classycleTest
+:publish:codenarcIntegTest
+:publish:codenarcMain UP-TO-DATE
+:publish:codenarcTest
+:publish:codeQuality
+:reporting:checkstyleGroovy UP-TO-DATE
+:reporting:compileTestJava UP-TO-DATE
+:reporting:compileTestGroovy
+:reporting:processTestResources UP-TO-DATE
+:reporting:testClasses
+:reporting:compileIntegTestJava UP-TO-DATE
+:reporting:compileIntegTestGroovy
+:reporting:processIntegTestResources UP-TO-DATE
+:reporting:integTestClasses
+:reporting:checkstyleIntegTest UP-TO-DATE
+:reporting:checkstyleIntegTestGroovy
+:reporting:checkstyleMain
+:reporting:checkstyleTest UP-TO-DATE
+:reporting:checkstyleTestGroovy
+:reporting:codenarcIntegTest
+:reporting:codenarcMain UP-TO-DATE
+:reporting:codenarcTest
+:reporting:codeQuality
+:resources:checkstyleGroovy UP-TO-DATE
+:resources:checkstyleMain
+:resources:compileTestJava UP-TO-DATE
+:resources:compileTestGroovy
+:resources:processTestResources UP-TO-DATE
+:resources:testClasses
+:resources:checkstyleTest UP-TO-DATE
+:resources:checkstyleTestGroovy
+:resources:classycleMain
+:resources:classycleTest
+:resources:codenarcMain UP-TO-DATE
+:resources:codenarcTest
+:resources:codeQuality
+:resourcesHttp:checkstyleGroovy UP-TO-DATE
+:resourcesHttp:checkstyleMain
+:resourcesHttp:compileTestJava UP-TO-DATE
+:resourcesHttp:compileTestGroovy
+:resourcesHttp:processTestResources
+:resourcesHttp:testClasses
+:resourcesHttp:checkstyleTest UP-TO-DATE
+:resourcesHttp:checkstyleTestGroovy
+:resourcesHttp:classycleMain
+:resourcesHttp:classycleTest
+:resourcesHttp:codenarcMain UP-TO-DATE
+:resourcesHttp:codenarcTest
+:resourcesHttp:codeQuality
+:scala:checkstyleGroovy
+:scala:compileTestJava UP-TO-DATE
+:scala:compileTestGroovyNote: /home/travis/build/gradle/gradle/subprojects/scala/src/test/groovy/org/gradle/api/tasks/scala/ScalaCompileTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:scala:processTestResources UP-TO-DATE
+:scala:testClasses
+:scala:compileIntegTestJava UP-TO-DATE
+:scala:compileIntegTestGroovy
+:scala:processIntegTestResources
+:scala:integTestClasses
+:scala:checkstyleIntegTest
+:scala:checkstyleIntegTestGroovy
+:scala:checkstyleMain
+:scala:checkstyleTest
+:scala:checkstyleTestGroovy
+:scala:codenarcIntegTest
+:scala:codenarcMain
+:scala:codenarcTest
+:scala:codeQuality
+:signing:checkstyleGroovy
+:signing:compileTestJava UP-TO-DATE
+:signing:compileTestGroovy
+:signing:processTestResources
+:signing:testClasses
+:signing:compileIntegTestJava UP-TO-DATE
+:signing:compileIntegTestGroovy
+:signing:processIntegTestResources
+:signing:integTestClasses
+:signing:checkstyleIntegTest UP-TO-DATE
+:signing:checkstyleIntegTestGroovy
+:signing:checkstyleMain UP-TO-DATE
+:signing:checkstyleTest UP-TO-DATE
+:signing:checkstyleTestGroovy
+:signing:codenarcIntegTest
+:signing:codenarcMain
+:signing:codenarcTest
+:signing:codeQuality
+:sonar:checkstyleGroovy
+:sonar:compileTestJava UP-TO-DATE
+:sonar:compileTestGroovy
+:sonar:processTestResources UP-TO-DATE
+:sonar:testClasses
+:sonar:compileIntegTestJava UP-TO-DATE
+:sonar:compileIntegTestGroovy
+:sonar:processIntegTestResources
+:sonar:integTestClasses
+:sonar:checkstyleIntegTest UP-TO-DATE
+:sonar:checkstyleIntegTestGroovy
+:sonar:checkstyleMain
+:sonar:checkstyleTest UP-TO-DATE
+:sonar:checkstyleTestGroovy
+:sonar:classycleIntegTest
+:sonar:classycleMain
+:sonar:classycleTest
+:sonar:codenarcIntegTest
+:sonar:codenarcMain
+:sonar:codenarcTest
+:sonar:codeQuality
+:toolingApi:checkstyleGroovy UP-TO-DATE
+:toolingApi:compileTestFixturesJava UP-TO-DATE
+:toolingApi:compileTestFixturesGroovyNote: /home/travis/build/gradle/gradle/subprojects/tooling-api/src/testFixtures/groovy/org/gradle/integtests/tooling/fixture/GradleVersionSpec.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:toolingApi:processTestFixturesResources UP-TO-DATE
+:toolingApi:testFixturesClasses
+:toolingApi:compileTestJava UP-TO-DATE
+:toolingApi:compileTestGroovy
+:toolingApi:processTestResources UP-TO-DATE
+:toolingApi:testClasses
+:toolingApi:compileIntegTestJava UP-TO-DATE
+:toolingApi:compileIntegTestGroovy
+:toolingApi:processIntegTestResources UP-TO-DATE
+:toolingApi:integTestClasses
+:toolingApi:checkstyleIntegTest
+:toolingApi:checkstyleIntegTestGroovy
+:toolingApi:checkstyleMain
+:toolingApi:checkstyleTest UP-TO-DATE
+:toolingApi:checkstyleTestFixtures
+:toolingApi:checkstyleTestFixturesGroovy
+:toolingApi:checkstyleTestGroovy
+:toolingApi:codenarcIntegTest
+:toolingApi:codenarcMain UP-TO-DATE
+:toolingApi:codenarcTest
+:toolingApi:codenarcTestFixtures
+:toolingApi:codeQuality
+:ui:checkstyleGroovy UP-TO-DATE
+:ui:compileTestJava UP-TO-DATE
+:ui:compileTestGroovy
+:ui:processTestResources UP-TO-DATE
+:ui:testClasses
+:ui:compileIntegTestJava UP-TO-DATE
+:ui:compileIntegTestGroovyNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:ui:processIntegTestResources UP-TO-DATE
+:ui:integTestClasses
+:ui:checkstyleIntegTest
+:ui:checkstyleIntegTestGroovy
+:ui:checkstyleMain
+:ui:checkstyleTest
+:ui:checkstyleTestGroovy
+:ui:codenarcIntegTest
+:ui:codenarcMain UP-TO-DATE
+:ui:codenarcTest
+:ui:codeQuality
+:wrapper:checkstyleGroovy UP-TO-DATE
+:wrapper:buildReceiptResource
+:wrapper:compileTestJava UP-TO-DATE
+:wrapper:compileTestGroovy
+:wrapper:processTestResources
+:wrapper:testClasses
+:wrapper:compileIntegTestJava UP-TO-DATE
+:wrapper:compileIntegTestGroovy
+:wrapper:processIntegTestResources UP-TO-DATE
+:wrapper:integTestClasses
+:wrapper:checkstyleIntegTest UP-TO-DATE
+:wrapper:checkstyleIntegTestGroovy
+:wrapper:checkstyleMain
+:wrapper:checkstyleTest
+:wrapper:checkstyleTestGroovy
+:wrapper:classycleIntegTest
+:wrapper:classycleMain
+:wrapper:classycleTest
+:wrapper:codenarcIntegTest
+:wrapper:codenarcMain UP-TO-DATE
+:wrapper:codenarcTest
+:wrapper:codeQuality
+:docs:releaseNotesMarkdown UP-TO-DATE
+:docs:releaseNotes UP-TO-DATE
+:docs:test
+:docs:check
+
+BUILD SUCCESSFUL
+
+Total time: 7 mins 3.003 secs
+travis_time:end:261cf892:start=1420548826295870371,finish=1420549250182180570,duration=423886310199[0K
+[32;1mThe command "./gradlew pullRequestValidation" exited with 0.[0m
+
+Done. Your build exited with 0.

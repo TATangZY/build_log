@@ -1,0 +1,3119 @@
+Using worker: worker-linux-docker-96a0d0b9.prod.travis-ci.org:travis-linux-5
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Fri Dec 12 23:29:11 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+540230e https://github.com/travis-ci/travis-cookbooks/tree/540230e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.4
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 3.13.0-29-generic amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0edf98d9[0K$ git clone --depth=50 --branch=1.x git://github.com/ReactiveX/RxJava.git ReactiveX/RxJava
+Cloning into 'ReactiveX/RxJava'...
+remote: Counting objects: 2497, done.[K
+remote: Compressing objects:   0% (1/1149)   [Kremote: Compressing objects:   1% (12/1149)   [Kremote: Compressing objects:   2% (23/1149)   [Kremote: Compressing objects:   3% (35/1149)   [Kremote: Compressing objects:   4% (46/1149)   [Kremote: Compressing objects:   5% (58/1149)   [Kremote: Compressing objects:   6% (69/1149)   [Kremote: Compressing objects:   7% (81/1149)   [Kremote: Compressing objects:   8% (92/1149)   [Kremote: Compressing objects:   9% (104/1149)   [Kremote: Compressing objects:  10% (115/1149)   [Kremote: Compressing objects:  11% (127/1149)   [Kremote: Compressing objects:  12% (138/1149)   [Kremote: Compressing objects:  13% (150/1149)   [Kremote: Compressing objects:  14% (161/1149)   [Kremote: Compressing objects:  15% (173/1149)   [Kremote: Compressing objects:  16% (184/1149)   [Kremote: Compressing objects:  17% (196/1149)   [Kremote: Compressing objects:  18% (207/1149)   [Kremote: Compressing objects:  19% (219/1149)   [Kremote: Compressing objects:  20% (230/1149)   [Kremote: Compressing objects:  21% (242/1149)   [Kremote: Compressing objects:  22% (253/1149)   [Kremote: Compressing objects:  23% (265/1149)   [Kremote: Compressing objects:  24% (276/1149)   [Kremote: Compressing objects:  25% (288/1149)   [Kremote: Compressing objects:  26% (299/1149)   [Kremote: Compressing objects:  27% (311/1149)   [Kremote: Compressing objects:  28% (322/1149)   [Kremote: Compressing objects:  29% (334/1149)   [Kremote: Compressing objects:  30% (345/1149)   [Kremote: Compressing objects:  31% (357/1149)   [Kremote: Compressing objects:  32% (368/1149)   [Kremote: Compressing objects:  33% (380/1149)   [Kremote: Compressing objects:  34% (391/1149)   [Kremote: Compressing objects:  35% (403/1149)   [Kremote: Compressing objects:  36% (414/1149)   [Kremote: Compressing objects:  37% (426/1149)   [Kremote: Compressing objects:  38% (437/1149)   [Kremote: Compressing objects:  39% (449/1149)   [Kremote: Compressing objects:  40% (460/1149)   [Kremote: Compressing objects:  41% (472/1149)   [Kremote: Compressing objects:  42% (483/1149)   [Kremote: Compressing objects:  43% (495/1149)   [Kremote: Compressing objects:  44% (506/1149)   [Kremote: Compressing objects:  45% (518/1149)   [Kremote: Compressing objects:  46% (529/1149)   [Kremote: Compressing objects:  47% (541/1149)   [Kremote: Compressing objects:  48% (552/1149)   [Kremote: Compressing objects:  49% (564/1149)   [Kremote: Compressing objects:  50% (575/1149)   [Kremote: Compressing objects:  51% (586/1149)   [Kremote: Compressing objects:  52% (598/1149)   [Kremote: Compressing objects:  53% (609/1149)   [Kremote: Compressing objects:  54% (621/1149)   [Kremote: Compressing objects:  55% (632/1149)   [Kremote: Compressing objects:  56% (644/1149)   [Kremote: Compressing objects:  57% (655/1149)   [Kremote: Compressing objects:  58% (667/1149)   [Kremote: Compressing objects:  59% (678/1149)   [Kremote: Compressing objects:  60% (690/1149)   [Kremote: Compressing objects:  61% (701/1149)   [Kremote: Compressing objects:  62% (713/1149)   [Kremote: Compressing objects:  63% (724/1149)   [Kremote: Compressing objects:  64% (736/1149)   [Kremote: Compressing objects:  65% (747/1149)   [Kremote: Compressing objects:  66% (759/1149)   [Kremote: Compressing objects:  67% (770/1149)   [Kremote: Compressing objects:  68% (782/1149)   [Kremote: Compressing objects:  69% (793/1149)   [Kremote: Compressing objects:  70% (805/1149)   [Kremote: Compressing objects:  71% (816/1149)   [Kremote: Compressing objects:  72% (828/1149)   [Kremote: Compressing objects:  73% (839/1149)   [Kremote: Compressing objects:  74% (851/1149)   [Kremote: Compressing objects:  75% (862/1149)   [Kremote: Compressing objects:  76% (874/1149)   [Kremote: Compressing objects:  77% (885/1149)   [Kremote: Compressing objects:  78% (897/1149)   [Kremote: Compressing objects:  79% (908/1149)   [Kremote: Compressing objects:  80% (920/1149)   [Kremote: Compressing objects:  81% (931/1149)   [Kremote: Compressing objects:  82% (943/1149)   [Kremote: Compressing objects:  83% (954/1149)   [Kremote: Compressing objects:  84% (966/1149)   [Kremote: Compressing objects:  85% (977/1149)   [Kremote: Compressing objects:  86% (989/1149)   [Kremote: Compressing objects:  87% (1000/1149)   [Kremote: Compressing objects:  88% (1012/1149)   [Kremote: Compressing objects:  89% (1023/1149)   [Kremote: Compressing objects:  90% (1035/1149)   [Kremote: Compressing objects:  91% (1046/1149)   [Kremote: Compressing objects:  92% (1058/1149)   [Kremote: Compressing objects:  93% (1069/1149)   [Kremote: Compressing objects:  94% (1081/1149)   [Kremote: Compressing objects:  95% (1092/1149)   [Kremote: Compressing objects:  96% (1104/1149)   [Kremote: Compressing objects:  97% (1115/1149)   [Kremote: Compressing objects:  98% (1127/1149)   [Kremote: Compressing objects:  99% (1138/1149)   [Kremote: Compressing objects: 100% (1149/1149)   [Kremote: Compressing objects: 100% (1149/1149), done.[K
+Receiving objects:   0% (1/2497)   Receiving objects:   1% (25/2497)   Receiving objects:   2% (50/2497)   Receiving objects:   3% (75/2497)   Receiving objects:   4% (100/2497)   Receiving objects:   5% (125/2497)   Receiving objects:   6% (150/2497)   Receiving objects:   7% (175/2497)   Receiving objects:   8% (200/2497)   Receiving objects:   9% (225/2497)   Receiving objects:  10% (250/2497)   Receiving objects:  11% (275/2497)   Receiving objects:  12% (300/2497)   Receiving objects:  13% (325/2497)   Receiving objects:  14% (350/2497)   Receiving objects:  15% (375/2497)   Receiving objects:  16% (400/2497)   Receiving objects:  17% (425/2497)   Receiving objects:  18% (450/2497)   Receiving objects:  19% (475/2497)   Receiving objects:  20% (500/2497)   Receiving objects:  21% (525/2497)   Receiving objects:  22% (550/2497)   Receiving objects:  23% (575/2497)   Receiving objects:  24% (600/2497)   Receiving objects:  25% (625/2497)   Receiving objects:  26% (650/2497)   Receiving objects:  27% (675/2497)   Receiving objects:  28% (700/2497)   Receiving objects:  29% (725/2497)   Receiving objects:  30% (750/2497)   Receiving objects:  31% (775/2497)   Receiving objects:  32% (800/2497)   Receiving objects:  33% (825/2497)   Receiving objects:  34% (849/2497)   Receiving objects:  35% (874/2497)   Receiving objects:  36% (899/2497)   Receiving objects:  37% (924/2497)   Receiving objects:  38% (949/2497)   Receiving objects:  39% (974/2497)   Receiving objects:  40% (999/2497)   Receiving objects:  41% (1024/2497)   Receiving objects:  42% (1049/2497)   Receiving objects:  43% (1074/2497)   Receiving objects:  44% (1099/2497)   Receiving objects:  45% (1124/2497)   Receiving objects:  46% (1149/2497)   Receiving objects:  47% (1174/2497)   Receiving objects:  48% (1199/2497)   Receiving objects:  49% (1224/2497)   Receiving objects:  50% (1249/2497)   Receiving objects:  51% (1274/2497)   Receiving objects:  52% (1299/2497)   Receiving objects:  53% (1324/2497)   Receiving objects:  54% (1349/2497)   Receiving objects:  55% (1374/2497)   Receiving objects:  56% (1399/2497)   Receiving objects:  57% (1424/2497)   Receiving objects:  58% (1449/2497)   Receiving objects:  59% (1474/2497)   Receiving objects:  60% (1499/2497)   Receiving objects:  61% (1524/2497)   Receiving objects:  62% (1549/2497)   Receiving objects:  63% (1574/2497)   Receiving objects:  64% (1599/2497)   Receiving objects:  65% (1624/2497)   Receiving objects:  66% (1649/2497)   Receiving objects:  67% (1673/2497)   Receiving objects:  68% (1698/2497)   Receiving objects:  69% (1723/2497)   Receiving objects:  70% (1748/2497)   Receiving objects:  71% (1773/2497)   Receiving objects:  72% (1798/2497)   Receiving objects:  73% (1823/2497)   Receiving objects:  74% (1848/2497)   Receiving objects:  75% (1873/2497)   Receiving objects:  76% (1898/2497)   Receiving objects:  77% (1923/2497)   Receiving objects:  78% (1948/2497)   Receiving objects:  79% (1973/2497)   Receiving objects:  80% (1998/2497)   Receiving objects:  81% (2023/2497)   Receiving objects:  82% (2048/2497)   Receiving objects:  83% (2073/2497)   Receiving objects:  84% (2098/2497)   Receiving objects:  85% (2123/2497)   Receiving objects:  86% (2148/2497)   Receiving objects:  87% (2173/2497)   Receiving objects:  88% (2198/2497)   Receiving objects:  89% (2223/2497)   Receiving objects:  90% (2248/2497)   Receiving objects:  91% (2273/2497)   Receiving objects:  92% (2298/2497)   Receiving objects:  93% (2323/2497)   Receiving objects:  94% (2348/2497)   remote: Total 2497 (delta 1179), reused 1988 (delta 828)[K
+Receiving objects:  95% (2373/2497)   Receiving objects:  96% (2398/2497)   Receiving objects:  97% (2423/2497)   Receiving objects:  98% (2448/2497)   Receiving objects:  99% (2473/2497)   Receiving objects: 100% (2497/2497)   Receiving objects: 100% (2497/2497), 929.03 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1179)   Resolving deltas:  17% (204/1179)   Resolving deltas:  23% (280/1179)   Resolving deltas:  26% (312/1179)   Resolving deltas:  27% (319/1179)   Resolving deltas:  35% (418/1179)   Resolving deltas:  40% (478/1179)   Resolving deltas:  41% (494/1179)   Resolving deltas:  42% (498/1179)   Resolving deltas:  43% (508/1179)   Resolving deltas:  44% (524/1179)   Resolving deltas:  45% (531/1179)   Resolving deltas:  46% (548/1179)   Resolving deltas:  47% (556/1179)   Resolving deltas:  48% (568/1179)   Resolving deltas:  50% (590/1179)   Resolving deltas:  52% (615/1179)   Resolving deltas:  53% (626/1179)   Resolving deltas:  55% (649/1179)   Resolving deltas:  56% (661/1179)   Resolving deltas:  58% (684/1179)   Resolving deltas:  59% (700/1179)   Resolving deltas:  60% (709/1179)   Resolving deltas:  61% (720/1179)   Resolving deltas:  62% (740/1179)   Resolving deltas:  65% (772/1179)   Resolving deltas:  73% (861/1179)   Resolving deltas:  74% (876/1179)   Resolving deltas:  75% (885/1179)   Resolving deltas:  76% (900/1179)   Resolving deltas:  77% (908/1179)   Resolving deltas:  78% (922/1179)   Resolving deltas:  79% (933/1179)   Resolving deltas:  80% (951/1179)   Resolving deltas:  81% (956/1179)   Resolving deltas:  82% (967/1179)   Resolving deltas:  83% (987/1179)   Resolving deltas:  84% (991/1179)   Resolving deltas:  85% (1007/1179)   Resolving deltas:  89% (1050/1179)   Resolving deltas:  90% (1064/1179)   Resolving deltas:  91% (1076/1179)   Resolving deltas:  92% (1086/1179)   Resolving deltas:  93% (1106/1179)   Resolving deltas:  94% (1110/1179)   Resolving deltas:  95% (1121/1179)   Resolving deltas:  96% (1132/1179)   Resolving deltas:  97% (1147/1179)   Resolving deltas:  98% (1156/1179)   Resolving deltas: 100% (1179/1179)   Resolving deltas: 100% (1179/1179), done.
+Checking connectivity... done.
+travis_time:end:0edf98d9:start=1422441064792573066,finish=1422441065381547971,duration=588974905[0K$ cd ReactiveX/RxJava
+$ git checkout -qf 19a66b71e84562aa5fcb379d6640648ea6cbef29
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:13a42a18[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions/gradle-2.2.1-bin.zip
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.2.1-bin/88n1whbyjvxg3s40jzz5ur27/gradle-2.2.1-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-2.2.1-bin/88n1whbyjvxg3s40jzz5ur27
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.2.1-bin/88n1whbyjvxg3s40jzz5ur27/gradle-2.2.1/bin/gradle
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-rxjava-project-plugin/2.2.1/gradle-rxjava-project-plugin-2.2.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-project-plugin/2.0.0/nebula-project-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-bintray-plugin/2.0.2/nebula-bintray-plugin-2.0.2.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-release-plugin/2.2.4/nebula-release-plugin-2.2.4.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-override-plugin/2.0.1/gradle-override-plugin-2.0.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-publishing-plugin/2.0.1/nebula-publishing-plugin-2.0.1.pom
+Download https://jcenter.bintray.com/com/github/jengelman/gradle/plugins/shadow/1.2.0/shadow-1.2.0.pom
+Download https://jcenter.bintray.com/nl/javadude/gradle/plugins/license-gradle-plugin/0.11.0/license-gradle-plugin-0.11.0.pom
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.pom
+Download https://jcenter.bintray.com/com/google/guava/guava-parent/17.0/guava-parent-17.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-core/2.0.0/nebula-core-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/2.0.0/gradle-contacts-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-dependency-lock-plugin/2.0.0/gradle-dependency-lock-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-info-plugin/2.0.0/gradle-info-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/1.0/gradle-bintray-plugin-1.0.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor-gradle/3.0.1/build-info-extractor-gradle-3.0.1.pom
+Download https://jcenter.bintray.com/org/ajoberstar/gradle-git/0.12.0/gradle-git-0.12.0.pom
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.pom
+Download https://jcenter.bintray.com/org/apache/apache/4/apache-4.pom
+Download https://jcenter.bintray.com/org/jdom/jdom2/2.0.5/jdom2-2.0.5.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm/5.0.3/asm-5.0.3.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-parent/5.0.3/asm-parent-5.0.3.pom
+Download https://jcenter.bintray.com/org/ow2/ow2/1.3/ow2-1.3.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.pom
+Download https://jcenter.bintray.com/commons-io/commons-io/2.4/commons-io-2.4.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/25/commons-parent-25.pom
+Download https://jcenter.bintray.com/org/apache/apache/9/apache-9.pom
+Download https://jcenter.bintray.com/org/apache/ant/ant/1.9.4/ant-1.9.4.pom
+Download https://jcenter.bintray.com/org/apache/ant/ant-parent/1.9.4/ant-parent-1.9.4.pom
+Download https://jcenter.bintray.com/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.pom
+Download https://jcenter.bintray.com/com/mycila/parent-pom/5/parent-pom-5.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/32/commons-parent-32.pom
+Download https://jcenter.bintray.com/org/apache/apache/13/apache-13.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-scm-plugin/2.0.0/gradle-scm-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/perforce/p4java-jfrog/2011.1.297684/p4java-jfrog-2011.1.297684.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.2.0.201312181205-r/org.eclipse.jgit-3.2.0.201312181205-r.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit-parent/3.2.0.201312181205-r/org.eclipse.jgit-parent-3.2.0.201312181205-r.pom
+Download https://jcenter.bintray.com/org/codehaus/groovy/modules/http-builder/http-builder/0.7.2/http-builder-0.7.2.pom
+Download https://jcenter.bintray.com/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.pom
+Download https://jcenter.bintray.com/org/apache/apache/7/apache-7.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor/2.3.0/build-info-extractor-2.3.0.pom
+Download https://jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.pom
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download https://jcenter.bintray.com/org/ajoberstar/grgit/0.4.0/grgit-0.4.0.pom
+Download https://jcenter.bintray.com/com/github/zafarkhaja/java-semver/0.8.0/java-semver-0.8.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.pom
+Download https://jcenter.bintray.com/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-plugin-api/3.0.1/maven-plugin-api-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven/3.0.1/maven-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/15/maven-parent-15.pom
+Download https://jcenter.bintray.com/org/apache/apache/6/apache-6.pom
+Download https://jcenter.bintray.com/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-project/3.0-alpha-2/maven-project-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven/3.0-alpha-2/maven-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/10/maven-parent-10.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+Download https://jcenter.bintray.com/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.46/jsch-0.1.46.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/6/oss-parent-6.pom
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.5.6/JavaEWAH-0.5.6.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.2.1/httpcomponents-client-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/project/6/project-6.pom
+Download https://jcenter.bintray.com/net/sf/json-lib/json-lib/2.3/json-lib-2.3.pom
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.pom
+Download https://jcenter.bintray.com/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.pom
+Download https://jcenter.bintray.com/org/apache/apache/3/apache-3.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-client/2.3.0/build-info-client-2.3.0.pom
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.pom
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream-parent/1.3.1/xstream-parent-1.3.1.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit.ui/3.3.2.201404171909-r/org.eclipse.jgit.ui-3.3.2.201404171909-r.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit-parent/3.3.2.201404171909-r/org.eclipse.jgit-parent-3.3.2.201404171909-r.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.jsch/0.0.7/jsch.agentproxy.jsch-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy/0.0.7/jsch.agentproxy-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.pageant/0.0.7/jsch.agentproxy.pageant-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.sshagent/0.0.7/jsch.agentproxy.sshagent-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-jna/0.0.7/jsch.agentproxy.usocket-jna-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-nc/0.0.7/jsch.agentproxy.usocket-nc-0.0.7.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.7/slf4j-parent-1.7.7.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-model/3.0.1/maven-model-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-artifact/3.0.1/maven-artifact-3.0.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-plexus/1.4.3.1/sisu-inject-plexus-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-plexus/1.4.3.1/guice-plexus-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-bean/1.4.3.1/guice-bean-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject/1.4.3.1/sisu-inject-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-parent/1.4.3.1/sisu-parent-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-interpolation/1.1/plexus-interpolation-1.1.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-compat/3.0-alpha-2/maven-compat-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-container-default/1.0-beta-3.0.5/plexus-container-default-1.0-beta-3.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-containers/1.0-beta-3.0.5/plexus-containers-1.0-beta-3.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
+Download https://jcenter.bintray.com/org/codehaus/woodstox/wstx-asl/3.2.6/wstx-asl-3.2.6.pom
+Download https://jcenter.bintray.com/org/sonatype/spice/model-builder/1.3/model-builder-1.3.pom
+Download https://jcenter.bintray.com/org/sonatype/spice/spice-parent/10/spice-parent-10.pom
+Download https://jcenter.bintray.com/org/sonatype/forge/forge-parent/3/forge-parent-3.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-project-builder/3.0-alpha-2/maven-project-builder-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.2.1/httpcomponents-core-4.2.1.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/22/commons-parent-22.pom
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download https://jcenter.bintray.com/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download https://jcenter.bintray.com/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.pom
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-api/2.3.0/build-info-api-2.3.0.pom
+Download https://jcenter.bintray.com/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.core/0.0.7/jsch.agentproxy.core-0.0.7.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/3.4.0/jna-3.4.0.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.4.0/platform-3.4.0.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-bean/1.4.3.1/sisu-inject-bean-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon-provider-api/1.0-beta-4/wagon-provider-api-1.0-beta-4.pom
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon/1.0-beta-4/wagon-1.0-beta-4.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/8/maven-parent-8.pom
+Download https://jcenter.bintray.com/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.pom
+Download https://jcenter.bintray.com/org/apache/xbean/xbean/3.4/xbean-3.4.pom
+Download https://jcenter.bintray.com/com/google/code/google-collections/google-collect/snapshot-20080530/google-collect-snapshot-20080530.pom
+Download https://jcenter.bintray.com/stax/stax-api/1.0.1/stax-api-1.0.1.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-guice/2.9.1/sisu-guice-2.9.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-parent/2.9.1/guice-parent-2.9.1.pom
+Download https://jcenter.bintray.com/log4j/log4j/1.2.12/log4j-1.2.12.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.3.2.201404171909-r/org.eclipse.jgit-3.3.2.201404171909-r.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.8/commons-codec-1.8.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/28/commons-parent-28.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.2.5/httpcomponents-client-4.2.5.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.50/jsch-0.1.50.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/2.0.1/gradle-contacts-plugin-2.0.1.pom
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.4/httpcore-4.2.4.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.2.4/httpcomponents-core-4.2.4.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-rxjava-project-plugin/2.2.1/gradle-rxjava-project-plugin-2.2.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-project-plugin/2.0.0/nebula-project-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-bintray-plugin/2.0.2/nebula-bintray-plugin-2.0.2.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-release-plugin/2.2.4/nebula-release-plugin-2.2.4.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-override-plugin/2.0.1/gradle-override-plugin-2.0.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-publishing-plugin/2.0.1/nebula-publishing-plugin-2.0.1.jar
+Download https://jcenter.bintray.com/com/github/jengelman/gradle/plugins/shadow/1.2.0/shadow-1.2.0.jar
+Download https://jcenter.bintray.com/nl/javadude/gradle/plugins/license-gradle-plugin/0.11.0/license-gradle-plugin-0.11.0.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-core/2.0.0/nebula-core-2.0.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-dependency-lock-plugin/2.0.0/gradle-dependency-lock-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-info-plugin/2.0.0/gradle-info-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/1.0/gradle-bintray-plugin-1.0.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor-gradle/3.0.1/build-info-extractor-gradle-3.0.1.jar
+Download https://jcenter.bintray.com/org/ajoberstar/gradle-git/0.12.0/gradle-git-0.12.0.jar
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.jar
+Download https://jcenter.bintray.com/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar
+Download https://jcenter.bintray.com/commons-io/commons-io/2.4/commons-io-2.4.jar
+Download https://jcenter.bintray.com/org/apache/ant/ant/1.9.4/ant-1.9.4.jar
+Download https://jcenter.bintray.com/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-scm-plugin/2.0.0/gradle-scm-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/perforce/p4java-jfrog/2011.1.297684/p4java-jfrog-2011.1.297684.jar
+Download https://jcenter.bintray.com/org/codehaus/groovy/modules/http-builder/http-builder/0.7.2/http-builder-0.7.2.jar
+Download https://jcenter.bintray.com/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor/2.3.0/build-info-extractor-2.3.0.jar
+Download https://jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+Download https://jcenter.bintray.com/org/ajoberstar/grgit/0.4.0/grgit-0.4.0.jar
+Download https://jcenter.bintray.com/com/github/zafarkhaja/java-semver/0.8.0/java-semver-0.8.0.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar
+Download https://jcenter.bintray.com/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-plugin-api/3.0.1/maven-plugin-api-3.0.1.jar
+Download https://jcenter.bintray.com/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-project/3.0-alpha-2/maven-project-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+Download https://jcenter.bintray.com/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.jar
+Download https://jcenter.bintray.com/net/sf/json-lib/json-lib/2.3/json-lib-2.3-jdk15.jar
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar
+Download https://jcenter.bintray.com/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-client/2.3.0/build-info-client-2.3.0.jar
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit.ui/3.3.2.201404171909-r/org.eclipse.jgit.ui-3.3.2.201404171909-r.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.jsch/0.0.7/jsch.agentproxy.jsch-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.pageant/0.0.7/jsch.agentproxy.pageant-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.sshagent/0.0.7/jsch.agentproxy.sshagent-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-jna/0.0.7/jsch.agentproxy.usocket-jna-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-nc/0.0.7/jsch.agentproxy.usocket-nc-0.0.7.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-model/3.0.1/maven-model-3.0.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-artifact/3.0.1/maven-artifact-3.0.1.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-plexus/1.4.3.1/sisu-inject-plexus-1.4.3.1.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-interpolation/1.1/plexus-interpolation-1.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-compat/3.0-alpha-2/maven-compat-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-container-default/1.0-beta-3.0.5/plexus-container-default-1.0-beta-3.0.5.jar
+Download https://jcenter.bintray.com/org/codehaus/woodstox/wstx-asl/3.2.6/wstx-asl-3.2.6.jar
+Download https://jcenter.bintray.com/org/sonatype/spice/model-builder/1.3/model-builder-1.3.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-project-builder/3.0-alpha-2/maven-project-builder-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+Download https://jcenter.bintray.com/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download https://jcenter.bintray.com/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-api/2.3.0/build-info-api-2.3.0.jar
+Download https://jcenter.bintray.com/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.core/0.0.7/jsch.agentproxy.core-0.0.7.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-bean/1.4.3.1/sisu-inject-bean-1.4.3.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon-provider-api/1.0-beta-4/wagon-provider-api-1.0-beta-4.jar
+Download https://jcenter.bintray.com/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+Download https://jcenter.bintray.com/com/google/code/google-collections/google-collect/snapshot-20080530/google-collect-snapshot-20080530.jar
+Download https://jcenter.bintray.com/stax/stax-api/1.0.1/stax-api-1.0.1.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-guice/2.9.1/sisu-guice-2.9.1-noaop.jar
+Download https://jcenter.bintray.com/log4j/log4j/1.2.12/log4j-1.2.12.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.3.2.201404171909-r/org.eclipse.jgit-3.3.2.201404171909-r.jar
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.8/commons-codec-1.8.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.50/jsch-0.1.50.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/2.0.1/gradle-contacts-plugin-2.0.1.jar
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.4/httpcore-4.2.4.jar
+Inferred version: 1.1.0-SNAPSHOT
+[buildinfo] Properties file path was not found! (Relevant only for builds running on a CI Server)
+:compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/internal/util/unsafe/UnsafeAccess.java:20: warning: Unsafe is internal proprietary API and may be removed in a future release
+import sun.misc.Unsafe;
+               ^
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/internal/util/unsafe/UnsafeAccess.java:31: warning: Unsafe is internal proprietary API and may be removed in a future release
+    public static final Unsafe UNSAFE;
+                        ^
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/internal/util/unsafe/UnsafeAccess.java:33: warning: Unsafe is internal proprietary API and may be removed in a future release
+        Unsafe u = null;
+        ^
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/internal/util/unsafe/UnsafeAccess.java:41: warning: Unsafe is internal proprietary API and may be removed in a future release
+            Field field = Unsafe.class.getDeclaredField("theUnsafe");
+                          ^
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/internal/util/unsafe/UnsafeAccess.java:43: warning: Unsafe is internal proprietary API and may be removed in a future release
+            u = (Unsafe) field.get(null);
+                 ^
+6 warnings
+
+:processResources UP-TO-DATE
+:classes
+:writeManifestProperties
+:jar
+:javadoc/home/travis/build/ReactiveX/RxJava/src/main/java/rx/exceptions/Exceptions.java:24: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/exceptions/Exceptions.java:34: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/observables/AbstractOnSubscribe.java:153: warning - @Experimental is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/observables/AbstractOnSubscribe.java:394: warning - @Experimental is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/observables/AbstractOnSubscribe.java:582: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Notification.java:69: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Observable.java:5135: warning - @Experimental is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Observable.java:5157: warning - @Experimental is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Observable.java:196: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Producer.java:21: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Subscriber.java:116: warning - @warn is an unknown tag.
+/home/travis/build/ReactiveX/RxJava/src/main/java/rx/Subscriber.java:116: warning - @warn is an unknown tag.
+
+12 warnings
+:javadocJar
+:compilePerfJava
+Download https://jcenter.bintray.com/org/openjdk/jmh/jmh-core/0.9/jmh-core-0.9.pom
+Download https://jcenter.bintray.com/org/openjdk/jmh/jmh-parent/0.9/jmh-parent-0.9.pom
+Download https://jcenter.bintray.com/org/openjdk/jmh/jmh-generator-annprocess/0.9/jmh-generator-annprocess-0.9.pom
+Download https://jcenter.bintray.com/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-math3/3.2/commons-math3-3.2.pom
+Download https://jcenter.bintray.com/org/openjdk/jmh/jmh-core/0.9/jmh-core-0.9.jar
+Download https://jcenter.bintray.com/org/openjdk/jmh/jmh-generator-annprocess/0.9/jmh-generator-annprocess-0.9.jar
+Download https://jcenter.bintray.com/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+:processPerfResources UP-TO-DATE
+:perfClasses
+:shadowJar
+:sourceJar
+:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 13.142 secs
+travis_time:end:13a42a18:start=1422441068182077796,finish=1422441141730125735,duration=73548047939[0Ktravis_fold:end:install[0Ktravis_time:start:200116aa[0K$ ./gradlew check
+Inferred version: 1.1.0-SNAPSHOT
+[buildinfo] Properties file path was not found! (Relevant only for builds running on a CI Server)
+:writeLicenseHeader
+:licenseExamples UP-TO-DATE
+:licenseMain
+Missing header in: src/main/java/rx/annotations/Experimental.java
+Missing header in: src/main/java/rx/annotations/Beta.java
+Unknown file extension: src/main/java/rx/internal/operators/README.md
+Unknown file extension: src/main/java/rx/internal/util/README.md
+Unknown file extension: src/main/java/rx/internal/util/unsafe/README.md
+Missing header in: src/main/java/rx/internal/util/unsafe/Pow2.java
+Missing header in: src/main/java/rx/internal/util/unsafe/SpscArrayQueue.java
+Missing header in: src/main/java/rx/internal/util/unsafe/ConcurrentCircularArrayQueue.java
+Missing header in: src/main/java/rx/internal/util/unsafe/MpmcArrayQueue.java
+Missing header in: src/main/java/rx/internal/util/unsafe/MessagePassingQueue.java
+Missing header in: src/main/java/rx/internal/util/unsafe/SpmcArrayQueue.java
+Missing header in: src/main/java/rx/internal/util/unsafe/ConcurrentSequencedCircularArrayQueue.java
+:licensePerf
+Unknown file extension: src/perf/java/rx/README.md
+Missing header in: src/perf/java/rx/jmh/README.txt
+:licenseTest
+Missing header in: src/test/java/rx/schedulers/SchedulerTests.java
+:license
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:compileTestJava
+Download https://jcenter.bintray.com/junit/junit-dep/4.10/junit-dep-4.10.pom
+Download https://jcenter.bintray.com/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-parent/1.1/hamcrest-parent-1.1.pom
+Download https://jcenter.bintray.com/org/objenesis/objenesis/1.0/objenesis-1.0.pom
+Download https://jcenter.bintray.com/junit/junit-dep/4.10/junit-dep-4.10.jar
+Download https://jcenter.bintray.com/org/mockito/mockito-core/1.8.5/mockito-core-1.8.5.jar
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar
+Download https://jcenter.bintray.com/org/objenesis/objenesis/1.0/objenesis-1.0.jar
+warning: [options] bootstrap class path not set in conjunction with -source 1.6
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+:processTestResources UP-TO-DATE
+:testClasses
+:test
+
+rx.BackpressureTests > testObserveOnWithSlowConsumer STARTED
+
+rx.BackpressureTests > testMergeSync STARTED
+
+rx.BackpressureTests > testMergeAsync STARTED
+
+rx.BackpressureTests > testMergeAsyncThenObserveOn STARTED
+
+rx.BackpressureTests > testFlatMapSync STARTED
+
+rx.BackpressureTests > testFlatMapAsync STARTED
+
+rx.BackpressureTests > testZipSync STARTED
+
+rx.BackpressureTests > testZipAsync STARTED
+
+rx.BackpressureTests > testSubscribeOnScheduling STARTED
+
+rx.BackpressureTests > testTakeFilterSkipChainAsync STARTED
+
+rx.BackpressureTests > testUserSubscriberUsingRequestSync STARTED
+
+rx.BackpressureTests > testUserSubscriberUsingRequestAsync STARTED
+
+rx.BackpressureTests > testFirehoseFailsAsExpected STARTED
+
+rx.BackpressureTests > testOnBackpressureDrop STARTED
+
+rx.BackpressureTests > testOnBackpressureDropSynchronous STARTED
+
+rx.BackpressureTests > testOnBackpressureBuffer STARTED
+
+rx.BackpressureTests > testObserveOn STARTED
+
+rx.CovarianceTest > testGroupByCompose STARTED
+
+rx.CovarianceTest > testCovarianceOfCompose STARTED
+
+rx.CovarianceTest > testCovarianceOfFrom STARTED
+
+rx.CovarianceTest > testSortedList STARTED
+
+rx.CovarianceTest > testCovarianceOfCompose2 STARTED
+
+rx.CovarianceTest > testCovarianceOfCompose3 STARTED
+
+rx.CovarianceTest > testCovarianceOfCompose4 STARTED
+
+rx.CovarianceTest > testComposeWithDeltaLogic STARTED
+
+rx.CombineLatestTests > testCovarianceOfCombineLatest STARTED
+
+rx.CombineLatestTests > testNullEmitting STARTED
+
+rx.ConcatTests > testConcatWithObservableOfObservable STARTED
+
+rx.ConcatTests > testConcatWithIterableOfObservable STARTED
+
+rx.ConcatTests > testConcatCovariance STARTED
+
+rx.ConcatTests > testConcatCovariance2 STARTED
+
+rx.ConcatTests > testConcatCovariance3 STARTED
+
+rx.ConcatTests > testConcatCovariance4 STARTED
+
+rx.ConcatTests > testConcatSimple STARTED
+
+rx.ErrorHandlingTests > testOnNextError STARTED
+
+rx.ErrorHandlingTests > testOnNextErrorAcrossThread STARTED
+
+rx.GroupByTests > testTakeUnsubscribesOnFlatMapOfGroupBy STARTED
+
+rx.GroupByTests > testTakeUnsubscribesOnGroupBy STARTED
+
+rx.IntervalDemo > demoInterval STARTED
+
+rx.MergeTests > testMergeCovariance2 STARTED
+
+rx.MergeTests > testMergeCovariance3 STARTED
+
+rx.MergeTests > testCovarianceOfMerge STARTED
+
+rx.MergeTests > testMergeCovariance4 STARTED
+
+rx.MergeTests > testMergeCovariance STARTED
+
+rx.ObservableDoOnTest > testDoOnEach STARTED
+
+rx.ObservableDoOnTest > testDoOnError STARTED
+
+rx.ObservableDoOnTest > testDoOnCompleted STARTED
+
+rx.ObservableTests > testTakeFirstWithPredicateOfNoneMatchingThePredicate STARTED
+
+rx.ObservableTests > testTakeFirstOfSome STARTED
+
+rx.ObservableTests > testTakeFirstOfNone STARTED
+
+rx.ObservableTests > testFirstOfNone STARTED
+
+rx.ObservableTests > testFirstWithPredicateOfNoneMatchingThePredicate STARTED
+
+rx.ObservableTests > testReduce STARTED
+
+rx.ObservableTests > testReduceWithEmptyObservable STARTED
+
+rx.ObservableTests > testReduceWithEmptyObservableAndSeed STARTED
+
+rx.ObservableTests > testReduceWithInitialValue STARTED
+
+rx.ObservableTests > testOnSubscribeFails STARTED
+
+rx.ObservableTests > testMaterializeDematerializeChaining STARTED
+
+rx.ObservableTests > testErrorThrownWithoutErrorHandlerSynchronous STARTED
+
+rx.ObservableTests > testIgnoreElements STARTED
+
+rx.ObservableTests > testJustWithScheduler STARTED
+
+rx.ObservableTests > testStartWithWithScheduler STARTED
+
+rx.ObservableTests > testRangeWithScheduler STARTED
+
+rx.ObservableTests > testCollectToList STARTED
+
+rx.ObservableTests > testCollectToString STARTED
+
+rx.ObservableTests > testMergeWith STARTED
+
+rx.ObservableTests > testConcatWith STARTED
+
+rx.ObservableTests > testAmbWith STARTED
+
+rx.ObservableTests > testSubscribeWithoutOnError STARTED
+
+rx.ObservableTests > testTakeWhileToList STARTED
+
+rx.ObservableTests > testCompose STARTED
+
+rx.ObservableTests > testErrorThrownIssue1685 STARTED
+
+rx.ObservableTests > fromArray STARTED
+
+rx.ObservableTests > fromIterable STARTED
+
+rx.ObservableTests > fromArityArgs3 STARTED
+
+rx.ObservableTests > fromArityArgs1 STARTED
+
+rx.ObservableTests > testCreate STARTED
+
+rx.ObservableTests > testCountAFewItems STARTED
+
+rx.ObservableTests > testCountZeroItems STARTED
+
+rx.ObservableTests > testCountError STARTED
+
+rx.ObservableTests > testCustomObservableWithErrorInObserverAsynchronous STARTED
+
+rx.ObservableTests > testCustomObservableWithErrorInObserverSynchronous STARTED
+
+rx.ObservableTests > testCustomObservableWithErrorInObservableSynchronous STARTED
+
+rx.ObservableTests > testPublishLast STARTED
+
+rx.ObservableTests > testReplay STARTED
+
+rx.ObservableTests > testCache STARTED
+
+rx.ObservableTests > testCacheWithCapacity STARTED
+
+rx.ObservableTests > testErrorThrownWithoutErrorHandlerAsynchronous STARTED
+
+rx.ObservableTests > testTakeWithErrorInObserver STARTED
+
+rx.ObservableTests > testOfType STARTED
+
+rx.ObservableTests > testOfTypeWithPolymorphism STARTED
+
+rx.ObservableTests > testContains STARTED
+
+rx.ObservableTests > testContainsWithInexistence STARTED
+
+rx.ObservableTests > testContainsWithNull STARTED
+
+rx.ObservableTests > testContainsWithEmptyObservable STARTED
+
+rx.ObservableWindowTests > testWindow STARTED
+
+rx.ReduceTests > reduceInts STARTED
+
+rx.ReduceTests > reduceWithCovariantObjects STARTED
+
+rx.ReduceTests > reduceCovariance STARTED
+
+rx.ReduceTests > reduceWithObjects STARTED
+
+rx.ScanTests > testUnsubscribeScan STARTED
+
+rx.StartWithTests > startWithIterable STARTED
+
+rx.StartWithTests > startWithObservable STARTED
+
+rx.StartWithTests > startWith1 STARTED
+
+rx.SubscriberTest > testRequestToObservable STARTED
+
+rx.SubscriberTest > testRequestFromFinalSubscribeWithRequestValue STARTED
+
+rx.SubscriberTest > testRequestFromFinalSubscribeWithoutRequestValue STARTED
+
+rx.SubscriberTest > testRequestFromChainedOperator STARTED
+
+rx.SubscriberTest > testRequestFromDecoupledOperator STARTED
+
+rx.SubscriberTest > testRequestFromDecoupledOperatorThatRequestsN STARTED
+
+rx.SubscriberTest > testRequestThroughMap STARTED
+
+rx.SubscriberTest > testRequestThroughTakeThatReducesRequest STARTED
+
+rx.SubscriberTest > testRequestThroughTakeWhereRequestIsSmallerThanTake STARTED
+
+rx.SubscriberTest > testOnStartCalledOnceViaSubscribe STARTED
+
+rx.SubscriberTest > testOnStartCalledOnceViaLift STARTED
+
+rx.SubscriberTest > testOnStartCalledOnceViaUnsafeSubscribe STARTED
+
+rx.ThrottleLastTests > testThrottle STARTED
+
+rx.ThrottleWithTimeoutTests > testThrottle STARTED
+
+rx.ZipTests > testZipObservableOfObservables STARTED
+
+rx.ZipTests > testCovarianceOfZip STARTED
+
+rx.ZipTests > nonBlockingObservable STARTED
+
+rx.exceptions.CompositeExceptionTest > testMultipleWithSameCause STARTED
+
+rx.exceptions.CompositeExceptionTest > testCompositeExceptionFromParentThenChild STARTED
+
+rx.exceptions.CompositeExceptionTest > testCompositeExceptionFromChildThenParent STARTED
+
+rx.exceptions.CompositeExceptionTest > testCompositeExceptionFromChildAndComposite STARTED
+
+rx.exceptions.CompositeExceptionTest > testCompositeExceptionFromCompositeAndChild STARTED
+
+rx.exceptions.CompositeExceptionTest > testCompositeExceptionFromTwoDuplicateComposites STARTED
+
+rx.exceptions.ExceptionsTest > testOnErrorNotImplementedIsThrown STARTED
+
+rx.exceptions.ExceptionsTest > testStackOverflowIsThrown STARTED
+
+rx.exceptions.ExceptionsTest > testThreadDeathIsThrown STARTED
+
+rx.exceptions.ExceptionsTest > testOnErrorExceptionIsThrown STARTED
+
+rx.exceptions.OnNextValueTest > addOnNextValueExceptionAdded STARTED
+
+rx.exceptions.OnNextValueTest > addOnNextValueExceptionNotAddedWithBadString STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testSimpleJustNext STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testSimple STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testEmpty STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testSameSourceMultipleIterators STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testHasNextThrows STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testNextThrows STARTED
+
+rx.internal.operators.BlockingOperatorLatestTest > testFasterSource STARTED
+
+rx.internal.operators.BlockingOperatorMostRecentTest > testMostRecentNull STARTED
+
+rx.internal.operators.BlockingOperatorMostRecentTest > testMostRecent STARTED
+
+rx.internal.operators.BlockingOperatorMostRecentTest > testMostRecentWithException STARTED
+
+rx.internal.operators.BlockingOperatorMostRecentTest > testSingleSourceManyIterators STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testNextWithError STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testNextWithCallingHasNextMultipleTimes STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testNoBufferingOrBlockingOfSequence STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testSingleSourceManyIterators STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testNext STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testNextWithEmpty STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testOnError STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testOnErrorInNewThread STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testNextWithOnlyUsingNextMethod STARTED
+
+rx.internal.operators.BlockingOperatorNextTest > testSynchronousNext STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testToFutureWithException STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testGetAfterCancel STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testGetWithTimeoutAfterCancel STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testGetWithEmptyObservable STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testGetWithASingleNullItem STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testToFuture STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testToFutureList STARTED
+
+rx.internal.operators.BlockingOperatorToFutureTest > testExceptionWithMoreThanOneElement STARTED
+
+rx.internal.operators.BlockingOperatorToIteratorTest > testToIterator STARTED
+
+rx.internal.operators.BlockingOperatorToIteratorTest > testToIteratorWithException STARTED
+
+rx.internal.operators.BlockingOperatorToIteratorTest > testExceptionThrownFromOnSubscribe STARTED
+
+rx.internal.operators.BufferUntilSubscriberTest > testIssue1677 STARTED
+
+rx.internal.operators.NotificationLiteTest > testComplete STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testSimpleBelowCapacity STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testSimpleAboveCapacity STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testBlockedProducerCanBeUnsubscribed STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testExceptionIsDelivered STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testExceptionIsDeliveredAfterValues STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testTakeWorksWithSubscriberRequesting STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testNoMissingBackpressureException STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testTakeWorksSubscriberRequestUnlimited STARTED
+
+rx.internal.operators.OnBackpressureBlockTest > testTakeWorksSubscriberRequestUnlimitedBufferedException STARTED
+
+rx.internal.operators.OnSubscribeAmbTest > testAmb STARTED
+
+rx.internal.operators.OnSubscribeAmbTest > testAmb2 STARTED
+
+rx.internal.operators.OnSubscribeAmbTest > testAmb3 STARTED
+
+rx.internal.operators.OnSubscribeAmbTest > testProducerRequestThroughAmb STARTED
+
+rx.internal.operators.OnSubscribeAmbTest > testBackpressure STARTED
+
+rx.internal.operators.OnSubscribeCacheTest > testCache STARTED
+
+rx.internal.operators.OnSubscribeCacheTest > testWithAsyncSubjectAndRepeat STARTED
+
+rx.internal.operators.OnSubscribeCacheTest > testWithBehaviorSubjectAndRepeat STARTED
+
+rx.internal.operators.OnSubscribeCacheTest > testWithPublishSubjectAndRepeat STARTED
+
+rx.internal.operators.OnSubscribeCacheTest > testWithReplaySubjectAndRepeat STARTED
+
+rx.internal.operators.OnSubscribeCacheTest > testUnsubscribeSource STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestWithInterleavingSequences STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestDifferentLengthObservableSequences1 STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestDifferentLengthObservableSequences2 STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatest2Types STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestWithFunctionThatThrowsAnException STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatest3TypesA STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testCombineLatest3TypesB STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > combineSimple STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > combineMultipleObservers STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testFirstNeverProduces STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testSecondNeverProduces STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test1ToNSources STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test1ToNSourcesScheduled STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test2SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test3SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test4SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test5SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test6SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test7SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test8SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > test9SourcesOverload STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testZeroSources STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testWithCombineLatestIssue1717 STARTED
+
+rx.internal.operators.OnSubscribeCombineLatestTest > testBackpressure STARTED
+
+rx.internal.operators.OnSubscribeDeferTest > testDeferFunctionThrows STARTED
+
+rx.internal.operators.OnSubscribeDeferTest > testDefer STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testNull STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testListIterable STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testRawIterable STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testObservableFromIterable STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testBackpressureViaRequest STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testNoBackpressure STARTED
+
+rx.internal.operators.OnSubscribeFromIterableTest > testSubscribeMultipleTimes STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > behaveAsJoin STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > normal1 STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > leftThrows STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > rightThrows STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > leftDurationThrows STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > rightDurationThrows STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > leftDurationSelectorThrows STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > rightDurationSelectorThrows STARTED
+
+rx.internal.operators.OnSubscribeGroupJoinTest > resultSelectorThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > normal1 STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > leftThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > rightThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > leftDurationThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > rightDurationThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > leftDurationSelectorThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > rightDurationSelectorThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > resultSelectorThrows STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > normal2 STARTED
+
+rx.internal.operators.OnSubscribeJoinTest > normal1WithDuration STARTED
+
+rx.internal.operators.OnSubscribeMulticastTest > testMulticastConnectTwice STARTED
+
+rx.internal.operators.OnSubscribeMulticastTest > testMulticast STARTED
+
+rx.internal.operators.OnSubscribeMulticastTest > testMulticastDisconnect STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testBackpressureViaRequest STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testNoBackpressure STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeStartAt2Count3 STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeUnsubscribe STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow2 STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow3 STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow4 STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow5 STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testWithBackpressureAllAtOnce STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testWithBackpressure1 STARTED
+
+rx.internal.operators.OnSubscribeRangeTest > testWithBackpressureRequestWayMore STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testRepeat STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testRefCountAsync STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testRefCountSynchronous STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testRefCountSynchronousTake STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testConnectUnsubscribe STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testConnectUnsubscribeRaceCondition STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > onlyFirstShouldSubscribeAndLastUnsubscribe STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testRefCount STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testAlreadyUnsubscribedClient STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testAlreadyUnsubscribedInterleavesWithClient STARTED
+
+rx.internal.operators.OnSubscribeRefCountTest > testConnectDisconnectConnectAndSubjectState STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testTimerOnce STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testTimerPeriodically STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testInterval STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testWithMultipleSubscribersStartingAtSameTime STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testWithMultipleStaggeredSubscribers STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testWithMultipleStaggeredSubscribersAndPublish STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testOnceObserverThrows STARTED
+
+rx.internal.operators.OnSubscribeTimerTest > testPeriodicObserverThrows STARTED
+
+rx.internal.operators.OnSubscribeToObservableFutureTest > testCancelledBeforeSubscribe STARTED
+
+rx.internal.operators.OnSubscribeToObservableFutureTest > testCancellationDuringFutureGet STARTED
+
+rx.internal.operators.OnSubscribeToObservableFutureTest > testSuccess STARTED
+
+rx.internal.operators.OnSubscribeToObservableFutureTest > testFailure STARTED
+
+rx.internal.operators.OnSubscribeUsingTest > testUsing STARTED
+
+rx.internal.operators.OnSubscribeUsingTest > testUsingWithSubscribingTwice STARTED
+
+rx.internal.operators.OnSubscribeUsingTest > testUsingWithResourceFactoryError STARTED
+
+rx.internal.operators.OnSubscribeUsingTest > testUsingWithObservableFactoryError STARTED
+
+rx.internal.operators.OnSubscribeUsingTest > testUsingWithObservableFactoryErrorInOnSubscribe STARTED
+
+rx.internal.operators.OperatorAllTest > testEmpty STARTED
+
+rx.internal.operators.OperatorAllTest > testAll STARTED
+
+rx.internal.operators.OperatorAllTest > testError STARTED
+
+rx.internal.operators.OperatorAllTest > testFollowingFirst STARTED
+
+rx.internal.operators.OperatorAllTest > testIssue1935NoUnsubscribeDownstream STARTED
+
+rx.internal.operators.OperatorAllTest > testNotAll STARTED
+
+rx.internal.operators.OperatorAnyTest > testIsEmptyWithEmpty STARTED
+
+rx.internal.operators.OperatorAnyTest > testAnyWithPredicate1 STARTED
+
+rx.internal.operators.OperatorAnyTest > testAnyWithPredicate2 STARTED
+
+rx.internal.operators.OperatorAnyTest > testAnyWithEmptyAndPredicate STARTED
+
+rx.internal.operators.OperatorAnyTest > testWithFollowingFirst STARTED
+
+rx.internal.operators.OperatorAnyTest > testAnyWithTwoItems STARTED
+
+rx.internal.operators.OperatorAnyTest > testIsEmptyWithTwoItems STARTED
+
+rx.internal.operators.OperatorAnyTest > testExists1 STARTED
+
+rx.internal.operators.OperatorAnyTest > testAnyWithOneItem STARTED
+
+rx.internal.operators.OperatorAnyTest > testIsEmptyWithOneItem STARTED
+
+rx.internal.operators.OperatorAnyTest > testAnyWithEmpty STARTED
+
+rx.internal.operators.OperatorAnyTest > testIssue1935NoUnsubscribeDownstream STARTED
+
+rx.internal.operators.OperatorAsObservableTest > testHiding STARTED
+
+rx.internal.operators.OperatorAsObservableTest > testHidingError STARTED
+
+rx.internal.operators.OperatorMapTest > testMapMany2 STARTED
+
+rx.internal.operators.OperatorMapTest > testMapWithError STARTED
+
+rx.internal.operators.OperatorMapTest > testMapWithIssue417 STARTED
+
+rx.internal.operators.OperatorMapTest > testMapWithErrorInFuncAndThreadPoolScheduler STARTED
+
+rx.internal.operators.OperatorMapTest > testErrorPassesThruMap STARTED
+
+rx.internal.operators.OperatorMapTest > testErrorPassesThruMap2 STARTED
+
+rx.internal.operators.OperatorMapTest > testMapWithErrorInFunc STARTED
+
+rx.internal.operators.OperatorMapTest > verifyExceptionIsThrownIfThereIsNoExceptionHandler STARTED
+
+rx.internal.operators.OperatorMapTest > testShouldNotSwallowOnErrorNotImplementedException STARTED
+
+rx.internal.operators.OperatorMapTest > testMap STARTED
+
+rx.internal.operators.OperatorMapTest > testMapMany STARTED
+
+rx.internal.operators.OperatorBufferTest > testComplete STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestThroughBufferWithSize2 STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestThroughBufferWithSize3 STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestThroughBufferWithSize4 STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestOverflowThroughBufferWithSize1 STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestOverflowThroughBufferWithSize2 STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestOverflowThroughBufferWithSize3 STARTED
+
+rx.internal.operators.OperatorBufferTest > testBufferWithTimeDoesntUnsubscribeDownstream STARTED
+
+rx.internal.operators.OperatorBufferTest > testSkipAndCountOverlappingBuffers STARTED
+
+rx.internal.operators.OperatorBufferTest > testSkipAndCountGaplessBuffers STARTED
+
+rx.internal.operators.OperatorBufferTest > testSkipAndCountBuffersWithGaps STARTED
+
+rx.internal.operators.OperatorBufferTest > testObservableBasedOpenerAndCloser STARTED
+
+rx.internal.operators.OperatorBufferTest > testObservableBasedCloser STARTED
+
+rx.internal.operators.OperatorBufferTest > testTimedAndCount STARTED
+
+rx.internal.operators.OperatorBufferTest > testLongTimeAction STARTED
+
+rx.internal.operators.OperatorBufferTest > testBufferStopsWhenUnsubscribed1 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBONormal1 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBOEmptyLastViaBoundary STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBOEmptyLastViaSource STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBOEmptyLastViaBoth STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBOSourceThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBOBoundaryThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithSizeTake1 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithSizeSkipTake1 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithTimeTake1 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithTimeSkipTake2 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithBoundaryTake2 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithStartEndBoundaryTake2 STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithSizeThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithTimeThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithTimeAndSize STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithStartEndStartThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithStartEndEndFunctionThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > bufferWithStartEndEndThrows STARTED
+
+rx.internal.operators.OperatorBufferTest > testProducerRequestThroughBufferWithSize1 STARTED
+
+rx.internal.operators.OperatorBufferTest > testTimed STARTED
+
+rx.internal.operators.OperatorCastTest > testCastWithWrongType STARTED
+
+rx.internal.operators.OperatorCastTest > testCast STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcat STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatWithList STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatObservableOfObservables STARTED
+
+rx.internal.operators.OperatorConcatTest > testSimpleAsyncConcat STARTED
+
+rx.internal.operators.OperatorConcatTest > testNestedAsyncConcat STARTED
+
+rx.internal.operators.OperatorConcatTest > testBlockedObservableOfObservables STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatConcurrentWithInfinity STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatNonBlockingObservables STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatUnsubscribe STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatUnsubscribeConcurrent STARTED
+
+rx.internal.operators.OperatorConcatTest > testMultipleObservers STARTED
+
+rx.internal.operators.OperatorConcatTest > concatVeryLongObservableOfObservables STARTED
+
+rx.internal.operators.OperatorConcatTest > concatVeryLongObservableOfObservablesTakeHalf STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatOuterBackpressure STARTED
+
+rx.internal.operators.OperatorConcatTest > testInnerBackpressureWithAlignedBoundaries STARTED
+
+rx.internal.operators.OperatorConcatTest > testInnerBackpressureWithoutAlignedBoundaries STARTED
+
+rx.internal.operators.OperatorConcatTest > testConcatWithNonCompliantSourceDoubleOnComplete STARTED
+
+rx.internal.operators.OperatorDebounceTest > testDebounceWithCompleted STARTED
+
+rx.internal.operators.OperatorDebounceTest > debounceSelectorObservableThrows STARTED
+
+rx.internal.operators.OperatorDebounceTest > debounceSelectorLastIsNotLost STARTED
+
+rx.internal.operators.OperatorDebounceTest > testDebounceNeverEmits STARTED
+
+rx.internal.operators.OperatorDebounceTest > testDebounceWithError STARTED
+
+rx.internal.operators.OperatorDebounceTest > debounceSelectorFuncThrows STARTED
+
+rx.internal.operators.OperatorDebounceTest > debounceTimedLastIsNotLost STARTED
+
+rx.internal.operators.OperatorDebounceTest > debounceSelectorNormal1 STARTED
+
+rx.internal.operators.OperatorDefaultIfEmptyTest > testDefaultIfEmpty STARTED
+
+rx.internal.operators.OperatorDefaultIfEmptyTest > testDefaultIfEmptyWithEmpty STARTED
+
+rx.internal.operators.OperatorDefaultIfEmptyTest > testEmptyButClientThrows STARTED
+
+rx.internal.operators.OperatorDelayTest > testLongDelay STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithError STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithMultipleSubscriptions STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelaySubscription STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelaySubscriptionCancelBeforeTime STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableNormal1 STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableSingleSend1 STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableSourceThrows STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableDelayFunctionThrows STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelay STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableDelayThrows STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableSubscriptionNormal STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableSubscriptionFunctionThrows STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableSubscriptionThrows STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableEmptyDelayer STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableSubscriptionRunCompletion STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableAsTimed STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayWithObservableReorder STARTED
+
+rx.internal.operators.OperatorDelayTest > testDelayEmitsEverything STARTED
+
+rx.internal.operators.OperatorDelayTest > testBackpressureWithTimedDelay STARTED
+
+rx.internal.operators.OperatorDelayTest > testBackpressureWithSubscriptionTimedDelay STARTED
+
+rx.internal.operators.OperatorDelayTest > testBackpressureWithSelectorDelay STARTED
+
+rx.internal.operators.OperatorDelayTest > testBackpressureWithSelectorDelayAndSubscriptionDelay STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testDematerialize1 STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testDematerialize2 STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testDematerialize3 STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testErrorPassThru STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testCompletePassThru STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testHonorsContractWhenCompleted STARTED
+
+rx.internal.operators.OperatorDematerializeTest > testHonorsContractWhenThrows STARTED
+
+rx.internal.operators.OperatorDistinctTest > testDistinctOfNone STARTED
+
+rx.internal.operators.OperatorDistinctTest > testDistinctOfNoneWithKeySelector STARTED
+
+rx.internal.operators.OperatorDistinctTest > testDistinctOfNormalSource STARTED
+
+rx.internal.operators.OperatorDistinctTest > testDistinctOfNormalSourceWithKeySelector STARTED
+
+rx.internal.operators.OperatorDistinctTest > testDistinctOfSourceWithNulls STARTED
+
+rx.internal.operators.OperatorDistinctTest > testDistinctOfSourceWithExceptionsFromKeySelector STARTED
+
+rx.internal.operators.OperatorDistinctUntilChangedTest > testDistinctUntilChangedOfNone STARTED
+
+rx.internal.operators.OperatorDistinctUntilChangedTest > testDistinctUntilChangedOfNoneWithKeySelector STARTED
+
+rx.internal.operators.OperatorDistinctUntilChangedTest > testDistinctUntilChangedOfNormalSource STARTED
+
+rx.internal.operators.OperatorDistinctUntilChangedTest > testDistinctUntilChangedOfNormalSourceWithKeySelector STARTED
+
+rx.internal.operators.OperatorDistinctUntilChangedTest > testDistinctUntilChangedOfSourceWithNulls STARTED
+
+rx.internal.operators.OperatorDistinctUntilChangedTest > testDistinctUntilChangedOfSourceWithExceptionsFromKeySelector STARTED
+
+rx.internal.operators.OperatorDoOnEachTest > testDoOnEach STARTED
+
+rx.internal.operators.OperatorDoOnEachTest > testDoOnEachWithError STARTED
+
+rx.internal.operators.OperatorDoOnEachTest > testDoOnEachWithErrorInCallback STARTED
+
+rx.internal.operators.OperatorDoOnEachTest > testIssue1451Case1 STARTED
+
+rx.internal.operators.OperatorDoOnEachTest > testIssue1451Case2 STARTED
+
+rx.internal.operators.OperatorDoOnEachTest > testFatalError STARTED
+
+rx.internal.operators.OperatorDoOnSubscribeTest > testDoOnSubscribe STARTED
+
+rx.internal.operators.OperatorDoOnSubscribeTest > testDoOnSubscribe2 STARTED
+
+rx.internal.operators.OperatorDoOnSubscribeTest > testDoOnUnSubscribeWorksWithRefCount STARTED
+
+rx.internal.operators.OperatorDoOnUnsubscribeTest > testDoOnUnSubscribeWorksWithRefCount STARTED
+
+rx.internal.operators.OperatorDoOnUnsubscribeTest > testDoOnUnsubscribe STARTED
+
+rx.internal.operators.OperatorElementAtTest > testElementAt STARTED
+
+rx.internal.operators.OperatorElementAtTest > testElementAtWithMinusIndex STARTED
+
+rx.internal.operators.OperatorElementAtTest > testElementAtOrDefault STARTED
+
+rx.internal.operators.OperatorElementAtTest > testElementAtWithIndexOutOfBounds STARTED
+
+rx.internal.operators.OperatorElementAtTest > testElementAtOrDefaultWithIndexOutOfBounds STARTED
+
+rx.internal.operators.OperatorElementAtTest > testElementAtOrDefaultWithMinusIndex STARTED
+
+rx.internal.operators.OperatorFilterTest > testFilter STARTED
+
+rx.internal.operators.OperatorFilterTest > testWithBackpressure STARTED
+
+rx.internal.operators.OperatorFilterTest > testWithBackpressure2 STARTED
+
+rx.internal.operators.OperatorFinallyTest > testFinallyCalledOnComplete STARTED
+
+rx.internal.operators.OperatorFinallyTest > testFinallyCalledOnError STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrElseOfNone STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrElseOfSome STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrElseWithPredicateOfNoneMatchingThePredicate STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrElseWithPredicateOfSome STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirst STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstWithOneElement STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstWithEmpty STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstWithPredicate STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstWithPredicateAndOneElement STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstWithPredicateAndEmpty STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrDefault STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrDefaultWithOneElement STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrDefaultWithEmpty STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrDefaultWithPredicate STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrDefaultWithPredicateAndOneElement STARTED
+
+rx.internal.operators.OperatorFirstTest > testFirstOrDefaultWithPredicateAndEmpty STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testMergeError STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testFlatMapTransformsException STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testNormal STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testFlatMapTransformsNormal STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testFlatMapTransformsOnNextFuncThrows STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testFlatMapTransformsOnErrorFuncThrows STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testFlatMapTransformsOnCompletedFuncThrows STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testFlatMapTransformsMergeException STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testCollectionFunctionThrows STARTED
+
+rx.internal.operators.OperatorFlatMapTest > testResultFunctionThrows STARTED
+
+rx.internal.operators.OperatorGroupByTest > testEmpty STARTED
+
+rx.internal.operators.OperatorGroupByTest > testError STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupBy STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByWithElementSelector STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByWithElementSelector2 STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupedEventStream STARTED
+
+rx.internal.operators.OperatorGroupByTest > testUnsubscribeOnNestedTakeAndSyncInfiniteStream STARTED
+
+rx.internal.operators.OperatorGroupByTest > testUnsubscribeOnNestedTakeAndAsyncInfiniteStream STARTED
+
+rx.internal.operators.OperatorGroupByTest > testUnsubscribeViaTakeOnGroupThenMergeAndTake STARTED
+
+rx.internal.operators.OperatorGroupByTest > testUnsubscribeViaTakeOnGroupThenTakeOnInner STARTED
+
+rx.internal.operators.OperatorGroupByTest > testStaggeredCompletion STARTED
+
+rx.internal.operators.OperatorGroupByTest > testCompletionIfInnerNotSubscribed STARTED
+
+rx.internal.operators.OperatorGroupByTest > testIgnoringGroups STARTED
+
+rx.internal.operators.OperatorGroupByTest > testFirstGroupsCompleteAndParentSlowToThenEmitFinalGroupsAndThenComplete STARTED
+
+rx.internal.operators.OperatorGroupByTest > testFirstGroupsCompleteAndParentSlowToThenEmitFinalGroupsWhichThenSubscribesOnAndDelaysAndThenCompletes STARTED
+
+rx.internal.operators.OperatorGroupByTest > testFirstGroupsCompleteAndParentSlowToThenEmitFinalGroupsWhichThenObservesOnAndDelaysAndThenCompletes STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupsWithNestedSubscribeOn STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupsWithNestedObserveOn STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByOnAsynchronousSourceAcceptsMultipleSubscriptions STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByBackpressure STARTED
+
+rx.internal.operators.OperatorGroupByTest > normalBehavior STARTED
+
+rx.internal.operators.OperatorGroupByTest > keySelectorThrows STARTED
+
+rx.internal.operators.OperatorGroupByTest > valueSelectorThrows STARTED
+
+rx.internal.operators.OperatorGroupByTest > innerEscapeCompleted STARTED
+
+rx.internal.operators.OperatorGroupByTest > testExceptionIfSubscribeToChildMoreThanOnce STARTED
+
+rx.internal.operators.OperatorGroupByTest > testError2 STARTED
+
+rx.internal.operators.OperatorGroupByTest > testgroupByBackpressure STARTED
+
+rx.internal.operators.OperatorGroupByTest > testgroupByBackpressure2 STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByWithNullKey STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByUnsubscribe STARTED
+
+rx.internal.operators.OperatorGroupByTest > testGroupByShouldPropagateError STARTED
+
+rx.internal.operators.OperatorLastTest > testLast STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithNoElements STARTED
+
+rx.internal.operators.OperatorLastTest > testLastMultiSubscribe STARTED
+
+rx.internal.operators.OperatorLastTest > testLastViaObservable STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithOneElement STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithEmpty STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithPredicate STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithPredicateAndOneElement STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithPredicateAndEmpty STARTED
+
+rx.internal.operators.OperatorLastTest > testLastOrDefault STARTED
+
+rx.internal.operators.OperatorLastTest > testLastOrDefaultWithOneElement STARTED
+
+rx.internal.operators.OperatorLastTest > testLastOrDefaultWithEmpty STARTED
+
+rx.internal.operators.OperatorLastTest > testLastOrDefaultWithPredicate STARTED
+
+rx.internal.operators.OperatorLastTest > testLastOrDefaultWithPredicateAndOneElement STARTED
+
+rx.internal.operators.OperatorLastTest > testLastOrDefaultWithPredicateAndEmpty STARTED
+
+rx.internal.operators.OperatorLastTest > testLastWithElements STARTED
+
+rx.internal.operators.OperatorMaterializeTest > testMultipleSubscribes STARTED
+
+rx.internal.operators.OperatorMaterializeTest > testMaterialize1 STARTED
+
+rx.internal.operators.OperatorMaterializeTest > testMaterialize2 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorDelayed1 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorDelayed2 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorDelayed3 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorDelayed4 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorDelayed4WithThreading STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testCompositeErrorDelayed1 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testCompositeErrorDelayed2 STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testMergeObservableOfObservables STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testMergeArray STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testMergeArrayWithThreading STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testSynchronousError STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testMergeSourceWhichDoesntPropagateExceptionBack STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorInParentObservable STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testErrorInParentObservableDelayed STARTED
+
+rx.internal.operators.OperatorMergeDelayErrorTest > testMergeList STARTED
+
+rx.internal.operators.OperatorMergeMaxConcurrentTest > testMergeALotOfSourcesOneByOneSynchronouslyTakeHalf STARTED
+
+rx.internal.operators.OperatorMergeMaxConcurrentTest > testMergeALotOfSourcesOneByOneSynchronously STARTED
+
+rx.internal.operators.OperatorMergeMaxConcurrentTest > testWhenMaxConcurrentIsOne STARTED
+
+rx.internal.operators.OperatorMergeMaxConcurrentTest > testMaxConcurrent STARTED
+
+rx.internal.operators.OperatorMergeTest > testEarlyUnsubscribe STARTED
+
+rx.internal.operators.OperatorMergeTest > testMergeObservableOfObservables STARTED
+
+rx.internal.operators.OperatorMergeTest > testMergeArray STARTED
+
+rx.internal.operators.OperatorMergeTest > testMergeArrayWithThreading STARTED
+
+rx.internal.operators.OperatorMergeTest > testBackpressureDownstreamWithConcurrentStreams STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1000AsyncStreamOf1000 STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1AsyncStreamOf1 STARTED
+
+rx.internal.operators.OperatorMergeTest > mergingNullObservable STARTED
+
+rx.internal.operators.OperatorMergeTest > merge2000AsyncStreamOf100 STARTED
+
+rx.internal.operators.OperatorMergeTest > merge100AsyncStreamOf1 STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1AsyncStreamOf1000 STARTED
+
+rx.internal.operators.OperatorMergeTest > mergeManyAsyncSingle STARTED
+
+rx.internal.operators.OperatorMergeTest > merge10000SyncStreamOf10 STARTED
+
+rx.internal.operators.OperatorMergeTest > testMergeList STARTED
+
+rx.internal.operators.OperatorMergeTest > testError2 STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1SyncStreamOf1 STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1000000SyncStreamOf1 STARTED
+
+rx.internal.operators.OperatorMergeTest > shouldCompleteAfterApplyingBackpressure_FastPath STARTED
+
+rx.internal.operators.OperatorMergeTest > delayedErrorsShouldBeEmittedWhenCompleteAfterApplyingBackpressure_NormalPath STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1SyncStreamOf1000000 STARTED
+
+rx.internal.operators.OperatorMergeTest > mergeWithNullValues STARTED
+
+rx.internal.operators.OperatorMergeTest > testError1 STARTED
+
+rx.internal.operators.OperatorMergeTest > testBackpressureUpstream2 STARTED
+
+rx.internal.operators.OperatorMergeTest > testBackpressureBothUpstreamAndDownstreamWithSynchronousScalarObservables STARTED
+
+rx.internal.operators.OperatorMergeTest > testBackpressureBothUpstreamAndDownstreamWithRegularObservables STARTED
+
+rx.internal.operators.OperatorMergeTest > merge10AsyncStreamOf1000 STARTED
+
+rx.internal.operators.OperatorMergeTest > merge1000SyncStreamOf1000 STARTED
+
+rx.internal.operators.OperatorMergeTest > mergeWithTerminalEventAfterUnsubscribe STARTED
+
+rx.internal.operators.OperatorMergeTest > testBackpressureUpstream2InLoop STARTED
+
+rx.internal.operators.OperatorMergeTest > testBackpressureUpstream STARTED
+
+rx.internal.operators.OperatorMergeTest > testConcurrencyWithBrokenOnCompleteContract STARTED
+
+rx.internal.operators.OperatorMergeTest > testConcurrency STARTED
+
+rx.internal.operators.OperatorMergeTest > testConcurrencyWithSleeping STARTED
+
+rx.internal.operators.OperatorMergeTest > testSynchronizationOfMultipleSequences STARTED
+
+rx.internal.operators.OperatorMergeTest > shouldNotCompleteIfThereArePendingScalarSynchronousEmissionsWhenTheLastInnerSubscriberCompletes STARTED
+
+rx.internal.operators.OperatorMergeTest > testThrownErrorHandling STARTED
+
+rx.internal.operators.OperatorMergeTest > delayedErrorsShouldBeEmittedWhenCompleteAfterApplyingBackpressure_FastPath STARTED
+
+rx.internal.operators.OperatorMergeTest > shouldNotCompleteWhileThereAreStillScalarSynchronousEmissionsInTheQueue STARTED
+
+rx.internal.operators.OperatorMergeTest > testUnsubscribeAsObservablesComplete STARTED
+
+rx.internal.operators.OperatorMergeTest > shouldNotReceivedDelayedErrorWhileThereAreStillScalarSynchronousEmissionsInTheQueue STARTED
+
+rx.internal.operators.OperatorMergeTest > shouldNotReceivedDelayedErrorWhileThereAreStillNormalEmissionsInTheQueue STARTED
+
+rx.internal.operators.OperatorMergeTest > testMergeKeepsRequesting STARTED
+
+rx.internal.operators.OperatorMergeTest > testMergeRequestOverflow STARTED
+
+rx.internal.operators.OperatorMergeTest > testUnSubscribeObservableOfObservables STARTED
+
+rx.internal.operators.OperatorMergeTest > shouldCompleteAfterApplyingBackpressure_NormalPath STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testObserveOn STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testAsyncChild STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testThreadName STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testOnErrorCutsAheadOfOnNext STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testHotOperatorBackpressure STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testOrdering STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testObserveOnWithThreadPoolScheduler STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testObserveOnOrderingConcurrency STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testNonBlockingOuterWhileBlockingOnNext STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testBackpressureWithTakeBefore STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testErrorPropagatesWhenNoOutstandingRequests STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testDelayedErrorDeliveryWhenSafeSubscriberUnsubscribes STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testAfterUnsubscribeCalledThenObserverOnNextNeverCalled STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testBackpressureWithTakeAfterAndMultipleBatches STARTED
+
+rx.internal.operators.OperatorObserveOnTest > observeOnTheSameSchedulerTwice STARTED
+
+rx.internal.operators.OperatorObserveOnTest > observeSameOnMultipleSchedulers STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testObserveOnWithNewThreadScheduler STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testBackpressureWithTakeAfter STARTED
+
+rx.internal.operators.OperatorObserveOnTest > testQueueFullEmitsError STARTED
+
+rx.internal.operators.OperatorOnBackpressureBufferTest > testFixBackpressureBufferNegativeCapacity STARTED
+
+rx.internal.operators.OperatorOnBackpressureBufferTest > testFixBackpressureBufferZeroCapacity STARTED
+
+rx.internal.operators.OperatorOnBackpressureBufferTest > testNoBackpressureSupport STARTED
+
+rx.internal.operators.OperatorOnBackpressureBufferTest > testFixBackpressureWithBuffer STARTED
+
+rx.internal.operators.OperatorOnBackpressureBufferTest > testFixBackpressureBoundedBuffer STARTED
+
+rx.internal.operators.OperatorOnBackpressureDropTest > testNoBackpressureSupport STARTED
+
+rx.internal.operators.OperatorOnBackpressureDropTest > testFixBackpressureWithBuffer STARTED
+
+rx.internal.operators.OperatorOnBackpressureDropTest > testWithObserveOn STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testBackpressure STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testFunctionThrowsError STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testOnErrorResumeReceivesErrorFromPreviousNonProtectedOperator STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testOnErrorResumeReceivesErrorFromPreviousNonProtectedOperatorOnNext STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testMapResumeAsyncNext STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testResumeNextWithAsyncExecution STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaFunctionTest > testResumeNextWithSynchronousExecution STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaObservableTest > testBackpressure STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaObservableTest > testResumeNext STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaObservableTest > testResumeNextWithFailedOnSubscribe STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaObservableTest > testResumeNextWithFailedOnSubscribeAsync STARTED
+
+rx.internal.operators.OperatorOnErrorResumeNextViaObservableTest > testMapResumeAsyncNext STARTED
+
+rx.internal.operators.OperatorOnErrorReturnTest > testBackpressure STARTED
+
+rx.internal.operators.OperatorOnErrorReturnTest > testResumeNext STARTED
+
+rx.internal.operators.OperatorOnErrorReturnTest > testFunctionThrowsError STARTED
+
+rx.internal.operators.OperatorOnErrorReturnTest > testMapResumeAsyncNext STARTED
+
+rx.internal.operators.OperatorOnExceptionResumeNextViaObservableTest > testBackpressure STARTED
+
+rx.internal.operators.OperatorOnExceptionResumeNextViaObservableTest > testResumeNextWithRuntimeException STARTED
+
+rx.internal.operators.OperatorOnExceptionResumeNextViaObservableTest > testMapResumeAsyncNext STARTED
+
+rx.internal.operators.OperatorOnExceptionResumeNextViaObservableTest > testResumeNextWithException STARTED
+
+rx.internal.operators.OperatorOnExceptionResumeNextViaObservableTest > testThrowablePassesThru STARTED
+
+rx.internal.operators.OperatorOnExceptionResumeNextViaObservableTest > testErrorPassesThru STARTED
+
+rx.internal.operators.OperatorPublishTest > testTakeUntilWithPublishedStreamUsingSelector STARTED
+
+rx.internal.operators.OperatorPublishTest > testTakeUntilWithPublishedStream STARTED
+
+rx.internal.operators.OperatorPublishTest > testPublish STARTED
+
+rx.internal.operators.OperatorPublishTest > testBackpressureFastSlow STARTED
+
+rx.internal.operators.OperatorReduceTest > testBackpressureWithInitialValue STARTED
+
+rx.internal.operators.OperatorReduceTest > testAggregateAsIntSumSourceThrows STARTED
+
+rx.internal.operators.OperatorReduceTest > testAggregateAsIntSumAccumulatorThrows STARTED
+
+rx.internal.operators.OperatorReduceTest > testAggregateAsIntSumResultSelectorThrows STARTED
+
+rx.internal.operators.OperatorReduceTest > testBackpressureWithNoInitialValue STARTED
+
+rx.internal.operators.OperatorReduceTest > testAggregateAsIntSum STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatTake STARTED
+
+rx.internal.operators.OperatorRepeatTest > testNoStackOverFlow STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatTakeWithSubscribeOn STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatAndTake STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatLimited STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatOne STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepetition STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatError STARTED
+
+rx.internal.operators.OperatorRepeatTest > testRepeatZero STARTED
+
+rx.internal.operators.OperatorReplayTest > testIssue2191_SchedulerUnsubscribeOnError STARTED
+
+rx.internal.operators.OperatorReplayTest > testBufferedReplayError STARTED
+
+rx.internal.operators.OperatorReplayTest > testWindowedReplayError STARTED
+
+rx.internal.operators.OperatorReplayTest > testSynchronousDisconnect STARTED
+
+rx.internal.operators.OperatorReplayTest > testIssue2191_UnsubscribeSource STARTED
+
+rx.internal.operators.OperatorReplayTest > testIssue2191_SchedulerUnsubscribe STARTED
+
+rx.internal.operators.OperatorReplayTest > testBufferedReplay STARTED
+
+rx.internal.operators.OperatorReplayTest > testWindowedReplay STARTED
+
+rx.internal.operators.OperatorReplayTest > testReplaySelector STARTED
+
+rx.internal.operators.OperatorReplayTest > testBufferedReplaySelector STARTED
+
+rx.internal.operators.OperatorReplayTest > testWindowedReplaySelector STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetryWithBackpressure STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetryWithBackpressureParallel STARTED
+
+rx.internal.operators.OperatorRetryTest > testIssue1900 STARTED
+
+rx.internal.operators.OperatorRetryTest > testIssue1900SourceNotSupportingBackpressure STARTED
+
+rx.internal.operators.OperatorRetryTest > iterativeBackoff STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetryIndefinitely STARTED
+
+rx.internal.operators.OperatorRetryTest > testSchedulingNotificationHandler STARTED
+
+rx.internal.operators.OperatorRetryTest > testOnNextFromNotificationHandler STARTED
+
+rx.internal.operators.OperatorRetryTest > testOnCompletedFromNotificationHandler STARTED
+
+rx.internal.operators.OperatorRetryTest > testOnErrorFromNotificationHandler STARTED
+
+rx.internal.operators.OperatorRetryTest > testSingleSubscriptionOnFirst STARTED
+
+rx.internal.operators.OperatorRetryTest > testOriginFails STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetryFail STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetrySuccess STARTED
+
+rx.internal.operators.OperatorRetryTest > testInfiniteRetry STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetrySubscribesAgainAfterError STARTED
+
+rx.internal.operators.OperatorRetryTest > testUnsubscribeFromRetry STARTED
+
+rx.internal.operators.OperatorRetryTest > testRetryAllowsSubscriptionAfterAllSubscriptionsUnsubscribed STARTED
+
+rx.internal.operators.OperatorRetryTest > testSourceObservableCallsUnsubscribe STARTED
+
+rx.internal.operators.OperatorRetryTest > testSourceObservableRetry1 STARTED
+
+rx.internal.operators.OperatorRetryTest > testSourceObservableRetry0 STARTED
+
+rx.internal.operators.OperatorRetryTest > testUnsubscribeAfterError STARTED
+
+rx.internal.operators.OperatorRetryTest > testTimeoutWithRetry STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testRetryTwiceAndGiveUp STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testRetryOnSpecificException STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testRetryOnSpecificExceptionAndNotOther STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testRetryTwice STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testUnsubscribeFromRetry STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testUnsubscribeAfterError STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testTimeoutWithRetry STARTED
+
+rx.internal.operators.OperatorRetryWithPredicateTest > testWithNothingToRetry STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerNoDuplicates STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerTerminatingEarly STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerEmitAndTerminate STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerEmptySource STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerSourceThrows STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerThrows STARTED
+
+rx.internal.operators.OperatorSampleTest > testSampleUnsubscribe STARTED
+
+rx.internal.operators.OperatorSampleTest > sampleWithSamplerNormal STARTED
+
+rx.internal.operators.OperatorSampleTest > testSample STARTED
+
+rx.internal.operators.OperatorScanTest > testBackpressureWithInitialValue STARTED
+
+rx.internal.operators.OperatorScanTest > testSeedFactory STARTED
+
+rx.internal.operators.OperatorScanTest > testScanIntegersWithInitialValue STARTED
+
+rx.internal.operators.OperatorScanTest > testScanIntegersWithoutInitialValue STARTED
+
+rx.internal.operators.OperatorScanTest > testScanIntegersWithoutInitialValueAndOnlyOneValue STARTED
+
+rx.internal.operators.OperatorScanTest > shouldNotEmitUntilAfterSubscription STARTED
+
+rx.internal.operators.OperatorScanTest > testBackpressureWithoutInitialValue STARTED
+
+rx.internal.operators.OperatorScanTest > testNoBackpressureWithInitialValue STARTED
+
+rx.internal.operators.OperatorScanTest > testScanWithRequestOne STARTED
+
+rx.internal.operators.OperatorScanTest > testScanShouldNotRequestZero STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithEmpty2 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithEmpty3 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithNull1 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithNull2 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithEqualityError STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > test1 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > test2 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > test3 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithError1 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithError2 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithError3 STARTED
+
+rx.internal.operators.OperatorSequenceEqualTest > testWithEmpty1 STARTED
+
+rx.internal.operators.OperatorSerializeTest > testSingleThreadedBasic STARTED
+
+rx.internal.operators.OperatorSerializeTest > testMultiThreadedBasic STARTED
+
+rx.internal.operators.OperatorSerializeTest > testMultiThreadedWithNPE STARTED
+
+rx.internal.operators.OperatorSerializeTest > testMultiThreadedWithNPEinMiddle STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleWithTooManyElements STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleWithEmpty STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleWithPredicate STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleWithPredicateAndTooManyElements STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleOrDefault STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingle STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleWithPredicateAndEmpty STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleOrDefaultWithTooManyElements STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleOrDefaultWithEmpty STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleOrDefaultWithPredicate STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleOrDefaultWithPredicateAndTooManyElements STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleOrDefaultWithPredicateAndEmpty STARTED
+
+rx.internal.operators.OperatorSingleTest > testSingleWithBackpressure STARTED
+
+rx.internal.operators.OperatorSingleTest > testIssue1527 STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLast1 STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLast2 STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLastWithZeroCount STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLastWithNull STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLastWithBackpressure STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLastWithNegativeCount STARTED
+
+rx.internal.operators.OperatorSkipLastTest > testSkipLastEmpty STARTED
+
+rx.internal.operators.OperatorSkipLastTimedTest > testSkipLastTimed STARTED
+
+rx.internal.operators.OperatorSkipLastTimedTest > testSkipLastTimedCompleteBeforeTime STARTED
+
+rx.internal.operators.OperatorSkipLastTimedTest > testSkipLastTimedWhenAllElementsAreValid STARTED
+
+rx.internal.operators.OperatorSkipLastTimedTest > testSkipLastTimedErrorBeforeTime STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipError STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipNegativeElements STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipZeroElements STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipOneElement STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipTwoElements STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipEmptyStream STARTED
+
+rx.internal.operators.OperatorSkipTest > testSkipMultipleObservers STARTED
+
+rx.internal.operators.OperatorSkipTimedTest > testSkipTimedErrorBeforeTime STARTED
+
+rx.internal.operators.OperatorSkipTimedTest > testSkipTimedErrorAfterTime STARTED
+
+rx.internal.operators.OperatorSkipTimedTest > testSkipTimedFinishBeforeTime STARTED
+
+rx.internal.operators.OperatorSkipTimedTest > testSkipTimed STARTED
+
+rx.internal.operators.OperatorSkipUntilTest > otherThrowsImmediately STARTED
+
+rx.internal.operators.OperatorSkipUntilTest > normal1 STARTED
+
+rx.internal.operators.OperatorSkipUntilTest > otherFiresAndCompletes STARTED
+
+rx.internal.operators.OperatorSkipUntilTest > sourceThrows STARTED
+
+rx.internal.operators.OperatorSkipUntilTest > otherEmpty STARTED
+
+rx.internal.operators.OperatorSkipUntilTest > otherNeverFires STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipSome STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipManySubscribers STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipError STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipWithIndex STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipEmpty STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipEverything STARTED
+
+rx.internal.operators.OperatorSkipWhileTest > testSkipNothing STARTED
+
+rx.internal.operators.OperatorSubscribeOnTest > testIssue813 STARTED
+
+rx.internal.operators.OperatorSubscribeOnTest > testOnError STARTED
+
+rx.internal.operators.OperatorSubscribeOnTest > testUnsubscribeInfiniteStream STARTED
+
+rx.internal.operators.OperatorSubscribeOnTest > testBackpressureReschedulesCorrectly STARTED
+
+rx.internal.operators.OperatorSubscribeOnTest > testSetProducerSynchronousRequest STARTED
+
+rx.internal.operators.OperatorSubscribeOnTest > testThrownErrorHandling STARTED
+
+rx.internal.operators.OperatorSwitchTest > testBackpressure STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchWhenOuterCompleteBeforeInner STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchWithSubsequenceComplete STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchWithSubsequenceError STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchIssue737 STARTED
+
+rx.internal.operators.OperatorSwitchTest > testUnsubscribe STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchWhenInnerCompleteBeforeOuter STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchWithComplete STARTED
+
+rx.internal.operators.OperatorSwitchTest > testSwitchWithError STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testTakeLastEmpty STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testIssue1522 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testIgnoreRequest1 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testIgnoreRequest2 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testIgnoreRequest3 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testIgnoreRequest4 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testUnsubscribeTakesEffectEarlyOnFastPath STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testTakeLast1 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testTakeLast2 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testTakeLastWithZeroCount STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testTakeLastWithNull STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testTakeLastWithNegativeCount STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testBackpressure1 STARTED
+
+rx.internal.operators.OperatorTakeLastTest > testBackpressure2 STARTED
+
+rx.internal.operators.OperatorTakeLastTimedTest > testTakeLastTimedWithNegativeCount STARTED
+
+rx.internal.operators.OperatorTakeLastTimedTest > takeLastTimedDelayCompletion STARTED
+
+rx.internal.operators.OperatorTakeLastTimedTest > takeLastTimed STARTED
+
+rx.internal.operators.OperatorTakeLastTimedTest > takeLastTimedWithCapacity STARTED
+
+rx.internal.operators.OperatorTakeLastTimedTest > takeLastTimedThrowingSource STARTED
+
+rx.internal.operators.OperatorTakeLastTimedTest > takeLastTimedWithZeroCapacity STARTED
+
+rx.internal.operators.OperatorTakeTest > testUnsubscribeFromSynchronousInfiniteObservable STARTED
+
+rx.internal.operators.OperatorTakeTest > testMultiTake STARTED
+
+rx.internal.operators.OperatorTakeTest > testProducerRequestThroughTake STARTED
+
+rx.internal.operators.OperatorTakeTest > testProducerRequestThroughTakeIsModified STARTED
+
+rx.internal.operators.OperatorTakeTest > testInterrupt STARTED
+
+rx.internal.operators.OperatorTakeTest > testTake1 STARTED
+
+rx.internal.operators.OperatorTakeTest > testTake2 STARTED
+
+rx.internal.operators.OperatorTakeTest > testTakeWithError STARTED
+
+rx.internal.operators.OperatorTakeTest > testTakeWithErrorHappeningInOnNext STARTED
+
+rx.internal.operators.OperatorTakeTest > testTakeWithErrorHappeningInTheLastOnNext STARTED
+
+rx.internal.operators.OperatorTakeTest > testTakeDoesntLeakErrors STARTED
+
+rx.internal.operators.OperatorTakeTest > testTakeZeroDoesntLeakError STARTED
+
+rx.internal.operators.OperatorTakeTest > testUnsubscribeAfterTake STARTED
+
+rx.internal.operators.OperatorTakeTest > testTakeObserveOn STARTED
+
+rx.internal.operators.OperatorTakeTimedTest > testTakeTimed STARTED
+
+rx.internal.operators.OperatorTakeTimedTest > testTakeTimedErrorAfterTime STARTED
+
+rx.internal.operators.OperatorTakeTimedTest > testTakeTimedErrorBeforeTime STARTED
+
+rx.internal.operators.OperatorTakeUntilTest > testTakeUntilSourceCompleted STARTED
+
+rx.internal.operators.OperatorTakeUntilTest > testTakeUntilSourceError STARTED
+
+rx.internal.operators.OperatorTakeUntilTest > testTakeUntilOtherError STARTED
+
+rx.internal.operators.OperatorTakeUntilTest > testTakeUntil STARTED
+
+rx.internal.operators.OperatorTakeUntilTest > testTakeUntilOtherCompleted STARTED
+
+rx.internal.operators.OperatorTakeWhileTest > testTakeWhile1 STARTED
+
+rx.internal.operators.OperatorTakeWhileTest > testTakeWhileOnSubject1 STARTED
+
+rx.internal.operators.OperatorTakeWhileTest > testTakeWhile2 STARTED
+
+rx.internal.operators.OperatorTakeWhileTest > testTakeWhileDoesntLeakErrors STARTED
+
+rx.internal.operators.OperatorTakeWhileTest > testTakeWhileProtectsPredicateCall STARTED
+
+rx.internal.operators.OperatorTakeWhileTest > testUnsubscribeAfterTake STARTED
+
+rx.internal.operators.OperatorThrottleFirstTest > testThrottle STARTED
+
+rx.internal.operators.OperatorThrottleFirstTest > testThrottlingWithCompleted STARTED
+
+rx.internal.operators.OperatorThrottleFirstTest > testThrottlingWithError STARTED
+
+rx.internal.operators.OperatorTimeIntervalTest > testTimeInterval STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldUnsubscribeFromUnderlyingSubscriptionOnImmediatelyErrored STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldNotTimeoutIfOnNextWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldNotTimeoutIfSecondOnNextWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldTimeoutIfOnNextNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldTimeoutIfSecondOnNextNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldCompleteIfUnderlyingComletes STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldErrorIfUnderlyingErrors STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldSwitchToOtherIfOnNextNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldSwitchToOtherIfOnErrorNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldSwitchToOtherIfOnCompletedNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldSwitchToOtherAndCanBeUnsubscribedIfOnNextNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldTimeoutIfSynchronizedObservableEmitFirstOnNextNotWithinTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldUnsubscribeFromUnderlyingSubscriptionOnTimeout STARTED
+
+rx.internal.operators.OperatorTimeoutTests > shouldUnsubscribeFromUnderlyingSubscriptionOnImmediatelyComplete STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorNormal1 STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorTimeoutFirst STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorFirstThrows STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorSubsequentThrows STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorFirstObservableThrows STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorSubsequentObservableThrows STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorWithFirstTimeoutFirstAndNoOtherObservable STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorWithTimeoutFirstAndNoOtherObservable STARTED
+
+rx.internal.operators.OperatorTimeoutWithSelectorTest > testTimeoutSelectorWithTimeoutAndOnNextRaceCondition STARTED
+
+rx.internal.operators.OperatorTimestampTest > timestampWithScheduler2 STARTED
+
+rx.internal.operators.OperatorTimestampTest > timestampWithScheduler STARTED
+
+rx.internal.operators.OperatorToMapTest > testToMapWithError STARTED
+
+rx.internal.operators.OperatorToMapTest > testToMapWithErrorInValueSelector STARTED
+
+rx.internal.operators.OperatorToMapTest > testToMapWithFactory STARTED
+
+rx.internal.operators.OperatorToMapTest > testToMapWithErrorThrowingFactory STARTED
+
+rx.internal.operators.OperatorToMapTest > testToMap STARTED
+
+rx.internal.operators.OperatorToMapTest > testToMapWithValueSelector STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimap STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithValueSelector STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithMapFactory STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithCollectionFactory STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithErrorInValueSelector STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithError STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithMapThrowingFactory STARTED
+
+rx.internal.operators.OperatorToMultimapTest > testToMultimapWithThrowingCollectionFactory STARTED
+
+rx.internal.operators.OperatorToObservableListTest > testListViaObservable STARTED
+
+rx.internal.operators.OperatorToObservableListTest > testListMultipleObservers STARTED
+
+rx.internal.operators.OperatorToObservableListTest > testListWithNullValue STARTED
+
+rx.internal.operators.OperatorToObservableListTest > testListWithBlockingFirst STARTED
+
+rx.internal.operators.OperatorToObservableListTest > testList STARTED
+
+rx.internal.operators.OperatorToObservableSortedListTest > testSortedList STARTED
+
+rx.internal.operators.OperatorToObservableSortedListTest > testWithFollowingFirst STARTED
+
+rx.internal.operators.OperatorToObservableSortedListTest > testSortedListWithCustomFunction STARTED
+
+rx.internal.operators.OperatorUnsubscribeOnTest > testUnsubscribeWhenSubscribeOnAndUnsubscribeOnAreOnDifferentThreads STARTED
+
+rx.internal.operators.OperatorUnsubscribeOnTest > testUnsubscribeWhenSubscribeOnAndUnsubscribeOnAreOnSameThread STARTED
+
+rx.internal.operators.OperatorWindowWithObservableTest > testWindowViaObservableBoundaryThrows STARTED
+
+rx.internal.operators.OperatorWindowWithObservableTest > testWindowViaObservableSourceThrows STARTED
+
+rx.internal.operators.OperatorWindowWithObservableTest > testWindowViaObservableBoundaryCompletes STARTED
+
+rx.internal.operators.OperatorWindowWithObservableTest > testWindowViaObservableNormal1 STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testWindowUnsubscribeNonOverlapping STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testWindowUnsubscribeNonOverlappingAsyncSource STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testWindowUnsubscribeOverlapping STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testWindowUnsubscribeOverlappingAsyncSource STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testNonOverlappingWindows STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testSkipAndCountGaplessWindows STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testOverlappingWindows STARTED
+
+rx.internal.operators.OperatorWindowWithSizeTest > testSkipAndCountWindowsWithGaps STARTED
+
+rx.internal.operators.OperatorWindowWithStartEndObservableTest > testObservableBasedOpenerAndCloser STARTED
+
+rx.internal.operators.OperatorWindowWithStartEndObservableTest > testObservableBasedCloser STARTED
+
+rx.internal.operators.OperatorWindowWithTimeTest > testTimedAndCount STARTED
+
+rx.internal.operators.OperatorWindowWithTimeTest > testTimed STARTED
+
+rx.internal.operators.OperatorWindowWithTimeTest > testExactWindowSize STARTED
+
+rx.internal.operators.OperatorZipCompletionTest > testFirstCompletesThenSecondInfinite STARTED
+
+rx.internal.operators.OperatorZipCompletionTest > testSecondInfiniteThenFirstCompletes STARTED
+
+rx.internal.operators.OperatorZipCompletionTest > testSecondCompletesThenFirstInfinite STARTED
+
+rx.internal.operators.OperatorZipCompletionTest > testFirstInfiniteThenSecondCompletes STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableSameSize STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableEmptyFirstSize STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableEmptySecond STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableFirstShorter STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableSecondShorter STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableFirstThrows STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableIteratorThrows STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableHasNextThrows STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testZipIterableNextThrows STARTED
+
+rx.internal.operators.OperatorZipIterableTest > testTake2 STARTED
+
+rx.internal.operators.OperatorZipTest > testOnErrorTermination STARTED
+
+rx.internal.operators.OperatorZipTest > testFirstFails STARTED
+
+rx.internal.operators.OperatorZipTest > testSecondFails STARTED
+
+rx.internal.operators.OperatorZipTest > testStartWithOnCompletedTwice STARTED
+
+rx.internal.operators.OperatorZipTest > testStart STARTED
+
+rx.internal.operators.OperatorZipTest > testStartAsync STARTED
+
+rx.internal.operators.OperatorZipTest > testStartInfiniteAndFinite STARTED
+
+rx.internal.operators.OperatorZipTest > testEmitNull STARTED
+
+rx.internal.operators.OperatorZipTest > testEmitMaterializedNotifications STARTED
+
+rx.internal.operators.OperatorZipTest > testStartEmptyObservables STARTED
+
+rx.internal.operators.OperatorZipTest > testStartEmptyList STARTED
+
+rx.internal.operators.OperatorZipTest > testStartEmptyListBlocking STARTED
+
+rx.internal.operators.OperatorZipTest > testBackpressureSync STARTED
+
+rx.internal.operators.OperatorZipTest > testBackpressureAsync STARTED
+
+rx.internal.operators.OperatorZipTest > testDownstreamBackpressureRequestsWithFiniteSyncObservables STARTED
+
+rx.internal.operators.OperatorZipTest > testDownstreamBackpressureRequestsWithInfiniteAsyncObservables STARTED
+
+rx.internal.operators.OperatorZipTest > testDownstreamBackpressureRequestsWithInfiniteSyncObservables STARTED
+
+rx.internal.operators.OperatorZipTest > testCollectionSizeDifferentThanFunction STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregatorsWithDifferentSizesAndTiming STARTED
+
+rx.internal.operators.OperatorZipTest > testStartpingDifferentLengthObservableSequences1 STARTED
+
+rx.internal.operators.OperatorZipTest > testStartpingDifferentLengthObservableSequences2 STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregatorSimple STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregatorDifferentSizedResultsWithOnComplete STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregateMultipleTypes STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregate3Types STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregatorError STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregatorUnsubscribe STARTED
+
+rx.internal.operators.OperatorZipTest > testAggregatorEarlyCompletion STARTED
+
+rx.internal.operators.OperatorZipTest > testStart2Types STARTED
+
+rx.internal.operators.OperatorZipTest > testStart3Types STARTED
+
+rx.internal.operators.OperatorZipTest > testOnNextExceptionInvokesOnError STARTED
+
+rx.internal.operators.OperatorZipTest > testOnFirstCompletion STARTED
+
+rx.internal.operators.OperatorZipTest > testIssue1812 STARTED
+
+rx.internal.operators.OperatorZipTest > testFirstCompletesThenSecondInfinite STARTED
+
+rx.internal.operators.OperatorZipTest > testSecondInfiniteThenFirstCompletes STARTED
+
+rx.internal.operators.OperatorZipTest > testSecondCompletesThenFirstInfinite STARTED
+
+rx.internal.operators.OperatorZipTest > testFirstInfiniteThenSecondCompletes STARTED
+
+rx.internal.operators.SafeSubscriberTest > testOnNextAfterOnError STARTED
+
+rx.internal.operators.SafeSubscriberTest > testOnCompletedAfterOnError STARTED
+
+rx.internal.operators.SafeSubscriberTest > testOnNextAfterOnCompleted STARTED
+
+rx.internal.operators.SafeSubscriberTest > testOnErrorAfterOnCompleted STARTED
+
+rx.internal.util.IndexedRingBufferTest > removeEnd STARTED
+
+rx.internal.util.IndexedRingBufferTest > testForEachWithIndex STARTED
+
+rx.internal.util.IndexedRingBufferTest > testForEachAcrossSections STARTED
+
+rx.internal.util.IndexedRingBufferTest > longRunningAddRemoveAddDoesntLeakMemory STARTED
+
+rx.internal.util.IndexedRingBufferTest > testConcurrentAdds STARTED
+
+rx.internal.util.IndexedRingBufferTest > testConcurrentAddAndRemoves STARTED
+
+rx.internal.util.IndexedRingBufferTest > removeMiddle STARTED
+
+rx.internal.util.IndexedRingBufferTest > addRemoveAdd STARTED
+
+rx.internal.util.IndexedRingBufferTest > addThousands STARTED
+
+rx.internal.util.IndexedRingBufferTest > add STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > testConcurrency STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > addAndPollFailBackpressure STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > addAndPoll STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > roomForError STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > multipleTerminalEventsOnComplete STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > multipleTerminalEventsOnError STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > testPollingTerminalState STARTED
+
+rx.internal.util.RxRingBufferSpmcTest > missingBackpressureException STARTED
+
+rx.internal.util.RxRingBufferSpscTest > testConcurrency STARTED
+
+rx.internal.util.RxRingBufferSpscTest > addAndPollFailBackpressure STARTED
+
+rx.internal.util.RxRingBufferSpscTest > addAndPoll STARTED
+
+rx.internal.util.RxRingBufferSpscTest > roomForError STARTED
+
+rx.internal.util.RxRingBufferSpscTest > multipleTerminalEventsOnComplete STARTED
+
+rx.internal.util.RxRingBufferSpscTest > multipleTerminalEventsOnError STARTED
+
+rx.internal.util.RxRingBufferSpscTest > testPollingTerminalState STARTED
+
+rx.internal.util.RxRingBufferSpscTest > missingBackpressureException STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > testConcurrency STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > addAndPollFailBackpressure STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > addAndPoll STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > roomForError STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > multipleTerminalEventsOnComplete STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > multipleTerminalEventsOnError STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > testPollingTerminalState STARTED
+
+rx.internal.util.RxRingBufferWithoutUnsafeTest > missingBackpressureException STARTED
+
+rx.internal.util.SubscriptionListTest > testSuccess STARTED
+
+rx.internal.util.SubscriptionListTest > testUnsubscribeIdempotence STARTED
+
+rx.internal.util.SubscriptionListTest > shouldUnsubscribeAll STARTED
+
+rx.internal.util.SubscriptionListTest > testCompositeException STARTED
+
+rx.internal.util.SubscriptionListTest > testException STARTED
+
+rx.internal.util.SubscriptionListTest > testUnsubscribeIdempotenceConcurrently STARTED
+
+rx.observables.AbstractOnSubscribeTest > testObserveOn STARTED
+
+rx.observables.AbstractOnSubscribeTest > testEmpty STARTED
+
+rx.observables.AbstractOnSubscribeTest > testError STARTED
+
+rx.observables.AbstractOnSubscribeTest > testJustMisbehavingOnCompleted STARTED
+
+rx.observables.AbstractOnSubscribeTest > testNever STARTED
+
+rx.observables.AbstractOnSubscribeTest > testThrows STARTED
+
+rx.observables.AbstractOnSubscribeTest > testRange STARTED
+
+rx.observables.AbstractOnSubscribeTest > testFromIterable STARTED
+
+rx.observables.AbstractOnSubscribeTest > testJustMisbehaving STARTED
+
+rx.observables.AbstractOnSubscribeTest > testJust STARTED
+
+rx.observables.AbstractOnSubscribeTest > testMissingEmission STARTED
+
+rx.observables.AbstractOnSubscribeTest > testJustMisbehavingOnError STARTED
+
+rx.observables.AbstractOnSubscribeTest > testPhased STARTED
+
+rx.observables.AbstractOnSubscribeTest > testSubscribeOn STARTED
+
+rx.observables.AbstractOnSubscribeTest > testPhasedRetry STARTED
+
+rx.observables.AbstractOnSubscribeTest > testInfiniteTake STARTED
+
+rx.observables.AbstractOnSubscribeTest > testInfiniteRequestSome STARTED
+
+rx.observables.AbstractOnSubscribeTest > testIndependentStates STARTED
+
+rx.observables.BlockingObservableTest > testLast STARTED
+
+rx.observables.BlockingObservableTest > testLastWithPredicate STARTED
+
+rx.observables.BlockingObservableTest > testLastOrDefault STARTED
+
+rx.observables.BlockingObservableTest > testLastOrDefaultWithPredicate STARTED
+
+rx.observables.BlockingObservableTest > testToIterableWithException STARTED
+
+rx.observables.BlockingObservableTest > testForEachWithError STARTED
+
+rx.observables.BlockingObservableTest > testSingleOrDefaultUnsubscribe STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromSingleWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromForEachWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromFirstWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromLastWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromLatestWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromNextWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromGetIteratorWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testUnsubscribeFromToIterableWhenInterrupted STARTED
+
+rx.observables.BlockingObservableTest > testSingleDefaultPredicateMatchesMoreThanOne STARTED
+
+rx.observables.BlockingObservableTest > testSingleDefaultPredicateMatchesNothing STARTED
+
+rx.observables.BlockingObservableTest > testSingleDefaultWithMoreThanOne STARTED
+
+rx.observables.BlockingObservableTest > testSingleWithPredicateDefault STARTED
+
+rx.observables.BlockingObservableTest > testSingleWrongPredicate STARTED
+
+rx.observables.BlockingObservableTest > testToIterable STARTED
+
+rx.observables.BlockingObservableTest > testToIterableNextOnly STARTED
+
+rx.observables.BlockingObservableTest > testToIterableNextOnlyTwice STARTED
+
+rx.observables.BlockingObservableTest > testToIterableManyTimes STARTED
+
+rx.observables.BlockingObservableTest > testLastEmptyObservable STARTED
+
+rx.observables.BlockingObservableTest > testLastOrDefault1 STARTED
+
+rx.observables.BlockingObservableTest > testLastOrDefault2 STARTED
+
+rx.observables.BlockingObservableTest > testLastOrDefaultWrongPredicate STARTED
+
+rx.observables.BlockingObservableTest > testSingleDefault STARTED
+
+rx.observables.BlockingObservableTest > testSingleWrong STARTED
+
+rx.observables.BlockingObservableTest > testSingle STARTED
+
+rx.observables.BlockingObservableTest > testFirst STARTED
+
+rx.observables.BlockingObservableTest > testFirstWithEmpty STARTED
+
+rx.observables.BlockingObservableTest > testFirstWithPredicate STARTED
+
+rx.observables.BlockingObservableTest > testFirstWithPredicateAndEmpty STARTED
+
+rx.observables.BlockingObservableTest > testFirstOrDefault STARTED
+
+rx.observables.BlockingObservableTest > testFirstOrDefaultWithEmpty STARTED
+
+rx.observables.BlockingObservableTest > testFirstOrDefaultWithPredicate STARTED
+
+rx.observables.BlockingObservableTest > testFirstOrDefaultWithPredicateAndEmpty STARTED
+
+rx.observers.SafeObserverTest > onNextFailure STARTED
+
+rx.observers.SafeObserverTest > onNextOnErrorFailureSafe STARTED
+
+rx.observers.SafeObserverTest > onCompleteSuccessWithUnsubscribeFailure STARTED
+
+rx.observers.SafeObserverTest > onErrorSuccessWithUnsubscribeFailure STARTED
+
+rx.observers.SafeObserverTest > onErrorFailureWithUnsubscribeFailure STARTED
+
+rx.observers.SafeObserverTest > onErrorNotImplementedFailureWithUnsubscribeFailure STARTED
+
+rx.observers.SafeObserverTest > onNextFailureSafe STARTED
+
+rx.observers.SafeObserverTest > onCompletedFailure STARTED
+
+rx.observers.SafeObserverTest > onCompletedFailureSafe STARTED
+
+rx.observers.SafeObserverTest > onErrorFailure STARTED
+
+rx.observers.SafeObserverTest > onErrorFailureSafe STARTED
+
+rx.observers.SafeObserverTest > onErrorNotImplementedFailureSafe STARTED
+
+rx.observers.SafeObserverTest > onNextOnErrorFailure STARTED
+
+rx.observers.SerializedObserverTest > testSingleThreadedBasic STARTED
+
+rx.observers.SerializedObserverTest > testMultiThreadedBasic STARTED
+
+rx.observers.SerializedObserverTest > runConcurrencyTest STARTED
+
+rx.observers.SerializedObserverTest > testNotificationDelay STARTED
+
+rx.observers.SerializedObserverTest > testThreadStarvation STARTED
+
+rx.observers.SerializedObserverTest > testMultiThreadedWithNPE STARTED
+
+rx.observers.SerializedObserverTest > testMultiThreadedWithNPEinMiddle STARTED
+
+rx.observers.SerializedObserverTest > runOutOfOrderConcurrencyTest STARTED
+
+rx.observers.TestObserverTest > testAssert STARTED
+
+rx.observers.TestObserverTest > testAssertTerminalEventNotReceived STARTED
+
+rx.observers.TestObserverTest > testAssertNotMatchValue STARTED
+
+rx.observers.TestObserverTest > testWrappingMock STARTED
+
+rx.observers.TestObserverTest > testAssertNotMatchCount STARTED
+
+rx.observers.TestObserverTest > testWrappingMockWhenUnsubscribeInvolved STARTED
+
+rx.observers.TestObserverTest > testErrorSwallowed STARTED
+
+rx.observers.TestSubscriberTest > testAssert STARTED
+
+rx.observers.TestSubscriberTest > testAssertTerminalEventNotReceived STARTED
+
+rx.observers.TestSubscriberTest > testAssertNotMatchValue STARTED
+
+rx.observers.TestSubscriberTest > testWrappingMock STARTED
+
+rx.observers.TestSubscriberTest > testAssertNotMatchCount STARTED
+
+rx.observers.TestSubscriberTest > testWrappingMockWhenUnsubscribeInvolved STARTED
+
+rx.plugins.RxJavaPluginsTest > testObservableExecutionHookViaProperty STARTED
+
+rx.plugins.RxJavaPluginsTest > testOnErrorWhenImplementedViaSubscribe STARTED
+
+rx.plugins.RxJavaPluginsTest > testErrorHandlerDefaultImpl STARTED
+
+rx.plugins.RxJavaPluginsTest > testErrorHandlerViaRegisterMethod STARTED
+
+rx.plugins.RxJavaPluginsTest > testErrorHandlerViaProperty STARTED
+
+rx.plugins.RxJavaPluginsTest > testObservableExecutionHookDefaultImpl STARTED
+
+rx.plugins.RxJavaPluginsTest > testObservableExecutionHookViaRegisterMethod STARTED
+
+rx.plugins.RxJavaPluginsTest > testOnErrorWhenNotImplemented STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testUnhandledErrorIsDeliveredToThreadHandler STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testHandledErrorIsNotDeliveredToThreadHandler STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testCancelledTaskRetention STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testIOScheduler STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testUnSubscribeForScheduler STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testUnsubscribeRecursiveScheduleFromOutside STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testUnsubscribeRecursiveScheduleFromInside STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testUnsubscribeRecursiveScheduleWithDelay STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > recursionFromOuterActionAndUnsubscribeInside STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testRecursion STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testRecursionAndOuterUnsubscribe STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testSubscribeWithScheduler STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testObserveOn STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testSequenceOfDelayedActions STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testMixOfDelayedAndNonDelayedActions STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testRecursiveExecution STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testRecursiveExecutionWithDelayTime STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testRecursiveSchedulerInObservable STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testConcurrentOnNextFailsValidation STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testSubscribeOnNestedConcurrency STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testNestedScheduling STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testSequenceOfActions STARTED
+
+rx.schedulers.CachedThreadSchedulerTest > testNestedActions STARTED
+
+rx.schedulers.ComputationSchedulerTests > testUnhandledErrorIsDeliveredToThreadHandler STARTED
+
+rx.schedulers.ComputationSchedulerTests > testHandledErrorIsNotDeliveredToThreadHandler STARTED
+
+rx.schedulers.ComputationSchedulerTests > testThreadSafetyWhenSchedulerIsHoppingBetweenThreads STARTED
+
+rx.schedulers.ComputationSchedulerTests > testComputationThreadPool1 STARTED
+
+rx.schedulers.ComputationSchedulerTests > testMergeWithExecutorScheduler STARTED
+
+rx.schedulers.ComputationSchedulerTests > testUnSubscribeForScheduler STARTED
+
+rx.schedulers.ComputationSchedulerTests > testUnsubscribeRecursiveScheduleFromOutside STARTED
+
+rx.schedulers.ComputationSchedulerTests > testUnsubscribeRecursiveScheduleFromInside STARTED
+
+rx.schedulers.ComputationSchedulerTests > testUnsubscribeRecursiveScheduleWithDelay STARTED
+
+rx.schedulers.ComputationSchedulerTests > recursionFromOuterActionAndUnsubscribeInside STARTED
+
+rx.schedulers.ComputationSchedulerTests > testRecursion STARTED
+
+rx.schedulers.ComputationSchedulerTests > testRecursionAndOuterUnsubscribe STARTED
+
+rx.schedulers.ComputationSchedulerTests > testSubscribeWithScheduler STARTED
+
+rx.schedulers.ComputationSchedulerTests > testObserveOn STARTED
+
+rx.schedulers.ComputationSchedulerTests > testSequenceOfDelayedActions STARTED
+
+rx.schedulers.ComputationSchedulerTests > testMixOfDelayedAndNonDelayedActions STARTED
+
+rx.schedulers.ComputationSchedulerTests > testRecursiveExecution STARTED
+
+rx.schedulers.ComputationSchedulerTests > testRecursiveExecutionWithDelayTime STARTED
+
+rx.schedulers.ComputationSchedulerTests > testRecursiveSchedulerInObservable STARTED
+
+rx.schedulers.ComputationSchedulerTests > testConcurrentOnNextFailsValidation STARTED
+
+rx.schedulers.ComputationSchedulerTests > testSubscribeOnNestedConcurrency STARTED
+
+rx.schedulers.ComputationSchedulerTests > testNestedScheduling STARTED
+
+rx.schedulers.ComputationSchedulerTests > testSequenceOfActions STARTED
+
+rx.schedulers.ComputationSchedulerTests > testNestedActions STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testUnhandledErrorIsDeliveredToThreadHandler STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testHandledErrorIsNotDeliveredToThreadHandler STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testUnSubscribeForScheduler STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testUnsubscribeRecursiveScheduleFromOutside STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testUnsubscribeRecursiveScheduleFromInside STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testUnsubscribeRecursiveScheduleWithDelay STARTED
+
+rx.schedulers.ExecutorSchedulerTest > recursionFromOuterActionAndUnsubscribeInside STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testRecursion STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testRecursionAndOuterUnsubscribe STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testSubscribeWithScheduler STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testObserveOn STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testSequenceOfDelayedActions STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testMixOfDelayedAndNonDelayedActions STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testRecursiveExecution STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testRecursiveExecutionWithDelayTime STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testRecursiveSchedulerInObservable STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testConcurrentOnNextFailsValidation STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testSubscribeOnNestedConcurrency STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testNestedScheduling STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testSequenceOfActions STARTED
+
+rx.schedulers.ExecutorSchedulerTest > testNestedActions STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testSequenceOfDelayedActions STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testMixOfDelayedAndNonDelayedActions STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testNestedActions STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testMergeWithoutScheduler STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testMergeWithImmediateScheduler1 STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testObserveOn STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testRecursiveExecution STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testRecursiveExecutionWithDelayTime STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testRecursiveSchedulerInObservable STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testConcurrentOnNextFailsValidation STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testSubscribeOnNestedConcurrency STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testNestedScheduling STARTED
+
+rx.schedulers.ImmediateSchedulerTest > testSequenceOfActions STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testUnhandledErrorIsDeliveredToThreadHandler STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testHandledErrorIsNotDeliveredToThreadHandler STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testNoSelfInterrupt STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testUnSubscribeForScheduler STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testUnsubscribeRecursiveScheduleFromOutside STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testUnsubscribeRecursiveScheduleFromInside STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testUnsubscribeRecursiveScheduleWithDelay STARTED
+
+rx.schedulers.NewThreadSchedulerTest > recursionFromOuterActionAndUnsubscribeInside STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testRecursion STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testRecursionAndOuterUnsubscribe STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testSubscribeWithScheduler STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testObserveOn STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testSequenceOfDelayedActions STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testMixOfDelayedAndNonDelayedActions STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testRecursiveExecution STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testRecursiveExecutionWithDelayTime STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testRecursiveSchedulerInObservable STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testConcurrentOnNextFailsValidation STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testSubscribeOnNestedConcurrency STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testNestedScheduling STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testSequenceOfActions STARTED
+
+rx.schedulers.NewThreadSchedulerTest > testNestedActions STARTED
+
+rx.schedulers.TestSchedulerTest > testNestedSchedule STARTED
+
+rx.schedulers.TestSchedulerTest > testImmediateUnsubscribes STARTED
+
+rx.schedulers.TestSchedulerTest > testPeriodicSchedulingUnsubscription STARTED
+
+rx.schedulers.TestSchedulerTest > testPeriodicScheduling STARTED
+
+rx.schedulers.TestSchedulerTest > testImmediateUnsubscribes2 STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testMergeWithCurrentThreadScheduler1 STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testNestedTrampolineWithUnsubscribe STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testTrampolineWorkerHandlesConcurrentScheduling STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testObserveOn STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testSequenceOfDelayedActions STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testMixOfDelayedAndNonDelayedActions STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testRecursiveExecution STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testRecursiveExecutionWithDelayTime STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testRecursiveSchedulerInObservable STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testConcurrentOnNextFailsValidation STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testSubscribeOnNestedConcurrency STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testNestedScheduling STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testSequenceOfActions STARTED
+
+rx.schedulers.TrampolineSchedulerTest > testNestedActions STARTED
+
+rx.subjects.AsyncSubjectTest > testNull STARTED
+
+rx.subjects.AsyncSubjectTest > testError STARTED
+
+rx.subjects.AsyncSubjectTest > testNeverCompleted STARTED
+
+rx.subjects.AsyncSubjectTest > testSubscribeCompletionRaceCondition STARTED
+
+rx.subjects.AsyncSubjectTest > testOnErrorThrowsDoesntPreventDelivery STARTED
+
+rx.subjects.AsyncSubjectTest > testOnErrorThrowsDoesntPreventDelivery2 STARTED
+
+rx.subjects.AsyncSubjectTest > testSubscribeAfterCompleted STARTED
+
+rx.subjects.AsyncSubjectTest > testSubscribeAfterError STARTED
+
+rx.subjects.AsyncSubjectTest > testUnsubscribeBeforeCompleted STARTED
+
+rx.subjects.AsyncSubjectTest > testEmptySubjectCompleted STARTED
+
+rx.subjects.AsyncSubjectTest > testCompleted STARTED
+
+rx.subjects.BehaviorSubjectTest > testCompletedAfterErrorIsNotSent STARTED
+
+rx.subjects.BehaviorSubjectTest > testCompletedAfterErrorIsNotSent2 STARTED
+
+rx.subjects.BehaviorSubjectTest > testCompletedAfterErrorIsNotSent3 STARTED
+
+rx.subjects.BehaviorSubjectTest > testUnsubscriptionCase STARTED
+
+rx.subjects.BehaviorSubjectTest > testStartEmpty STARTED
+
+rx.subjects.BehaviorSubjectTest > testStartEmptyThenAddOne STARTED
+
+rx.subjects.BehaviorSubjectTest > testStartEmptyCompleteWithOne STARTED
+
+rx.subjects.BehaviorSubjectTest > testTakeOneSubscriber STARTED
+
+rx.subjects.BehaviorSubjectTest > testEmissionSubscriptionRace STARTED
+
+rx.subjects.BehaviorSubjectTest > testOnErrorThrowsDoesntPreventDelivery STARTED
+
+rx.subjects.BehaviorSubjectTest > testOnErrorThrowsDoesntPreventDelivery2 STARTED
+
+rx.subjects.BehaviorSubjectTest > testThatObserverReceivesDefaultValueAndSubsequentEvents STARTED
+
+rx.subjects.BehaviorSubjectTest > testThatObserverReceivesLatestAndThenSubsequentEvents STARTED
+
+rx.subjects.BehaviorSubjectTest > testSubscribeThenOnComplete STARTED
+
+rx.subjects.BehaviorSubjectTest > testSubscribeToCompletedOnlyEmitsOnComplete STARTED
+
+rx.subjects.BehaviorSubjectTest > testSubscribeToErrorOnlyEmitsOnError STARTED
+
+rx.subjects.BehaviorSubjectTest > testCompletedStopsEmittingData STARTED
+
+rx.subjects.PublishSubjectTest > testError STARTED
+
+rx.subjects.PublishSubjectTest > testSubscribeMidSequence STARTED
+
+rx.subjects.PublishSubjectTest > testUnsubscriptionCase STARTED
+
+rx.subjects.PublishSubjectTest > testOnErrorThrowsDoesntPreventDelivery STARTED
+
+rx.subjects.PublishSubjectTest > testOnErrorThrowsDoesntPreventDelivery2 STARTED
+
+rx.subjects.PublishSubjectTest > testCompletedStopsEmittingData STARTED
+
+rx.subjects.PublishSubjectTest > testUnsubscribeFirstObserver STARTED
+
+rx.subjects.PublishSubjectTest > testNestedSubscribe STARTED
+
+rx.subjects.PublishSubjectTest > testReSubscribe STARTED
+
+rx.subjects.PublishSubjectTest > testCompleted STARTED
+
+rx.subjects.ReplaySubjectBoundedConcurrencyTest > testSubscribeCompletionRaceCondition STARTED
+
+rx.subjects.ReplaySubjectBoundedConcurrencyTest > testReplaySubjectConcurrentSubscribersDoingReplayDontBlockEachOther STARTED
+
+rx.subjects.ReplaySubjectBoundedConcurrencyTest > testReplaySubjectConcurrentSubscriptions STARTED
+
+rx.subjects.ReplaySubjectBoundedConcurrencyTest > testRaceForTerminalState STARTED
+
+rx.subjects.ReplaySubjectBoundedConcurrencyTest > testReplaySubjectEmissionSubscriptionRace STARTED
+
+rx.subjects.ReplaySubjectConcurrencyTest > testSubscribeCompletionRaceCondition STARTED
+
+rx.subjects.ReplaySubjectConcurrencyTest > testReplaySubjectConcurrentSubscribersDoingReplayDontBlockEachOther STARTED
+
+rx.subjects.ReplaySubjectConcurrencyTest > testReplaySubjectConcurrentSubscriptions STARTED
+
+rx.subjects.ReplaySubjectConcurrencyTest > testRaceForTerminalState STARTED
+
+rx.subjects.ReplaySubjectConcurrencyTest > testReplaySubjectEmissionSubscriptionRace STARTED
+
+rx.subjects.ReplaySubjectTest > testError STARTED
+
+rx.subjects.ReplaySubjectTest > testSubscribeMidSequence STARTED
+
+rx.subjects.ReplaySubjectTest > testUnsubscriptionCase STARTED
+
+rx.subjects.ReplaySubjectTest > testSubscriptionLeak STARTED
+
+rx.subjects.ReplaySubjectTest > testTerminateOnce STARTED
+
+rx.subjects.ReplaySubjectTest > testNodeListSimpleAddRemove STARTED
+
+rx.subjects.ReplaySubjectTest > testOnErrorThrowsDoesntPreventDelivery STARTED
+
+rx.subjects.ReplaySubjectTest > testOnErrorThrowsDoesntPreventDelivery2 STARTED
+
+rx.subjects.ReplaySubjectTest > testCompletedStopsEmittingData STARTED
+
+rx.subjects.ReplaySubjectTest > testUnsubscribeFirstObserver STARTED
+
+rx.subjects.ReplaySubjectTest > testReplay1AfterTermination STARTED
+
+rx.subjects.ReplaySubjectTest > testReplay1Directly STARTED
+
+rx.subjects.ReplaySubjectTest > testReplayTimestampedAfterTermination STARTED
+
+rx.subjects.ReplaySubjectTest > testCompleted STARTED
+
+rx.subjects.ReplaySubjectTest > testReplayTimestampedDirectly STARTED
+
+rx.subjects.ReplaySubjectTest > testCompletedAfterError STARTED
+
+rx.subjects.ReplaySubjectTest > testNewSubscriberDoesntBlockExisting STARTED
+
+rx.subjects.SerializedSubjectTest > testBasic STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testSuccess STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testUnsubscribeIdempotence STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > shouldUnsubscribeAll STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testCompositeException STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testException STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testUnsubscribeIdempotenceConcurrently STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testRemoveUnsubscribes STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testAddingNullSubscriptionIllegal STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testClear STARTED
+
+rx.subscriptions.CompositeSubscriptionTest > testTryRemoveIfNotIn STARTED
+
+rx.subscriptions.MultipleAssignmentSubscriptionTest > subscribingWhenUnsubscribedCausesImmediateUnsubscription STARTED
+
+rx.subscriptions.MultipleAssignmentSubscriptionTest > testSubscriptionRemainsAfterUnsubscribe STARTED
+
+rx.subscriptions.MultipleAssignmentSubscriptionTest > testNoUnsubscribeWhenReplaced STARTED
+
+rx.subscriptions.MultipleAssignmentSubscriptionTest > testUnsubscribeWhenParentUnsubscribes STARTED
+
+rx.subscriptions.RefCountSubscriptionTest > testImmediateUnsubscribe STARTED
+
+rx.subscriptions.RefCountSubscriptionTest > testRCSUnsubscribeBeforeClient STARTED
+
+rx.subscriptions.RefCountSubscriptionTest > testMultipleClientsUnsubscribeFirst STARTED
+
+rx.subscriptions.RefCountSubscriptionTest > testMultipleClientsMainUnsubscribeFirst STARTED
+
+rx.subscriptions.SerialSubscriptionTests > unsubscribingWithSingleUnderlyingUnsubscribes STARTED
+
+rx.subscriptions.SerialSubscriptionTests > replacingFirstUnderlyingCausesUnsubscription STARTED
+
+rx.subscriptions.SerialSubscriptionTests > whenUnsubscribingSecondUnderlyingUnsubscribed STARTED
+
+rx.subscriptions.SerialSubscriptionTests > settingUnderlyingWhenUnsubscribedCausesImmediateUnsubscription STARTED
+
+rx.subscriptions.SerialSubscriptionTests > unsubscribingWithoutUnderlyingDoesNothing STARTED
+
+rx.subscriptions.SerialSubscriptionTests > getSubscriptionShouldReturnset STARTED
+
+rx.subscriptions.SerialSubscriptionTests > unsubscribingTwiceDoesUnsubscribeOnce STARTED
+
+rx.subscriptions.SerialSubscriptionTests > settingSameSubscriptionTwiceDoesUnsubscribeIt STARTED
+
+rx.subscriptions.SerialSubscriptionTests > settingUnderlyingWhenUnsubscribedCausesImmediateUnsubscriptionConcurrently STARTED
+
+rx.subscriptions.SerialSubscriptionTests > concurrentSetSubscriptionShouldNotInterleave STARTED
+
+rx.subscriptions.SubscriptionsTest > testEmpty STARTED
+
+rx.subscriptions.SubscriptionsTest > testUnsubscribed STARTED
+
+rx.subscriptions.SubscriptionsTest > testUnsubscribeOnlyOnce STARTED
+
+rx.util.AssertObservableTest > testPassNotNull STARTED
+
+rx.util.AssertObservableTest > testFailNotNull STARTED
+
+rx.util.AssertObservableTest > testFailNull STARTED
+
+rx.util.AssertObservableTest > testPassNull STARTED
+:check
+
+BUILD SUCCESSFUL
+
+Total time: 2 mins 23.818 secs
+travis_time:end:200116aa:start=1422441141733822491,finish=1422441285931607613,duration=144197785122[0K
+[32;1mThe command "./gradlew check" exited with 0.[0m
+
+Done. Your build exited with 0.

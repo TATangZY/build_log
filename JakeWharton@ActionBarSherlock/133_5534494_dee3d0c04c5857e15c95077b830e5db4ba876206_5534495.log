@@ -1,0 +1,34 @@
+Using worker: bluebox-linux-7.worker.travis-ci.org:travis-linux-19
+
+$ git clone --depth=100 --quiet --branch=dev git://github.com/JakeWharton/ActionBarSherlock.git JakeWharton/ActionBarSherlock
+$ cd JakeWharton/ActionBarSherlock
+$ git checkout -qf dee3d0c04c5857e15c95077b830e5db4ba876206
+$ java -version
+java version "1.7.0_15"
+OpenJDK Runtime Environment (IcedTea7 2.3.7) (7u15-2.3.7-0ubuntu1~12.04.1)
+OpenJDK 64-Bit Server VM (build 23.7-b01, mixed mode)
+$ javac -version
+javac 1.7.0_15
+travis_fold:start:before_install.1$ wget http://dl.google.com/android/android-sdk_r20.0.3-linux.tgz
+--2013-03-15 18:41:25--  http://dl.google.com/android/android-sdk_r20.0.3-linux.tgz
+Resolving dl.google.com (dl.google.com)... 74.125.228.34, 74.125.228.38, 74.125.228.37, ...
+Connecting to dl.google.com (dl.google.com)|74.125.228.34|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 82616305 (79M) [application/x-tar]
+Saving to: `android-sdk_r20.0.3-linux.tgz'
+
+ 0% [                                       ] 0           --.-K/s               2% [                                       ] 2,004,736   9.54M/s               9% [==>                                    ] 8,208,252   19.5M/s              18% [======>                                ] 15,533,498  24.7M/s              24% [========>                              ] 20,126,616  24.0M/s              32% [===========>                           ] 26,745,784  25.5M/s              40% [==============>                        ] 33,562,624  26.0M/s              48% [=================>                     ] 40,005,080  26.6M/s              53% [====================>                  ] 44,610,220  26.1M/s              62% [=======================>               ] 51,588,198  26.8M/s              71% [==========================>            ] 58,984,612  27.4M/s              81% [==============================>        ] 66,996,628  28.4M/s              90% [==================================>    ] 74,778,832  29.1M/s              100%[======================================>] 82,616,305  30.1M/s   in 2.6s    
+
+2013-03-15 18:41:28 (30.1 MB/s) - `android-sdk_r20.0.3-linux.tgz' saved [82616305/82616305]
+
+travis_fold:end:before_install.1travis_fold:start:before_install.2$ tar -zxf android-sdk_r20.0.3-linux.tgz
+travis_fold:end:before_install.2travis_fold:start:before_install.3$ export ANDROID_HOME=~/builds/JakeWharton/ActionBarSherlock/android-sdk-linux
+travis_fold:end:before_install.3travis_fold:start:before_install.4$ export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+travis_fold:end:before_install.4travis_fold:start:before_install.5$ TOOLS=$(android list sdk --no-ui | grep "Android SDK Platform-tools" | cut -d"-" -f1)
+/home/travis/build.sh: line 113: android: command not found
+travis_fold:end:before_install.5travis_fold:start:before_install.6$ android update sdk --filter "$TOOLS" --no-ui --force
+/home/travis/build.sh: line 118: android: command not found
+
+The command "android update sdk --filter "$TOOLS" --no-ui --force" failed and exited with 127 during before_install.
+
+Your build has been stopped.

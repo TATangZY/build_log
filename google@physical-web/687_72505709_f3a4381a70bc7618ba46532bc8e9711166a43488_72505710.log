@@ -1,0 +1,744 @@
+Using worker: worker-linux-f25aadab-1.bb.travis-ci.org:travis-linux-5
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: android
+[34m[1mBuild image provisioning date and time[0m
+Wed Feb  4 18:22:50 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+2.6.32-042stab090.5
+[34m[1mCookbooks Version[0m
+23bb455 https://github.com/travis-ci/travis-cookbooks/tree/23bb455
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:0cc96253[0K$ git clone --depth=50 --branch=master git://github.com/google/physical-web.git google/physical-web
+Cloning into 'google/physical-web'...
+remote: Counting objects: 1730, done.[K
+remote: Compressing objects:   0% (1/778)   [Kremote: Compressing objects:   1% (8/778)   [Kremote: Compressing objects:   2% (16/778)   [Kremote: Compressing objects:   3% (24/778)   [Kremote: Compressing objects:   4% (32/778)   [Kremote: Compressing objects:   5% (39/778)   [Kremote: Compressing objects:   6% (47/778)   [Kremote: Compressing objects:   7% (55/778)   [Kremote: Compressing objects:   8% (63/778)   [Kremote: Compressing objects:   9% (71/778)   [Kremote: Compressing objects:  10% (78/778)   [Kremote: Compressing objects:  11% (86/778)   [Kremote: Compressing objects:  12% (94/778)   [Kremote: Compressing objects:  13% (102/778)   [Kremote: Compressing objects:  14% (109/778)   [Kremote: Compressing objects:  15% (117/778)   [Kremote: Compressing objects:  16% (125/778)   [Kremote: Compressing objects:  17% (133/778)   [Kremote: Compressing objects:  18% (141/778)   [Kremote: Compressing objects:  19% (148/778)   [Kremote: Compressing objects:  20% (156/778)   [Kremote: Compressing objects:  21% (164/778)   [Kremote: Compressing objects:  22% (172/778)   [Kremote: Compressing objects:  23% (179/778)   [Kremote: Compressing objects:  24% (187/778)   [Kremote: Compressing objects:  25% (195/778)   [Kremote: Compressing objects:  26% (203/778)   [Kremote: Compressing objects:  27% (211/778)   [Kremote: Compressing objects:  28% (218/778)   [Kremote: Compressing objects:  29% (226/778)   [Kremote: Compressing objects:  30% (234/778)   [Kremote: Compressing objects:  31% (242/778)   [Kremote: Compressing objects:  32% (249/778)   [Kremote: Compressing objects:  33% (257/778)   [Kremote: Compressing objects:  34% (265/778)   [Kremote: Compressing objects:  35% (273/778)   [Kremote: Compressing objects:  36% (281/778)   [Kremote: Compressing objects:  37% (288/778)   [Kremote: Compressing objects:  38% (296/778)   [Kremote: Compressing objects:  39% (304/778)   [Kremote: Compressing objects:  40% (312/778)   [Kremote: Compressing objects:  41% (319/778)   [Kremote: Compressing objects:  42% (327/778)   [Kremote: Compressing objects:  43% (335/778)   [Kremote: Compressing objects:  44% (343/778)   [Kremote: Compressing objects:  45% (351/778)   [Kremote: Compressing objects:  46% (358/778)   [Kremote: Compressing objects:  47% (366/778)   [Kremote: Compressing objects:  48% (374/778)   [Kremote: Compressing objects:  49% (382/778)   [Kremote: Compressing objects:  50% (389/778)   [Kremote: Compressing objects:  51% (397/778)   [Kremote: Compressing objects:  52% (405/778)   [Kremote: Compressing objects:  53% (413/778)   [Kremote: Compressing objects:  54% (421/778)   [Kremote: Compressing objects:  55% (428/778)   [Kremote: Compressing objects:  56% (436/778)   [Kremote: Compressing objects:  57% (444/778)   [Kremote: Compressing objects:  58% (452/778)   [Kremote: Compressing objects:  59% (460/778)   [Kremote: Compressing objects:  60% (467/778)   [Kremote: Compressing objects:  61% (475/778)   [Kremote: Compressing objects:  62% (483/778)   [Kremote: Compressing objects:  63% (491/778)   [Kremote: Compressing objects:  64% (498/778)   [Kremote: Compressing objects:  65% (506/778)   [Kremote: Compressing objects:  66% (514/778)   [Kremote: Compressing objects:  67% (522/778)   [Kremote: Compressing objects:  68% (530/778)   [Kremote: Compressing objects:  69% (537/778)   [Kremote: Compressing objects:  70% (545/778)   [Kremote: Compressing objects:  71% (553/778)   [Kremote: Compressing objects:  72% (561/778)   [Kremote: Compressing objects:  73% (568/778)   [Kremote: Compressing objects:  74% (576/778)   [Kremote: Compressing objects:  75% (584/778)   [Kremote: Compressing objects:  76% (592/778)   [Kremote: Compressing objects:  77% (600/778)   [Kremote: Compressing objects:  78% (607/778)   [Kremote: Compressing objects:  79% (615/778)   [Kremote: Compressing objects:  80% (623/778)   [Kremote: Compressing objects:  81% (631/778)   [Kremote: Compressing objects:  82% (638/778)   [Kremote: Compressing objects:  83% (646/778)   [Kremote: Compressing objects:  84% (654/778)   [Kremote: Compressing objects:  85% (662/778)   [Kremote: Compressing objects:  86% (670/778)   [Kremote: Compressing objects:  87% (677/778)   [Kremote: Compressing objects:  88% (685/778)   [Kremote: Compressing objects:  89% (693/778)   [Kremote: Compressing objects:  90% (701/778)   [Kremote: Compressing objects:  91% (708/778)   [Kremote: Compressing objects:  92% (716/778)   [Kremote: Compressing objects:  93% (724/778)   [Kremote: Compressing objects:  94% (732/778)   [Kremote: Compressing objects:  95% (740/778)   [Kremote: Compressing objects:  96% (747/778)   [Kremote: Compressing objects:  97% (755/778)   [Kremote: Compressing objects:  98% (763/778)   [Kremote: Compressing objects:  99% (771/778)   [Kremote: Compressing objects: 100% (778/778)   [Kremote: Compressing objects: 100% (778/778), done.[K
+Receiving objects:   0% (1/1730)   Receiving objects:   1% (18/1730)   Receiving objects:   2% (35/1730)   Receiving objects:   3% (52/1730)   Receiving objects:   4% (70/1730)   Receiving objects:   5% (87/1730)   Receiving objects:   6% (104/1730)   Receiving objects:   7% (122/1730)   Receiving objects:   8% (139/1730)   Receiving objects:   9% (156/1730)   Receiving objects:  10% (173/1730)   Receiving objects:  11% (191/1730)   Receiving objects:  12% (208/1730)   Receiving objects:  13% (225/1730)   Receiving objects:  14% (243/1730)   Receiving objects:  15% (260/1730)   Receiving objects:  16% (277/1730)   Receiving objects:  17% (295/1730)   Receiving objects:  18% (312/1730)   Receiving objects:  19% (329/1730)   Receiving objects:  20% (346/1730)   Receiving objects:  21% (364/1730)   Receiving objects:  22% (381/1730)   Receiving objects:  23% (398/1730)   Receiving objects:  24% (416/1730)   Receiving objects:  25% (433/1730)   Receiving objects:  26% (450/1730)   Receiving objects:  27% (468/1730)   Receiving objects:  28% (485/1730)   Receiving objects:  29% (502/1730)   Receiving objects:  30% (519/1730)   Receiving objects:  31% (537/1730)   Receiving objects:  32% (554/1730)   Receiving objects:  33% (571/1730)   Receiving objects:  34% (589/1730)   Receiving objects:  35% (606/1730)   Receiving objects:  36% (623/1730)   Receiving objects:  37% (641/1730)   Receiving objects:  38% (658/1730)   Receiving objects:  39% (675/1730)   Receiving objects:  40% (692/1730)   Receiving objects:  41% (710/1730)   Receiving objects:  42% (727/1730)   Receiving objects:  43% (744/1730)   Receiving objects:  44% (762/1730)   Receiving objects:  45% (779/1730)   Receiving objects:  46% (796/1730)   Receiving objects:  47% (814/1730)   Receiving objects:  48% (831/1730)   Receiving objects:  49% (848/1730)   Receiving objects:  50% (865/1730)   Receiving objects:  51% (883/1730)   Receiving objects:  52% (900/1730)   Receiving objects:  53% (917/1730)   Receiving objects:  54% (935/1730)   Receiving objects:  55% (952/1730)   Receiving objects:  56% (969/1730)   Receiving objects:  57% (987/1730)   Receiving objects:  58% (1004/1730)   Receiving objects:  59% (1021/1730)   Receiving objects:  60% (1038/1730)   Receiving objects:  61% (1056/1730)   Receiving objects:  62% (1073/1730)   Receiving objects:  63% (1090/1730)   Receiving objects:  64% (1108/1730)   Receiving objects:  65% (1125/1730)   Receiving objects:  66% (1142/1730)   Receiving objects:  67% (1160/1730)   Receiving objects:  68% (1177/1730)   Receiving objects:  69% (1194/1730)   Receiving objects:  70% (1211/1730)   Receiving objects:  71% (1229/1730)   Receiving objects:  72% (1246/1730)   Receiving objects:  73% (1263/1730)   Receiving objects:  74% (1281/1730)   Receiving objects:  75% (1298/1730)   Receiving objects:  76% (1315/1730)   Receiving objects:  77% (1333/1730)   Receiving objects:  78% (1350/1730)   Receiving objects:  79% (1367/1730)   Receiving objects:  80% (1384/1730)   Receiving objects:  81% (1402/1730)   Receiving objects:  82% (1419/1730)   Receiving objects:  83% (1436/1730)   Receiving objects:  84% (1454/1730)   Receiving objects:  85% (1471/1730)   remote: Total 1730 (delta 834), reused 1526 (delta 699), pack-reused 0[K
+Receiving objects:  86% (1488/1730)   Receiving objects:  87% (1506/1730)   Receiving objects:  88% (1523/1730)   Receiving objects:  89% (1540/1730)   Receiving objects:  90% (1557/1730)   Receiving objects:  91% (1575/1730)   Receiving objects:  92% (1592/1730)   Receiving objects:  93% (1609/1730)   Receiving objects:  94% (1627/1730)   Receiving objects:  95% (1644/1730)   Receiving objects:  96% (1661/1730)   Receiving objects:  97% (1679/1730)   Receiving objects:  98% (1696/1730)   Receiving objects:  99% (1713/1730)   Receiving objects: 100% (1730/1730)   Receiving objects: 100% (1730/1730), 3.10 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/834)   Resolving deltas:   1% (10/834)   Resolving deltas:   2% (17/834)   Resolving deltas:   9% (81/834)   Resolving deltas:  22% (186/834)   Resolving deltas:  23% (197/834)   Resolving deltas:  25% (212/834)   Resolving deltas:  26% (221/834)   Resolving deltas:  32% (267/834)   Resolving deltas:  33% (276/834)   Resolving deltas:  35% (292/834)   Resolving deltas:  36% (302/834)   Resolving deltas:  37% (311/834)   Resolving deltas:  38% (317/834)   Resolving deltas:  39% (326/834)   Resolving deltas:  43% (360/834)   Resolving deltas:  44% (374/834)   Resolving deltas:  45% (378/834)   Resolving deltas:  50% (421/834)   Resolving deltas:  54% (457/834)   Resolving deltas:  55% (461/834)   Resolving deltas:  57% (476/834)   Resolving deltas:  61% (514/834)   Resolving deltas:  62% (521/834)   Resolving deltas:  63% (527/834)   Resolving deltas:  64% (537/834)   Resolving deltas:  65% (550/834)   Resolving deltas:  66% (558/834)   Resolving deltas:  68% (568/834)   Resolving deltas:  69% (579/834)   Resolving deltas:  70% (586/834)   Resolving deltas:  72% (608/834)   Resolving deltas:  73% (617/834)   Resolving deltas:  74% (621/834)   Resolving deltas:  75% (628/834)   Resolving deltas:  76% (634/834)   Resolving deltas:  77% (649/834)   Resolving deltas:  78% (658/834)   Resolving deltas:  79% (666/834)   Resolving deltas:  81% (677/834)   Resolving deltas:  82% (684/834)   Resolving deltas:  83% (695/834)   Resolving deltas:  84% (701/834)   Resolving deltas:  85% (716/834)   Resolving deltas:  86% (720/834)   Resolving deltas:  87% (726/834)   Resolving deltas:  88% (734/834)   Resolving deltas:  90% (751/834)   Resolving deltas:  91% (761/834)   Resolving deltas:  92% (768/834)   Resolving deltas:  93% (782/834)   Resolving deltas:  94% (785/834)   Resolving deltas:  95% (796/834)   Resolving deltas:  96% (802/834)   Resolving deltas:  97% (815/834)   Resolving deltas:  98% (818/834)   Resolving deltas: 100% (834/834)   Resolving deltas: 100% (834/834), done.
+Checking connectivity... done.
+travis_time:end:0cc96253:start=1437762002844556105,finish=1437762003254636027,duration=410079922[0K$ cd google/physical-web
+$ git checkout -qf f3a4381a70bc7618ba46532bc8e9711166a43488
+travis_fold:end:git.checkout[0Ktravis_fold:start:git.submodule[0Ktravis_time:start:1864635a[0K$ git submodule init
+Submodule 'ios/PhyWeb/third-party/MBProgressHUD' (https://github.com/jdg/MBProgressHUD) registered for path 'ios/PhyWeb/third-party/MBProgressHUD'
+Submodule 'ios/PhyWeb/third-party/SDWebImage' (https://github.com/rs/SDWebImage) registered for path 'ios/PhyWeb/third-party/SDWebImage'
+Submodule 'ios/PhyWeb/third-party/SVPullToRefresh' (https://github.com/dinhviethoa/SVPullToRefresh) registered for path 'ios/PhyWeb/third-party/SVPullToRefresh'
+Submodule 'ios/PhyWeb/third-party/uribeacon' (https://github.com/google/uribeacon) registered for path 'ios/PhyWeb/third-party/uribeacon'
+travis_time:end:1864635a:start=1437762003311450465,finish=1437762003397388593,duration=85938128[0Ktravis_time:start:0d855324[0K$ git submodule update
+Cloning into 'ios/PhyWeb/third-party/MBProgressHUD'...
+remote: Counting objects: 1304, done.[K
+Receiving objects:   0% (1/1304)   Receiving objects:   1% (14/1304)   Receiving objects:   2% (27/1304)   Receiving objects:   3% (40/1304)   Receiving objects:   4% (53/1304)   Receiving objects:   5% (66/1304)   Receiving objects:   6% (79/1304)   Receiving objects:   7% (92/1304)   Receiving objects:   8% (105/1304)   Receiving objects:   9% (118/1304)   Receiving objects:  10% (131/1304)   Receiving objects:  11% (144/1304)   Receiving objects:  12% (157/1304)   Receiving objects:  13% (170/1304)   Receiving objects:  14% (183/1304)   Receiving objects:  15% (196/1304)   Receiving objects:  16% (209/1304)   Receiving objects:  17% (222/1304)   Receiving objects:  18% (235/1304)   Receiving objects:  19% (248/1304)   Receiving objects:  20% (261/1304)   Receiving objects:  21% (274/1304)   Receiving objects:  22% (287/1304)   Receiving objects:  23% (300/1304)   Receiving objects:  24% (313/1304)   Receiving objects:  25% (326/1304)   Receiving objects:  26% (340/1304)   Receiving objects:  27% (353/1304)   Receiving objects:  28% (366/1304)   Receiving objects:  29% (379/1304)   Receiving objects:  30% (392/1304)   Receiving objects:  31% (405/1304)   Receiving objects:  32% (418/1304)   Receiving objects:  33% (431/1304)   Receiving objects:  34% (444/1304)   Receiving objects:  35% (457/1304)   Receiving objects:  36% (470/1304)   Receiving objects:  37% (483/1304)   Receiving objects:  38% (496/1304)   Receiving objects:  39% (509/1304)   Receiving objects:  40% (522/1304)   Receiving objects:  41% (535/1304)   Receiving objects:  42% (548/1304)   Receiving objects:  43% (561/1304)   Receiving objects:  44% (574/1304)   Receiving objects:  45% (587/1304)   Receiving objects:  46% (600/1304)   Receiving objects:  47% (613/1304)   Receiving objects:  48% (626/1304)   Receiving objects:  49% (639/1304)   Receiving objects:  50% (652/1304)   Receiving objects:  51% (666/1304)   Receiving objects:  52% (679/1304)   Receiving objects:  53% (692/1304)   Receiving objects:  54% (705/1304)   Receiving objects:  55% (718/1304)   Receiving objects:  56% (731/1304)   Receiving objects:  57% (744/1304)   Receiving objects:  58% (757/1304)   Receiving objects:  59% (770/1304)   Receiving objects:  60% (783/1304)   Receiving objects:  61% (796/1304)   Receiving objects:  62% (809/1304)   Receiving objects:  63% (822/1304)   Receiving objects:  64% (835/1304)   Receiving objects:  65% (848/1304)   Receiving objects:  66% (861/1304)   Receiving objects:  67% (874/1304)   Receiving objects:  68% (887/1304)   Receiving objects:  69% (900/1304)   Receiving objects:  70% (913/1304)   Receiving objects:  71% (926/1304)   Receiving objects:  72% (939/1304)   Receiving objects:  73% (952/1304)   Receiving objects:  74% (965/1304)   Receiving objects:  75% (978/1304)   Receiving objects:  76% (992/1304)   Receiving objects:  77% (1005/1304)   Receiving objects:  78% (1018/1304)   Receiving objects:  79% (1031/1304)   Receiving objects:  80% (1044/1304)   Receiving objects:  81% (1057/1304)   Receiving objects:  82% (1070/1304)   Receiving objects:  83% (1083/1304)   Receiving objects:  84% (1096/1304)   Receiving objects:  85% (1109/1304)   Receiving objects:  86% (1122/1304)   Receiving objects:  87% (1135/1304)   Receiving objects:  88% (1148/1304)   Receiving objects:  89% (1161/1304)   Receiving objects:  90% (1174/1304)   Receiving objects:  91% (1187/1304)   Receiving objects:  92% (1200/1304)   remote: Total 1304 (delta 0), reused 0 (delta 0), pack-reused 1304[K
+Receiving objects:  93% (1213/1304)   Receiving objects:  94% (1226/1304)   Receiving objects:  95% (1239/1304)   Receiving objects:  96% (1252/1304)   Receiving objects:  97% (1265/1304)   Receiving objects:  98% (1278/1304)   Receiving objects:  99% (1291/1304)   Receiving objects: 100% (1304/1304)   Receiving objects: 100% (1304/1304), 536.19 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/688)   Resolving deltas:   1% (7/688)   Resolving deltas:   2% (15/688)   Resolving deltas:   3% (21/688)   Resolving deltas:   4% (28/688)   Resolving deltas:   5% (39/688)   Resolving deltas:   6% (46/688)   Resolving deltas:   9% (64/688)   Resolving deltas:  10% (73/688)   Resolving deltas:  11% (80/688)   Resolving deltas:  16% (111/688)   Resolving deltas:  18% (130/688)   Resolving deltas:  19% (135/688)   Resolving deltas:  20% (141/688)   Resolving deltas:  23% (160/688)   Resolving deltas:  24% (166/688)   Resolving deltas:  33% (230/688)   Resolving deltas:  34% (235/688)   Resolving deltas:  44% (303/688)   Resolving deltas:  47% (327/688)   Resolving deltas:  48% (337/688)   Resolving deltas:  50% (346/688)   Resolving deltas:  51% (357/688)   Resolving deltas:  53% (365/688)   Resolving deltas:  54% (374/688)   Resolving deltas:  60% (416/688)   Resolving deltas:  61% (422/688)   Resolving deltas:  62% (432/688)   Resolving deltas:  63% (436/688)   Resolving deltas:  64% (442/688)   Resolving deltas:  68% (470/688)   Resolving deltas:  70% (484/688)   Resolving deltas:  71% (492/688)   Resolving deltas:  72% (500/688)   Resolving deltas:  74% (512/688)   Resolving deltas:  77% (536/688)   Resolving deltas:  78% (538/688)   Resolving deltas:  80% (555/688)   Resolving deltas:  82% (565/688)   Resolving deltas:  83% (573/688)   Resolving deltas:  84% (578/688)   Resolving deltas:  86% (596/688)   Resolving deltas:  87% (605/688)   Resolving deltas:  88% (607/688)   Resolving deltas:  89% (613/688)   Resolving deltas:  90% (623/688)   Resolving deltas:  91% (628/688)   Resolving deltas:  92% (633/688)   Resolving deltas:  93% (644/688)   Resolving deltas:  94% (649/688)   Resolving deltas:  95% (656/688)   Resolving deltas:  96% (661/688)   Resolving deltas: 100% (688/688)   Resolving deltas: 100% (688/688), done.
+Checking connectivity... done.
+Submodule path 'ios/PhyWeb/third-party/MBProgressHUD': checked out '28c44be41399e474ed959269e2364be0047ad8eb'
+Cloning into 'ios/PhyWeb/third-party/SDWebImage'...
+remote: Counting objects: 3680, done.[K
+Receiving objects:   0% (1/3680)   Receiving objects:   1% (37/3680)   Receiving objects:   2% (74/3680)   Receiving objects:   3% (111/3680)   Receiving objects:   4% (148/3680)   Receiving objects:   5% (184/3680)   Receiving objects:   6% (221/3680)   Receiving objects:   7% (258/3680)   Receiving objects:   8% (295/3680)   Receiving objects:   9% (332/3680)   Receiving objects:  10% (368/3680)   Receiving objects:  11% (405/3680)   Receiving objects:  12% (442/3680)   Receiving objects:  13% (479/3680)   Receiving objects:  14% (516/3680)   Receiving objects:  15% (552/3680)   Receiving objects:  16% (589/3680)   Receiving objects:  17% (626/3680)   Receiving objects:  18% (663/3680)   Receiving objects:  19% (700/3680)   Receiving objects:  20% (736/3680)   Receiving objects:  21% (773/3680)   Receiving objects:  22% (810/3680)   Receiving objects:  23% (847/3680)   Receiving objects:  24% (884/3680)   Receiving objects:  25% (920/3680)   Receiving objects:  26% (957/3680)   Receiving objects:  27% (994/3680)   Receiving objects:  28% (1031/3680)   Receiving objects:  29% (1068/3680)   Receiving objects:  30% (1104/3680)   Receiving objects:  31% (1141/3680)   Receiving objects:  32% (1178/3680)   Receiving objects:  33% (1215/3680)   Receiving objects:  34% (1252/3680)   Receiving objects:  35% (1288/3680)   Receiving objects:  36% (1325/3680)   Receiving objects:  37% (1362/3680)   Receiving objects:  38% (1399/3680)   Receiving objects:  39% (1436/3680)   Receiving objects:  40% (1472/3680)   Receiving objects:  41% (1509/3680)   Receiving objects:  42% (1546/3680)   Receiving objects:  43% (1583/3680)   Receiving objects:  44% (1620/3680)   Receiving objects:  45% (1656/3680)   Receiving objects:  46% (1693/3680)   Receiving objects:  47% (1730/3680)   Receiving objects:  48% (1767/3680)   Receiving objects:  49% (1804/3680)   Receiving objects:  50% (1840/3680)   Receiving objects:  51% (1877/3680)   Receiving objects:  52% (1914/3680)   Receiving objects:  53% (1951/3680)   Receiving objects:  54% (1988/3680)   Receiving objects:  55% (2024/3680)   Receiving objects:  56% (2061/3680)   Receiving objects:  57% (2098/3680)   Receiving objects:  58% (2135/3680)   Receiving objects:  59% (2172/3680)   Receiving objects:  60% (2208/3680)   Receiving objects:  61% (2245/3680)   Receiving objects:  62% (2282/3680)   Receiving objects:  63% (2319/3680)   Receiving objects:  64% (2356/3680)   Receiving objects:  65% (2392/3680)   Receiving objects:  66% (2429/3680)   Receiving objects:  67% (2466/3680)   Receiving objects:  68% (2503/3680)   Receiving objects:  69% (2540/3680)   Receiving objects:  70% (2576/3680)   Receiving objects:  71% (2613/3680)   Receiving objects:  72% (2650/3680)   Receiving objects:  73% (2687/3680)   Receiving objects:  74% (2724/3680)   Receiving objects:  75% (2760/3680)   Receiving objects:  76% (2797/3680)   Receiving objects:  77% (2834/3680)   Receiving objects:  78% (2871/3680)   Receiving objects:  79% (2908/3680)   Receiving objects:  80% (2944/3680)   Receiving objects:  81% (2981/3680)   Receiving objects:  82% (3018/3680)   Receiving objects:  83% (3055/3680)   Receiving objects:  84% (3092/3680)   Receiving objects:  85% (3128/3680)   Receiving objects:  86% (3165/3680)   Receiving objects:  87% (3202/3680)   Receiving objects:  88% (3239/3680)   Receiving objects:  89% (3276/3680)   Receiving objects:  90% (3312/3680)   Receiving objects:  91% (3349/3680)   Receiving objects:  92% (3386/3680)   Receiving objects:  93% (3423/3680)   Receiving objects:  94% (3460/3680)   Receiving objects:  95% (3496/3680)   remote: Total 3680 (delta 0), reused 0 (delta 0), pack-reused 3680[K
+Receiving objects:  96% (3533/3680)   Receiving objects:  97% (3570/3680)   Receiving objects:  98% (3607/3680)   Receiving objects:  99% (3644/3680)   Receiving objects: 100% (3680/3680)   Receiving objects: 100% (3680/3680), 3.97 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/2223)   Resolving deltas:   1% (35/2223)   Resolving deltas:   2% (47/2223)   Resolving deltas:   4% (93/2223)   Resolving deltas:   6% (134/2223)   Resolving deltas:   7% (172/2223)   Resolving deltas:   9% (203/2223)   Resolving deltas:  10% (226/2223)   Resolving deltas:  11% (247/2223)   Resolving deltas:  12% (278/2223)   Resolving deltas:  13% (296/2223)   Resolving deltas:  14% (325/2223)   Resolving deltas:  15% (335/2223)   Resolving deltas:  16% (361/2223)   Resolving deltas:  18% (412/2223)   Resolving deltas:  19% (423/2223)   Resolving deltas:  20% (452/2223)   Resolving deltas:  21% (468/2223)   Resolving deltas:  22% (491/2223)   Resolving deltas:  25% (557/2223)   Resolving deltas:  27% (609/2223)   Resolving deltas:  28% (635/2223)   Resolving deltas:  29% (652/2223)   Resolving deltas:  30% (667/2223)   Resolving deltas:  32% (716/2223)   Resolving deltas:  33% (746/2223)   Resolving deltas:  34% (760/2223)   Resolving deltas:  36% (802/2223)   Resolving deltas:  37% (833/2223)   Resolving deltas:  39% (873/2223)   Resolving deltas:  41% (919/2223)   Resolving deltas:  42% (947/2223)   Resolving deltas:  43% (965/2223)   Resolving deltas:  44% (981/2223)   Resolving deltas:  46% (1033/2223)   Resolving deltas:  47% (1045/2223)   Resolving deltas:  48% (1073/2223)   Resolving deltas:  49% (1100/2223)   Resolving deltas:  50% (1115/2223)   Resolving deltas:  51% (1151/2223)   Resolving deltas:  52% (1167/2223)   Resolving deltas:  53% (1184/2223)   Resolving deltas:  54% (1202/2223)   Resolving deltas:  55% (1231/2223)   Resolving deltas:  56% (1259/2223)   Resolving deltas:  57% (1269/2223)   Resolving deltas:  58% (1294/2223)   Resolving deltas:  60% (1348/2223)   Resolving deltas:  61% (1361/2223)   Resolving deltas:  63% (1402/2223)   Resolving deltas:  64% (1431/2223)   Resolving deltas:  65% (1447/2223)   Resolving deltas:  66% (1471/2223)   Resolving deltas:  67% (1493/2223)   Resolving deltas:  68% (1518/2223)   Resolving deltas:  69% (1537/2223)   Resolving deltas:  70% (1571/2223)   Resolving deltas:  72% (1601/2223)   Resolving deltas:  73% (1628/2223)   Resolving deltas:  74% (1660/2223)   Resolving deltas:  75% (1675/2223)   Resolving deltas:  76% (1694/2223)   Resolving deltas:  77% (1713/2223)   Resolving deltas:  78% (1748/2223)   Resolving deltas:  79% (1769/2223)   Resolving deltas:  80% (1783/2223)   Resolving deltas:  81% (1806/2223)   Resolving deltas:  82% (1830/2223)   Resolving deltas:  83% (1856/2223)   Resolving deltas:  85% (1911/2223)   Resolving deltas:  86% (1913/2223)   Resolving deltas:  87% (1953/2223)   Resolving deltas:  88% (1957/2223)   Resolving deltas:  89% (1979/2223)   Resolving deltas:  90% (2001/2223)   Resolving deltas:  91% (2025/2223)   Resolving deltas:  92% (2049/2223)   Resolving deltas:  93% (2078/2223)   Resolving deltas:  94% (2095/2223)   Resolving deltas:  95% (2112/2223)   Resolving deltas:  96% (2138/2223)   Resolving deltas:  97% (2157/2223)   Resolving deltas:  98% (2180/2223)   Resolving deltas:  99% (2202/2223)   Resolving deltas: 100% (2223/2223)   Resolving deltas: 100% (2223/2223), done.
+Checking connectivity... done.
+Submodule path 'ios/PhyWeb/third-party/SDWebImage': checked out '0aa9b61bcca20ef3e389bc46aee3ebfbbca362bd'
+Cloning into 'ios/PhyWeb/third-party/SVPullToRefresh'...
+remote: Counting objects: 694, done.[K
+Receiving objects:   0% (1/694)   Receiving objects:   1% (7/694)   Receiving objects:   2% (14/694)   Receiving objects:   3% (21/694)   Receiving objects:   4% (28/694)   Receiving objects:   5% (35/694)   Receiving objects:   6% (42/694)   Receiving objects:   7% (49/694)   Receiving objects:   8% (56/694)   Receiving objects:   9% (63/694)   Receiving objects:  10% (70/694)   Receiving objects:  11% (77/694)   Receiving objects:  12% (84/694)   Receiving objects:  13% (91/694)   Receiving objects:  14% (98/694)   Receiving objects:  15% (105/694)   Receiving objects:  16% (112/694)   Receiving objects:  17% (118/694)   Receiving objects:  18% (125/694)   Receiving objects:  19% (132/694)   Receiving objects:  20% (139/694)   Receiving objects:  21% (146/694)   Receiving objects:  22% (153/694)   Receiving objects:  23% (160/694)   Receiving objects:  24% (167/694)   Receiving objects:  25% (174/694)   Receiving objects:  26% (181/694)   Receiving objects:  27% (188/694)   Receiving objects:  28% (195/694)   Receiving objects:  29% (202/694)   Receiving objects:  30% (209/694)   Receiving objects:  31% (216/694)   Receiving objects:  32% (223/694)   Receiving objects:  33% (230/694)   Receiving objects:  34% (236/694)   remote: Total 694 (delta 0), reused 0 (delta 0), pack-reused 694[K
+Receiving objects:  35% (243/694)   Receiving objects:  36% (250/694)   Receiving objects:  37% (257/694)   Receiving objects:  38% (264/694)   Receiving objects:  39% (271/694)   Receiving objects:  40% (278/694)   Receiving objects:  41% (285/694)   Receiving objects:  42% (292/694)   Receiving objects:  43% (299/694)   Receiving objects:  44% (306/694)   Receiving objects:  45% (313/694)   Receiving objects:  46% (320/694)   Receiving objects:  47% (327/694)   Receiving objects:  48% (334/694)   Receiving objects:  49% (341/694)   Receiving objects:  50% (347/694)   Receiving objects:  51% (354/694)   Receiving objects:  52% (361/694)   Receiving objects:  53% (368/694)   Receiving objects:  54% (375/694)   Receiving objects:  55% (382/694)   Receiving objects:  56% (389/694)   Receiving objects:  57% (396/694)   Receiving objects:  58% (403/694)   Receiving objects:  59% (410/694)   Receiving objects:  60% (417/694)   Receiving objects:  61% (424/694)   Receiving objects:  62% (431/694)   Receiving objects:  63% (438/694)   Receiving objects:  64% (445/694)   Receiving objects:  65% (452/694)   Receiving objects:  66% (459/694)   Receiving objects:  67% (465/694)   Receiving objects:  68% (472/694)   Receiving objects:  69% (479/694)   Receiving objects:  70% (486/694)   Receiving objects:  71% (493/694)   Receiving objects:  72% (500/694)   Receiving objects:  73% (507/694)   Receiving objects:  74% (514/694)   Receiving objects:  75% (521/694)   Receiving objects:  76% (528/694)   Receiving objects:  77% (535/694)   Receiving objects:  78% (542/694)   Receiving objects:  79% (549/694)   Receiving objects:  80% (556/694)   Receiving objects:  81% (563/694)   Receiving objects:  82% (570/694)   Receiving objects:  83% (577/694)   Receiving objects:  84% (583/694)   Receiving objects:  85% (590/694)   Receiving objects:  86% (597/694)   Receiving objects:  87% (604/694)   Receiving objects:  88% (611/694)   Receiving objects:  89% (618/694)   Receiving objects:  90% (625/694)   Receiving objects:  91% (632/694)   Receiving objects:  92% (639/694)   Receiving objects:  93% (646/694)   Receiving objects:  94% (653/694)   Receiving objects:  95% (660/694)   Receiving objects:  96% (667/694)   Receiving objects:  97% (674/694)   Receiving objects:  98% (681/694)   Receiving objects:  99% (688/694)   Receiving objects: 100% (694/694)   Receiving objects: 100% (694/694), 153.86 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/427)   Resolving deltas:   1% (7/427)   Resolving deltas:   2% (9/427)   Resolving deltas:   3% (13/427)   Resolving deltas:   4% (20/427)   Resolving deltas:   7% (32/427)   Resolving deltas:   8% (38/427)   Resolving deltas:  10% (43/427)   Resolving deltas:  11% (47/427)   Resolving deltas:  12% (52/427)   Resolving deltas:  15% (67/427)   Resolving deltas:  18% (78/427)   Resolving deltas:  23% (100/427)   Resolving deltas:  26% (112/427)   Resolving deltas:  33% (144/427)   Resolving deltas:  34% (147/427)   Resolving deltas:  37% (160/427)   Resolving deltas:  38% (165/427)   Resolving deltas:  40% (172/427)   Resolving deltas:  41% (176/427)   Resolving deltas:  44% (189/427)   Resolving deltas:  46% (198/427)   Resolving deltas:  48% (207/427)   Resolving deltas:  49% (211/427)   Resolving deltas:  62% (268/427)   Resolving deltas:  66% (286/427)   Resolving deltas:  76% (326/427)   Resolving deltas:  77% (330/427)   Resolving deltas:  78% (336/427)   Resolving deltas:  81% (349/427)   Resolving deltas:  82% (351/427)   Resolving deltas:  83% (356/427)   Resolving deltas:  84% (360/427)   Resolving deltas:  88% (376/427)   Resolving deltas:  89% (384/427)   Resolving deltas:  90% (387/427)   Resolving deltas:  91% (389/427)   Resolving deltas:  92% (395/427)   Resolving deltas:  93% (400/427)   Resolving deltas:  94% (404/427)   Resolving deltas:  96% (412/427)   Resolving deltas: 100% (427/427)   Resolving deltas: 100% (427/427), done.
+Checking connectivity... done.
+Submodule path 'ios/PhyWeb/third-party/SVPullToRefresh': checked out 'b6576878d5e2a207e0122dae3663979ebf0e1d1f'
+Cloning into 'ios/PhyWeb/third-party/uribeacon'...
+remote: Counting objects: 5146, done.[K
+Receiving objects:   0% (1/5146)   Receiving objects:   1% (52/5146)   Receiving objects:   2% (103/5146)   Receiving objects:   3% (155/5146)   Receiving objects:   4% (206/5146)   Receiving objects:   5% (258/5146)   Receiving objects:   6% (309/5146)   Receiving objects:   7% (361/5146)   Receiving objects:   8% (412/5146)   Receiving objects:   9% (464/5146)   Receiving objects:  10% (515/5146)   Receiving objects:  11% (567/5146)   Receiving objects:  12% (618/5146)   Receiving objects:  13% (669/5146)   Receiving objects:  14% (721/5146)   Receiving objects:  15% (772/5146)   Receiving objects:  16% (824/5146)   Receiving objects:  17% (875/5146)   Receiving objects:  18% (927/5146)   Receiving objects:  19% (978/5146)   Receiving objects:  20% (1030/5146)   Receiving objects:  21% (1081/5146)   Receiving objects:  22% (1133/5146)   Receiving objects:  23% (1184/5146)   Receiving objects:  24% (1236/5146)   Receiving objects:  25% (1287/5146)   Receiving objects:  26% (1338/5146)   Receiving objects:  27% (1390/5146)   Receiving objects:  28% (1441/5146)   Receiving objects:  29% (1493/5146)   Receiving objects:  30% (1544/5146)   Receiving objects:  31% (1596/5146)   Receiving objects:  32% (1647/5146)   Receiving objects:  33% (1699/5146)   Receiving objects:  34% (1750/5146)   Receiving objects:  35% (1802/5146)   Receiving objects:  36% (1853/5146)   Receiving objects:  37% (1905/5146)   Receiving objects:  38% (1956/5146)   Receiving objects:  39% (2007/5146)   Receiving objects:  40% (2059/5146)   Receiving objects:  41% (2110/5146)   Receiving objects:  42% (2162/5146)   Receiving objects:  43% (2213/5146)   Receiving objects:  44% (2265/5146)   Receiving objects:  45% (2316/5146)   Receiving objects:  46% (2368/5146)   Receiving objects:  47% (2419/5146)   Receiving objects:  48% (2471/5146)   Receiving objects:  49% (2522/5146)   Receiving objects:  50% (2573/5146)   Receiving objects:  51% (2625/5146)   Receiving objects:  52% (2676/5146)   Receiving objects:  53% (2728/5146)   Receiving objects:  54% (2779/5146)   Receiving objects:  55% (2831/5146)   Receiving objects:  56% (2882/5146)   Receiving objects:  57% (2934/5146)   Receiving objects:  58% (2985/5146)   Receiving objects:  59% (3037/5146)   Receiving objects:  60% (3088/5146)   Receiving objects:  61% (3140/5146)   Receiving objects:  62% (3191/5146)   Receiving objects:  63% (3242/5146)   Receiving objects:  64% (3294/5146)   Receiving objects:  65% (3345/5146)   Receiving objects:  66% (3397/5146)   Receiving objects:  67% (3448/5146)   Receiving objects:  68% (3500/5146)   Receiving objects:  69% (3551/5146)   Receiving objects:  70% (3603/5146)   Receiving objects:  71% (3654/5146)   Receiving objects:  72% (3706/5146)   Receiving objects:  73% (3757/5146)   Receiving objects:  74% (3809/5146)   Receiving objects:  75% (3860/5146)   Receiving objects:  76% (3911/5146)   Receiving objects:  77% (3963/5146)   Receiving objects:  78% (4014/5146)   Receiving objects:  79% (4066/5146)   Receiving objects:  80% (4117/5146)   Receiving objects:  81% (4169/5146)   Receiving objects:  82% (4220/5146)   Receiving objects:  83% (4272/5146)   Receiving objects:  84% (4323/5146)   Receiving objects:  85% (4375/5146)   Receiving objects:  86% (4426/5146)   Receiving objects:  87% (4478/5146)   Receiving objects:  88% (4529/5146)   Receiving objects:  89% (4580/5146)   Receiving objects:  90% (4632/5146)   Receiving objects:  91% (4683/5146)   Receiving objects:  92% (4735/5146)   Receiving objects:  93% (4786/5146)   Receiving objects:  94% (4838/5146)   Receiving objects:  95% (4889/5146)   Receiving objects:  96% (4941/5146)   Receiving objects:  97% (4992/5146)   Receiving objects:  98% (5044/5146)   Receiving objects:  99% (5095/5146)   remote: Total 5146 (delta 0), reused 0 (delta 0), pack-reused 5146[K
+Receiving objects: 100% (5146/5146)   Receiving objects: 100% (5146/5146), 2.79 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/2572)   Resolving deltas:   1% (26/2572)   Resolving deltas:   2% (69/2572)   Resolving deltas:   3% (79/2572)   Resolving deltas:   6% (169/2572)   Resolving deltas:   7% (189/2572)   Resolving deltas:   9% (242/2572)   Resolving deltas:  10% (258/2572)   Resolving deltas:  11% (283/2572)   Resolving deltas:  12% (310/2572)   Resolving deltas:  14% (363/2572)   Resolving deltas:  15% (391/2572)   Resolving deltas:  16% (413/2572)   Resolving deltas:  17% (442/2572)   Resolving deltas:  18% (469/2572)   Resolving deltas:  19% (495/2572)   Resolving deltas:  20% (526/2572)   Resolving deltas:  21% (545/2572)   Resolving deltas:  22% (566/2572)   Resolving deltas:  23% (594/2572)   Resolving deltas:  24% (626/2572)   Resolving deltas:  25% (650/2572)   Resolving deltas:  26% (676/2572)   Resolving deltas:  27% (714/2572)   Resolving deltas:  28% (726/2572)   Resolving deltas:  29% (770/2572)   Resolving deltas:  30% (774/2572)   Resolving deltas:  32% (831/2572)   Resolving deltas:  33% (871/2572)   Resolving deltas:  35% (910/2572)   Resolving deltas:  36% (926/2572)   Resolving deltas:  37% (968/2572)   Resolving deltas:  38% (981/2572)   Resolving deltas:  39% (1021/2572)   Resolving deltas:  40% (1041/2572)   Resolving deltas:  41% (1057/2572)   Resolving deltas:  42% (1081/2572)   Resolving deltas:  43% (1115/2572)   Resolving deltas:  44% (1136/2572)   Resolving deltas:  45% (1160/2572)   Resolving deltas:  46% (1186/2572)   Resolving deltas:  47% (1209/2572)   Resolving deltas:  48% (1235/2572)   Resolving deltas:  49% (1261/2572)   Resolving deltas:  50% (1291/2572)   Resolving deltas:  51% (1318/2572)   Resolving deltas:  52% (1348/2572)   Resolving deltas:  53% (1364/2572)   Resolving deltas:  54% (1396/2572)   Resolving deltas:  55% (1421/2572)   Resolving deltas:  57% (1484/2572)   Resolving deltas:  58% (1514/2572)   Resolving deltas:  59% (1520/2572)   Resolving deltas:  60% (1550/2572)   Resolving deltas:  61% (1579/2572)   Resolving deltas:  64% (1656/2572)   Resolving deltas:  66% (1714/2572)   Resolving deltas:  77% (1992/2572)   Resolving deltas:  78% (2010/2572)   Resolving deltas:  79% (2050/2572)   Resolving deltas:  80% (2071/2572)   Resolving deltas:  83% (2142/2572)   Resolving deltas:  84% (2172/2572)   Resolving deltas:  85% (2188/2572)   Resolving deltas:  86% (2227/2572)   Resolving deltas:  87% (2246/2572)   Resolving deltas:  88% (2265/2572)   Resolving deltas:  89% (2292/2572)   Resolving deltas:  90% (2318/2572)   Resolving deltas:  91% (2342/2572)   Resolving deltas:  92% (2379/2572)   Resolving deltas:  93% (2392/2572)   Resolving deltas:  94% (2420/2572)   Resolving deltas:  95% (2444/2572)   Resolving deltas:  96% (2471/2572)   Resolving deltas:  97% (2498/2572)   Resolving deltas:  98% (2523/2572)   Resolving deltas: 100% (2572/2572)   Resolving deltas: 100% (2572/2572), done.
+Checking connectivity... done.
+Submodule path 'ios/PhyWeb/third-party/uribeacon': checked out '11616693b00e4edeba3f9eac9f39cdc7baf4fffd'
+travis_time:end:0d855324:start=1437762003404637160,finish=1437762005951850125,duration=2547212965[0Ktravis_fold:end:git.submodule[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+travis_fold:start:android.install[0KInstalling Android dependencies
+travis_time:start:05051950[0K$ android-update-sdk --components=build-tools-21.1.2
+Installing build-tools-21.1.2
+spawn android update sdk --no-ui --all --filter build-tools-21.1.2
+Refresh Sources:
+  Fetching https://dl-ssl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/repository-10.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - Android SDK Build-tools, revision 21.1.2
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading Android SDK Build-tools, revision 21.1.2
+  Installing Android SDK Build-tools, revision 21.1.2
+  Unzipping Android SDK Build-tools, revision 21.1.2 (8%)  Unzipping Android SDK Build-tools, revision 21.1.2 (26%)  Unzipping Android SDK Build-tools, revision 21.1.2 (27%)  Unzipping Android SDK Build-tools, revision 21.1.2 (28%)  Unzipping Android SDK Build-tools, revision 21.1.2 (29%)  Unzipping Android SDK Build-tools, revision 21.1.2 (30%)  Unzipping Android SDK Build-tools, revision 21.1.2 (31%)  Unzipping Android SDK Build-tools, revision 21.1.2 (32%)  Unzipping Android SDK Build-tools, revision 21.1.2 (33%)  Unzipping Android SDK Build-tools, revision 21.1.2 (34%)  Unzipping Android SDK Build-tools, revision 21.1.2 (36%)  Unzipping Android SDK Build-tools, revision 21.1.2 (37%)  Unzipping Android SDK Build-tools, revision 21.1.2 (41%)  Unzipping Android SDK Build-tools, revision 21.1.2 (45%)  Unzipping Android SDK Build-tools, revision 21.1.2 (47%)  Unzipping Android SDK Build-tools, revision 21.1.2 (49%)  Unzipping Android SDK Build-tools, revision 21.1.2 (50%)  Unzipping Android SDK Build-tools, revision 21.1.2 (73%)  Unzipping Android SDK Build-tools, revision 21.1.2 (74%)  Unzipping Android SDK Build-tools, revision 21.1.2 (75%)  Unzipping Android SDK Build-tools, revision 21.1.2 (99%)    Installed Android SDK Build-tools, revision 21.1.2
+  Done. 1 package installed.
+travis_time:end:05051950:start=1437762005971538041,finish=1437762014106637095,duration=8135099054[0Ktravis_time:start:2eb57d9e[0K$ android-update-sdk --components=android-21
+Installing android-21
+spawn android update sdk --no-ui --all --filter android-21
+Refresh Sources:
+  Fetching https://dl-ssl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/repository-10.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - SDK Platform Android 5.0.1, API 21, revision 2
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading SDK Platform Android 5.0.1, API 21, revision 2
+  Installing SDK Platform Android 5.0.1, API 21, revision 2
+  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (22%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (23%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (24%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (25%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (26%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (28%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (29%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (30%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (31%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (33%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (34%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (35%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (38%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (39%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (40%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (41%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (54%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (55%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (71%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (72%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (73%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (74%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (75%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (76%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (77%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (78%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (79%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (80%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (81%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (82%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (83%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (84%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (85%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (86%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (87%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (88%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (89%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (90%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (91%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (92%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (93%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (94%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (95%)  Unzipping SDK Platform Android 5.0.1, API 21, revision 2 (96%)    Installed SDK Platform Android 5.0.1, API 21, revision 2
+  Done. 1 package installed.
+travis_time:end:2eb57d9e:start=1437762014114583251,finish=1437762024294136020,duration=10179552769[0Ktravis_time:start:090ea004[0K$ android-update-sdk --components=extra
+Installing extra
+spawn android update sdk --no-ui --all --filter extra
+Refresh Sources:
+  Fetching https://dl-ssl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/repository-10.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - Android Support Repository, revision 16
+  - Android Support Library, revision 22.2.1
+  - Google AdMob Ads SDK, revision 11 (Obsolete)
+  - Google Analytics App Tracking SDK, revision 3 (Obsolete)
+  - Google Cloud Messaging for Android Library, revision 3 (Obsolete)
+  - Google Play services for Froyo, revision 12 (Obsolete)
+  - Google Play services, revision 25
+  - Google Repository, revision 19
+  - Google Play APK Expansion Library, revision 3
+  - Google Play Billing Library, revision 5
+  - Google Play Licensing Library, revision 2
+  - Android Auto API Simulators, revision 1
+  - Google Web Driver, revision 2
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading Android Support Repository, revision 16
+     (58%, 29002 KiB/s, 1 seconds left)     (91%, 30124 KiB/s, 0 seconds left)  Installing Android Support Repository, revision 16
+  Unzipping Android Support Repository, revision 16 (1%)  Unzipping Android Support Repository, revision 16 (3%)  Unzipping Android Support Repository, revision 16 (5%)  Unzipping Android Support Repository, revision 16 (7%)  Unzipping Android Support Repository, revision 16 (9%)  Unzipping Android Support Repository, revision 16 (11%)  Unzipping Android Support Repository, revision 16 (12%)  Unzipping Android Support Repository, revision 16 (14%)  Unzipping Android Support Repository, revision 16 (17%)  Unzipping Android Support Repository, revision 16 (18%)  Unzipping Android Support Repository, revision 16 (20%)  Unzipping Android Support Repository, revision 16 (21%)  Unzipping Android Support Repository, revision 16 (24%)  Unzipping Android Support Repository, revision 16 (26%)  Unzipping Android Support Repository, revision 16 (28%)  Unzipping Android Support Repository, revision 16 (31%)  Unzipping Android Support Repository, revision 16 (33%)  Unzipping Android Support Repository, revision 16 (35%)  Unzipping Android Support Repository, revision 16 (37%)  Unzipping Android Support Repository, revision 16 (39%)  Unzipping Android Support Repository, revision 16 (40%)  Unzipping Android Support Repository, revision 16 (42%)  Unzipping Android Support Repository, revision 16 (44%)  Unzipping Android Support Repository, revision 16 (46%)  Unzipping Android Support Repository, revision 16 (47%)  Unzipping Android Support Repository, revision 16 (49%)  Unzipping Android Support Repository, revision 16 (50%)  Unzipping Android Support Repository, revision 16 (51%)  Unzipping Android Support Repository, revision 16 (52%)  Unzipping Android Support Repository, revision 16 (53%)  Unzipping Android Support Repository, revision 16 (54%)  Unzipping Android Support Repository, revision 16 (55%)  Unzipping Android Support Repository, revision 16 (56%)  Unzipping Android Support Repository, revision 16 (57%)  Unzipping Android Support Repository, revision 16 (58%)  Unzipping Android Support Repository, revision 16 (59%)  Unzipping Android Support Repository, revision 16 (60%)  Unzipping Android Support Repository, revision 16 (61%)  Unzipping Android Support Repository, revision 16 (62%)  Unzipping Android Support Repository, revision 16 (63%)  Unzipping Android Support Repository, revision 16 (64%)  Unzipping Android Support Repository, revision 16 (65%)  Unzipping Android Support Repository, revision 16 (66%)  Unzipping Android Support Repository, revision 16 (67%)  Unzipping Android Support Repository, revision 16 (68%)  Unzipping Android Support Repository, revision 16 (69%)  Unzipping Android Support Repository, revision 16 (70%)  Unzipping Android Support Repository, revision 16 (71%)  Unzipping Android Support Repository, revision 16 (72%)  Unzipping Android Support Repository, revision 16 (73%)  Unzipping Android Support Repository, revision 16 (74%)  Unzipping Android Support Repository, revision 16 (75%)  Unzipping Android Support Repository, revision 16 (76%)  Unzipping Android Support Repository, revision 16 (77%)  Unzipping Android Support Repository, revision 16 (78%)  Unzipping Android Support Repository, revision 16 (79%)  Unzipping Android Support Repository, revision 16 (80%)  Unzipping Android Support Repository, revision 16 (81%)  Unzipping Android Support Repository, revision 16 (82%)  Unzipping Android Support Repository, revision 16 (83%)  Unzipping Android Support Repository, revision 16 (84%)  Unzipping Android Support Repository, revision 16 (85%)  Unzipping Android Support Repository, revision 16 (86%)  Unzipping Android Support Repository, revision 16 (87%)  Unzipping Android Support Repository, revision 16 (88%)  Unzipping Android Support Repository, revision 16 (89%)  Unzipping Android Support Repository, revision 16 (90%)  Unzipping Android Support Repository, revision 16 (91%)  Unzipping Android Support Repository, revision 16 (92%)  Unzipping Android Support Repository, revision 16 (93%)  Unzipping Android Support Repository, revision 16 (94%)  Unzipping Android Support Repository, revision 16 (95%)  Unzipping Android Support Repository, revision 16 (96%)  Unzipping Android Support Repository, revision 16 (97%)  Unzipping Android Support Repository, revision 16 (98%)  Unzipping Android Support Repository, revision 16 (99%)    Installed Android Support Repository, revision 16
+  Downloading Android Support Library, revision 22.2.1
+  Installing Android Support Library, revision 22.2.1
+  Unzipping Android Support Library, revision 22.2.1 (11%)  Unzipping Android Support Library, revision 22.2.1 (13%)  Unzipping Android Support Library, revision 22.2.1 (14%)  Unzipping Android Support Library, revision 22.2.1 (15%)  Unzipping Android Support Library, revision 22.2.1 (31%)  Unzipping Android Support Library, revision 22.2.1 (32%)  Unzipping Android Support Library, revision 22.2.1 (33%)  Unzipping Android Support Library, revision 22.2.1 (34%)  Unzipping Android Support Library, revision 22.2.1 (35%)  Unzipping Android Support Library, revision 22.2.1 (36%)  Unzipping Android Support Library, revision 22.2.1 (37%)  Unzipping Android Support Library, revision 22.2.1 (38%)  Unzipping Android Support Library, revision 22.2.1 (39%)  Unzipping Android Support Library, revision 22.2.1 (40%)  Unzipping Android Support Library, revision 22.2.1 (41%)  Unzipping Android Support Library, revision 22.2.1 (42%)  Unzipping Android Support Library, revision 22.2.1 (43%)  Unzipping Android Support Library, revision 22.2.1 (54%)  Unzipping Android Support Library, revision 22.2.1 (56%)  Unzipping Android Support Library, revision 22.2.1 (57%)  Unzipping Android Support Library, revision 22.2.1 (64%)  Unzipping Android Support Library, revision 22.2.1 (65%)  Unzipping Android Support Library, revision 22.2.1 (66%)  Unzipping Android Support Library, revision 22.2.1 (68%)  Unzipping Android Support Library, revision 22.2.1 (69%)  Unzipping Android Support Library, revision 22.2.1 (75%)  Unzipping Android Support Library, revision 22.2.1 (87%)  Unzipping Android Support Library, revision 22.2.1 (88%)  Unzipping Android Support Library, revision 22.2.1 (89%)  Unzipping Android Support Library, revision 22.2.1 (90%)  Unzipping Android Support Library, revision 22.2.1 (93%)    Installed Android Support Library, revision 22.2.1
+  Downloading Google AdMob Ads SDK, revision 11 (Obsolete)
+  Installing Google AdMob Ads SDK, revision 11 (Obsolete)
+  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (1%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (2%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (3%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (4%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (5%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (6%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (7%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (8%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (9%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (10%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (11%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (12%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (14%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (15%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (28%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (45%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (46%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (47%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (48%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (49%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (50%)  Unzipping Google AdMob Ads SDK, revision 11 (Obsolete) (97%)    Installed Google AdMob Ads SDK, revision 11 (Obsolete)
+  Downloading Google Analytics App Tracking SDK, revision 3 (Obsolete)
+  Installing Google Analytics App Tracking SDK, revision 3 (Obsolete)
+  Unzipping Google Analytics App Tracking SDK, revision 3 (Obsolete) (45%)  Unzipping Google Analytics App Tracking SDK, revision 3 (Obsolete) (99%)    Installed Google Analytics App Tracking SDK, revision 3 (Obsolete)
+  Downloading Google Cloud Messaging for Android Library, revision 3 (Obsolete)
+  Installing Google Cloud Messaging for Android Library, revision 3 (Obsolete)
+  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (21%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (25%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (26%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (28%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (29%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (30%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (31%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (98%)  Unzipping Google Cloud Messaging for Android Library, revision 3 (Obsolete) (99%)    Installed Google Cloud Messaging for Android Library, revision 3 (Obsolete)
+  Downloading Google Play services for Froyo, revision 12 (Obsolete)
+  Installing Google Play services for Froyo, revision 12 (Obsolete)
+  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (1%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (2%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (3%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (4%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (5%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (6%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (7%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (8%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (9%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (10%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (11%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (12%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (13%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (14%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (15%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (16%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (17%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (18%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (19%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (20%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (21%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (22%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (23%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (24%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (25%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (26%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (27%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (28%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (29%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (31%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (32%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (33%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (34%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (35%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (36%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (37%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (38%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (39%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (40%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (41%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (42%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (43%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (44%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (46%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (47%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (48%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (49%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (50%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (51%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (52%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (62%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (63%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (71%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (72%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (73%)  Unzipping Google Play services for Froyo, revision 12 (Obsolete) (95%)    Installed Google Play services for Froyo, revision 12 (Obsolete)
+  Downloading Google Play services, revision 25
+  Installing Google Play services, revision 25
+  Unzipping Google Play services, revision 25 (23%)  Unzipping Google Play services, revision 25 (24%)  Unzipping Google Play services, revision 25 (25%)  Unzipping Google Play services, revision 25 (26%)  Unzipping Google Play services, revision 25 (27%)  Unzipping Google Play services, revision 25 (28%)  Unzipping Google Play services, revision 25 (29%)  Unzipping Google Play services, revision 25 (30%)  Unzipping Google Play services, revision 25 (31%)  Unzipping Google Play services, revision 25 (32%)  Unzipping Google Play services, revision 25 (33%)  Unzipping Google Play services, revision 25 (34%)  Unzipping Google Play services, revision 25 (35%)  Unzipping Google Play services, revision 25 (36%)  Unzipping Google Play services, revision 25 (37%)  Unzipping Google Play services, revision 25 (38%)  Unzipping Google Play services, revision 25 (39%)  Unzipping Google Play services, revision 25 (40%)  Unzipping Google Play services, revision 25 (41%)  Unzipping Google Play services, revision 25 (47%)  Unzipping Google Play services, revision 25 (48%)  Unzipping Google Play services, revision 25 (51%)  Unzipping Google Play services, revision 25 (52%)  Unzipping Google Play services, revision 25 (53%)  Unzipping Google Play services, revision 25 (54%)  Unzipping Google Play services, revision 25 (55%)  Unzipping Google Play services, revision 25 (56%)  Unzipping Google Play services, revision 25 (58%)  Unzipping Google Play services, revision 25 (59%)  Unzipping Google Play services, revision 25 (60%)  Unzipping Google Play services, revision 25 (61%)  Unzipping Google Play services, revision 25 (62%)  Unzipping Google Play services, revision 25 (63%)  Unzipping Google Play services, revision 25 (64%)  Unzipping Google Play services, revision 25 (65%)  Unzipping Google Play services, revision 25 (66%)  Unzipping Google Play services, revision 25 (67%)  Unzipping Google Play services, revision 25 (68%)  Unzipping Google Play services, revision 25 (69%)  Unzipping Google Play services, revision 25 (70%)  Unzipping Google Play services, revision 25 (71%)  Unzipping Google Play services, revision 25 (72%)  Unzipping Google Play services, revision 25 (73%)  Unzipping Google Play services, revision 25 (74%)  Unzipping Google Play services, revision 25 (75%)  Unzipping Google Play services, revision 25 (76%)  Unzipping Google Play services, revision 25 (77%)  Unzipping Google Play services, revision 25 (78%)  Unzipping Google Play services, revision 25 (79%)  Unzipping Google Play services, revision 25 (80%)  Unzipping Google Play services, revision 25 (81%)  Unzipping Google Play services, revision 25 (82%)  Unzipping Google Play services, revision 25 (83%)  Unzipping Google Play services, revision 25 (84%)  Unzipping Google Play services, revision 25 (85%)  Unzipping Google Play services, revision 25 (86%)  Unzipping Google Play services, revision 25 (87%)  Unzipping Google Play services, revision 25 (88%)  Unzipping Google Play services, revision 25 (89%)  Unzipping Google Play services, revision 25 (90%)  Unzipping Google Play services, revision 25 (91%)  Unzipping Google Play services, revision 25 (92%)  Unzipping Google Play services, revision 25 (93%)  Unzipping Google Play services, revision 25 (94%)  Unzipping Google Play services, revision 25 (95%)  Unzipping Google Play services, revision 25 (96%)  Unzipping Google Play services, revision 25 (97%)    Installed Google Play services, revision 25
+  Downloading Google Repository, revision 19
+  Installing Google Repository, revision 19
+  Unzipping Google Repository, revision 19 (1%)  Unzipping Google Repository, revision 19 (2%)  Unzipping Google Repository, revision 19 (3%)  Unzipping Google Repository, revision 19 (4%)  Unzipping Google Repository, revision 19 (5%)  Unzipping Google Repository, revision 19 (6%)  Unzipping Google Repository, revision 19 (7%)  Unzipping Google Repository, revision 19 (11%)  Unzipping Google Repository, revision 19 (14%)  Unzipping Google Repository, revision 19 (17%)  Unzipping Google Repository, revision 19 (22%)  Unzipping Google Repository, revision 19 (24%)  Unzipping Google Repository, revision 19 (28%)  Unzipping Google Repository, revision 19 (30%)  Unzipping Google Repository, revision 19 (37%)  Unzipping Google Repository, revision 19 (38%)  Unzipping Google Repository, revision 19 (40%)  Unzipping Google Repository, revision 19 (47%)  Unzipping Google Repository, revision 19 (50%)  Unzipping Google Repository, revision 19 (54%)  Unzipping Google Repository, revision 19 (56%)  Unzipping Google Repository, revision 19 (59%)  Unzipping Google Repository, revision 19 (66%)  Unzipping Google Repository, revision 19 (67%)  Unzipping Google Repository, revision 19 (68%)  Unzipping Google Repository, revision 19 (69%)  Unzipping Google Repository, revision 19 (70%)  Unzipping Google Repository, revision 19 (71%)  Unzipping Google Repository, revision 19 (72%)  Unzipping Google Repository, revision 19 (73%)  Unzipping Google Repository, revision 19 (74%)  Unzipping Google Repository, revision 19 (75%)  Unzipping Google Repository, revision 19 (76%)  Unzipping Google Repository, revision 19 (77%)  Unzipping Google Repository, revision 19 (78%)  Unzipping Google Repository, revision 19 (80%)  Unzipping Google Repository, revision 19 (82%)  Unzipping Google Repository, revision 19 (84%)  Unzipping Google Repository, revision 19 (86%)  Unzipping Google Repository, revision 19 (87%)  Unzipping Google Repository, revision 19 (88%)  Unzipping Google Repository, revision 19 (91%)  Unzipping Google Repository, revision 19 (92%)  Unzipping Google Repository, revision 19 (93%)  Unzipping Google Repository, revision 19 (94%)  Unzipping Google Repository, revision 19 (95%)  Unzipping Google Repository, revision 19 (96%)  Unzipping Google Repository, revision 19 (97%)  Unzipping Google Repository, revision 19 (99%)    Installed Google Repository, revision 19
+  Downloading Google Play APK Expansion Library, revision 3
+  Installing Google Play APK Expansion Library, revision 3
+  Unzipping Google Play APK Expansion Library, revision 3 (1%)  Unzipping Google Play APK Expansion Library, revision 3 (2%)  Unzipping Google Play APK Expansion Library, revision 3 (7%)  Unzipping Google Play APK Expansion Library, revision 3 (8%)  Unzipping Google Play APK Expansion Library, revision 3 (9%)  Unzipping Google Play APK Expansion Library, revision 3 (11%)  Unzipping Google Play APK Expansion Library, revision 3 (15%)  Unzipping Google Play APK Expansion Library, revision 3 (18%)  Unzipping Google Play APK Expansion Library, revision 3 (21%)  Unzipping Google Play APK Expansion Library, revision 3 (22%)  Unzipping Google Play APK Expansion Library, revision 3 (23%)  Unzipping Google Play APK Expansion Library, revision 3 (25%)  Unzipping Google Play APK Expansion Library, revision 3 (26%)  Unzipping Google Play APK Expansion Library, revision 3 (28%)  Unzipping Google Play APK Expansion Library, revision 3 (31%)  Unzipping Google Play APK Expansion Library, revision 3 (33%)  Unzipping Google Play APK Expansion Library, revision 3 (34%)  Unzipping Google Play APK Expansion Library, revision 3 (42%)  Unzipping Google Play APK Expansion Library, revision 3 (44%)  Unzipping Google Play APK Expansion Library, revision 3 (49%)  Unzipping Google Play APK Expansion Library, revision 3 (50%)  Unzipping Google Play APK Expansion Library, revision 3 (51%)  Unzipping Google Play APK Expansion Library, revision 3 (52%)  Unzipping Google Play APK Expansion Library, revision 3 (56%)  Unzipping Google Play APK Expansion Library, revision 3 (66%)  Unzipping Google Play APK Expansion Library, revision 3 (67%)  Unzipping Google Play APK Expansion Library, revision 3 (68%)  Unzipping Google Play APK Expansion Library, revision 3 (69%)  Unzipping Google Play APK Expansion Library, revision 3 (70%)  Unzipping Google Play APK Expansion Library, revision 3 (71%)  Unzipping Google Play APK Expansion Library, revision 3 (74%)  Unzipping Google Play APK Expansion Library, revision 3 (78%)    Installed Google Play APK Expansion Library, revision 3
+  Downloading Google Play Billing Library, revision 5
+  Installing Google Play Billing Library, revision 5
+  Unzipping Google Play Billing Library, revision 5 (13%)  Unzipping Google Play Billing Library, revision 5 (83%)  Unzipping Google Play Billing Library, revision 5 (84%)  Unzipping Google Play Billing Library, revision 5 (85%)  Unzipping Google Play Billing Library, revision 5 (86%)  Unzipping Google Play Billing Library, revision 5 (87%)  Unzipping Google Play Billing Library, revision 5 (88%)  Unzipping Google Play Billing Library, revision 5 (89%)  Unzipping Google Play Billing Library, revision 5 (91%)  Unzipping Google Play Billing Library, revision 5 (92%)  Unzipping Google Play Billing Library, revision 5 (94%)  Unzipping Google Play Billing Library, revision 5 (95%)  Unzipping Google Play Billing Library, revision 5 (96%)    Installed Google Play Billing Library, revision 5
+  Downloading Google Play Licensing Library, revision 2
+  Installing Google Play Licensing Library, revision 2
+  Unzipping Google Play Licensing Library, revision 2 (5%)  Unzipping Google Play Licensing Library, revision 2 (6%)  Unzipping Google Play Licensing Library, revision 2 (7%)  Unzipping Google Play Licensing Library, revision 2 (9%)  Unzipping Google Play Licensing Library, revision 2 (14%)  Unzipping Google Play Licensing Library, revision 2 (16%)  Unzipping Google Play Licensing Library, revision 2 (17%)  Unzipping Google Play Licensing Library, revision 2 (18%)  Unzipping Google Play Licensing Library, revision 2 (24%)  Unzipping Google Play Licensing Library, revision 2 (25%)  Unzipping Google Play Licensing Library, revision 2 (28%)  Unzipping Google Play Licensing Library, revision 2 (29%)  Unzipping Google Play Licensing Library, revision 2 (30%)  Unzipping Google Play Licensing Library, revision 2 (32%)  Unzipping Google Play Licensing Library, revision 2 (33%)  Unzipping Google Play Licensing Library, revision 2 (34%)  Unzipping Google Play Licensing Library, revision 2 (38%)  Unzipping Google Play Licensing Library, revision 2 (39%)  Unzipping Google Play Licensing Library, revision 2 (46%)  Unzipping Google Play Licensing Library, revision 2 (47%)  Unzipping Google Play Licensing Library, revision 2 (48%)  Unzipping Google Play Licensing Library, revision 2 (49%)  Unzipping Google Play Licensing Library, revision 2 (52%)  Unzipping Google Play Licensing Library, revision 2 (53%)  Unzipping Google Play Licensing Library, revision 2 (54%)  Unzipping Google Play Licensing Library, revision 2 (58%)  Unzipping Google Play Licensing Library, revision 2 (62%)  Unzipping Google Play Licensing Library, revision 2 (64%)  Unzipping Google Play Licensing Library, revision 2 (66%)  Unzipping Google Play Licensing Library, revision 2 (68%)  Unzipping Google Play Licensing Library, revision 2 (70%)  Unzipping Google Play Licensing Library, revision 2 (71%)  Unzipping Google Play Licensing Library, revision 2 (72%)    Installed Google Play Licensing Library, revision 2
+  Downloading Android Auto API Simulators, revision 1
+  Installing Android Auto API Simulators, revision 1
+  Unzipping Android Auto API Simulators, revision 1 (60%)  Unzipping Android Auto API Simulators, revision 1 (99%)    Installed Android Auto API Simulators, revision 1
+  Downloading Google Web Driver, revision 2
+  Installing Google Web Driver, revision 2
+  Unzipping Google Web Driver, revision 2 (16%)  Unzipping Google Web Driver, revision 2 (33%)  Unzipping Google Web Driver, revision 2 (43%)  Unzipping Google Web Driver, revision 2 (53%)  Unzipping Google Web Driver, revision 2 (78%)  Unzipping Google Web Driver, revision 2 (88%)  Unzipping Google Web Driver, revision 2 (98%)  Unzipping Google Web Driver, revision 2 (99%)    Installed Google Web Driver, revision 2
+  Done. 13 packages installed.
+travis_time:end:090ea004:start=1437762024302873626,finish=1437762042458487046,duration=18155613420[0Ktravis_fold:end:android.install[0K$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_time:start:22e7cd7d[0K$ ./travis/build.sh
+Downloading http://services.gradle.org/distributions/gradle-2.2.1-all.zip
+...............
+Exception in thread "main" java.lang.RuntimeException: java.net.SocketException: Connection reset
+	at org.gradle.wrapper.ExclusiveFileAccessManager.access(ExclusiveFileAccessManager.java:78)
+	at org.gradle.wrapper.Install.createDist(Install.java:47)
+	at org.gradle.wrapper.WrapperExecutor.execute(WrapperExecutor.java:129)
+	at org.gradle.wrapper.GradleWrapperMain.main(GradleWrapperMain.java:48)
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:196)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:273)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	at sun.net.www.MeteredStream.read(MeteredStream.java:134)
+	at java.io.FilterInputStream.read(FilterInputStream.java:133)
+	at sun.net.www.protocol.http.HttpURLConnection$HttpInputStream.read(HttpURLConnection.java:3066)
+	at sun.net.www.protocol.http.HttpURLConnection$HttpInputStream.read(HttpURLConnection.java:3060)
+	at org.gradle.wrapper.Download.downloadInternal(Download.java:63)
+	at org.gradle.wrapper.Download.download(Download.java:45)
+	at org.gradle.wrapper.Install$1.call(Install.java:60)
+	at org.gradle.wrapper.Install$1.call(Install.java:47)
+	at org.gradle.wrapper.ExclusiveFileAccessManager.access(ExclusiveFileAccessManager.java:65)
+	... 3 more
+travis_time:end:22e7cd7d:start=1437762042700783927,finish=1437762132637951643,duration=89937167716[0K
+[31;1mThe command "./travis/build.sh" exited with 1.[0m
+
+Done. Your build exited with 1.

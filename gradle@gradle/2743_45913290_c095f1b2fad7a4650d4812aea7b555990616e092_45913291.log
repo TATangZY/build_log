@@ -1,0 +1,569 @@
+Using worker: worker-linux-11-2.bb.travis-ci.org:travis-linux-7
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Sun Dec  7 05:49:51 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+5736160 https://github.com/travis-ci/travis-cookbooks/tree/5736160
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.3.3
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.0
+------------------------------------------------------------
+
+Build time:   2014-07-01 07:45:34 UTC
+Build number: none
+Revision:     b6ead6fa452dfdadec484059191eb641d817226c
+
+Groovy:       2.3.3
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:165045e4[0K$ git clone --depth=50 --branch=master git://github.com/gradle/gradle.git gradle/gradle
+Cloning into 'gradle/gradle'...
+remote: Counting objects: 14931, done.[K
+remote: Compressing objects:   0% (1/10263)   [Kremote: Compressing objects:   1% (103/10263)   [Kremote: Compressing objects:   2% (206/10263)   [Kremote: Compressing objects:   3% (308/10263)   [Kremote: Compressing objects:   4% (411/10263)   [Kremote: Compressing objects:   5% (514/10263)   [Kremote: Compressing objects:   6% (616/10263)   [Kremote: Compressing objects:   7% (719/10263)   [Kremote: Compressing objects:   8% (822/10263)   [Kremote: Compressing objects:   9% (924/10263)   [Kremote: Compressing objects:  10% (1027/10263)   [Kremote: Compressing objects:  11% (1129/10263)   [Kremote: Compressing objects:  12% (1232/10263)   [Kremote: Compressing objects:  13% (1335/10263)   [Kremote: Compressing objects:  14% (1437/10263)   [Kremote: Compressing objects:  15% (1540/10263)   [Kremote: Compressing objects:  16% (1643/10263)   [Kremote: Compressing objects:  17% (1745/10263)   [Kremote: Compressing objects:  18% (1848/10263)   [Kremote: Compressing objects:  19% (1950/10263)   [Kremote: Compressing objects:  20% (2053/10263)   [Kremote: Compressing objects:  21% (2156/10263)   [Kremote: Compressing objects:  22% (2258/10263)   [Kremote: Compressing objects:  23% (2361/10263)   [Kremote: Compressing objects:  24% (2464/10263)   [Kremote: Compressing objects:  25% (2566/10263)   [Kremote: Compressing objects:  26% (2669/10263)   [Kremote: Compressing objects:  27% (2772/10263)   [Kremote: Compressing objects:  28% (2874/10263)   [Kremote: Compressing objects:  29% (2977/10263)   [Kremote: Compressing objects:  30% (3079/10263)   [Kremote: Compressing objects:  31% (3182/10263)   [Kremote: Compressing objects:  32% (3285/10263)   [Kremote: Compressing objects:  33% (3387/10263)   [Kremote: Compressing objects:  34% (3490/10263)   [Kremote: Compressing objects:  35% (3593/10263)   [Kremote: Compressing objects:  36% (3695/10263)   [Kremote: Compressing objects:  37% (3798/10263)   [Kremote: Compressing objects:  38% (3900/10263)   [Kremote: Compressing objects:  39% (4003/10263)   [Kremote: Compressing objects:  40% (4106/10263)   [Kremote: Compressing objects:  41% (4208/10263)   [Kremote: Compressing objects:  42% (4311/10263)   [Kremote: Compressing objects:  43% (4414/10263)   [Kremote: Compressing objects:  44% (4516/10263)   [Kremote: Compressing objects:  45% (4619/10263)   [Kremote: Compressing objects:  46% (4721/10263)   [Kremote: Compressing objects:  47% (4824/10263)   [Kremote: Compressing objects:  48% (4927/10263)   [Kremote: Compressing objects:  49% (5029/10263)   [Kremote: Compressing objects:  50% (5132/10263)   [Kremote: Compressing objects:  51% (5235/10263)   [Kremote: Compressing objects:  52% (5337/10263)   [Kremote: Compressing objects:  53% (5440/10263)   [Kremote: Compressing objects:  54% (5543/10263)   [Kremote: Compressing objects:  55% (5645/10263)   [Kremote: Compressing objects:  56% (5748/10263)   [Kremote: Compressing objects:  57% (5850/10263)   [Kremote: Compressing objects:  57% (5911/10263)   [Kremote: Compressing objects:  58% (5953/10263)   [Kremote: Compressing objects:  59% (6056/10263)   [Kremote: Compressing objects:  60% (6158/10263)   [Kremote: Compressing objects:  61% (6261/10263)   [Kremote: Compressing objects:  62% (6364/10263)   [Kremote: Compressing objects:  63% (6466/10263)   [Kremote: Compressing objects:  64% (6569/10263)   [Kremote: Compressing objects:  65% (6671/10263)   [Kremote: Compressing objects:  66% (6774/10263)   [Kremote: Compressing objects:  67% (6877/10263)   [Kremote: Compressing objects:  68% (6979/10263)   [Kremote: Compressing objects:  69% (7082/10263)   [Kremote: Compressing objects:  70% (7185/10263)   [Kremote: Compressing objects:  71% (7287/10263)   [Kremote: Compressing objects:  72% (7390/10263)   [Kremote: Compressing objects:  73% (7492/10263)   [Kremote: Compressing objects:  74% (7595/10263)   [Kremote: Compressing objects:  75% (7698/10263)   [Kremote: Compressing objects:  76% (7800/10263)   [Kremote: Compressing objects:  77% (7903/10263)   [Kremote: Compressing objects:  78% (8006/10263)   [Kremote: Compressing objects:  79% (8108/10263)   [Kremote: Compressing objects:  80% (8211/10263)   [Kremote: Compressing objects:  81% (8314/10263)   [Kremote: Compressing objects:  82% (8416/10263)   [Kremote: Compressing objects:  83% (8519/10263)   [Kremote: Compressing objects:  84% (8621/10263)   [Kremote: Compressing objects:  85% (8724/10263)   [Kremote: Compressing objects:  86% (8827/10263)   [Kremote: Compressing objects:  87% (8929/10263)   [Kremote: Compressing objects:  88% (9032/10263)   [Kremote: Compressing objects:  89% (9135/10263)   [Kremote: Compressing objects:  90% (9237/10263)   [Kremote: Compressing objects:  91% (9340/10263)   [Kremote: Compressing objects:  92% (9442/10263)   [Kremote: Compressing objects:  93% (9545/10263)   [Kremote: Compressing objects:  94% (9648/10263)   [Kremote: Compressing objects:  95% (9750/10263)   [Kremote: Compressing objects:  96% (9853/10263)   [Kremote: Compressing objects:  97% (9956/10263)   [Kremote: Compressing objects:  98% (10058/10263)   [Kremote: Compressing objects:  99% (10161/10263)   [Kremote: Compressing objects: 100% (10263/10263)   [Kremote: Compressing objects: 100% (10263/10263), done.[K
+Receiving objects:   0% (1/14931)   Receiving objects:   1% (150/14931)   Receiving objects:   2% (299/14931)   Receiving objects:   3% (448/14931)   Receiving objects:   4% (598/14931)   Receiving objects:   5% (747/14931)   Receiving objects:   6% (896/14931)   Receiving objects:   7% (1046/14931)   Receiving objects:   8% (1195/14931)   Receiving objects:   9% (1344/14931)   Receiving objects:  10% (1494/14931)   Receiving objects:  11% (1643/14931)   Receiving objects:  12% (1792/14931)   Receiving objects:  13% (1942/14931)   Receiving objects:  14% (2091/14931)   Receiving objects:  15% (2240/14931)   Receiving objects:  16% (2389/14931)   Receiving objects:  17% (2539/14931)   Receiving objects:  18% (2688/14931)   Receiving objects:  19% (2837/14931)   Receiving objects:  20% (2987/14931)   Receiving objects:  21% (3136/14931)   Receiving objects:  22% (3285/14931)   Receiving objects:  23% (3435/14931)   Receiving objects:  24% (3584/14931)   Receiving objects:  25% (3733/14931)   Receiving objects:  26% (3883/14931)   Receiving objects:  27% (4032/14931)   Receiving objects:  28% (4181/14931)   Receiving objects:  29% (4330/14931)   Receiving objects:  30% (4480/14931)   Receiving objects:  31% (4629/14931)   Receiving objects:  32% (4778/14931)   Receiving objects:  33% (4928/14931)   Receiving objects:  34% (5077/14931)   Receiving objects:  35% (5226/14931)   Receiving objects:  36% (5376/14931)   Receiving objects:  37% (5525/14931)   Receiving objects:  38% (5674/14931)   Receiving objects:  39% (5824/14931)   Receiving objects:  40% (5973/14931)   Receiving objects:  41% (6122/14931)   Receiving objects:  42% (6272/14931)   Receiving objects:  43% (6421/14931)   Receiving objects:  44% (6570/14931)   Receiving objects:  45% (6719/14931)   Receiving objects:  46% (6869/14931)   Receiving objects:  47% (7018/14931)   Receiving objects:  48% (7167/14931)   Receiving objects:  49% (7317/14931)   Receiving objects:  50% (7466/14931)   Receiving objects:  51% (7615/14931)   Receiving objects:  52% (7765/14931)   Receiving objects:  53% (7914/14931)   Receiving objects:  54% (8063/14931)   Receiving objects:  55% (8213/14931)   Receiving objects:  56% (8362/14931)   Receiving objects:  57% (8511/14931)   Receiving objects:  58% (8660/14931)   Receiving objects:  59% (8810/14931)   Receiving objects:  60% (8959/14931)   Receiving objects:  61% (9108/14931)   Receiving objects:  62% (9258/14931)   Receiving objects:  63% (9407/14931)   Receiving objects:  64% (9556/14931)   Receiving objects:  65% (9706/14931)   Receiving objects:  66% (9855/14931)   Receiving objects:  67% (10004/14931)   Receiving objects:  68% (10154/14931)   Receiving objects:  69% (10303/14931)   Receiving objects:  70% (10452/14931)   Receiving objects:  71% (10602/14931)   Receiving objects:  72% (10751/14931)   Receiving objects:  73% (10900/14931)   Receiving objects:  74% (11049/14931)   Receiving objects:  75% (11199/14931)   Receiving objects:  76% (11348/14931)   Receiving objects:  77% (11497/14931)   Receiving objects:  78% (11647/14931)   Receiving objects:  79% (11796/14931)   Receiving objects:  80% (11945/14931)   Receiving objects:  81% (12095/14931)   Receiving objects:  82% (12244/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  83% (12393/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  84% (12543/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  85% (12692/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  86% (12841/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  87% (12990/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  88% (13140/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  89% (13289/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  90% (13438/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  91% (13588/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  92% (13737/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  93% (13886/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  94% (14036/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  95% (14185/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  96% (14334/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  97% (14484/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  98% (14633/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects:  99% (14782/14931), 7.36 MiB | 14.68 MiB/s   remote: Total 14931 (delta 4416), reused 8580 (delta 1849)[K
+Receiving objects: 100% (14931/14931), 7.36 MiB | 14.68 MiB/s   Receiving objects: 100% (14931/14931), 9.43 MiB | 14.68 MiB/s, done.
+Resolving deltas:   0% (0/4416)   Resolving deltas:   1% (50/4416)   Resolving deltas:   2% (91/4416)   Resolving deltas:   3% (133/4416)   Resolving deltas:   4% (179/4416)   Resolving deltas:   5% (225/4416)   Resolving deltas:   6% (265/4416)   Resolving deltas:   7% (311/4416)   Resolving deltas:   8% (354/4416)   Resolving deltas:   9% (399/4416)   Resolving deltas:  10% (442/4416)   Resolving deltas:  11% (493/4416)   Resolving deltas:  12% (556/4416)   Resolving deltas:  13% (580/4416)   Resolving deltas:  14% (623/4416)   Resolving deltas:  15% (663/4416)   Resolving deltas:  16% (707/4416)   Resolving deltas:  17% (754/4416)   Resolving deltas:  18% (800/4416)   Resolving deltas:  19% (849/4416)   Resolving deltas:  20% (887/4416)   Resolving deltas:  21% (929/4416)   Resolving deltas:  22% (979/4416)   Resolving deltas:  23% (1021/4416)   Resolving deltas:  24% (1063/4416)   Resolving deltas:  25% (1110/4416)   Resolving deltas:  26% (1155/4416)   Resolving deltas:  27% (1195/4416)   Resolving deltas:  28% (1238/4416)   Resolving deltas:  29% (1282/4416)   Resolving deltas:  30% (1329/4416)   Resolving deltas:  31% (1369/4416)   Resolving deltas:  32% (1415/4416)   Resolving deltas:  33% (1468/4416)   Resolving deltas:  34% (1504/4416)   Resolving deltas:  35% (1548/4416)   Resolving deltas:  36% (1594/4416)   Resolving deltas:  37% (1634/4416)   Resolving deltas:  38% (1682/4416)   Resolving deltas:  39% (1723/4416)   Resolving deltas:  40% (1774/4416)   Resolving deltas:  41% (1813/4416)   Resolving deltas:  42% (1855/4416)   Resolving deltas:  43% (1901/4416)   Resolving deltas:  44% (1946/4416)   Resolving deltas:  45% (1988/4416)   Resolving deltas:  46% (2032/4416)   Resolving deltas:  47% (2076/4416)   Resolving deltas:  48% (2120/4416)   Resolving deltas:  49% (2174/4416)   Resolving deltas:  50% (2209/4416)   Resolving deltas:  51% (2255/4416)   Resolving deltas:  52% (2297/4416)   Resolving deltas:  53% (2345/4416)   Resolving deltas:  54% (2386/4416)   Resolving deltas:  55% (2430/4416)   Resolving deltas:  56% (2473/4416)   Resolving deltas:  57% (2518/4416)   Resolving deltas:  58% (2562/4416)   Resolving deltas:  59% (2619/4416)   Resolving deltas:  60% (2654/4416)   Resolving deltas:  61% (2694/4416)   Resolving deltas:  62% (2739/4416)   Resolving deltas:  63% (2786/4416)   Resolving deltas:  64% (2827/4416)   Resolving deltas:  65% (2873/4416)   Resolving deltas:  66% (2915/4416)   Resolving deltas:  67% (2959/4416)   Resolving deltas:  68% (3003/4416)   Resolving deltas:  69% (3048/4416)   Resolving deltas:  70% (3092/4416)   Resolving deltas:  71% (3139/4416)   Resolving deltas:  72% (3181/4416)   Resolving deltas:  73% (3227/4416)   Resolving deltas:  74% (3268/4416)   Resolving deltas:  75% (3312/4416)   Resolving deltas:  76% (3367/4416)   Resolving deltas:  77% (3405/4416)   Resolving deltas:  78% (3465/4416)   Resolving deltas:  79% (3492/4416)   Resolving deltas:  80% (3537/4416)   Resolving deltas:  81% (3577/4416)   Resolving deltas:  82% (3623/4416)   Resolving deltas:  83% (3670/4416)   Resolving deltas:  84% (3710/4416)   Resolving deltas:  85% (3754/4416)   Resolving deltas:  86% (3801/4416)   Resolving deltas:  87% (3842/4416)   Resolving deltas:  88% (3888/4416)   Resolving deltas:  89% (3937/4416)   Resolving deltas:  90% (3978/4416)   Resolving deltas:  91% (4023/4416)   Resolving deltas:  92% (4066/4416)   Resolving deltas:  93% (4110/4416)   Resolving deltas:  94% (4154/4416)   Resolving deltas:  95% (4196/4416)   Resolving deltas:  96% (4240/4416)   Resolving deltas:  97% (4284/4416)   Resolving deltas:  98% (4330/4416)   Resolving deltas:  99% (4373/4416)   Resolving deltas: 100% (4416/4416)   Resolving deltas: 100% (4416/4416), done.
+Checking connectivity... done.
+travis_time:end:165045e4:start=1420437776632808710,finish=1420437779908531368,duration=3275722658[0K$ cd gradle/gradle
+$ git checkout -qf c095f1b2fad7a4650d4812aea7b555990616e092
+travis_fold:end:git.checkout[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export TERM=dumb
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:01882b23[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions-snapshots/gradle-2.3-20141215231546+0000-bin.zip
+...........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.3-20141215231546+0000-bin/dhufidesfadtpqffb71sm0keg/gradle-2.3-20141215231546+0000-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-2.3-20141215231546+0000-bin/dhufidesfadtpqffb71sm0keg
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.3-20141215231546+0000-bin/dhufidesfadtpqffb71sm0keg/gradle-2.3-20141215231546+0000/bin/gradle
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/14.0.1/guava-jdk5-14.0.1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-parent-jdk5/14.0.1/guava-parent-jdk5-14.0.1.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://repo.gradle.org/gradle/libs/commons-lang/commons-lang/2.6/commons-lang-2.6.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/17/commons-parent-17.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/7/apache-7.pom
+Download https://repo.gradle.org/gradle/libs/org/pegdown/pegdown/1.1.0/pegdown-1.1.0.pom
+Download https://repo.gradle.org/gradle/libs/org/jsoup/jsoup/1.6.3/jsoup-1.6.3.pom
+Download https://repo.gradle.org/gradle/libs/org/gradle/jarjar/jarjar/1.2.1/jarjar-1.2.1.pom
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-core/1.0.2/parboiled-core-1.0.2.pom
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-java/1.0.2/parboiled-java-1.0.2.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm/3.3.1/asm-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-parent/3.3.1/asm-parent-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-util/3.3.1/asm-util-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-tree/3.3.1/asm-tree-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/asm/asm-analysis/3.3.1/asm-analysis-3.3.1.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/14.0.1/guava-jdk5-14.0.1.jar
+Download https://repo.gradle.org/gradle/libs/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+Download https://repo.gradle.org/gradle/libs/org/pegdown/pegdown/1.1.0/pegdown-1.1.0.jar
+Download https://repo.gradle.org/gradle/libs/org/jsoup/jsoup/1.6.3/jsoup-1.6.3.jar
+Download https://repo.gradle.org/gradle/libs/org/gradle/jarjar/jarjar/1.2.1/jarjar-1.2.1.jar
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-core/1.0.2/parboiled-core-1.0.2.jar
+Download https://repo.gradle.org/gradle/libs/org/parboiled/parboiled-java/1.0.2/parboiled-java-1.0.2.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm/3.3.1/asm-3.3.1.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm-util/3.3.1/asm-util-3.3.1.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm-tree/3.3.1/asm-tree-3.3.1.jar
+Download https://repo.gradle.org/gradle/libs/asm/asm-analysis/3.3.1/asm-analysis-3.3.1.jar
+:buildSrc:clean UP-TO-DATE
+:buildSrc:compileJava UP-TO-DATE
+:buildSrc:compileGroovy
+:buildSrc:processResources
+:buildSrc:classes
+:buildSrc:jar
+:buildSrc:assemble
+:buildSrc:checkstyleMain
+Download https://repo.gradle.org/gradle/libs/com/puppycrawl/tools/checkstyle/5.7/checkstyle-5.7.pom
+Download https://repo.gradle.org/gradle/libs/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://repo.gradle.org/gradle/libs/antlr/antlr/2.7.7/antlr-2.7.7.pom
+Download https://repo.gradle.org/gradle/libs/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/apache/4/apache-4.pom
+Download https://repo.gradle.org/gradle/libs/commons-cli/commons-cli/1.2/commons-cli-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download https://repo.gradle.org/gradle/libs/com/puppycrawl/tools/checkstyle/5.7/checkstyle-5.7.jar
+Download https://repo.gradle.org/gradle/libs/antlr/antlr/2.7.7/antlr-2.7.7.jar
+Download https://repo.gradle.org/gradle/libs/commons-beanutils/commons-beanutils-core/1.8.3/commons-beanutils-core-1.8.3.jar
+Download https://repo.gradle.org/gradle/libs/commons-cli/commons-cli/1.2/commons-cli-1.2.jar
+:buildSrc:compileTestJava UP-TO-DATE
+:buildSrc:compileTestGroovy
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.11/junit-4.11.pom
+Download https://repo.gradle.org/gradle/libs/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.pom
+Download https://repo.gradle.org/gradle/libs/cglib/cglib-nodep/2.2/cglib-nodep-2.2.pom
+Download https://repo.gradle.org/gradle/libs/org/objenesis/objenesis/1.2/objenesis-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/objenesis/objenesis-parent/1.2/objenesis-parent-1.2.pom
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.11/junit-4.11.jar
+Download https://repo.gradle.org/gradle/libs/org/spockframework/spock-core/0.7-groovy-2.0/spock-core-0.7-groovy-2.0.jar
+Download https://repo.gradle.org/gradle/libs/cglib/cglib-nodep/2.2/cglib-nodep-2.2.jar
+Download https://repo.gradle.org/gradle/libs/org/objenesis/objenesis/1.2/objenesis-1.2.jar
+:buildSrc:processTestResources
+:buildSrc:testClasses
+:buildSrc:checkstyleTest UP-TO-DATE
+:buildSrc:codenarcMain
+Download https://repo.gradle.org/gradle/libs/org/codenarc/CodeNarc/0.21/CodeNarc-0.21.pom
+Download https://repo.gradle.org/gradle/libs/org/gmetrics/GMetrics/0.5/GMetrics-0.5.pom
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy-all/2.3.6/groovy-all-2.3.6.pom
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.8.2/junit-4.8.2.pom
+Download https://repo.gradle.org/gradle/libs/org/codenarc/CodeNarc/0.21/CodeNarc-0.21.jar
+Download https://repo.gradle.org/gradle/libs/org/gmetrics/GMetrics/0.5/GMetrics-0.5.jar
+Download https://repo.gradle.org/gradle/libs/org/codehaus/groovy/groovy-all/2.3.6/groovy-all-2.3.6.jar
+Download https://repo.gradle.org/gradle/libs/junit/junit/4.8.2/junit-4.8.2.jar
+:buildSrc:codenarcTest
+:buildSrc:test
+:buildSrc:check
+:buildSrc:build
+Downloading the released versions from: https://services.gradle.org/versions/all
+Download https://repo1.maven.org/maven2/com/uwyn/jhighlight/1.0/jhighlight-1.0.pom
+Download https://repo1.maven.org/maven2/com/uwyn/jhighlight/1.0/jhighlight-1.0.jar
+ComponentMetadataHandler.eachComponent() is deprecated and will be removed in the next minor release. Use ComponentMetadataHandler.all() instead.
+Download https://repo.gradle.org/gradle/libs/docbook/docbook-xsl/1.75.2/docbook-xsl-1.75.2.pom
+Download https://repo.gradle.org/gradle/libs/docbook/docbook-xsl/1.75.2/docbook-xsl-1.75.2.zip
+:assemble UP-TO-DATE
+:announce:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/slf4j-parent/1.7.7/slf4j-parent-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/ow2/asm/asm-all/5.0.3/asm-all-5.0.3.pom
+Download https://repo.gradle.org/gradle/libs/org/ow2/asm/asm-parent/5.0.3/asm-parent-5.0.3.pom
+Download https://repo.gradle.org/gradle/libs/org/ow2/ow2/1.3/ow2-1.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant/1.9.3/ant-1.9.3.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant-parent/1.9.3/ant-parent-1.9.3.pom
+Download https://repo.gradle.org/gradle/libs/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download https://repo.gradle.org/gradle/libs/commons-io/commons-io/1.4/commons-io-1.4.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/commons/commons-parent/7/commons-parent-7.pom
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-core/1.0.13/logback-core-1.0.13.pom
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-parent/1.0.13/logback-parent-1.0.13.pom
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-classic/1.0.13/logback-classic-1.0.13.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/17.0/guava-jdk5-17.0.pom
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-parent-jdk5/17.0/guava-parent-jdk5-17.0.pom
+Download https://repo.gradle.org/gradle/libs/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jul-to-slf4j/1.7.7/jul-to-slf4j-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/com/googlecode/jarjar/jarjar/1.3/jarjar-1.3.pom
+Download https://repo.gradle.org/gradle/libs/javax/inject/javax.inject/1/javax.inject-1.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.pom
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.pom
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/jna/3.2.7/jna-3.2.7.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform/0.10/native-platform-0.10.pom
+Download https://repo.gradle.org/gradle/libs/org/fusesource/jansi/jansi/1.2.1/jansi-1.2.1.pom
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/kryo/kryo/2.20/kryo-2.20.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-i386/0.10/native-platform-osx-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-amd64/0.10/native-platform-osx-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-amd64/0.10/native-platform-linux-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-i386/0.10/native-platform-linux-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-amd64/0.10/native-platform-windows-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-i386/0.10/native-platform-windows-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-i386/0.10/native-platform-freebsd-i386-0.10.pom
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-amd64/0.10/native-platform-freebsd-amd64-0.10.pom
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07.pom
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.pom
+Download https://repo.gradle.org/gradle/libs/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar
+:baseServices:classpathManifest
+Download https://repo.gradle.org/gradle/libs/com/google/guava/guava-jdk5/17.0/guava-jdk5-17.0.jar
+:baseServices:compileJavaNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:baseServices:compileGroovy UP-TO-DATE
+:baseServices:processResources UP-TO-DATE
+:baseServices:classes
+:baseServices:jar
+:baseServicesGroovy:classpathManifest
+:baseServicesGroovy:compileJava UP-TO-DATE
+:baseServicesGroovy:compileGroovyNote: /home/travis/build/gradle/gradle/subprojects/base-services-groovy/src/main/groovy/org/gradle/api/specs/AndSpec.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:baseServicesGroovy:processResources UP-TO-DATE
+:baseServicesGroovy:classes
+:baseServicesGroovy:jar
+:cli:classpathManifest
+:cli:compileJava
+:cli:compileGroovy UP-TO-DATE
+:cli:processResources UP-TO-DATE
+:cli:classes
+:cli:jar
+:determineCommitId
+:createBuildReceipt
+:core:buildReceiptResource
+:core:classpathManifest
+Download https://repo.gradle.org/gradle/libs/org/ow2/asm/asm-all/5.0.3/asm-all-5.0.3.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant/1.9.3/ant-1.9.3.jar
+Download https://repo.gradle.org/gradle/libs/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download https://repo.gradle.org/gradle/libs/commons-io/commons-io/1.4/commons-io-1.4.jar
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-core/1.0.13/logback-core-1.0.13.jar
+Download https://repo.gradle.org/gradle/libs/ch/qos/logback/logback-classic/1.0.13/logback-classic-1.0.13.jar
+Download https://repo.gradle.org/gradle/libs/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jul-to-slf4j/1.7.7/jul-to-slf4j-1.7.7.jar
+Download https://repo.gradle.org/gradle/libs/com/googlecode/jarjar/jarjar/1.3/jarjar-1.3.jar
+Download https://repo.gradle.org/gradle/libs/javax/inject/javax.inject/1/javax.inject-1.jar
+Download https://repo.gradle.org/gradle/libs/org/slf4j/log4j-over-slf4j/1.7.7/log4j-over-slf4j-1.7.7.jar
+Download https://repo.gradle.org/gradle/libs/org/slf4j/jcl-over-slf4j/1.7.7/jcl-over-slf4j-1.7.7.jar
+Download https://repo.gradle.org/gradle/libs/org/apache/ant/ant-launcher/1.9.3/ant-launcher-1.9.3.jar
+:messaging:classpathManifest
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/kryo/kryo/2.20/kryo-2.20.jar
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-shaded.jar
+Download https://repo.gradle.org/gradle/libs/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar
+:messaging:compileJavaNote: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:messaging:compileGroovy UP-TO-DATE
+:messaging:processResources UP-TO-DATE
+:messaging:classes
+:messaging:jar
+:modelCore:classpathManifest
+:modelCore:compileJava
+:modelCore:compileGroovy UP-TO-DATE
+:modelCore:processResources UP-TO-DATE
+:modelCore:classes
+:modelCore:jar
+:modelGroovy:classpathManifest
+:modelGroovy:compileJava
+:modelGroovy:compileGroovy UP-TO-DATE
+:modelGroovy:processResources UP-TO-DATE
+:modelGroovy:classes
+:modelGroovy:jar
+:native:classpathManifest
+Download https://repo.gradle.org/gradle/libs/net/java/dev/jna/jna/3.2.7/jna-3.2.7.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform/0.10/native-platform-0.10.jar
+Download https://repo.gradle.org/gradle/libs/org/fusesource/jansi/jansi/1.2.1/jansi-1.2.1.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-i386/0.10/native-platform-osx-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-osx-amd64/0.10/native-platform-osx-amd64-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-amd64/0.10/native-platform-linux-amd64-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-linux-i386/0.10/native-platform-linux-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-amd64/0.10/native-platform-windows-amd64-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-windows-i386/0.10/native-platform-windows-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-i386/0.10/native-platform-freebsd-i386-0.10.jar
+Download https://repo.gradle.org/gradle/libs/net/rubygrapefruit/native-platform-freebsd-amd64/0.10/native-platform-freebsd-amd64-0.10.jar
+:native:compileJavaNote: /home/travis/build/gradle/gradle/subprojects/native/src/main/java/org/gradle/internal/nativeintegration/services/NativeServices.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:native:compileGroovy UP-TO-DATE
+:native:processResources UP-TO-DATE
+:native:classes
+:native:jar
+:resources:classpathManifest
+:resources:compileJava
+:resources:compileGroovy UP-TO-DATE
+:resources:processResources UP-TO-DATE
+:resources:classes
+:resources:jar
+:core:compileJava UP-TO-DATE
+:core:compileGroovy/home/travis/build/gradle/gradle/subprojects/core/src/main/groovy/org/gradle/internal/service/scopes/ProjectScopeServices.java:128: error: cannot find symbol
+        PluginApplicator applicator = new RuleBasedPluginApplicator<ProjectInternal>(project, inspector, get(ModelRuleSourceDetector.class));
+                                          ^
+  symbol:   class RuleBasedPluginApplicator
+  location: class ProjectScopeServices
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+startup failed:
+Compilation failed; see the compiler error output for details.
+
+1 error
+
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:compileGroovy'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 2 mins 34.912 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed. Retrying, 2 of 3.[0m
+
+:buildSrc:compileJava UP-TO-DATE
+:buildSrc:compileGroovy UP-TO-DATE
+:buildSrc:processResources UP-TO-DATE
+:buildSrc:classes UP-TO-DATE
+:buildSrc:jar UP-TO-DATE
+:buildSrc:assemble UP-TO-DATE
+:buildSrc:checkstyleMain UP-TO-DATE
+:buildSrc:compileTestJava UP-TO-DATE
+:buildSrc:compileTestGroovy UP-TO-DATE
+:buildSrc:processTestResources UP-TO-DATE
+:buildSrc:testClasses UP-TO-DATE
+:buildSrc:checkstyleTest UP-TO-DATE
+:buildSrc:codenarcMain UP-TO-DATE
+:buildSrc:codenarcTest UP-TO-DATE
+:buildSrc:test UP-TO-DATE
+:buildSrc:check UP-TO-DATE
+:buildSrc:build UP-TO-DATE
+ComponentMetadataHandler.eachComponent() is deprecated and will be removed in the next minor release. Use ComponentMetadataHandler.all() instead.
+:assemble UP-TO-DATE
+:announce:classpathManifest UP-TO-DATE
+:baseServices:classpathManifest UP-TO-DATE
+:baseServices:compileJava UP-TO-DATE
+:baseServices:compileGroovy UP-TO-DATE
+:baseServices:processResources UP-TO-DATE
+:baseServices:classes UP-TO-DATE
+:baseServices:jar UP-TO-DATE
+:baseServicesGroovy:classpathManifest UP-TO-DATE
+:baseServicesGroovy:compileJava UP-TO-DATE
+:baseServicesGroovy:compileGroovy UP-TO-DATE
+:baseServicesGroovy:processResources UP-TO-DATE
+:baseServicesGroovy:classes UP-TO-DATE
+:baseServicesGroovy:jar UP-TO-DATE
+:cli:classpathManifest UP-TO-DATE
+:cli:compileJava UP-TO-DATE
+:cli:compileGroovy UP-TO-DATE
+:cli:processResources UP-TO-DATE
+:cli:classes UP-TO-DATE
+:cli:jar UP-TO-DATE
+:determineCommitId
+:createBuildReceipt
+:core:buildReceiptResource UP-TO-DATE
+:core:classpathManifest UP-TO-DATE
+:messaging:classpathManifest UP-TO-DATE
+:messaging:compileJava UP-TO-DATE
+:messaging:compileGroovy UP-TO-DATE
+:messaging:processResources UP-TO-DATE
+:messaging:classes UP-TO-DATE
+:messaging:jar UP-TO-DATE
+:modelCore:classpathManifest UP-TO-DATE
+:modelCore:compileJava UP-TO-DATE
+:modelCore:compileGroovy UP-TO-DATE
+:modelCore:processResources UP-TO-DATE
+:modelCore:classes UP-TO-DATE
+:modelCore:jar UP-TO-DATE
+:modelGroovy:classpathManifest UP-TO-DATE
+:modelGroovy:compileJava UP-TO-DATE
+:modelGroovy:compileGroovy UP-TO-DATE
+:modelGroovy:processResources UP-TO-DATE
+:modelGroovy:classes UP-TO-DATE
+:modelGroovy:jar UP-TO-DATE
+:native:classpathManifest UP-TO-DATE
+:native:compileJava UP-TO-DATE
+:native:compileGroovy UP-TO-DATE
+:native:processResources UP-TO-DATE
+:native:classes UP-TO-DATE
+:native:jar UP-TO-DATE
+:resources:classpathManifest UP-TO-DATE
+:resources:compileJava UP-TO-DATE
+:resources:compileGroovy UP-TO-DATE
+:resources:processResources UP-TO-DATE
+:resources:classes UP-TO-DATE
+:resources:jar UP-TO-DATE
+:core:compileJava UP-TO-DATE
+:core:compileGroovy/home/travis/build/gradle/gradle/subprojects/core/src/main/groovy/org/gradle/internal/service/scopes/ProjectScopeServices.java:128: error: cannot find symbol
+        PluginApplicator applicator = new RuleBasedPluginApplicator<ProjectInternal>(project, inspector, get(ModelRuleSourceDetector.class));
+                                          ^
+  symbol:   class RuleBasedPluginApplicator
+  location: class ProjectScopeServices
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+startup failed:
+Compilation failed; see the compiler error output for details.
+
+1 error
+
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:compileGroovy'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 50.195 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed. Retrying, 3 of 3.[0m
+
+:buildSrc:compileJava UP-TO-DATE
+:buildSrc:compileGroovy UP-TO-DATE
+:buildSrc:processResources UP-TO-DATE
+:buildSrc:classes UP-TO-DATE
+:buildSrc:jar UP-TO-DATE
+:buildSrc:assemble UP-TO-DATE
+:buildSrc:checkstyleMain UP-TO-DATE
+:buildSrc:compileTestJava UP-TO-DATE
+:buildSrc:compileTestGroovy UP-TO-DATE
+:buildSrc:processTestResources UP-TO-DATE
+:buildSrc:testClasses UP-TO-DATE
+:buildSrc:checkstyleTest UP-TO-DATE
+:buildSrc:codenarcMain UP-TO-DATE
+:buildSrc:codenarcTest UP-TO-DATE
+:buildSrc:test UP-TO-DATE
+:buildSrc:check UP-TO-DATE
+:buildSrc:build UP-TO-DATE
+ComponentMetadataHandler.eachComponent() is deprecated and will be removed in the next minor release. Use ComponentMetadataHandler.all() instead.
+:assemble UP-TO-DATE
+:announce:classpathManifest UP-TO-DATE
+:baseServices:classpathManifest UP-TO-DATE
+:baseServices:compileJava UP-TO-DATE
+:baseServices:compileGroovy UP-TO-DATE
+:baseServices:processResources UP-TO-DATE
+:baseServices:classes UP-TO-DATE
+:baseServices:jar UP-TO-DATE
+:baseServicesGroovy:classpathManifest UP-TO-DATE
+:baseServicesGroovy:compileJava UP-TO-DATE
+:baseServicesGroovy:compileGroovy UP-TO-DATE
+:baseServicesGroovy:processResources UP-TO-DATE
+:baseServicesGroovy:classes UP-TO-DATE
+:baseServicesGroovy:jar UP-TO-DATE
+:cli:classpathManifest UP-TO-DATE
+:cli:compileJava UP-TO-DATE
+:cli:compileGroovy UP-TO-DATE
+:cli:processResources UP-TO-DATE
+:cli:classes UP-TO-DATE
+:cli:jar UP-TO-DATE
+:determineCommitId
+:createBuildReceipt
+:core:buildReceiptResource UP-TO-DATE
+:core:classpathManifest UP-TO-DATE
+:messaging:classpathManifest UP-TO-DATE
+:messaging:compileJava UP-TO-DATE
+:messaging:compileGroovy UP-TO-DATE
+:messaging:processResources UP-TO-DATE
+:messaging:classes UP-TO-DATE
+:messaging:jar UP-TO-DATE
+:modelCore:classpathManifest UP-TO-DATE
+:modelCore:compileJava UP-TO-DATE
+:modelCore:compileGroovy UP-TO-DATE
+:modelCore:processResources UP-TO-DATE
+:modelCore:classes UP-TO-DATE
+:modelCore:jar UP-TO-DATE
+:modelGroovy:classpathManifest UP-TO-DATE
+:modelGroovy:compileJava UP-TO-DATE
+:modelGroovy:compileGroovy UP-TO-DATE
+:modelGroovy:processResources UP-TO-DATE
+:modelGroovy:classes UP-TO-DATE
+:modelGroovy:jar UP-TO-DATE
+:native:classpathManifest UP-TO-DATE
+:native:compileJava UP-TO-DATE
+:native:compileGroovy UP-TO-DATE
+:native:processResources UP-TO-DATE
+:native:classes UP-TO-DATE
+:native:jar UP-TO-DATE
+:resources:classpathManifest UP-TO-DATE
+:resources:compileJava UP-TO-DATE
+:resources:compileGroovy UP-TO-DATE
+:resources:processResources UP-TO-DATE
+:resources:classes UP-TO-DATE
+:resources:jar UP-TO-DATE
+:core:compileJava UP-TO-DATE
+:core:compileGroovy/home/travis/build/gradle/gradle/subprojects/core/src/main/groovy/org/gradle/internal/service/scopes/ProjectScopeServices.java:128: error: cannot find symbol
+        PluginApplicator applicator = new RuleBasedPluginApplicator<ProjectInternal>(project, inspector, get(ModelRuleSourceDetector.class));
+                                          ^
+  symbol:   class RuleBasedPluginApplicator
+  location: class ProjectScopeServices
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+startup failed:
+Compilation failed; see the compiler error output for details.
+
+1 error
+
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':core:compileGroovy'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 52.641 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed 3 times.[0m
+
+travis_time:end:01882b23:start=1420437780749417406,finish=1420438043232866736,duration=262483449330[0K
+[31;1mThe command "./gradlew assemble" failed and exited with 1 during .[0m
+
+Your build has been stopped.

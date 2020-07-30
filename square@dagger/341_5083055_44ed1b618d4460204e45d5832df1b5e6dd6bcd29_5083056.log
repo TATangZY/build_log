@@ -1,0 +1,328 @@
+Using worker: bluebox-linux-2.worker.travis-ci.org:travis-linux-2
+
+$ git clone --depth=100 --quiet git://github.com/square/dagger.git square/dagger
+$ cd square/dagger
+$ git fetch origin +refs/pull/170/merge: 
+remote: Counting objects: 48, done.[K
+remote: Compressing objects:   4% (1/21)   [Kremote: Compressing objects:   9% (2/21)   [Kremote: Compressing objects:  14% (3/21)   [Kremote: Compressing objects:  19% (4/21)   [Kremote: Compressing objects:  23% (5/21)   [Kremote: Compressing objects:  28% (6/21)   [Kremote: Compressing objects:  33% (7/21)   [Kremote: Compressing objects:  38% (8/21)   [Kremote: Compressing objects:  42% (9/21)   [Kremote: Compressing objects:  47% (10/21)   [Kremote: Compressing objects:  52% (11/21)   [Kremote: Compressing objects:  57% (12/21)   [Kremote: Compressing objects:  61% (13/21)   [Kremote: Compressing objects:  66% (14/21)   [Kremote: Compressing objects:  71% (15/21)   [Kremote: Compressing objects:  76% (16/21)   [Kremote: Compressing objects:  80% (17/21)   [Kremote: Compressing objects:  85% (18/21)   [Kremote: Compressing objects:  90% (19/21)   [Kremote: Compressing objects:  95% (20/21)   [Kremote: Compressing objects: 100% (21/21)   [Kremote: Compressing objects: 100% (21/21), done.[K
+remote: Total 37 (delta 14), reused 30 (delta 8)[K
+Unpacking objects:   2% (1/37)   Unpacking objects:   5% (2/37)   Unpacking objects:   8% (3/37)   Unpacking objects:  10% (4/37)   Unpacking objects:  13% (5/37)   Unpacking objects:  16% (6/37)   Unpacking objects:  18% (7/37)   Unpacking objects:  21% (8/37)   Unpacking objects:  24% (9/37)   Unpacking objects:  27% (10/37)   Unpacking objects:  29% (11/37)   Unpacking objects:  32% (12/37)   Unpacking objects:  35% (13/37)   Unpacking objects:  37% (14/37)   Unpacking objects:  40% (15/37)   Unpacking objects:  43% (16/37)   Unpacking objects:  45% (17/37)   Unpacking objects:  48% (18/37)   Unpacking objects:  51% (19/37)   Unpacking objects:  54% (20/37)   Unpacking objects:  56% (21/37)   Unpacking objects:  59% (22/37)   Unpacking objects:  62% (23/37)   Unpacking objects:  64% (24/37)   Unpacking objects:  67% (25/37)   Unpacking objects:  70% (26/37)   Unpacking objects:  72% (27/37)   Unpacking objects:  75% (28/37)   Unpacking objects:  78% (29/37)   Unpacking objects:  81% (30/37)   Unpacking objects:  83% (31/37)   Unpacking objects:  86% (32/37)   Unpacking objects:  89% (33/37)   Unpacking objects:  91% (34/37)   Unpacking objects:  94% (35/37)   Unpacking objects:  97% (36/37)   Unpacking objects: 100% (37/37)   Unpacking objects: 100% (37/37), done.
+From git://github.com/square/dagger
+ * branch            refs/pull/170/merge -> FETCH_HEAD
+$ git checkout -qf FETCH_HEAD
+$ java -version
+java version "1.7.0_09"
+OpenJDK Runtime Environment (IcedTea7 2.3.4) (7u9-2.3.4-0ubuntu1.12.04.1)
+OpenJDK 64-Bit Server VM (build 23.2-b09, mixed mode)
+$ javac -version
+javac 1.7.0_09
+$ mvn install clean --fail-never --quiet -DskipTests=true -Dinvoker.skip=true
+$ mvn verify
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Dagger (Parent)
+[INFO] Dagger
+[INFO] Dagger Compiler
+[INFO] Dagger AndroidManifest.xml Module Generator
+[INFO] Dagger Example (Parent)
+[INFO] Dagger Example - Simple
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger (Parent) 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-parent ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ dagger ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ dagger ---
+[INFO] Compiling 24 source files to /home/travis/build/square/dagger/core/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 1.6
+/home/travis/build/square/dagger/core/src/main/java/dagger/internal/UniqueMap.java:[24,7] [serial] serializable class UniqueMap has no definition of serialVersionUID
+[WARNING] /home/travis/build/square/dagger/core/src/main/java/dagger/internal/plugins/reflect/ReflectiveModuleAdapter.java:[120,23] [rawtypes] found raw type: Binding
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ dagger ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ dagger ---
+[INFO] Compiling 11 source files to /home/travis/build/square/dagger/core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dagger ---
+[INFO] Surefire report directory: /home/travis/build/square/dagger/core/target/surefire-reports
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.pom
+3/3 KB            Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.pom (3 KB at 4.1 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-providers/2.10/surefire-providers-2.10.pom
+3/3 KB            Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-providers/2.10/surefire-providers-2.10.pom (3 KB at 7.2 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.jar
+4/33 KB   8/33 KB   9/33 KB   13/33 KB   17/33 KB   21/33 KB   25/33 KB   27/33 KB   31/33 KB   33/33 KB              Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit4/2.10/surefire-junit4-2.10.jar (33 KB at 64.5 KB/sec)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dagger.ModuleIncludesTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.197 sec
+Running dagger.MembersInjectorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec
+Running dagger.internal.SingletonBindingTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running dagger.internal.KeysTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+Running dagger.ProblemDetectorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running dagger.InjectStaticsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running dagger.LazyInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running dagger.ExtensionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+Running dagger.InjectionTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 sec
+Running dagger.SetBindingTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+Running dagger.InjectionOfLazyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+
+Results :
+
+Tests run: 99, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ dagger ---
+[INFO] Building jar: /home/travis/build/square/dagger/core/target/dagger-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger Compiler 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-compiler ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ dagger-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ dagger-compiler ---
+[INFO] Compiling 11 source files to /home/travis/build/square/dagger/compiler/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ dagger-compiler ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/compiler/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ dagger-compiler ---
+[INFO] Compiling 3 source files to /home/travis/build/square/dagger/compiler/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dagger-compiler ---
+[INFO] Surefire report directory: /home/travis/build/square/dagger/compiler/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dagger.internal.codegen.DotWriterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec
+Running dagger.internal.codegen.GraphVisualizerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+
+Results :
+
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ dagger-compiler ---
+[INFO] Building jar: /home/travis/build/square/dagger/compiler/target/dagger-compiler-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-invoker-plugin:1.7:install (integration-test) @ dagger-compiler ---
+[INFO] Installing /home/travis/build/square/dagger/core/pom.xml to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger/1.0-SNAPSHOT/dagger-1.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/dagger/core/target/dagger-1.0-SNAPSHOT.jar to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger/1.0-SNAPSHOT/dagger-1.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/dagger/pom.xml to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger-parent/1.0-SNAPSHOT/dagger-parent-1.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/dagger/compiler/pom.xml to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger-compiler/1.0-SNAPSHOT/dagger-compiler-1.0-SNAPSHOT.pom
+[INFO] Installing /home/travis/build/square/dagger/compiler/target/dagger-compiler-1.0-SNAPSHOT.jar to /home/travis/build/square/dagger/compiler/target/local-repo/com/squareup/dagger-compiler/1.0-SNAPSHOT/dagger-compiler-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-invoker-plugin:1.7:run (integration-test) @ dagger-compiler ---
+[INFO] Building: include-non-module/pom.xml
+[INFO] ..SUCCESS (32.4 s)
+[INFO] Building: inject-parameterized-type/pom.xml
+[INFO] ..SUCCESS (33.1 s)
+[INFO] Building: missing-at-inject-constructor/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.3 s)
+[INFO] Building: cyclic-deps/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.4 s)
+[INFO] Building: multiple-provides-methods/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (9.0 s)
+[INFO] Building: extension-graph/pom.xml
+[INFO] ..SUCCESS (9.0 s)
+[INFO] Building: same-provides-method-name/pom.xml
+[INFO] ..SUCCESS (9.5 s)
+[INFO] Building: uninjectable-supertype/pom.xml
+[INFO] ..SUCCESS (9.6 s)
+[INFO] Building: simple-missing-dependency-failure/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.7 s)
+[INFO] Building: inner-classes-complaint-injection/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.3 s)
+[INFO] Building: provides-method-with-throws-clause/pom.xml
+[INFO] run script verify.bsh
+[INFO] ..SUCCESS (7.5 s)
+[INFO] Building: default-package-injected-type/pom.xml
+[INFO] ..SUCCESS (10.4 s)
+[INFO] -------------------------------------------------
+[INFO] Build Summary:
+[INFO]   Passed: 12, Failed: 0, Errors: 0, Skipped: 0
+[INFO] -------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-compiler ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger AndroidManifest.xml Module Generator 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-androidmanifest-plugin ---
+[INFO] 
+[INFO] --- maven-plugin-plugin:2.8:descriptor (default-descriptor) @ dagger-androidmanifest-plugin ---
+[WARNING] 
+
+Goal prefix is specified as: 'dagger'. Maven currently expects it to be 'dagger-androidmanifest'.
+
+[INFO] Using 'UTF-8' encoding to read mojo metadata.
+[INFO] Applying mojo extractor for language: java
+[INFO] Mojo extractor for language: java found 1 mojo descriptors.
+[INFO] Applying mojo extractor for language: bsh
+[INFO] Mojo extractor for language: bsh found 0 mojo descriptors.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ dagger-androidmanifest-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/androidmanifest/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ dagger-androidmanifest-plugin ---
+[INFO] Compiling 3 source files to /home/travis/build/square/dagger/androidmanifest/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ dagger-androidmanifest-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/androidmanifest/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ dagger-androidmanifest-plugin ---
+[INFO] Compiling 1 source file to /home/travis/build/square/dagger/androidmanifest/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ dagger-androidmanifest-plugin ---
+[INFO] Surefire report directory: /home/travis/build/square/dagger/androidmanifest/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dagger.androidmanifest.ModuleGeneratorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 sec
+
+Results :
+
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ dagger-androidmanifest-plugin ---
+[INFO] Building jar: /home/travis/build/square/dagger/androidmanifest/target/dagger-androidmanifest-plugin-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-plugin-plugin:2.8:addPluginArtifactMetadata (default-addPluginArtifactMetadata) @ dagger-androidmanifest-plugin ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-androidmanifest-plugin ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger Example (Parent) 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ dagger-example-parent ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ dagger-example-parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Dagger Example - Simple 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ simple-dagger-example ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:resources (default-resources) @ simple-dagger-example ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/examples/simple/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:compile (default-compile) @ simple-dagger-example ---
+[INFO] Compiling 8 source files to /home/travis/build/square/dagger/examples/simple/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.3:testResources (default-testResources) @ simple-dagger-example ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/dagger/examples/simple/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5:testCompile (default-testCompile) @ simple-dagger-example ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ simple-dagger-example ---
+[INFO] No tests to run.
+[INFO] Surefire report directory: /home/travis/build/square/dagger/examples/simple/target/surefire-reports
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.pom
+2/2 KB              Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.pom (2 KB at 3.1 KB/sec)
+Downloading: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.jar
+4/26 KB   8/26 KB   9/26 KB   13/26 KB   17/26 KB   21/26 KB   23/26 KB   24/26 KB   26/26 KB              Downloaded: http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.jar (26 KB at 42.6 KB/sec)
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.2:jar (default-jar) @ simple-dagger-example ---
+[INFO] Building jar: /home/travis/build/square/dagger/examples/simple/target/simple-dagger-example-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ simple-dagger-example ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Dagger (Parent) ................................... SUCCESS [3.225s]
+[INFO] Dagger ............................................ SUCCESS [9.267s]
+[INFO] Dagger Compiler ................................... SUCCESS [2:33.510s]
+[INFO] Dagger AndroidManifest.xml Module Generator ....... SUCCESS [2.450s]
+[INFO] Dagger Example (Parent) ........................... SUCCESS [0.009s]
+[INFO] Dagger Example - Simple ........................... SUCCESS [2.225s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:51.353s
+[INFO] Finished at: Tue Feb 26 21:05:16 UTC 2013
+[INFO] Final Memory: 26M/205M
+[INFO] ------------------------------------------------------------------------
+
+The command "mvn verify" exited with 0.
+
+Done. Your build exited with 0.

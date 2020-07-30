@@ -1,0 +1,898 @@
+Using worker: worker-linux-5-1.bb.travis-ci.org:travis-linux-12
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Sun Dec  7 05:49:51 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+5736160 https://github.com/travis-ci/travis-cookbooks/tree/5736160
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.3.3
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.0
+------------------------------------------------------------
+
+Build time:   2014-07-01 07:45:34 UTC
+Build number: none
+Revision:     b6ead6fa452dfdadec484059191eb641d817226c
+
+Groovy:       2.3.3
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:059f1465[0K$ git clone --depth=50 --branch=master git://github.com/daimajia/AndroidViewAnimations.git daimajia/AndroidViewAnimations
+Cloning into 'daimajia/AndroidViewAnimations'...
+remote: Counting objects: 758, done.[K
+remote: Compressing objects:   0% (1/241)   [Kremote: Compressing objects:   1% (3/241)   [Kremote: Compressing objects:   2% (5/241)   [Kremote: Compressing objects:   3% (8/241)   [Kremote: Compressing objects:   4% (10/241)   [Kremote: Compressing objects:   5% (13/241)   [Kremote: Compressing objects:   6% (15/241)   [Kremote: Compressing objects:   7% (17/241)   [Kremote: Compressing objects:   8% (20/241)   [Kremote: Compressing objects:   9% (22/241)   [Kremote: Compressing objects:  10% (25/241)   [Kremote: Compressing objects:  11% (27/241)   [Kremote: Compressing objects:  12% (29/241)   [Kremote: Compressing objects:  13% (32/241)   [Kremote: Compressing objects:  14% (34/241)   [Kremote: Compressing objects:  15% (37/241)   [Kremote: Compressing objects:  16% (39/241)   [Kremote: Compressing objects:  17% (41/241)   [Kremote: Compressing objects:  18% (44/241)   [Kremote: Compressing objects:  19% (46/241)   [Kremote: Compressing objects:  20% (49/241)   [Kremote: Compressing objects:  21% (51/241)   [Kremote: Compressing objects:  22% (54/241)   [Kremote: Compressing objects:  23% (56/241)   [Kremote: Compressing objects:  24% (58/241)   [Kremote: Compressing objects:  25% (61/241)   [Kremote: Compressing objects:  26% (63/241)   [Kremote: Compressing objects:  27% (66/241)   [Kremote: Compressing objects:  28% (68/241)   [Kremote: Compressing objects:  29% (70/241)   [Kremote: Compressing objects:  30% (73/241)   [Kremote: Compressing objects:  31% (75/241)   [Kremote: Compressing objects:  32% (78/241)   [Kremote: Compressing objects:  33% (80/241)   [Kremote: Compressing objects:  34% (82/241)   [Kremote: Compressing objects:  35% (85/241)   [Kremote: Compressing objects:  36% (87/241)   [Kremote: Compressing objects:  37% (90/241)   [Kremote: Compressing objects:  38% (92/241)   [Kremote: Compressing objects:  39% (94/241)   [Kremote: Compressing objects:  40% (97/241)   [Kremote: Compressing objects:  41% (99/241)   [Kremote: Compressing objects:  42% (102/241)   [Kremote: Compressing objects:  43% (104/241)   [Kremote: Compressing objects:  44% (107/241)   [Kremote: Compressing objects:  45% (109/241)   [Kremote: Compressing objects:  46% (111/241)   [Kremote: Compressing objects:  47% (114/241)   [Kremote: Compressing objects:  48% (116/241)   [Kremote: Compressing objects:  49% (119/241)   [Kremote: Compressing objects:  50% (121/241)   [Kremote: Compressing objects:  51% (123/241)   [Kremote: Compressing objects:  52% (126/241)   [Kremote: Compressing objects:  53% (128/241)   [Kremote: Compressing objects:  54% (131/241)   [Kremote: Compressing objects:  55% (133/241)   [Kremote: Compressing objects:  56% (135/241)   [Kremote: Compressing objects:  57% (138/241)   [Kremote: Compressing objects:  58% (140/241)   [Kremote: Compressing objects:  59% (143/241)   [Kremote: Compressing objects:  60% (145/241)   [Kremote: Compressing objects:  61% (148/241)   [Kremote: Compressing objects:  62% (150/241)   [Kremote: Compressing objects:  63% (152/241)   [Kremote: Compressing objects:  64% (155/241)   [Kremote: Compressing objects:  65% (157/241)   [Kremote: Compressing objects:  66% (160/241)   [Kremote: Compressing objects:  67% (162/241)   [Kremote: Compressing objects:  68% (164/241)   [Kremote: Compressing objects:  69% (167/241)   [Kremote: Compressing objects:  70% (169/241)   [Kremote: Compressing objects:  71% (172/241)   [Kremote: Compressing objects:  72% (174/241)   [Kremote: Compressing objects:  73% (176/241)   [Kremote: Compressing objects:  74% (179/241)   [Kremote: Compressing objects:  75% (181/241)   [Kremote: Compressing objects:  76% (184/241)   [Kremote: Compressing objects:  77% (186/241)   [Kremote: Compressing objects:  78% (188/241)   [Kremote: Compressing objects:  79% (191/241)   [Kremote: Compressing objects:  80% (193/241)   [Kremote: Compressing objects:  81% (196/241)   [Kremote: Compressing objects:  82% (198/241)   [Kremote: Compressing objects:  83% (201/241)   [Kremote: Compressing objects:  84% (203/241)   [Kremote: Compressing objects:  85% (205/241)   [Kremote: Compressing objects:  86% (208/241)   [Kremote: Compressing objects:  87% (210/241)   [Kremote: Compressing objects:  88% (213/241)   [Kremote: Compressing objects:  89% (215/241)   [Kremote: Compressing objects:  90% (217/241)   [Kremote: Compressing objects:  91% (220/241)   [Kremote: Compressing objects:  92% (222/241)   [Kremote: Compressing objects:  93% (225/241)   [Kremote: Compressing objects:  94% (227/241)   [Kremote: Compressing objects:  95% (229/241)   [Kremote: Compressing objects:  96% (232/241)   [Kremote: Compressing objects:  97% (234/241)   [Kremote: Compressing objects:  98% (237/241)   [Kremote: Compressing objects:  99% (239/241)   [Kremote: Compressing objects: 100% (241/241)   [Kremote: Compressing objects: 100% (241/241), done.[K
+Receiving objects:   0% (1/758)   Receiving objects:   1% (8/758)   Receiving objects:   2% (16/758)   Receiving objects:   3% (23/758)   Receiving objects:   4% (31/758)   Receiving objects:   5% (38/758)   Receiving objects:   6% (46/758)   Receiving objects:   7% (54/758)   Receiving objects:   8% (61/758)   Receiving objects:   9% (69/758)   Receiving objects:  10% (76/758)   Receiving objects:  11% (84/758)   Receiving objects:  12% (91/758)   Receiving objects:  13% (99/758)   Receiving objects:  14% (107/758)   Receiving objects:  15% (114/758)   Receiving objects:  16% (122/758)   Receiving objects:  17% (129/758)   Receiving objects:  18% (137/758)   Receiving objects:  19% (145/758)   Receiving objects:  20% (152/758)   Receiving objects:  21% (160/758)   Receiving objects:  22% (167/758)   Receiving objects:  23% (175/758)   Receiving objects:  24% (182/758)   Receiving objects:  25% (190/758)   Receiving objects:  26% (198/758)   Receiving objects:  27% (205/758)   Receiving objects:  28% (213/758)   Receiving objects:  29% (220/758)   Receiving objects:  30% (228/758)   Receiving objects:  31% (235/758)   Receiving objects:  32% (243/758)   Receiving objects:  33% (251/758)   Receiving objects:  34% (258/758)   Receiving objects:  35% (266/758)   Receiving objects:  36% (273/758)   Receiving objects:  37% (281/758)   Receiving objects:  38% (289/758)   Receiving objects:  39% (296/758)   Receiving objects:  40% (304/758)   Receiving objects:  41% (311/758)   Receiving objects:  42% (319/758)   Receiving objects:  43% (326/758)   Receiving objects:  44% (334/758)   Receiving objects:  45% (342/758)   Receiving objects:  46% (349/758)   Receiving objects:  47% (357/758)   Receiving objects:  48% (364/758)   Receiving objects:  49% (372/758)   Receiving objects:  50% (379/758)   Receiving objects:  51% (387/758)   Receiving objects:  52% (395/758)   Receiving objects:  53% (402/758)   Receiving objects:  54% (410/758)   Receiving objects:  55% (417/758)   Receiving objects:  56% (425/758)   Receiving objects:  57% (433/758)   Receiving objects:  58% (440/758)   Receiving objects:  59% (448/758)   Receiving objects:  60% (455/758)   Receiving objects:  61% (463/758)   Receiving objects:  62% (470/758)   Receiving objects:  63% (478/758)   Receiving objects:  64% (486/758)   Receiving objects:  65% (493/758)   Receiving objects:  66% (501/758)   Receiving objects:  67% (508/758)   remote: Total 758 (delta 410), reused 703 (delta 361)[K
+Receiving objects:  68% (516/758)   Receiving objects:  69% (524/758)   Receiving objects:  70% (531/758)   Receiving objects:  71% (539/758)   Receiving objects:  72% (546/758)   Receiving objects:  73% (554/758)   Receiving objects:  74% (561/758)   Receiving objects:  75% (569/758)   Receiving objects:  76% (577/758)   Receiving objects:  77% (584/758)   Receiving objects:  78% (592/758)   Receiving objects:  79% (599/758)   Receiving objects:  80% (607/758)   Receiving objects:  81% (614/758)   Receiving objects:  82% (622/758)   Receiving objects:  83% (630/758)   Receiving objects:  84% (637/758)   Receiving objects:  85% (645/758)   Receiving objects:  86% (652/758)   Receiving objects:  87% (660/758)   Receiving objects:  88% (668/758)   Receiving objects:  89% (675/758)   Receiving objects:  90% (683/758)   Receiving objects:  91% (690/758)   Receiving objects:  92% (698/758)   Receiving objects:  93% (705/758)   Receiving objects:  94% (713/758)   Receiving objects:  95% (721/758)   Receiving objects:  96% (728/758)   Receiving objects:  97% (736/758)   Receiving objects:  98% (743/758)   Receiving objects:  99% (751/758)   Receiving objects: 100% (758/758)   Receiving objects: 100% (758/758), 180.20 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/410)   Resolving deltas:   1% (7/410)   Resolving deltas:   2% (9/410)   Resolving deltas:   3% (13/410)   Resolving deltas:   5% (24/410)   Resolving deltas:   6% (28/410)   Resolving deltas:   7% (31/410)   Resolving deltas:   8% (34/410)   Resolving deltas:  21% (89/410)   Resolving deltas:  22% (92/410)   Resolving deltas:  23% (95/410)   Resolving deltas:  24% (100/410)   Resolving deltas:  27% (112/410)   Resolving deltas:  28% (116/410)   Resolving deltas:  29% (119/410)   Resolving deltas:  33% (136/410)   Resolving deltas:  36% (148/410)   Resolving deltas:  37% (152/410)   Resolving deltas:  49% (202/410)   Resolving deltas:  50% (205/410)   Resolving deltas:  51% (211/410)   Resolving deltas:  52% (217/410)   Resolving deltas:  54% (222/410)   Resolving deltas:  55% (228/410)   Resolving deltas:  57% (234/410)   Resolving deltas:  65% (268/410)   Resolving deltas:  69% (285/410)   Resolving deltas:  70% (287/410)   Resolving deltas:  72% (296/410)   Resolving deltas:  73% (303/410)   Resolving deltas:  90% (373/410)   Resolving deltas: 100% (410/410)   Resolving deltas: 100% (410/410), done.
+Checking connectivity... done.
+travis_time:end:059f1465:start=1419328855245704119,finish=1419328855393980200,duration=148276081[0K$ cd daimajia/AndroidViewAnimations
+$ git checkout -qf 920ce4a0d530ddb32d385b579ba24f7163b8eee4
+travis_fold:end:git.checkout[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export ANDROID_TARGET=android-20
+$ export ANDROID_ABI=armeabi-v7a
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:before_install.1[0Ktravis_time:start:106492d0[0K$ sudo apt-get update -qq
+travis_time:end:106492d0:start=1419328855681273309,finish=1419328861771603957,duration=6090330648[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:257ad66b[0K$ if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
+Extracting templates from packages: 10%Extracting templates from packages: 20%Extracting templates from packages: 31%Extracting templates from packages: 41%Extracting templates from packages: 51%Extracting templates from packages: 62%Extracting templates from packages: 72%Extracting templates from packages: 82%Extracting templates from packages: 93%Extracting templates from packages: 100%
+travis_time:end:257ad66b:start=1419328861779770333,finish=1419328957887984110,duration=96108213777[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:0454eae9[0K$ wget http://dl.google.com/android/android-sdk_r23-linux.tgz
+--2014-12-23 10:02:37--  http://dl.google.com/android/android-sdk_r23-linux.tgz
+Resolving dl.google.com (dl.google.com)... 2607:f8b0:4004:803::1006, 74.125.228.38, 74.125.228.37, ...
+Connecting to dl.google.com (dl.google.com)|2607:f8b0:4004:803::1006|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 137880977 (131M) [application/x-tar]
+Saving to: `android-sdk_r23-linux.tgz'
+
+ 0% [                                       ] 0           --.-K/s               6% [=>                                     ] 9,411,200   44.8M/s              17% [=====>                                 ] 24,039,248  57.2M/s              27% [=========>                             ] 38,426,792  61.0M/s              36% [=============>                         ] 50,864,128  60.6M/s              43% [================>                      ] 60,567,752  57.7M/s              51% [==================>                    ] 70,681,784  56.1M/s              57% [=====================>                 ] 79,143,440  53.9M/s              63% [=======================>               ] 87,255,672  52.0M/s              68% [=========================>             ] 94,497,400  50.0M/s              73% [===========================>           ] 101,372,904 48.3M/s              78% [=============================>         ] 107,957,800 46.8M/s              82% [===============================>       ] 114,083,528 45.3M/s              87% [================================>      ] 119,956,664 43.9M/s              91% [==================================>    ] 126,043,320 42.8M/s              95% [====================================>  ] 132,023,480 41.9M/s  eta 0s      100%[======================================>] 137,880,977 41.1M/s   in 3.2s    
+
+2014-12-23 10:02:41 (41.1 MB/s) - `android-sdk_r23-linux.tgz' saved [137880977/137880977]
+
+travis_time:end:0454eae9:start=1419328957896816495,finish=1419328961166094171,duration=3269277676[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:21452400[0K$ tar xzf android-sdk_r23-linux.tgz
+travis_time:end:21452400:start=1419328961174373325,finish=1419328963190504339,duration=2016131014[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:0e9c41a8[0K$ export ANDROID_HOME=$PWD/android-sdk-linux
+travis_time:end:0e9c41a8:start=1419328963198542331,finish=1419328963204105293,duration=5562962[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:1b238d90[0K$ export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+travis_time:end:1b238d90:start=1419328963210704236,finish=1419328963216219288,duration=5515052[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:09e6757c[0K$ wget http://services.gradle.org/distributions/gradle-1.12-bin.zip
+--2014-12-23 10:02:43--  http://services.gradle.org/distributions/gradle-1.12-bin.zip
+Resolving services.gradle.org (services.gradle.org)... 207.223.250.26
+Connecting to services.gradle.org (services.gradle.org)|207.223.250.26|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://downloads.gradle.org/distributions/gradle-1.12-bin.zip [following]
+--2014-12-23 10:02:43--  http://downloads.gradle.org/distributions/gradle-1.12-bin.zip
+Resolving downloads.gradle.org (downloads.gradle.org)... 54.230.69.244
+Connecting to downloads.gradle.org (downloads.gradle.org)|54.230.69.244|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 42080843 (40M) [application/zip]
+Saving to: `gradle-1.12-bin.zip'
+
+ 0% [                                       ] 0           --.-K/s               0% [                                       ] 140,850      520K/s               1% [                                       ] 465,698      978K/s               3% [>                                      ] 1,263,546   1.72M/s               7% [=>                                     ] 2,991,010   3.17M/s               7% [=>                                     ] 3,192,282   2.71M/s               7% [==>                                    ] 3,359,754   2.42M/s               8% [==>                                    ] 3,571,162   2.14M/s               8% [==>                                    ] 3,746,370   2.00M/s               9% [==>                                    ] 3,997,370   1.92M/s               9% [==>                                    ] 4,198,642   1.80M/s              10% [===>                                   ] 4,389,778   1.71M/s              10% [===>                                   ] 4,595,394   1.65M/s              11% [===>                                   ] 4,824,178   1.59M/s              11% [===>                                   ] 5,041,378   1.54M/s  eta 23s     12% [===>                                   ] 5,254,234   1.51M/s  eta 23s     13% [====>                                  ] 5,478,674   1.53M/s  eta 23s     13% [====>                                  ] 5,692,978   1.53M/s  eta 23s     14% [====>                                  ] 5,914,522   1.49M/s  eta 23s     14% [====>                                  ] 6,149,098   1024K/s  eta 25s     15% [====>                                  ] 6,409,738    935K/s  eta 25s     15% [=====>                                 ] 6,631,282    949K/s  eta 25s     16% [=====>                                 ] 6,867,306    966K/s  eta 25s     16% [=====>                                 ] 7,126,498    978K/s  eta 25s     17% [=====>                                 ] 7,354,786    993K/s  eta 25s     18% [======>                                ] 7,582,618    990K/s  eta 25s     18% [======>                                ] 7,843,258    991K/s  eta 25s     19% [======>                                ] 8,094,714   1008K/s  eta 25s     19% [======>                                ] 8,299,378   1001K/s  eta 25s     20% [======>                                ] 8,507,890   1002K/s  eta 26s     20% [=======>                               ] 8,732,330   1004K/s  eta 26s     21% [=======>                               ] 8,950,978   1001K/s  eta 26s     21% [=======>                               ] 9,165,282   1005K/s  eta 26s     22% [=======>                               ] 9,407,098   1000K/s  eta 26s     22% [=======>                               ] 9,602,578   1002K/s  eta 26s     23% [========>                              ] 9,821,226    995K/s  eta 26s     23% [========>                              ] 10,058,698   995K/s  eta 26s     24% [========>                              ] 10,281,690   990K/s  eta 26s     24% [========>                              ] 10,514,818   986K/s  eta 26s     25% [========>                              ] 10,745,050   980K/s  eta 25s     26% [=========>                             ] 11,008,586   986K/s  eta 25s     26% [=========>                             ] 11,296,738  1006K/s  eta 25s     27% [=========>                             ] 11,567,514  1011K/s  eta 25s     28% [=========>                             ] 11,858,562  1.01M/s  eta 25s     28% [==========>                            ] 12,161,194  1.04M/s  eta 24s     29% [==========>                            ] 12,467,674  1.07M/s  eta 24s     30% [==========>                            ] 12,791,530  1.11M/s  eta 24s     31% [===========>                           ] 13,121,218  1.14M/s  eta 24s     31% [===========>                           ] 13,418,058  1.15M/s  eta 24s     32% [===========>                           ] 13,719,242  1.17M/s  eta 23s     33% [============>                          ] 14,033,458  1.22M/s  eta 23s     34% [============>                          ] 14,362,154  1.25M/s  eta 23s     34% [============>                          ] 14,685,058  1.27M/s  eta 23s     35% [============>                          ] 15,010,858  1.31M/s  eta 23s     36% [=============>                         ] 15,336,658  1.34M/s  eta 21s     37% [=============>                         ] 15,653,274  1.36M/s  eta 21s     37% [=============>                         ] 15,963,642  1.37M/s  eta 21s     38% [==============>                        ] 16,282,202  1.40M/s  eta 21s     39% [==============>                        ] 16,574,698  1.40M/s  eta 21s     40% [==============>                        ] 16,900,498  1.42M/s  eta 19s     40% [==============>                        ] 17,226,298  1.41M/s  eta 19s     41% [===============>                       ] 17,550,650  1.41M/s  eta 19s     42% [===============>                       ] 17,856,178  1.42M/s  eta 19s     43% [===============>                       ] 18,208,042  1.42M/s  eta 19s     44% [================>                      ] 18,599,002  1.46M/s  eta 18s     45% [================>                      ] 18,979,826  1.47M/s  eta 18s     45% [================>                      ] 19,309,970  1.49M/s  eta 18s     46% [=================>                     ] 19,616,946  1.47M/s  eta 18s     47% [=================>                     ] 19,959,626  1.48M/s  eta 18s     48% [=================>                     ] 20,239,586  1.47M/s  eta 16s     48% [=================>                     ] 20,488,642  1.45M/s  eta 16s     49% [==================>                    ] 20,782,586  1.46M/s  eta 16s     50% [==================>                    ] 21,065,898  1.45M/s  eta 16s     50% [==================>                    ] 21,358,394  1.45M/s  eta 16s     51% [===================>                   ] 21,665,866  1.45M/s  eta 15s     52% [===================>                   ] 21,984,426  1.46M/s  eta 15s     53% [===================>                   ] 22,303,938  1.47M/s  eta 15s     53% [===================>                   ] 22,607,066  1.45M/s  eta 15s     54% [====================>                  ] 22,919,834  1.44M/s  eta 15s     55% [====================>                  ] 23,235,498  1.44M/s  eta 14s     56% [====================>                  ] 23,587,362  1.44M/s  eta 14s     56% [=====================>                 ] 23,872,618  1.40M/s  eta 14s     57% [=====================>                 ] 24,198,418  1.39M/s  eta 14s     58% [=====================>                 ] 24,524,218  1.40M/s  eta 14s     59% [======================>                ] 24,850,018  1.39M/s  eta 13s     59% [======================>                ] 25,175,818  1.39M/s  eta 13s     60% [======================>                ] 25,526,234  1.41M/s  eta 13s     61% [======================>                ] 25,835,610  1.42M/s  eta 13s     62% [=======================>               ] 26,154,666  1.41M/s  eta 13s     62% [=======================>               ] 26,485,762  1.43M/s  eta 11s     63% [=======================>               ] 26,804,818  1.42M/s  eta 11s     64% [========================>              ] 27,195,778  1.45M/s  eta 11s     65% [========================>              ] 27,586,738  1.48M/s  eta 11s     66% [========================>              ] 27,985,890  1.50M/s  eta 11s     67% [=========================>             ] 28,367,210  1.53M/s  eta 10s     68% [=========================>             ] 28,759,618  1.55M/s  eta 10s     69% [==========================>            ] 29,158,770  1.58M/s  eta 10s     70% [==========================>            ] 29,549,730  1.61M/s  eta 10s     71% [==========================>            ] 29,986,074  1.63M/s  eta 10s     72% [===========================>           ] 30,388,618  1.65M/s  eta 8s      73% [===========================>           ] 30,799,850  1.68M/s  eta 8s      74% [===========================>           ] 31,195,154  1.71M/s  eta 8s      75% [============================>          ] 31,626,658  1.74M/s  eta 8s      76% [============================>          ] 32,066,850  1.78M/s  eta 8s      77% [=============================>         ] 32,473,738  1.80M/s  eta 7s      78% [=============================>         ] 32,898,002  1.83M/s  eta 7s      79% [=============================>         ] 33,352,674  1.85M/s  eta 7s      80% [==============================>        ] 33,776,938  1.88M/s  eta 7s      81% [==============================>        ] 34,167,898  1.87M/s  eta 7s      82% [===============================>       ] 34,600,354  1.86M/s  eta 5s      83% [===============================>       ] 35,014,978  1.88M/s  eta 5s      84% [===============================>       ] 35,471,098  1.86M/s  eta 5s      85% [================================>      ] 35,891,018  1.88M/s  eta 5s      86% [================================>      ] 36,318,178  1.87M/s  eta 5s      87% [=================================>     ] 36,761,266  1.89M/s  eta 4s      88% [=================================>     ] 37,165,258  1.86M/s  eta 4s      89% [=================================>     ] 37,621,378  1.87M/s  eta 4s      90% [==================================>    ] 38,077,498  1.87M/s  eta 4s      91% [==================================>    ] 38,533,618  1.87M/s  eta 4s      92% [===================================>   ] 38,989,738  1.86M/s  eta 2s      93% [===================================>   ] 39,445,858  1.87M/s  eta 2s      94% [===================================>   ] 39,901,978  1.86M/s  eta 2s      95% [====================================>  ] 40,360,994  1.87M/s  eta 2s      96% [====================================>  ] 40,814,218  1.88M/s  eta 2s      98% [=====================================> ] 41,330,658  1.91M/s  eta 0s      99% [=====================================> ] 41,733,202  1.90M/s  eta 0s      100%[======================================>] 42,080,843  1.91M/s   in 27s     
+
+2014-12-23 10:03:10 (1.47 MB/s) - `gradle-1.12-bin.zip' saved [42080843/42080843]
+
+travis_time:end:09e6757c:start=1419328963223446625,finish=1419328990830939681,duration=27607493056[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:1cf5c95a[0K$ unzip gradle-1.12-bin.zip
+Archive:  gradle-1.12-bin.zip
+   creating: gradle-1.12/
+  inflating: gradle-1.12/getting-started.html  
+  inflating: gradle-1.12/LICENSE     
+  inflating: gradle-1.12/NOTICE      
+  inflating: gradle-1.12/changelog.txt  
+   creating: gradle-1.12/init.d/
+  inflating: gradle-1.12/init.d/readme.txt  
+   creating: gradle-1.12/media/
+  inflating: gradle-1.12/media/gradle-icon-512x512.png  
+  inflating: gradle-1.12/media/gradle-icon-16x16.png  
+  inflating: gradle-1.12/media/gradle.icns  
+  inflating: gradle-1.12/media/gradle-icon-128x128.png  
+  inflating: gradle-1.12/media/gradle-icon-256x256.png  
+  inflating: gradle-1.12/media/gradle-icon-48x48.png  
+  inflating: gradle-1.12/media/gradle-icon-24x24.png  
+  inflating: gradle-1.12/media/gradle-icon-64x64.png  
+  inflating: gradle-1.12/media/gradle-icon-32x32.png  
+   creating: gradle-1.12/bin/
+  inflating: gradle-1.12/bin/gradle.bat  
+  inflating: gradle-1.12/bin/gradle  
+   creating: gradle-1.12/lib/
+  inflating: gradle-1.12/lib/gradle-launcher-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-wrapper-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-base-services-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-core-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-cli-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-ui-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-tooling-api-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-native-1.12.jar  
+  inflating: gradle-1.12/lib/slf4j-api-1.7.5.jar  
+  inflating: gradle-1.12/lib/guava-jdk5-14.0.1.jar  
+  inflating: gradle-1.12/lib/groovy-all-1.8.6.jar  
+  inflating: gradle-1.12/lib/gradle-base-services-groovy-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-resources-1.12.jar  
+  inflating: gradle-1.12/lib/asm-all-5.0_BETA.jar  
+  inflating: gradle-1.12/lib/ant-1.9.3.jar  
+  inflating: gradle-1.12/lib/commons-collections-3.2.1.jar  
+  inflating: gradle-1.12/lib/commons-io-1.4.jar  
+  inflating: gradle-1.12/lib/commons-lang-2.6.jar  
+  inflating: gradle-1.12/lib/ivy-2.2.0.jar  
+  inflating: gradle-1.12/lib/logback-core-1.0.13.jar  
+  inflating: gradle-1.12/lib/logback-classic-1.0.13.jar  
+  inflating: gradle-1.12/lib/jcip-annotations-1.0.jar  
+  inflating: gradle-1.12/lib/jul-to-slf4j-1.7.5.jar  
+  inflating: gradle-1.12/lib/jarjar-1.3.jar  
+  inflating: gradle-1.12/lib/javax.inject-1.jar  
+  inflating: gradle-1.12/lib/bintray-client-java-impl-0.1.0.jar  
+  inflating: gradle-1.12/lib/httpclient-4.2.2.jar  
+  inflating: gradle-1.12/lib/gradle-messaging-1.12.jar  
+  inflating: gradle-1.12/lib/gradle-docs-1.12.jar  
+  inflating: gradle-1.12/lib/log4j-over-slf4j-1.7.5.jar  
+  inflating: gradle-1.12/lib/jcl-over-slf4j-1.7.5.jar  
+  inflating: gradle-1.12/lib/gradle-open-api-1.12.jar  
+  inflating: gradle-1.12/lib/dom4j-1.6.1.jar  
+  inflating: gradle-1.12/lib/jaxen-1.1.jar  
+  inflating: gradle-1.12/lib/jna-3.2.7.jar  
+  inflating: gradle-1.12/lib/native-platform-0.10.jar  
+  inflating: gradle-1.12/lib/jna-posix-1.0.3.jar  
+  inflating: gradle-1.12/lib/jansi-1.2.1.jar  
+  inflating: gradle-1.12/lib/ant-launcher-1.9.3.jar  
+  inflating: gradle-1.12/lib/jsch-0.1.51.jar  
+  inflating: gradle-1.12/lib/joda-time-2.3.jar  
+  inflating: gradle-1.12/lib/bintray-client-java-api-0.1.0.jar  
+  inflating: gradle-1.12/lib/http-builder-0.6.jar  
+  inflating: gradle-1.12/lib/commons-codec-1.6.jar  
+  inflating: gradle-1.12/lib/httpcore-4.2.2.jar  
+  inflating: gradle-1.12/lib/jcifs-1.3.17.jar  
+  inflating: gradle-1.12/lib/kryo-2.20.jar  
+  inflating: gradle-1.12/lib/native-platform-osx-i386-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-osx-amd64-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-linux-amd64-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-linux-i386-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-windows-amd64-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-windows-i386-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-freebsd-i386-0.10.jar  
+  inflating: gradle-1.12/lib/native-platform-freebsd-amd64-0.10.jar  
+  inflating: gradle-1.12/lib/json-lib-2.3-jdk15.jar  
+  inflating: gradle-1.12/lib/xml-resolver-1.2.jar  
+  inflating: gradle-1.12/lib/reflectasm-1.07-shaded.jar  
+  inflating: gradle-1.12/lib/minlog-1.2.jar  
+  inflating: gradle-1.12/lib/objenesis-1.2.jar  
+  inflating: gradle-1.12/lib/commons-beanutils-1.8.0.jar  
+  inflating: gradle-1.12/lib/commons-logging-1.1.1.jar  
+  inflating: gradle-1.12/lib/ezmorph-1.0.6.jar  
+  inflating: gradle-1.12/lib/asm-4.0.jar  
+   creating: gradle-1.12/lib/plugins/
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-settings-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-repository-metadata-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-container-default-1.5.5.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-aether-provider-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-wagon-provider-api-2.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-cipher-1.7.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-interpolation-1.14.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-utils-2.0.6.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-classworlds-2.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-plugin-api-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-model-builder-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-sec-dispatcher-1.3.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-plexus-component-annotations-1.5.5.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-aether-connector-wagon-1.13.1.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-compat-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-wagon-http-2.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-aether-api-1.13.1.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-settings-builder-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-aether-spi-1.13.1.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-core-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-wagon-http-shared4-2.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-aether-util-1.13.1.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-artifact-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-maven-model-3.0.4.jar  
+  inflating: gradle-1.12/lib/plugins/jarjar-aether-impl-1.13.1.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-plugins-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-code-quality-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-jetty-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-antlr-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-osgi-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-maven-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-ide-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-announce-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-scala-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-sonar-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-signing-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-cpp-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-ear-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-javascript-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-build-comparison-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-diagnostics-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-reporting-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-publish-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-ivy-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-jacoco-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-build-init-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-language-jvm-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-language-base-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/gradle-core-impl-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/junit-4.11.jar  
+  inflating: gradle-1.12/lib/plugins/testng-6.3.1.jar  
+  inflating: gradle-1.12/lib/plugins/commons-cli-1.2.jar  
+  inflating: gradle-1.12/lib/plugins/jetty-6.1.25.jar  
+  inflating: gradle-1.12/lib/plugins/jetty-util-6.1.25.jar  
+  inflating: gradle-1.12/lib/plugins/servlet-api-2.5-20081211.jar  
+  inflating: gradle-1.12/lib/plugins/jetty-plus-6.1.25.jar  
+  inflating: gradle-1.12/lib/plugins/jsp-2.1-6.1.14.jar  
+  inflating: gradle-1.12/lib/plugins/jetty-annotations-6.1.25.jar  
+  inflating: gradle-1.12/lib/plugins/geronimo-annotation_1.0_spec-1.0.jar  
+  inflating: gradle-1.12/lib/plugins/ant-antlr-1.9.3.jar  
+  inflating: gradle-1.12/lib/plugins/antlr-2.7.7.jar  
+  inflating: gradle-1.12/lib/plugins/bndlib-2.1.0.jar  
+  inflating: gradle-1.12/lib/plugins/maven-ant-tasks-2.1.3.jar  
+  inflating: gradle-1.12/lib/plugins/pmaven-common-0.8-20100325.jar  
+  inflating: gradle-1.12/lib/plugins/pmaven-groovy-0.8-20100325.jar  
+  inflating: gradle-1.12/lib/plugins/plexus-component-annotations-1.5.2.jar  
+  inflating: gradle-1.12/lib/plugins/sonar-runner-2.0.jar  
+  inflating: gradle-1.12/lib/plugins/sonar-batch-bootstrapper-2.9.jar  
+  inflating: gradle-1.12/lib/plugins/bcpg-jdk15-1.46.jar  
+  inflating: gradle-1.12/lib/plugins/rhino-1.7R3.jar  
+  inflating: gradle-1.12/lib/plugins/gson-2.2.4.jar  
+  inflating: gradle-1.12/lib/plugins/simple-4.1.21.jar  
+  inflating: gradle-1.12/lib/plugins/jatl-0.2.2.jar  
+  inflating: gradle-1.12/lib/plugins/nekohtml-1.9.14.jar  
+  inflating: gradle-1.12/lib/plugins/xbean-reflect-3.4.jar  
+  inflating: gradle-1.12/lib/plugins/bsh-2.0b4.jar  
+  inflating: gradle-1.12/lib/plugins/jcommander-1.12.jar  
+  inflating: gradle-1.12/lib/plugins/snakeyaml-1.6.jar  
+  inflating: gradle-1.12/lib/plugins/jetty-naming-6.1.25.jar  
+  inflating: gradle-1.12/lib/plugins/core-3.1.1.jar  
+  inflating: gradle-1.12/lib/plugins/jsp-api-2.1-6.1.14.jar  
+  inflating: gradle-1.12/lib/plugins/bcprov-jdk15-1.46.jar  
+  inflating: gradle-1.12/lib/plugins/xercesImpl-2.9.1.jar  
+  inflating: gradle-1.12/lib/plugins/xml-apis-1.3.04.jar  
+  inflating: gradle-1.12/lib/plugins/hamcrest-core-1.3.jar  
+travis_time:end:1cf5c95a:start=1419328990839294321,finish=1419328991435520164,duration=596225843[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:12b6f29f[0K$ export GRADLE_HOME=$PWD/gradle-1.12
+travis_time:end:12b6f29f:start=1419328991444242766,finish=1419328991450439683,duration=6196917[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:08edeba0[0K$ export PATH=$GRADLE_HOME/bin:$PATH
+travis_time:end:08edeba0:start=1419328991458619654,finish=1419328991464993344,duration=6373690[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:26d42972[0K$ echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+travis_time:end:26d42972:start=1419328991472955036,finish=1419329003182803857,duration=11709848821[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:0779feee[0K$ echo yes | android update sdk --all --filter build-tools-20.0.0 --no-ui --force > /dev/null
+travis_time:end:0779feee:start=1419329003192258377,finish=1419329010230312117,duration=7038053740[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:05c30763[0K$ echo yes | android update sdk --filter android-20 --no-ui --force > /dev/null
+travis_time:end:05c30763:start=1419329010240601450,finish=1419329020769096747,duration=10528495297[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:08490040[0K$ echo yes | android update sdk --filter sys-img-x86-android-19 --no-ui --force > /dev/null
+Error: Ignoring unknown package filter 'sys-img-x86-android-19'
+travis_time:end:08490040:start=1419329020776497214,finish=1419329023783696100,duration=3007198886[0Ktravis_fold:end:before_install.14[0Ktravis_fold:start:before_install.15[0Ktravis_time:start:079bf3c0[0K$ echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+travis_time:end:079bf3c0:start=1419329023792572131,finish=1419329030385661776,duration=6593089645[0Ktravis_fold:end:before_install.15[0Ktravis_fold:start:before_install.16[0Ktravis_time:start:0853a4e7[0K$ echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+travis_time:end:0853a4e7:start=1419329030393275455,finish=1419329037231518848,duration=6838243393[0Ktravis_fold:end:before_install.16[0Ktravis_fold:start:install[0Ktravis_time:start:076b1632[0K$ ./gradlew assemble
+Downloading http://services.gradle.org/distributions/gradle-1.12-all.zip
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-1.12-all/2apkk7d25miauqf1pdjp1bm0uo/gradle-1.12-all.zip to /home/travis/.gradle/wrapper/dists/gradle-1.12-all/2apkk7d25miauqf1pdjp1bm0uo
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-1.12-all/2apkk7d25miauqf1pdjp1bm0uo/gradle-1.12/bin/gradle
+Download http://repo1.maven.org/maven2/com/android/tools/build/gradle/0.12.2/gradle-0.12.2.pom
+Download http://repo1.maven.org/maven2/com/jakewharton/sdkmanager/gradle-plugin/0.10.1/gradle-plugin-0.10.1.pom
+Download http://repo1.maven.org/maven2/net/sf/proguard/proguard-gradle/4.11/proguard-gradle-4.11.pom
+Download http://repo1.maven.org/maven2/net/sf/proguard/proguard-parent/4.11/proguard-parent-4.11.pom
+Download http://repo1.maven.org/maven2/com/android/tools/lint/lint/23.0.2/lint-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/build/builder/0.12.2/builder-0.12.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/build/gradle/0.10.4/gradle-0.10.4.pom
+Download http://repo1.maven.org/maven2/org/rauschig/jarchivelib/0.6.0/jarchivelib-0.6.0.pom
+Download http://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/25/commons-parent-25.pom
+Download http://repo1.maven.org/maven2/org/apache/apache/9/apache-9.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.8/commons-compress-1.8.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/33/commons-parent-33.pom
+Download http://repo1.maven.org/maven2/org/apache/apache/13/apache-13.pom
+Download http://repo1.maven.org/maven2/org/tukaani/xz/1.5/xz-1.5.pom
+Download http://repo1.maven.org/maven2/net/sf/proguard/proguard-base/4.11/proguard-base-4.11.pom
+Download http://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/lint/lint-checks/23.0.2/lint-checks-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/sdk-common/23.0.2/sdk-common-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/build/builder-model/0.12.2/builder-model-0.12.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/ddms/ddmlib/23.0.2/ddmlib-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/build/manifest-merger/23.0.2/manifest-merger-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/sdklib/23.0.2/sdklib-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/common/23.0.2/common-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/android/tools/build/builder-test-api/0.12.2/builder-test-api-0.12.2.pom
+Download http://repo1.maven.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.pom
+Download http://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.pom
+Download http://repo1.maven.org/maven2/com/android/tools/lint/lint-api/23.0.2/lint-api-23.0.2.pom
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.pom
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom
+Download http://repo1.maven.org/maven2/org/ow2/ow2/1.3/ow2-1.3.pom
+Download http://repo1.maven.org/maven2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.pom
+Download http://repo1.maven.org/maven2/kxml2/kxml2/2.3.0/kxml2-2.3.0.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.1.1/httpcomponents-client-4.1.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/project/4.1.1/project-4.1.1.pom
+Download http://repo1.maven.org/maven2/com/android/tools/layoutlib/layoutlib-api/23.0.2/layoutlib-api-23.0.2.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.1/httpcomponents-client-4.1.pom
+Download http://repo1.maven.org/maven2/com/android/tools/dvlib/23.0.2/dvlib-23.0.2.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava/15.0/guava-15.0.pom
+Download http://repo1.maven.org/maven2/com/google/guava/guava-parent/15.0/guava-parent-15.0.pom
+Download http://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.pom
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.pom
+Download http://repo1.maven.org/maven2/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.pom
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.pom
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.1/httpcomponents-core-4.1.pom
+Download http://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download http://repo1.maven.org/maven2/org/apache/apache/4/apache-4.pom
+Download http://repo1.maven.org/maven2/commons-codec/commons-codec/1.4/commons-codec-1.4.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.pom
+Download http://repo1.maven.org/maven2/com/android/tools/build/gradle/0.12.2/gradle-0.12.2.jar
+Download http://repo1.maven.org/maven2/com/jakewharton/sdkmanager/gradle-plugin/0.10.1/gradle-plugin-0.10.1.jar
+Download http://repo1.maven.org/maven2/net/sf/proguard/proguard-gradle/4.11/proguard-gradle-4.11.jar
+Download http://repo1.maven.org/maven2/com/android/tools/lint/lint/23.0.2/lint-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/build/builder/0.12.2/builder-0.12.2.jar
+Download http://repo1.maven.org/maven2/org/rauschig/jarchivelib/0.6.0/jarchivelib-0.6.0.jar
+Download http://repo1.maven.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar
+Download http://repo1.maven.org/maven2/net/sf/proguard/proguard-base/4.11/proguard-base-4.11.jar
+Download http://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.2.2/ecj-4.2.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/lint/lint-checks/23.0.2/lint-checks-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/sdk-common/23.0.2/sdk-common-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/build/builder-model/0.12.2/builder-model-0.12.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/ddms/ddmlib/23.0.2/ddmlib-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/build/manifest-merger/23.0.2/manifest-merger-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/sdklib/23.0.2/sdklib-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/common/23.0.2/common-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/android/tools/build/builder-test-api/0.12.2/builder-test-api-0.12.2.jar
+Download http://repo1.maven.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar
+Download http://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar
+Download http://repo1.maven.org/maven2/com/android/tools/lint/lint-api/23.0.2/lint-api-23.0.2.jar
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/4.0/asm-analysis-4.0.jar
+Download http://repo1.maven.org/maven2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar
+Download http://repo1.maven.org/maven2/com/android/tools/layoutlib/layoutlib-api/23.0.2/layoutlib-api-23.0.2.jar
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar
+Download http://repo1.maven.org/maven2/com/android/tools/dvlib/23.0.2/dvlib-23.0.2.jar
+Download http://repo1.maven.org/maven2/com/google/guava/guava/15.0/guava-15.0.jar
+Download http://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm/4.0/asm-4.0.jar
+Download http://repo1.maven.org/maven2/com/android/tools/external/lombok/lombok-ast/0.2.2/lombok-ast-0.2.2.jar
+Download http://repo1.maven.org/maven2/org/ow2/asm/asm-tree/4.0/asm-tree-4.0.jar
+Download http://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar
+Download http://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+Download http://repo1.maven.org/maven2/commons-codec/commons-codec/1.4/commons-codec-1.4.jar
+Download http://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar
+Download http://repo1.maven.org/maven2/com/nineoldandroids/library/2.4.0/library-2.4.0.pom
+Download http://repo1.maven.org/maven2/com/nineoldandroids/parent/2.4.0/parent-2.4.0.pom
+Download http://repo1.maven.org/maven2/com/daimajia/easing/library/1.0.0/library-1.0.0.pom
+Download http://repo1.maven.org/maven2/com/nineoldandroids/library/2.4.0/library-2.4.0.jar
+Download http://repo1.maven.org/maven2/com/daimajia/easing/library/1.0.0/library-1.0.0.aar
+:demo:preBuild
+:demo:compileDebugNdk
+:demo:preDebugBuild
+:demo:checkDebugManifest
+:demo:preReleaseBuild
+:library:compileLint
+:library:copyReleaseLint UP-TO-DATE
+:library:mergeReleaseProguardFiles
+:library:preBuild
+:library:preReleaseBuild
+:library:checkReleaseManifest
+:library:preDebugBuild
+:library:preDebugTestBuild
+:library:prepareComDaimajiaEasingLibrary100Library
+:library:prepareReleaseDependencies
+:library:compileReleaseAidl
+:library:compileReleaseRenderscript
+:library:generateReleaseBuildConfig
+:library:generateReleaseAssets UP-TO-DATE
+:library:mergeReleaseAssets
+:library:generateReleaseResValues
+:library:generateReleaseResources
+:library:mergeReleaseResources
+:library:processReleaseManifest
+:library:processReleaseResources
+:library:generateReleaseSources
+:library:compileReleaseJava
+:library:processReleaseJavaRes UP-TO-DATE
+:library:packageReleaseJar
+:library:compileReleaseNdk
+:library:packageReleaseJniLibs UP-TO-DATE
+:library:packageReleaseLocalJar UP-TO-DATE
+:library:packageReleaseRenderscript UP-TO-DATE
+:library:packageReleaseResources
+:library:bundleRelease
+:demo:prepareAndroidViewAnimationsLibraryUnspecifiedLibrary
+:demo:prepareComDaimajiaEasingLibrary100Library
+:demo:prepareDebugDependencies
+:demo:compileDebugAidl
+:demo:compileDebugRenderscript
+:demo:generateDebugBuildConfig
+:demo:generateDebugAssets UP-TO-DATE
+:demo:mergeDebugAssets
+:demo:generateDebugResValues
+:demo:generateDebugResources
+:demo:mergeDebugResources
+:demo:processDebugManifest
+:demo:processDebugResources
+:demo:generateDebugSources
+:demo:compileDebugJava
+:demo:preDexDebug
+:demo:dexDebug
+:demo:processDebugJavaRes UP-TO-DATE
+:demo:validateDebugSigning
+:demo:packageDebug
+:demo:zipalignDebug
+:demo:assembleDebug
+:demo:checkReleaseManifest
+:demo:prepareReleaseDependencies
+:demo:compileReleaseAidl
+:demo:compileReleaseRenderscript
+:demo:generateReleaseBuildConfig
+:demo:generateReleaseAssets UP-TO-DATE
+:demo:mergeReleaseAssets
+:demo:generateReleaseResValues
+:demo:generateReleaseResources
+:demo:mergeReleaseResources
+:demo:processReleaseManifest
+:demo:processReleaseResources
+:demo:generateReleaseSources
+:demo:compileReleaseJava
+:demo:lintVitalRelease
+:demo:compileReleaseNdk
+:demo:preDexRelease
+:demo:dexRelease
+:demo:processReleaseJavaRes UP-TO-DATE
+:demo:packageRelease
+:demo:assembleRelease
+:demo:assemble
+:library:androidJavadocs/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:30: error: package com.nineoldandroids.animation.Animator does not exist
+import com.nineoldandroids.animation.Animator.AnimatorListener;
+                                             ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.AnimatorSet;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:32: error: package com.nineoldandroids.view does not exist
+import com.nineoldandroids.view.ViewHelper;
+                               ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:38: error: cannot find symbol
+    private AnimatorSet mAnimatorSet;
+            ^
+  symbol:   class AnimatorSet
+  location: class BaseViewAnimator
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:98: error: cannot find symbol
+    public BaseViewAnimator addAnimatorListener(AnimatorListener l) {
+                                                ^
+  symbol:   class AnimatorListener
+  location: class BaseViewAnimator
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:115: error: cannot find symbol
+    public void removeAnimatorListener(AnimatorListener l) {
+                                       ^
+  symbol:   class AnimatorListener
+  location: class BaseViewAnimator
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/BaseViewAnimator.java:132: error: cannot find symbol
+    public AnimatorSet getAnimatorAgent() {
+           ^
+  symbol:   class AnimatorSet
+  location: class BaseViewAnimator
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/YoYo.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.Animator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/YoYo.java:45: error: package Animator does not exist
+    private List<Animator.AnimatorListener> callbacks;
+                         ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/YoYo.java:67: error: package Animator does not exist
+        private List<Animator.AnimatorListener> callbacks = new ArrayList<Animator.AnimatorListener>();
+                             ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/YoYo.java:99: error: package Animator does not exist
+        public AnimationComposer withListener(Animator.AnimatorListener listener) {
+                                                      ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_exits/ZoomOutAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_exits/ZoomOutLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_exits/ZoomOutRightAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_exits/ZoomOutDownAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_exits/ZoomOutUpAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/ShakeAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/RubberBandAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/SwingAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/BounceAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/WobbleAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/FlashAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/WaveAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/PulseAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/TadaAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/attention/StandUpAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideOutDownAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideInRightAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideInLeftAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideOutLeftAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideInUpAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideInDownAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideOutRightAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/sliders/SlideOutUpAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/bouncing_entrances/BounceInAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/bouncing_entrances/BounceInLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/bouncing_entrances/BounceInRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/bouncing_entrances/BounceInDownAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/bouncing_entrances/BounceInUpAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/flippers/FlipYAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/flippers/FlipOutXAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/flippers/FlipInXAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/flippers/FlipOutYAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_entrances/RotateInDownRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_entrances/RotateInAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_entrances/RotateInDownLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_entrances/RotateInUpRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_entrances/RotateInUpLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/RollOutAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/RollInAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/HingeAnimator.java:30: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Glider;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/HingeAnimator.java:31: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Skill;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/HingeAnimator.java:32: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/out/TakingOffAnimator.java:6: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Glider;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/out/TakingOffAnimator.java:7: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Skill;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/out/TakingOffAnimator.java:8: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/in/LandingAnimator.java:6: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Glider;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/in/LandingAnimator.java:7: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Skill;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/in/LandingAnimator.java:8: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/in/DropOutAnimator.java:6: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Glider;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/in/DropOutAnimator.java:7: error: package com.daimajia.easing does not exist
+import com.daimajia.easing.Skill;
+                          ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/specials/in/DropOutAnimator.java:8: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_exits/FadeOutDownAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_exits/FadeOutLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_exits/FadeOutUpAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_exits/FadeOutRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_exits/FadeOutAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_exits/RotateOutDownRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_exits/RotateOutDownLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_exits/RotateOutUpLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_exits/RotateOutAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/rotating_exits/RotateOutUpRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_entrances/ZoomInLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_entrances/ZoomInAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_entrances/ZoomInDownAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_entrances/ZoomInUpAnimator.java:31: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/zooming_entrances/ZoomInRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_entrances/FadeInDownAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_entrances/FadeInAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_entrances/FadeInLeftAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_entrances/FadeInRightAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+/home/travis/build/daimajia/AndroidViewAnimations/library/src/main/java/com/daimajia/androidanimations/library/fading_entrances/FadeInUpAnimator.java:30: error: package com.nineoldandroids.animation does not exist
+import com.nineoldandroids.animation.ObjectAnimator;
+                                    ^
+
+82 warnings
+:library:androidJavadocsJar
+:library:androidSourcesJar
+:library:apklib
+:library:copyDebugLint UP-TO-DATE
+:library:mergeDebugProguardFiles
+:library:checkDebugManifest
+:library:prepareDebugDependencies
+:library:compileDebugAidl
+:library:compileDebugRenderscript
+:library:generateDebugBuildConfig
+:library:generateDebugAssets UP-TO-DATE
+:library:mergeDebugAssets
+:library:generateDebugResValues
+:library:generateDebugResources
+:library:mergeDebugResources
+:library:processDebugManifest
+:library:processDebugResources
+:library:generateDebugSources
+:library:compileDebugJava
+:library:processDebugJavaRes UP-TO-DATE
+:library:packageDebugJar
+:library:compileDebugNdk
+:library:packageDebugJniLibs UP-TO-DATE
+:library:packageDebugLocalJar UP-TO-DATE
+:library:packageDebugRenderscript UP-TO-DATE
+:library:packageDebugResources
+:library:bundleDebug
+:library:assembleDebug
+:library:assembleRelease
+:library:jar
+:library:signArchives SKIPPED
+:library:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 36.282 secs
+travis_time:end:076b1632:start=1419329037238594463,finish=1419329134036546181,duration=96797951718[0Ktravis_fold:end:install[0Ktravis_time:start:06bd9fac[0K$ ./gradlew check
+:demo:preBuild
+:demo:preDebugBuild
+:demo:checkDebugManifest
+:demo:preReleaseBuild
+:library:compileLint
+:library:copyReleaseLint UP-TO-DATE
+:library:mergeReleaseProguardFiles UP-TO-DATE
+:library:preBuild
+:library:preReleaseBuild
+:library:checkReleaseManifest
+:library:preDebugBuild
+:library:preDebugTestBuild
+:library:prepareComDaimajiaEasingLibrary100Library UP-TO-DATE
+:library:prepareReleaseDependencies
+:library:compileReleaseAidl UP-TO-DATE
+:library:compileReleaseRenderscript UP-TO-DATE
+:library:generateReleaseBuildConfig UP-TO-DATE
+:library:generateReleaseAssets UP-TO-DATE
+:library:mergeReleaseAssets UP-TO-DATE
+:library:generateReleaseResValues UP-TO-DATE
+:library:generateReleaseResources UP-TO-DATE
+:library:mergeReleaseResources UP-TO-DATE
+:library:processReleaseManifest UP-TO-DATE
+:library:processReleaseResources UP-TO-DATE
+:library:generateReleaseSources UP-TO-DATE
+:library:compileReleaseJava UP-TO-DATE
+:library:processReleaseJavaRes UP-TO-DATE
+:library:packageReleaseJar UP-TO-DATE
+:library:compileReleaseNdk UP-TO-DATE
+:library:packageReleaseJniLibs UP-TO-DATE
+:library:packageReleaseLocalJar UP-TO-DATE
+:library:packageReleaseRenderscript UP-TO-DATE
+:library:packageReleaseResources UP-TO-DATE
+:library:bundleRelease
+:demo:prepareAndroidViewAnimationsLibraryUnspecifiedLibrary UP-TO-DATE
+:demo:prepareComDaimajiaEasingLibrary100Library UP-TO-DATE
+:demo:prepareDebugDependencies
+:demo:compileDebugAidl UP-TO-DATE
+:demo:compileDebugRenderscript UP-TO-DATE
+:demo:generateDebugBuildConfig UP-TO-DATE
+:demo:generateDebugAssets UP-TO-DATE
+:demo:mergeDebugAssets UP-TO-DATE
+:demo:generateDebugResValues UP-TO-DATE
+:demo:generateDebugResources UP-TO-DATE
+:demo:mergeDebugResources UP-TO-DATE
+:demo:processDebugManifest UP-TO-DATE
+:demo:processDebugResources UP-TO-DATE
+:demo:generateDebugSources UP-TO-DATE
+:demo:compileDebugJava UP-TO-DATE
+:demo:compileLint
+:demo:checkReleaseManifest
+:demo:prepareReleaseDependencies
+:demo:compileReleaseAidl UP-TO-DATE
+:demo:compileReleaseRenderscript UP-TO-DATE
+:demo:generateReleaseBuildConfig UP-TO-DATE
+:demo:generateReleaseAssets UP-TO-DATE
+:demo:mergeReleaseAssets UP-TO-DATE
+:demo:generateReleaseResValues UP-TO-DATE
+:demo:generateReleaseResources UP-TO-DATE
+:demo:mergeReleaseResources UP-TO-DATE
+:demo:processReleaseManifest UP-TO-DATE
+:demo:processReleaseResources UP-TO-DATE
+:demo:generateReleaseSources UP-TO-DATE
+:demo:compileReleaseJava UP-TO-DATE
+:demo:lint
+Ran lint on variant release: 14 issues found
+Ran lint on variant debug: 14 issues found
+Wrote HTML report to file:/home/travis/build/daimajia/AndroidViewAnimations/demo/build/outputs/lint-results.html
+Wrote XML report to /home/travis/build/daimajia/AndroidViewAnimations/demo/build/outputs/lint-results.xml
+:demo:check
+:library:checkDebugManifest
+:library:prepareDebugDependencies
+:library:compileDebugAidl UP-TO-DATE
+:library:compileDebugRenderscript UP-TO-DATE
+:library:generateDebugBuildConfig UP-TO-DATE
+:library:generateDebugAssets UP-TO-DATE
+:library:mergeDebugAssets UP-TO-DATE
+:library:generateDebugResValues UP-TO-DATE
+:library:generateDebugResources UP-TO-DATE
+:library:mergeDebugResources UP-TO-DATE
+:library:processDebugManifest UP-TO-DATE
+:library:processDebugResources UP-TO-DATE
+:library:generateDebugSources UP-TO-DATE
+:library:compileDebugJava UP-TO-DATE
+:library:lint
+Ran lint on variant release: 1 issues found
+Ran lint on variant debug: 1 issues found
+Wrote HTML report to file:/home/travis/build/daimajia/AndroidViewAnimations/library/build/outputs/lint-results.html
+Wrote XML report to /home/travis/build/daimajia/AndroidViewAnimations/library/build/outputs/lint-results.xml
+:library:check
+
+BUILD SUCCESSFUL
+
+Total time: 26.918 secs
+travis_time:end:06bd9fac:start=1419329134044742700,finish=1419329161509747344,duration=27465004644[0K
+[32;1mThe command "./gradlew check" exited with 0.[0m
+
+Done. Your build exited with 0.

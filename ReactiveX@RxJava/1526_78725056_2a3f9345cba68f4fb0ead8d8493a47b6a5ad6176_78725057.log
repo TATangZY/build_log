@@ -1,0 +1,823 @@
+Using worker: worker-linux-docker-d04f3939.prod.travis-ci.org:travis-linux-7
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:244eb0f0[0K$ git clone --depth=50 git://github.com/ReactiveX/RxJava.git ReactiveX/RxJava
+Cloning into 'ReactiveX/RxJava'...
+remote: Counting objects: 3881, done.[K
+remote: Compressing objects:   0% (1/1719)   [Kremote: Compressing objects:   1% (18/1719)   [Kremote: Compressing objects:   2% (35/1719)   [Kremote: Compressing objects:   3% (52/1719)   [Kremote: Compressing objects:   4% (69/1719)   [Kremote: Compressing objects:   5% (86/1719)   [Kremote: Compressing objects:   6% (104/1719)   [Kremote: Compressing objects:   7% (121/1719)   [Kremote: Compressing objects:   8% (138/1719)   [Kremote: Compressing objects:   9% (155/1719)   [Kremote: Compressing objects:  10% (172/1719)   [Kremote: Compressing objects:  11% (190/1719)   [Kremote: Compressing objects:  12% (207/1719)   [Kremote: Compressing objects:  13% (224/1719)   [Kremote: Compressing objects:  14% (241/1719)   [Kremote: Compressing objects:  15% (258/1719)   [Kremote: Compressing objects:  16% (276/1719)   [Kremote: Compressing objects:  17% (293/1719)   [Kremote: Compressing objects:  18% (310/1719)   [Kremote: Compressing objects:  19% (327/1719)   [Kremote: Compressing objects:  20% (344/1719)   [Kremote: Compressing objects:  21% (361/1719)   [Kremote: Compressing objects:  22% (379/1719)   [Kremote: Compressing objects:  23% (396/1719)   [Kremote: Compressing objects:  24% (413/1719)   [Kremote: Compressing objects:  25% (430/1719)   [Kremote: Compressing objects:  26% (447/1719)   [Kremote: Compressing objects:  27% (465/1719)   [Kremote: Compressing objects:  28% (482/1719)   [Kremote: Compressing objects:  29% (499/1719)   [Kremote: Compressing objects:  30% (516/1719)   [Kremote: Compressing objects:  31% (533/1719)   [Kremote: Compressing objects:  32% (551/1719)   [Kremote: Compressing objects:  33% (568/1719)   [Kremote: Compressing objects:  34% (585/1719)   [Kremote: Compressing objects:  35% (602/1719)   [Kremote: Compressing objects:  36% (619/1719)   [Kremote: Compressing objects:  37% (637/1719)   [Kremote: Compressing objects:  38% (654/1719)   [Kremote: Compressing objects:  39% (671/1719)   [Kremote: Compressing objects:  40% (688/1719)   [Kremote: Compressing objects:  41% (705/1719)   [Kremote: Compressing objects:  42% (722/1719)   [Kremote: Compressing objects:  43% (740/1719)   [Kremote: Compressing objects:  44% (757/1719)   [Kremote: Compressing objects:  45% (774/1719)   [Kremote: Compressing objects:  46% (791/1719)   [Kremote: Compressing objects:  47% (808/1719)   [Kremote: Compressing objects:  48% (826/1719)   [Kremote: Compressing objects:  49% (843/1719)   [Kremote: Compressing objects:  50% (860/1719)   [Kremote: Compressing objects:  51% (877/1719)   [Kremote: Compressing objects:  52% (894/1719)   [Kremote: Compressing objects:  53% (912/1719)   [Kremote: Compressing objects:  54% (929/1719)   [Kremote: Compressing objects:  55% (946/1719)   [Kremote: Compressing objects:  56% (963/1719)   [Kremote: Compressing objects:  57% (980/1719)   [Kremote: Compressing objects:  58% (998/1719)   [Kremote: Compressing objects:  59% (1015/1719)   [Kremote: Compressing objects:  60% (1032/1719)   [Kremote: Compressing objects:  61% (1049/1719)   [Kremote: Compressing objects:  62% (1066/1719)   [Kremote: Compressing objects:  63% (1083/1719)   [Kremote: Compressing objects:  64% (1101/1719)   [Kremote: Compressing objects:  65% (1118/1719)   [Kremote: Compressing objects:  66% (1135/1719)   [Kremote: Compressing objects:  67% (1152/1719)   [Kremote: Compressing objects:  68% (1169/1719)   [Kremote: Compressing objects:  69% (1187/1719)   [Kremote: Compressing objects:  70% (1204/1719)   [Kremote: Compressing objects:  71% (1221/1719)   [Kremote: Compressing objects:  72% (1238/1719)   [Kremote: Compressing objects:  73% (1255/1719)   [Kremote: Compressing objects:  74% (1273/1719)   [Kremote: Compressing objects:  75% (1290/1719)   [Kremote: Compressing objects:  76% (1307/1719)   [Kremote: Compressing objects:  77% (1324/1719)   [Kremote: Compressing objects:  78% (1341/1719)   [Kremote: Compressing objects:  79% (1359/1719)   [Kremote: Compressing objects:  80% (1376/1719)   [Kremote: Compressing objects:  81% (1393/1719)   [Kremote: Compressing objects:  82% (1410/1719)   [Kremote: Compressing objects:  83% (1427/1719)   [Kremote: Compressing objects:  84% (1444/1719)   [Kremote: Compressing objects:  85% (1462/1719)   [Kremote: Compressing objects:  86% (1479/1719)   [Kremote: Compressing objects:  87% (1496/1719)   [Kremote: Compressing objects:  88% (1513/1719)   [Kremote: Compressing objects:  89% (1530/1719)   [Kremote: Compressing objects:  90% (1548/1719)   [Kremote: Compressing objects:  91% (1565/1719)   [Kremote: Compressing objects:  92% (1582/1719)   [Kremote: Compressing objects:  93% (1599/1719)   [Kremote: Compressing objects:  94% (1616/1719)   [Kremote: Compressing objects:  95% (1634/1719)   [Kremote: Compressing objects:  96% (1651/1719)   [Kremote: Compressing objects:  97% (1668/1719)   [Kremote: Compressing objects:  98% (1685/1719)   [Kremote: Compressing objects:  99% (1702/1719)   [Kremote: Compressing objects: 100% (1719/1719)   [Kremote: Compressing objects: 100% (1719/1719), done.[K
+Receiving objects:   0% (1/3881)   Receiving objects:   1% (39/3881)   Receiving objects:   2% (78/3881)   Receiving objects:   3% (117/3881)   Receiving objects:   4% (156/3881)   Receiving objects:   5% (195/3881)   Receiving objects:   6% (233/3881)   Receiving objects:   7% (272/3881)   Receiving objects:   8% (311/3881)   Receiving objects:   9% (350/3881)   Receiving objects:  10% (389/3881)   Receiving objects:  11% (427/3881)   Receiving objects:  12% (466/3881)   Receiving objects:  13% (505/3881)   Receiving objects:  14% (544/3881)   Receiving objects:  15% (583/3881)   Receiving objects:  16% (621/3881)   Receiving objects:  17% (660/3881)   Receiving objects:  18% (699/3881)   Receiving objects:  19% (738/3881)   Receiving objects:  20% (777/3881)   Receiving objects:  21% (816/3881)   Receiving objects:  22% (854/3881)   Receiving objects:  23% (893/3881)   Receiving objects:  24% (932/3881)   Receiving objects:  25% (971/3881)   Receiving objects:  26% (1010/3881)   Receiving objects:  27% (1048/3881)   Receiving objects:  28% (1087/3881)   Receiving objects:  29% (1126/3881)   Receiving objects:  30% (1165/3881)   Receiving objects:  31% (1204/3881)   Receiving objects:  32% (1242/3881)   Receiving objects:  33% (1281/3881)   Receiving objects:  34% (1320/3881)   Receiving objects:  35% (1359/3881)   Receiving objects:  36% (1398/3881)   Receiving objects:  37% (1436/3881)   Receiving objects:  38% (1475/3881)   Receiving objects:  39% (1514/3881)   Receiving objects:  40% (1553/3881)   Receiving objects:  41% (1592/3881)   Receiving objects:  42% (1631/3881)   Receiving objects:  43% (1669/3881)   Receiving objects:  44% (1708/3881)   Receiving objects:  45% (1747/3881)   Receiving objects:  46% (1786/3881)   Receiving objects:  47% (1825/3881)   Receiving objects:  48% (1863/3881)   Receiving objects:  49% (1902/3881)   Receiving objects:  50% (1941/3881)   Receiving objects:  51% (1980/3881)   Receiving objects:  52% (2019/3881)   Receiving objects:  53% (2057/3881)   Receiving objects:  54% (2096/3881)   Receiving objects:  55% (2135/3881)   Receiving objects:  56% (2174/3881)   Receiving objects:  57% (2213/3881)   Receiving objects:  58% (2251/3881)   Receiving objects:  59% (2290/3881)   Receiving objects:  60% (2329/3881)   Receiving objects:  61% (2368/3881)   Receiving objects:  62% (2407/3881)   Receiving objects:  63% (2446/3881)   Receiving objects:  64% (2484/3881)   Receiving objects:  65% (2523/3881)   Receiving objects:  66% (2562/3881)   Receiving objects:  67% (2601/3881)   Receiving objects:  68% (2640/3881)   Receiving objects:  69% (2678/3881)   Receiving objects:  70% (2717/3881)   Receiving objects:  71% (2756/3881)   Receiving objects:  72% (2795/3881)   Receiving objects:  73% (2834/3881)   Receiving objects:  74% (2872/3881)   Receiving objects:  75% (2911/3881)   Receiving objects:  76% (2950/3881)   Receiving objects:  77% (2989/3881)   Receiving objects:  78% (3028/3881)   Receiving objects:  79% (3066/3881)   Receiving objects:  80% (3105/3881)   Receiving objects:  81% (3144/3881)   Receiving objects:  82% (3183/3881)   Receiving objects:  83% (3222/3881)   Receiving objects:  84% (3261/3881)   Receiving objects:  85% (3299/3881)   Receiving objects:  86% (3338/3881)   Receiving objects:  87% (3377/3881)   Receiving objects:  88% (3416/3881)   Receiving objects:  89% (3455/3881)   Receiving objects:  90% (3493/3881)   Receiving objects:  91% (3532/3881)   Receiving objects:  92% (3571/3881)   Receiving objects:  93% (3610/3881)   Receiving objects:  94% (3649/3881)   Receiving objects:  95% (3687/3881)   Receiving objects:  96% (3726/3881)   remote: Total 3881 (delta 1806), reused 3207 (delta 1308), pack-reused 0[K
+Receiving objects:  97% (3765/3881)   Receiving objects:  98% (3804/3881)   Receiving objects:  99% (3843/3881)   Receiving objects: 100% (3881/3881)   Receiving objects: 100% (3881/3881), 1.22 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1806)   Resolving deltas:   5% (100/1806)   Resolving deltas:  11% (207/1806)   Resolving deltas:  12% (217/1806)   Resolving deltas:  13% (236/1806)   Resolving deltas:  14% (257/1806)   Resolving deltas:  15% (271/1806)   Resolving deltas:  20% (378/1806)   Resolving deltas:  21% (387/1806)   Resolving deltas:  22% (398/1806)   Resolving deltas:  24% (435/1806)   Resolving deltas:  25% (455/1806)   Resolving deltas:  27% (504/1806)   Resolving deltas:  28% (506/1806)   Resolving deltas:  29% (532/1806)   Resolving deltas:  30% (542/1806)   Resolving deltas:  31% (575/1806)   Resolving deltas:  32% (579/1806)   Resolving deltas:  41% (744/1806)   Resolving deltas:  42% (773/1806)   Resolving deltas:  43% (778/1806)   Resolving deltas:  51% (929/1806)   Resolving deltas:  52% (941/1806)   Resolving deltas:  53% (968/1806)   Resolving deltas:  54% (986/1806)   Resolving deltas:  55% (996/1806)   Resolving deltas:  56% (1015/1806)   Resolving deltas:  57% (1030/1806)   Resolving deltas:  58% (1049/1806)   Resolving deltas:  59% (1069/1806)   Resolving deltas:  60% (1084/1806)   Resolving deltas:  61% (1103/1806)   Resolving deltas:  65% (1181/1806)   Resolving deltas:  66% (1192/1806)   Resolving deltas:  67% (1214/1806)   Resolving deltas:  68% (1232/1806)   Resolving deltas:  69% (1247/1806)   Resolving deltas:  70% (1277/1806)   Resolving deltas:  71% (1283/1806)   Resolving deltas:  72% (1304/1806)   Resolving deltas:  73% (1319/1806)   Resolving deltas:  74% (1338/1806)   Resolving deltas:  75% (1355/1806)   Resolving deltas:  76% (1374/1806)   Resolving deltas:  77% (1391/1806)   Resolving deltas:  78% (1418/1806)   Resolving deltas:  79% (1435/1806)   Resolving deltas:  80% (1447/1806)   Resolving deltas:  81% (1467/1806)   Resolving deltas:  82% (1483/1806)   Resolving deltas:  83% (1500/1806)   Resolving deltas:  84% (1523/1806)   Resolving deltas:  85% (1536/1806)   Resolving deltas:  87% (1583/1806)   Resolving deltas:  88% (1599/1806)   Resolving deltas:  89% (1610/1806)   Resolving deltas:  90% (1637/1806)   Resolving deltas:  91% (1645/1806)   Resolving deltas:  92% (1663/1806)   Resolving deltas:  93% (1682/1806)   Resolving deltas:  94% (1703/1806)   Resolving deltas:  95% (1717/1806)   Resolving deltas:  96% (1735/1806)   Resolving deltas:  97% (1752/1806)   Resolving deltas:  98% (1770/1806)   Resolving deltas: 100% (1806/1806)   Resolving deltas: 100% (1806/1806), done.
+Checking connectivity... done.
+travis_time:end:244eb0f0:start=1441359220792573920,finish=1441359221611998415,duration=819424495[0K$ cd ReactiveX/RxJava
+travis_time:start:0b077116[0K$ git fetch origin +refs/pull/3298/merge:
+remote: Counting objects: 1562, done.[K
+remote: Compressing objects:   0% (1/479)   [Kremote: Compressing objects:   1% (5/479)   [Kremote: Compressing objects:   2% (10/479)   [Kremote: Compressing objects:   3% (15/479)   [Kremote: Compressing objects:   4% (20/479)   [Kremote: Compressing objects:   5% (24/479)   [Kremote: Compressing objects:   6% (29/479)   [Kremote: Compressing objects:   7% (34/479)   [Kremote: Compressing objects:   8% (39/479)   [Kremote: Compressing objects:   9% (44/479)   [Kremote: Compressing objects:  10% (48/479)   [Kremote: Compressing objects:  11% (53/479)   [Kremote: Compressing objects:  12% (58/479)   [Kremote: Compressing objects:  13% (63/479)   [Kremote: Compressing objects:  14% (68/479)   [Kremote: Compressing objects:  15% (72/479)   [Kremote: Compressing objects:  16% (77/479)   [Kremote: Compressing objects:  17% (82/479)   [Kremote: Compressing objects:  18% (87/479)   [Kremote: Compressing objects:  19% (92/479)   [Kremote: Compressing objects:  20% (96/479)   [Kremote: Compressing objects:  21% (101/479)   [Kremote: Compressing objects:  22% (106/479)   [Kremote: Compressing objects:  23% (111/479)   [Kremote: Compressing objects:  24% (115/479)   [Kremote: Compressing objects:  25% (120/479)   [Kremote: Compressing objects:  26% (125/479)   [Kremote: Compressing objects:  27% (130/479)   [Kremote: Compressing objects:  28% (135/479)   [Kremote: Compressing objects:  29% (139/479)   [Kremote: Compressing objects:  30% (144/479)   [Kremote: Compressing objects:  31% (149/479)   [Kremote: Compressing objects:  32% (154/479)   [Kremote: Compressing objects:  33% (159/479)   [Kremote: Compressing objects:  34% (163/479)   [Kremote: Compressing objects:  35% (168/479)   [Kremote: Compressing objects:  36% (173/479)   [Kremote: Compressing objects:  37% (178/479)   [Kremote: Compressing objects:  38% (183/479)   [Kremote: Compressing objects:  39% (187/479)   [Kremote: Compressing objects:  40% (192/479)   [Kremote: Compressing objects:  41% (197/479)   [Kremote: Compressing objects:  42% (202/479)   [Kremote: Compressing objects:  43% (206/479)   [Kremote: Compressing objects:  44% (211/479)   [Kremote: Compressing objects:  45% (216/479)   [Kremote: Compressing objects:  46% (221/479)   [Kremote: Compressing objects:  47% (226/479)   [Kremote: Compressing objects:  48% (230/479)   [Kremote: Compressing objects:  49% (235/479)   [Kremote: Compressing objects:  50% (240/479)   [Kremote: Compressing objects:  51% (245/479)   [Kremote: Compressing objects:  52% (250/479)   [Kremote: Compressing objects:  53% (254/479)   [Kremote: Compressing objects:  54% (259/479)   [Kremote: Compressing objects:  55% (264/479)   [Kremote: Compressing objects:  56% (269/479)   [Kremote: Compressing objects:  57% (274/479)   [Kremote: Compressing objects:  58% (278/479)   [Kremote: Compressing objects:  59% (283/479)   [Kremote: Compressing objects:  60% (288/479)   [Kremote: Compressing objects:  61% (293/479)   [Kremote: Compressing objects:  62% (297/479)   [Kremote: Compressing objects:  63% (302/479)   [Kremote: Compressing objects:  64% (307/479)   [Kremote: Compressing objects:  65% (312/479)   [Kremote: Compressing objects:  66% (317/479)   [Kremote: Compressing objects:  67% (321/479)   [Kremote: Compressing objects:  68% (326/479)   [Kremote: Compressing objects:  69% (331/479)   [Kremote: Compressing objects:  70% (336/479)   [Kremote: Compressing objects:  71% (341/479)   [Kremote: Compressing objects:  72% (345/479)   [Kremote: Compressing objects:  73% (350/479)   [Kremote: Compressing objects:  74% (355/479)   [Kremote: Compressing objects:  75% (360/479)   [Kremote: Compressing objects:  76% (365/479)   [Kremote: Compressing objects:  77% (369/479)   [Kremote: Compressing objects:  78% (374/479)   [Kremote: Compressing objects:  79% (379/479)   [Kremote: Compressing objects:  80% (384/479)   [Kremote: Compressing objects:  81% (388/479)   [Kremote: Compressing objects:  82% (393/479)   [Kremote: Compressing objects:  83% (398/479)   [Kremote: Compressing objects:  84% (403/479)   [Kremote: Compressing objects:  85% (408/479)   [Kremote: Compressing objects:  86% (412/479)   [Kremote: Compressing objects:  87% (417/479)   [Kremote: Compressing objects:  88% (422/479)   [Kremote: Compressing objects:  89% (427/479)   [Kremote: Compressing objects:  90% (432/479)   [Kremote: Compressing objects:  91% (436/479)   [Kremote: Compressing objects:  92% (441/479)   [Kremote: Compressing objects:  93% (446/479)   [Kremote: Compressing objects:  94% (451/479)   [Kremote: Compressing objects:  95% (456/479)   [Kremote: Compressing objects:  96% (460/479)   [Kremote: Compressing objects:  97% (465/479)   [Kremote: Compressing objects:  98% (470/479)   [Kremote: Compressing objects:  99% (475/479)   [Kremote: Compressing objects: 100% (479/479)   [Kremote: Compressing objects: 100% (479/479), done.[K
+Receiving objects:   0% (1/1562)   Receiving objects:   1% (16/1562)   Receiving objects:   2% (32/1562)   Receiving objects:   3% (47/1562)   Receiving objects:   4% (63/1562)   Receiving objects:   5% (79/1562)   Receiving objects:   6% (94/1562)   Receiving objects:   7% (110/1562)   Receiving objects:   8% (125/1562)   Receiving objects:   9% (141/1562)   Receiving objects:  10% (157/1562)   Receiving objects:  11% (172/1562)   Receiving objects:  12% (188/1562)   Receiving objects:  13% (204/1562)   Receiving objects:  14% (219/1562)   Receiving objects:  15% (235/1562)   Receiving objects:  16% (250/1562)   Receiving objects:  17% (266/1562)   Receiving objects:  18% (282/1562)   Receiving objects:  19% (297/1562)   Receiving objects:  20% (313/1562)   Receiving objects:  21% (329/1562)   Receiving objects:  22% (344/1562)   Receiving objects:  23% (360/1562)   Receiving objects:  24% (375/1562)   Receiving objects:  25% (391/1562)   Receiving objects:  26% (407/1562)   Receiving objects:  27% (422/1562)   Receiving objects:  28% (438/1562)   Receiving objects:  29% (453/1562)   Receiving objects:  30% (469/1562)   Receiving objects:  31% (485/1562)   Receiving objects:  32% (500/1562)   Receiving objects:  33% (516/1562)   Receiving objects:  34% (532/1562)   Receiving objects:  35% (547/1562)   Receiving objects:  36% (563/1562)   Receiving objects:  37% (578/1562)   Receiving objects:  38% (594/1562)   Receiving objects:  39% (610/1562)   Receiving objects:  40% (625/1562)   Receiving objects:  41% (641/1562)   Receiving objects:  42% (657/1562)   Receiving objects:  43% (672/1562)   Receiving objects:  44% (688/1562)   Receiving objects:  45% (703/1562)   Receiving objects:  46% (719/1562)   Receiving objects:  47% (735/1562)   Receiving objects:  48% (750/1562)   Receiving objects:  49% (766/1562)   Receiving objects:  50% (781/1562)   Receiving objects:  51% (797/1562)   Receiving objects:  52% (813/1562)   Receiving objects:  53% (828/1562)   Receiving objects:  54% (844/1562)   Receiving objects:  55% (860/1562)   Receiving objects:  56% (875/1562)   Receiving objects:  57% (891/1562)   Receiving objects:  58% (906/1562)   Receiving objects:  59% (922/1562)   Receiving objects:  60% (938/1562)   Receiving objects:  61% (953/1562)   Receiving objects:  62% (969/1562)   Receiving objects:  63% (985/1562)   Receiving objects:  64% (1000/1562)   Receiving objects:  65% (1016/1562)   Receiving objects:  66% (1031/1562)   Receiving objects:  67% (1047/1562)   Receiving objects:  68% (1063/1562)   Receiving objects:  69% (1078/1562)   Receiving objects:  70% (1094/1562)   Receiving objects:  71% (1110/1562)   Receiving objects:  72% (1125/1562)   Receiving objects:  73% (1141/1562)   Receiving objects:  74% (1156/1562)   Receiving objects:  75% (1172/1562)   Receiving objects:  76% (1188/1562)   Receiving objects:  77% (1203/1562)   Receiving objects:  78% (1219/1562)   Receiving objects:  79% (1234/1562)   Receiving objects:  80% (1250/1562)   Receiving objects:  81% (1266/1562)   Receiving objects:  82% (1281/1562)   Receiving objects:  83% (1297/1562)   Receiving objects:  84% (1313/1562)   Receiving objects:  85% (1328/1562)   Receiving objects:  86% (1344/1562)   Receiving objects:  87% (1359/1562)   remote: Total 1562 (delta 760), reused 1426 (delta 638), pack-reused 0[K
+Receiving objects:  88% (1375/1562)   Receiving objects:  89% (1391/1562)   Receiving objects:  90% (1406/1562)   Receiving objects:  91% (1422/1562)   Receiving objects:  92% (1438/1562)   Receiving objects:  93% (1453/1562)   Receiving objects:  94% (1469/1562)   Receiving objects:  95% (1484/1562)   Receiving objects:  96% (1500/1562)   Receiving objects:  97% (1516/1562)   Receiving objects:  98% (1531/1562)   Receiving objects:  99% (1547/1562)   Receiving objects: 100% (1562/1562)   Receiving objects: 100% (1562/1562), 475.15 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/760)   Resolving deltas:   1% (8/760)   Resolving deltas:   2% (16/760)   Resolving deltas:   3% (23/760)   Resolving deltas:   5% (41/760)   Resolving deltas:   7% (58/760)   Resolving deltas:   8% (62/760)   Resolving deltas:  16% (126/760)   Resolving deltas:  18% (137/760)   Resolving deltas:  19% (147/760)   Resolving deltas:  20% (152/760)   Resolving deltas:  21% (160/760)   Resolving deltas:  22% (169/760)   Resolving deltas:  24% (183/760)   Resolving deltas:  25% (190/760)   Resolving deltas:  26% (198/760)   Resolving deltas:  27% (207/760)   Resolving deltas:  31% (236/760)   Resolving deltas:  32% (248/760)   Resolving deltas:  33% (251/760)   Resolving deltas:  34% (265/760)   Resolving deltas:  35% (270/760)   Resolving deltas:  36% (278/760)   Resolving deltas:  37% (282/760)   Resolving deltas:  39% (303/760)   Resolving deltas:  40% (306/760)   Resolving deltas:  41% (313/760)   Resolving deltas:  50% (380/760)   Resolving deltas:  51% (388/760)   Resolving deltas:  52% (396/760)   Resolving deltas:  53% (406/760)   Resolving deltas:  54% (413/760)   Resolving deltas:  57% (435/760)   Resolving deltas:  58% (443/760)   Resolving deltas:  64% (488/760)   Resolving deltas:  65% (495/760)   Resolving deltas:  66% (505/760)   Resolving deltas:  67% (511/760)   Resolving deltas:  70% (534/760)   Resolving deltas:  71% (545/760)   Resolving deltas:  75% (574/760)   Resolving deltas:  76% (580/760)   Resolving deltas:  77% (591/760)   Resolving deltas:  78% (593/760)   Resolving deltas:  79% (601/760)   Resolving deltas:  80% (610/760)   Resolving deltas:  81% (616/760)   Resolving deltas:  82% (625/760)   Resolving deltas:  83% (631/760)   Resolving deltas:  84% (639/760)   Resolving deltas:  85% (646/760)   Resolving deltas:  99% (754/760)   Resolving deltas: 100% (760/760)   Resolving deltas: 100% (760/760), completed with 4 local objects.
+From git://github.com/ReactiveX/RxJava
+ * branch            refs/pull/3298/merge -> FETCH_HEAD
+travis_time:end:0b077116:start=1441359221616478917,finish=1441359221884228026,duration=267749109[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0Ktravis_fold:start:apt[0K[33;1mInstalling APT Packages (BETA)[0m
+$ export DEBIAN_FRONTEND=noninteractive
+travis_time:start:08d83cab[0K$ sudo -E apt-get -yq update &>> ~/apt-get-update.log
+travis_time:end:08d83cab:start=1441359221933276025,finish=1441359228893926704,duration=6960650679[0Ktravis_time:start:01ad70a4[0K$ sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install oracle-java8-installer
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  binfmt-support visualvm ttf-baekmuk ttf-unfonts ttf-unfonts-core
+  ttf-kochi-gothic ttf-sazanami-gothic ttf-kochi-mincho ttf-sazanami-mincho
+  ttf-arphic-uming
+The following packages will be upgraded:
+  oracle-java8-installer
+1 upgraded, 0 newly installed, 0 to remove and 211 not upgraded.
+Need to get 22.4 kB of archives.
+After this operation, 92.2 kB disk space will be freed.
+Get:1 http://ppa.launchpad.net/webupd8team/java/ubuntu/ precise/main oracle-java8-installer all 8u60+8u60arm-1~webupd8~1 [22.4 kB]
+Fetched 22.4 kB in 0s (86.5 kB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace oracle-java8-installer 8u31+8u33arm-1~webupd8~1 (using .../oracle-java8-installer_8u60+8u60arm-1~webupd8~1_all.deb) ...
+oracle-license-v1-1 license has already been accepted
+Unpacking replacement oracle-java8-installer ...
+Processing triggers for shared-mime-info ...
+Setting up oracle-java8-installer (8u60+8u60arm-1~webupd8~1) ...
+Downloading Oracle Java 8...
+--2015-09-04 09:33:58--  http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz
+Resolving download.oracle.com (download.oracle.com)... 184.51.126.99, 184.51.126.91
+Connecting to download.oracle.com (download.oracle.com)|184.51.126.99|:80... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://edelivery.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz [following]
+--2015-09-04 09:33:58--  https://edelivery.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz
+Resolving edelivery.oracle.com (edelivery.oracle.com)... 23.6.22.140
+Connecting to edelivery.oracle.com (edelivery.oracle.com)|23.6.22.140|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz?AuthParam=1441359359_52b8d5ca323828075d2b7bb8307256c9 [following]
+--2015-09-04 09:33:59--  http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz?AuthParam=1441359359_52b8d5ca323828075d2b7bb8307256c9
+Connecting to download.oracle.com (download.oracle.com)|184.51.126.99|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 181238643 (173M) [application/x-gzip]
+Saving to: `jdk-8u60-linux-x64.tar.gz'
+
+     0K ........ ........ ........ ........ ........ ........  1% 17.0M 10s
+  3072K ........ ........ ........ ........ ........ ........  3% 16.2M 10s
+  6144K ........ ........ ........ ........ ........ ........  5% 17.5M 10s
+  9216K ........ ........ ........ ........ ........ ........  6% 16.3M 10s
+ 12288K ........ ........ ........ ........ ........ ........  8% 18.7M 9s
+ 15360K ........ ........ ........ ........ ........ ........ 10% 16.3M 9s
+ 18432K ........ ........ ........ ........ ........ ........ 12% 17.3M 9s
+ 21504K ........ ........ ........ ........ ........ ........ 13% 16.2M 9s
+ 24576K ........ ........ ........ ........ ........ ........ 15% 17.8M 9s
+ 27648K ........ ........ ........ ........ ........ ........ 17% 16.2M 8s
+ 30720K ........ ........ ........ ........ ........ ........ 19% 15.3M 8s
+ 33792K ........ ........ ........ ........ ........ ........ 20% 17.1M 8s
+ 36864K ........ ........ ........ ........ ........ ........ 22% 17.7M 8s
+ 39936K ........ ........ ........ ........ ........ ........ 24% 16.4M 8s
+ 43008K ........ ........ ........ ........ ........ ........ 26% 17.4M 8s
+ 46080K ........ ........ ........ ........ ........ ........ 27% 16.2M 7s
+ 49152K ........ ........ ........ ........ ........ ........ 29% 17.2M 7s
+ 52224K ........ ........ ........ ........ ........ ........ 31% 14.8M 7s
+ 55296K ........ ........ ........ ........ ........ ........ 32% 17.3M 7s
+ 58368K ........ ........ ........ ........ ........ ........ 34% 15.3M 7s
+ 61440K ........ ........ ........ ........ ........ ........ 36% 16.1M 7s
+ 64512K ........ ........ ........ ........ ........ ........ 38% 17.2M 6s
+ 67584K ........ ........ ........ ........ ........ ........ 39% 17.3M 6s
+ 70656K ........ ........ ........ ........ ........ ........ 41% 15.7M 6s
+ 73728K ........ ........ ........ ........ ........ ........ 43% 18.8M 6s
+ 76800K ........ ........ ........ ........ ........ ........ 45% 15.4M 6s
+ 79872K ........ ........ ........ ........ ........ ........ 46% 16.5M 6s
+ 82944K ........ ........ ........ ........ ........ ........ 48% 16.5M 5s
+ 86016K ........ ........ ........ ........ ........ ........ 50% 16.0M 5s
+ 89088K ........ ........ ........ ........ ........ ........ 52% 17.2M 5s
+ 92160K ........ ........ ........ ........ ........ ........ 53% 16.7M 5s
+ 95232K ........ ........ ........ ........ ........ ........ 55% 15.5M 5s
+ 98304K ........ ........ ........ ........ ........ ........ 57% 16.9M 4s
+101376K ........ ........ ........ ........ ........ ........ 59% 16.5M 4s
+104448K ........ ........ ........ ........ ........ ........ 60% 17.7M 4s
+107520K ........ ........ ........ ........ ........ ........ 62% 16.3M 4s
+110592K ........ ........ ........ ........ ........ ........ 64% 17.2M 4s
+113664K ........ ........ ........ ........ ........ ........ 65% 16.3M 4s
+116736K ........ ........ ........ ........ ........ ........ 67% 15.8M 3s
+119808K ........ ........ ........ ........ ........ ........ 69% 16.3M 3s
+122880K ........ ........ ........ ........ ........ ........ 71% 17.1M 3s
+125952K ........ ........ ........ ........ ........ ........ 72% 17.7M 3s
+129024K ........ ........ ........ ........ ........ ........ 74% 17.0M 3s
+132096K ........ ........ ........ ........ ........ ........ 76% 16.2M 2s
+135168K ........ ........ ........ ........ ........ ........ 78% 18.4M 2s
+138240K ........ ........ ........ ........ ........ ........ 79% 16.3M 2s
+141312K ........ ........ ........ ........ ........ ........ 81% 15.4M 2s
+144384K ........ ........ ........ ........ ........ ........ 83% 16.1M 2s
+147456K ........ ........ ........ ........ ........ ........ 85% 14.1M 2s
+150528K ........ ........ ........ ........ ........ ........ 86% 16.1M 1s
+153600K ........ ........ ........ ........ ........ ........ 88% 17.5M 1s
+156672K ........ ........ ........ ........ ........ ........ 90% 16.6M 1s
+159744K ........ ........ ........ ........ ........ ........ 91% 17.0M 1s
+162816K ........ ........ ........ ........ ........ ........ 93% 16.3M 1s
+165888K ........ ........ ........ ........ ........ ........ 95% 17.1M 0s
+168960K ........ ........ ........ ........ ........ ........ 97% 16.5M 0s
+172032K ........ ........ ........ ........ ........ ........ 98% 17.4M 0s
+175104K ........ ........ ........ .....                     100% 15.8M=10s
+
+2015-09-04 09:34:09 (16.6 MB/s) - `jdk-8u60-linux-x64.tar.gz' saved [181238643/181238643]
+
+Download done.
+Removing outdated cached downloads...
+Oracle JDK 8 installed
+Oracle JRE 8 browser plugin installed
+travis_time:end:01ad70a4:start=1441359228897874151,finish=1441359256058661007,duration=27160786856[0Ktravis_fold:end:apt[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0a7e9dbb[0K$ Installing caching utilities
+travis_time:end:0a7e9dbb:start=1441359257666317736,finish=1441359257750473177,duration=84155441[0Ktravis_time:start:0876a3eb[0Kattempting to download cache archive
+fetching PR.3298/cache--jdk-oraclejdk8.tgz
+fetching PR.3298/cache--jdk-oraclejdk8.tbz
+fetching 2.x/cache--jdk-oraclejdk8.tgz
+found cache
+travis_time:end:0876a3eb:start=1441359257755871898,finish=1441359259995132568,duration=2239260670[0Ktravis_time:start:0712e990[0Kadding /home/travis/.m2 to cache
+adding /home/travis/.gradle to cache
+travis_time:end:0712e990:start=1441359260000010299,finish=1441359262754277091,duration=2754266792[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+$ java -Xmx32m -version
+java version "1.8.0_60"
+Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
+Java HotSpot(TM) 64-Bit Server VM (build 25.60-b23, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_60
+travis_fold:start:install[0Ktravis_time:start:039f6718[0K$ ./gradlew assemble
+[buildinfo] Properties file path was not found! (Relevant only for builds running on a CI Server)
+:compileJava
+:processResources UP-TO-DATE
+:classes
+:writeManifestProperties
+:jar
+:javadoc/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/Scheduler.java:69: warning - @return tag has no arguments.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/subscribers/TestSubscriber.java:674: warning - @param argument "time" is not a parameter name.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/plugins/RxJavaPlugins.java:163: warning - @return tag has no arguments.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/plugins/RxJavaPlugins.java:215: warning - @return tag has no arguments.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/plugins/RxJavaPlugins.java:237: warning - @return tag has no arguments.
+
+5 warnings
+:javadocJar
+:compilePerfJava UP-TO-DATE
+:processPerfResources UP-TO-DATE
+:perfClasses UP-TO-DATE
+:shadowJar
+:sourceJar
+:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 43.161 secs
+travis_time:end:039f6718:start=1441359263054061994,finish=1441359306624811672,duration=43570749678[0Ktravis_fold:end:install[0Ktravis_time:start:0289d89b[0K$ gradle/buildViaTravis.sh
+Build Pull Request #3298 => Branch [2.x]
+[buildinfo] Properties file path was not found! (Relevant only for builds running on a CI Server)
+:compileJava UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:writeManifestProperties
+:jar
+:javadoc/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/Scheduler.java:69: warning - @return tag has no arguments.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/subscribers/TestSubscriber.java:674: warning - @param argument "time" is not a parameter name.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/plugins/RxJavaPlugins.java:163: warning - @return tag has no arguments.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/plugins/RxJavaPlugins.java:215: warning - @return tag has no arguments.
+/home/travis/build/ReactiveX/RxJava/src/main/java/io/reactivex/plugins/RxJavaPlugins.java:237: warning - @return tag has no arguments.
+
+5 warnings
+:javadocJar
+:compilePerfJava UP-TO-DATE
+:processPerfResources UP-TO-DATE
+:perfClasses UP-TO-DATE
+:shadowJar
+:sourceJar
+:assemble
+:writeLicenseHeader
+:licenseExamples UP-TO-DATE
+:licenseMain UP-TO-DATE
+:licensePerf UP-TO-DATE
+:licenseTest
+Missing header in: src/test/java/io/reactivex/TestHelper.java
+Missing header in: src/test/java/io/reactivex/internal/operators/BackpressureHelperTest.java
+Missing header in: src/test/java/io/reactivex/internal/operators/BlockingOperatorMostRecentTest.java
+Missing header in: src/test/java/io/reactivex/internal/operators/BlockingOperatorToIteratorTest.java
+Missing header in: src/test/java/io/reactivex/internal/operators/OnSubscribeDeferTest.java
+Missing header in: src/test/java/io/reactivex/internal/operators/BlockingOperatorLatestTest.java
+:license
+:compileTestJava
+:processTestResources UP-TO-DATE
+:testClasses
+:test
+
+io.reactivex.BackpressureTests > testOnBackpressureBuffer STARTED
+
+io.reactivex.BackpressureTests > testMergeSync STARTED
+
+io.reactivex.BackpressureTests > testFirehoseFailsAsExpectedLoop STARTED
+
+io.reactivex.BackpressureTests > testMergeAsync STARTED
+
+io.reactivex.BackpressureTests > testObserveOnWithSlowConsumer STARTED
+
+io.reactivex.BackpressureTests > testObserveOn STARTED
+
+io.reactivex.BackpressureTests > testOnBackpressureDropWithAction STARTED
+
+io.reactivex.BackpressureTests > testTakeFilterSkipChainAsync STARTED
+
+io.reactivex.BackpressureTests > testZipSync STARTED
+
+io.reactivex.BackpressureTests > testFlatMapAsync STARTED
+
+io.reactivex.BackpressureTests > testOnBackpressureDrop STARTED
+
+io.reactivex.BackpressureTests > testFirehoseFailsAsExpected STARTED
+
+io.reactivex.BackpressureTests > testFlatMapSync STARTED
+
+io.reactivex.BackpressureTests > testOnBackpressureDropSynchronousWithAction STARTED
+
+io.reactivex.BackpressureTests > testUserSubscriberUsingRequestSync STARTED
+
+io.reactivex.BackpressureTests > testZipAsync STARTED
+
+io.reactivex.BackpressureTests > testOnBackpressureDropSynchronous STARTED
+
+io.reactivex.BackpressureTests > testSubscribeOnScheduling STARTED
+
+io.reactivex.BackpressureTests > testMergeAsyncThenObserveOnLoop STARTED
+
+io.reactivex.BackpressureTests > testMergeAsyncThenObserveOn STARTED
+
+io.reactivex.BackpressureTests > testUserSubscriberUsingRequestAsync STARTED
+
+io.reactivex.CovarianceTest > testSortedList STARTED
+
+io.reactivex.CovarianceTest > testCovarianceOfFrom STARTED
+
+io.reactivex.CovarianceTest > testGroupByCompose STARTED
+
+io.reactivex.CovarianceTest > testCovarianceOfCompose2 STARTED
+
+io.reactivex.CovarianceTest > testCovarianceOfCompose3 STARTED
+
+io.reactivex.CovarianceTest > testCovarianceOfCompose4 STARTED
+
+io.reactivex.CovarianceTest > testCovarianceOfCompose STARTED
+
+io.reactivex.CovarianceTest > testComposeWithDeltaLogic STARTED
+
+io.reactivex.CombineLatestTests > testCovarianceOfCombineLatest STARTED
+
+io.reactivex.CombineLatestTests > testNullEmitting STARTED
+
+io.reactivex.ConcatTests > testConcatCovariance STARTED
+
+io.reactivex.ConcatTests > testConcatWithIterableOfObservable STARTED
+
+io.reactivex.ConcatTests > testConcatWithObservableOfObservable STARTED
+
+io.reactivex.ConcatTests > testConcatSimple STARTED
+
+io.reactivex.ConcatTests > testConcatCovariance2 STARTED
+
+io.reactivex.ConcatTests > testConcatCovariance3 STARTED
+
+io.reactivex.ConcatTests > testConcatCovariance4 STARTED
+
+io.reactivex.ErrorHandlingTests > testOnNextErrorAcrossThread STARTED
+
+io.reactivex.ErrorHandlingTests > testOnNextError STARTED
+
+io.reactivex.GroupByTests > testTakeUnsubscribesOnGroupBy STARTED
+
+io.reactivex.GroupByTests > testTakeUnsubscribesOnFlatMapOfGroupBy STARTED
+
+io.reactivex.MergeTests > testCovarianceOfMerge STARTED
+
+io.reactivex.MergeTests > testMergeCovariance2 STARTED
+
+io.reactivex.MergeTests > testMergeCovariance3 STARTED
+
+io.reactivex.MergeTests > testMergeCovariance4 STARTED
+
+io.reactivex.MergeTests > testMergeCovariance STARTED
+
+io.reactivex.NotificationTest > testOnNextIntegerNotificationsWhenEqual STARTED
+
+io.reactivex.NotificationTest > testOnErrorNullNotificationDoesNotEqualIntegerNotification STARTED
+
+io.reactivex.NotificationTest > testOnNextIntegerNotificationDoesNotEqualNullNotification STARTED
+
+io.reactivex.NotificationTest > testOnErrorIntegerNotificationWhenNotEqual STARTED
+
+io.reactivex.NotificationTest > testOnErrorIntegerNotificationDoesNotEqualNullNotification STARTED
+
+io.reactivex.NotificationTest > testOnNextIntegerNotificationsWhenNotEqual STARTED
+
+io.reactivex.NotificationTest > testOnNextNullNotificationDoesNotEqualIntegerNotification STARTED
+
+io.reactivex.NotificationTest > testOnErrorIntegerNotificationsWhenEqual STARTED
+
+io.reactivex.ObservableConversionTest > testConvertToConcurrentQueue STARTED
+
+io.reactivex.ObservableConversionTest > testConversionBetweenObservableClasses STARTED
+
+io.reactivex.ObservableDoOnTest > testDoOnCompleted STARTED
+
+io.reactivex.ObservableDoOnTest > testDoOnError STARTED
+
+io.reactivex.ObservableDoOnTest > testDoOnEach STARTED
+
+io.reactivex.ObservableTests > testCollectToString STARTED
+
+io.reactivex.ObservableTests > testMergeWith STARTED
+
+io.reactivex.ObservableTests > testErrorThrownWithoutErrorHandlerSynchronous STARTED
+
+io.reactivex.ObservableTests > testReduceWithEmptyObservable STARTED
+
+io.reactivex.ObservableTests > testFirstOfNone STARTED
+
+io.reactivex.ObservableTests > testCountError STARTED
+
+io.reactivex.ObservableTests > testCustomObservableWithErrorInObserverSynchronous STARTED
+
+io.reactivex.ObservableTests > testEmptyIsEmpty STARTED
+
+io.reactivex.ObservableTests > testAmbWith STARTED
+
+io.reactivex.ObservableTests > testPublishLast STARTED
+
+io.reactivex.ObservableTests > fromIterable STARTED
+
+io.reactivex.ObservableTests > testTakeFirstWithPredicateOfNoneMatchingThePredicate STARTED
+
+io.reactivex.ObservableTests > testEmptyIdentity STARTED
+
+io.reactivex.ObservableTests > testCache STARTED
+
+io.reactivex.ObservableTests > testContainsWithEmptyObservable STARTED
+
+io.reactivex.ObservableTests > testFirstWithPredicateOfNoneMatchingThePredicate STARTED
+
+io.reactivex.ObservableTests > testReduceWithEmptyObservableAndSeed STARTED
+
+io.reactivex.ObservableTests > testCustomObservableWithErrorInObserverAsynchronous STARTED
+
+io.reactivex.ObservableTests > testReduceWithInitialValue STARTED
+
+io.reactivex.ObservableTests > testForEachWithNull STARTED
+
+io.reactivex.ObservableTests > testTakeWhileToList STARTED
+
+io.reactivex.ObservableTests > fromArray STARTED
+
+io.reactivex.ObservableTests > testJustWithScheduler STARTED
+
+io.reactivex.ObservableTests > testContains STARTED
+
+io.reactivex.ObservableTests > testErrorThrownIssue1685 STARTED
+
+io.reactivex.ObservableTests > testCustomObservableWithErrorInObservableSynchronous STARTED
+
+io.reactivex.ObservableTests > testTakeWithErrorInObserver STARTED
+
+io.reactivex.ObservableTests > testCountZeroItems STARTED
+
+io.reactivex.ObservableTests > testTakeFirstOfNone STARTED
+
+io.reactivex.ObservableTests > testTakeFirstOfSome STARTED
+
+io.reactivex.ObservableTests > testCollectToList STARTED
+
+io.reactivex.ObservableTests > testCompose STARTED
+
+io.reactivex.ObservableTests > testMaterializeDematerializeChaining STARTED
+
+io.reactivex.ObservableTests > testErrorThrownWithoutErrorHandlerAsynchronous STARTED
+
+io.reactivex.ObservableTests > testOfTypeWithPolymorphism STARTED
+
+io.reactivex.ObservableTests > testRangeWithScheduler STARTED
+
+io.reactivex.ObservableTests > testOnSubscribeFails STARTED
+
+io.reactivex.ObservableTests > testCreate STARTED
+
+io.reactivex.ObservableTests > testExtend STARTED
+
+io.reactivex.ObservableTests > testStartWithWithScheduler STARTED
+
+io.reactivex.ObservableTests > testCacheWithCapacity STARTED
+
+io.reactivex.ObservableTests > testConcatWith STARTED
+
+io.reactivex.ObservableTests > testOfType STARTED
+
+io.reactivex.ObservableTests > fromArityArgs1 STARTED
+
+io.reactivex.ObservableTests > fromArityArgs3 STARTED
+
+io.reactivex.ObservableTests > testCountAFewItems STARTED
+
+io.reactivex.ObservableTests > testReduce STARTED
+
+io.reactivex.ObservableTests > testReplay STARTED
+
+io.reactivex.ObservableTests > testContainsWithInexistence STARTED
+
+io.reactivex.ObservableTests > testContainsWithNull STARTED
+
+io.reactivex.ObservableTests > testIgnoreElements STARTED
+
+io.reactivex.ObservableWindowTests > testWindow STARTED
+
+io.reactivex.ReduceTests > reduceWithCovariantObjects STARTED
+
+io.reactivex.ReduceTests > reduceWithObjects STARTED
+
+io.reactivex.ReduceTests > reduceInts STARTED
+
+io.reactivex.ReduceTests > reduceCovariance STARTED
+
+io.reactivex.ScanTests > testUnsubscribeScan STARTED
+
+io.reactivex.StartWithTests > startWith1 STARTED
+
+io.reactivex.StartWithTests > startWithIterable STARTED
+
+io.reactivex.StartWithTests > startWithObservable STARTED
+
+io.reactivex.SubscriberTest > testOnStartCalledOnceViaUnsafeSubscribe STARTED
+
+io.reactivex.SubscriberTest > testRequestFromDecoupledOperator STARTED
+
+io.reactivex.SubscriberTest > testRequestThroughMap STARTED
+
+io.reactivex.SubscriberTest > testRequestFromFinalSubscribeWithRequestValue STARTED
+
+io.reactivex.SubscriberTest > testRequestFromDecoupledOperatorThatRequestsN STARTED
+
+io.reactivex.SubscriberTest > testRequestThroughTakeThatReducesRequest STARTED
+
+io.reactivex.SubscriberTest > testRequestToObservable STARTED
+
+io.reactivex.SubscriberTest > testOnStartRequestsAreAdditiveAndOverflowBecomesMaxValue STARTED
+
+io.reactivex.SubscriberTest > testOnStartCalledOnceViaSubscribe STARTED
+
+io.reactivex.SubscriberTest > testRequestThroughTakeWhereRequestIsSmallerThanTake STARTED
+
+io.reactivex.SubscriberTest > testRequestFromChainedOperator STARTED
+
+io.reactivex.SubscriberTest > testRequestFromFinalSubscribeWithoutRequestValue STARTED
+
+io.reactivex.SubscriberTest > testOnStartRequestsAreAdditive STARTED
+
+io.reactivex.SubscriberTest > testNegativeRequestThrowsIllegalArgumentException STARTED
+
+io.reactivex.SubscriberTest > testOnStartCalledOnceViaLift STARTED
+
+io.reactivex.ThrottleLastTests > testThrottle STARTED
+
+io.reactivex.ThrottleWithTimeoutTests > testThrottle STARTED
+
+io.reactivex.ZipTests > testZipObservableOfObservables STARTED
+
+io.reactivex.ZipTests > testCovarianceOfZip STARTED
+
+io.reactivex.ZipTests > nonBlockingObservable STARTED
+
+io.reactivex.internal.operators.BackpressureHelperTest > testMultiplyCap STARTED
+
+io.reactivex.internal.operators.BackpressureHelperTest > testAddCap STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testNextThrows STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testEmpty STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testFasterSource STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testSameSourceMultipleIterators STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testSimpleJustNext STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testHasNextThrows STARTED
+
+io.reactivex.internal.operators.BlockingOperatorLatestTest > testSimple STARTED
+
+io.reactivex.internal.operators.BlockingOperatorMostRecentTest > testMostRecentNull STARTED
+
+io.reactivex.internal.operators.BlockingOperatorMostRecentTest > testMostRecentWithException STARTED
+
+io.reactivex.internal.operators.BlockingOperatorMostRecentTest > testMostRecent STARTED
+
+io.reactivex.internal.operators.BlockingOperatorMostRecentTest > testSingleSourceManyIterators STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testOnError STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testNextWithCallingHasNextMultipleTimes STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testNext STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testNextWithOnlyUsingNextMethod STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testNextWithEmpty STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testNextWithError STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testNoBufferingOrBlockingOfSequence STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testSingleSourceManyIterators STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testSynchronousNext STARTED
+
+io.reactivex.internal.operators.BlockingOperatorNextTest > testOnErrorInNewThread STARTED
+
+io.reactivex.internal.operators.BlockingOperatorToIteratorTest > testToIterator STARTED
+
+io.reactivex.internal.operators.BlockingOperatorToIteratorTest > testExceptionThrownFromOnSubscribe STARTED
+
+io.reactivex.internal.operators.BlockingOperatorToIteratorTest > testToIteratorWithException STARTED
+
+io.reactivex.internal.operators.BufferUntilSubscriberTest > testIssue1677 STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testAsyncComeAndGo STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testAsync STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testCache STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testTake STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testColdReplayBackpressure STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > unsafeChildThrows STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testUnsubscribeSource STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testValuesAndThenError STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testNoMissingBackpressureException STARTED
+
+io.reactivex.internal.operators.CachedObservableTest > testColdReplayNoBackpressure STARTED
+
+io.reactivex.internal.operators.NotificationLiteTest > testValueKind STARTED
+
+io.reactivex.internal.operators.NotificationLiteTest > testComplete STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testAmb STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testProducerRequestThroughAmb STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testAmb2 STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testAmb3 STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testSubscriptionOnlyHappensOnce STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testSecondaryRequestsPropagatedToChildren STARTED
+
+io.reactivex.internal.operators.OnSubscribeAmbTest > testSynchronousSources STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatest3TypesA STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatest3TypesB STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestDifferentLengthObservableSequences1 STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestDifferentLengthObservableSequences2 STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test7SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > combineMultipleObservers STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test1ToNSourcesScheduled STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestWithInterleavingSequences STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testFirstNeverProduces STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testWithCombineLatestIssue1717 STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test6SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestRequestOverflow STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test5SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testSecondNeverProduces STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatest2Types STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test1ToNSources STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test4SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test3SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testZeroSources STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test2SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test9SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > combineSimple STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testCombineLatestWithFunctionThatThrowsAnException STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > testBackpressureLoop STARTED
+
+io.reactivex.internal.operators.OnSubscribeCombineLatestTest > test8SourcesOverload STARTED
+
+io.reactivex.internal.operators.OnSubscribeDeferTest > testDefer STARTED
+
+io.reactivex.internal.operators.OnSubscribeDeferTest > testDeferFunctionThrows STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testBackpressureViaRequest STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testNoBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testNull STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testListIterable STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testRawIterable STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testDoesNotCallIteratorHasNextMoreThanRequiredWithBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testObservableFromIterable STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testSubscribeMultipleTimes STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testDoesNotCallIteratorHasNextMoreThanRequiredFastPath STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testFromEmptyIterableWhenZeroRequestedShouldStillEmitOnCompletedEagerly STARTED
+
+io.reactivex.internal.operators.OnSubscribeFromIterableTest > testFromIterableRequestOverflow STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testWithBackpressureRequestWayMore STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testNearMaxValueWithoutBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testBackpressureViaRequest STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRequestOverflow STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testNoBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testEmptyRangeSendsOnCompleteEagerlyWithRequestZero STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testWithBackpressureAllAtOnce STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeUnsubscribe STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testWithBackpressure1 STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow2 STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow3 STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow4 STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeWithOverflow5 STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeWithZero STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testNearMaxValueWithBackpressure STARTED
+
+io.reactivex.internal.operators.OnSubscribeRangeTest > testRangeStartAt2Count3 STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > onlyFirstShouldSubscribeAndLastUnsubscribe STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testUpstreamErrorAllowsRetry STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testRefCountSynchronousTake STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testRefCountSynchronous STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testRefCount STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testAlreadyUnsubscribedClient STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testAlreadyUnsubscribedInterleavesWithClient STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testConnectDisconnectConnectAndSubjectState STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testRefCountAsync STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testRepeat STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testConnectUnsubscribeRaceConditionLoop STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testConnectUnsubscribeRaceCondition STARTED
+
+io.reactivex.internal.operators.OnSubscribeRefCountTest > testConnectUnsubscribe STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testOnceObserverThrows STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testWithMultipleSubscribersStartingAtSameTime STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testWithMultipleStaggeredSubscribersAndPublish STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testPeriodicObserverThrows STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testTimerOnce STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testWithMultipleStaggeredSubscribers STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testTimerPeriodically STARTED
+
+io.reactivex.internal.operators.OnSubscribeTimerTest > testInterval STARTED
+:check
+:compileExamplesJava UP-TO-DATE
+:processExamplesResources UP-TO-DATE
+:examplesClasses UP-TO-DATE
+:build
+
+BUILD SUCCESSFUL
+
+Total time: 1 mins 25.799 secs
+travis_time:end:0289d89b:start=1441359306629854676,finish=1441359392879668626,duration=86249813950[0K
+[32;1mThe command "gradle/buildViaTravis.sh" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:002aa41f[0Kchange detected:
+/home/travis/.gradle/caches/modules-2/modules-2.lock
+/home/travis/.gradle/caches/modules-2/modules-2.lock
+
+changes detected, packing new archive
+.
+uploading archive
+travis_time:end:002aa41f:start=1441359392884173496,finish=1441359402001856112,duration=9117682616[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 0.

@@ -1,0 +1,942 @@
+Using worker: worker-linux-docker-215030a7.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-backports_multiverse_source_Sources.gz is not what the server reported 5886 5888
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-amd64_Packages.gz is not what the server reported 36669 36677
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-i386_Packages.gz is not what the server reported 36729 36733
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
+Suggested packages:
+  glibc-doc
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 248 not upgraded.
+Need to get 8,840 kB of archives.
+After this operation, 14.3 kB disk space will be freed.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.15 [2,943 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.15 [84.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.15 [1,177 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.15 [4,636 kB]
+Fetched 8,840 kB in 0s (37.4 MB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.10 (using .../libc6-dev_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.10 (using .../libc-dev-bin_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.10 (using .../libc-bin_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.15) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72018 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.10 (using .../libc6_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.15) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.15) ...
+Setting up libc6-dev (2.15-0ubuntu10.15) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:0a868922[0K$ git clone --depth=10 https://github.com/zxing/zxing.git zxing/zxing
+Cloning into 'zxing/zxing'...
+remote: Counting objects: 2780, done.[K
+remote: Compressing objects:   0% (1/2166)   [Kremote: Compressing objects:   1% (22/2166)   [Kremote: Compressing objects:   2% (44/2166)   [Kremote: Compressing objects:   3% (65/2166)   [Kremote: Compressing objects:   4% (87/2166)   [Kremote: Compressing objects:   5% (109/2166)   [Kremote: Compressing objects:   6% (130/2166)   [Kremote: Compressing objects:   7% (152/2166)   [Kremote: Compressing objects:   8% (174/2166)   [Kremote: Compressing objects:   9% (195/2166)   [Kremote: Compressing objects:  10% (217/2166)   [Kremote: Compressing objects:  11% (239/2166)   [Kremote: Compressing objects:  12% (260/2166)   [Kremote: Compressing objects:  13% (282/2166)   [Kremote: Compressing objects:  14% (304/2166)   [Kremote: Compressing objects:  15% (325/2166)   [Kremote: Compressing objects:  16% (347/2166)   [Kremote: Compressing objects:  17% (369/2166)   [Kremote: Compressing objects:  18% (390/2166)   [Kremote: Compressing objects:  19% (412/2166)   [Kremote: Compressing objects:  20% (434/2166)   [Kremote: Compressing objects:  21% (455/2166)   [Kremote: Compressing objects:  22% (477/2166)   [Kremote: Compressing objects:  23% (499/2166)   [Kremote: Compressing objects:  24% (520/2166)   [Kremote: Compressing objects:  25% (542/2166)   [Kremote: Compressing objects:  26% (564/2166)   [Kremote: Compressing objects:  27% (585/2166)   [Kremote: Compressing objects:  28% (607/2166)   [Kremote: Compressing objects:  29% (629/2166)   [Kremote: Compressing objects:  30% (650/2166)   [Kremote: Compressing objects:  31% (672/2166)   [Kremote: Compressing objects:  32% (694/2166)   [Kremote: Compressing objects:  33% (715/2166)   [Kremote: Compressing objects:  34% (737/2166)   [Kremote: Compressing objects:  35% (759/2166)   [Kremote: Compressing objects:  36% (780/2166)   [Kremote: Compressing objects:  37% (802/2166)   [Kremote: Compressing objects:  38% (824/2166)   [Kremote: Compressing objects:  39% (845/2166)   [Kremote: Compressing objects:  40% (867/2166)   [Kremote: Compressing objects:  41% (889/2166)   [Kremote: Compressing objects:  42% (910/2166)   [Kremote: Compressing objects:  43% (932/2166)   [Kremote: Compressing objects:  44% (954/2166)   [Kremote: Compressing objects:  45% (975/2166)   [Kremote: Compressing objects:  46% (997/2166)   [Kremote: Compressing objects:  47% (1019/2166)   [Kremote: Compressing objects:  48% (1040/2166)   [Kremote: Compressing objects:  49% (1062/2166)   [Kremote: Compressing objects:  50% (1083/2166)   [Kremote: Compressing objects:  51% (1105/2166)   [Kremote: Compressing objects:  52% (1127/2166)   [Kremote: Compressing objects:  53% (1148/2166)   [Kremote: Compressing objects:  54% (1170/2166)   [Kremote: Compressing objects:  55% (1192/2166)   [Kremote: Compressing objects:  56% (1213/2166)   [Kremote: Compressing objects:  57% (1235/2166)   [Kremote: Compressing objects:  58% (1257/2166)   [Kremote: Compressing objects:  59% (1278/2166)   [Kremote: Compressing objects:  60% (1300/2166)   [Kremote: Compressing objects:  61% (1322/2166)   [Kremote: Compressing objects:  62% (1343/2166)   [Kremote: Compressing objects:  63% (1365/2166)   [Kremote: Compressing objects:  64% (1387/2166)   [Kremote: Compressing objects:  65% (1408/2166)   [Kremote: Compressing objects:  66% (1430/2166)   [Kremote: Compressing objects:  67% (1452/2166)   [Kremote: Compressing objects:  68% (1473/2166)   [Kremote: Compressing objects:  69% (1495/2166)   [Kremote: Compressing objects:  70% (1517/2166)   [Kremote: Compressing objects:  71% (1538/2166)   [Kremote: Compressing objects:  72% (1560/2166)   [Kremote: Compressing objects:  73% (1582/2166)   [Kremote: Compressing objects:  74% (1603/2166)   [Kremote: Compressing objects:  75% (1625/2166)   [Kremote: Compressing objects:  76% (1647/2166)   [Kremote: Compressing objects:  77% (1668/2166)   [Kremote: Compressing objects:  78% (1690/2166)   [Kremote: Compressing objects:  79% (1712/2166)   [Kremote: Compressing objects:  80% (1733/2166)   [Kremote: Compressing objects:  81% (1755/2166)   [Kremote: Compressing objects:  82% (1777/2166)   [Kremote: Compressing objects:  83% (1798/2166)   [Kremote: Compressing objects:  84% (1820/2166)   [Kremote: Compressing objects:  85% (1842/2166)   [Kremote: Compressing objects:  86% (1863/2166)   [Kremote: Compressing objects:  87% (1885/2166)   [Kremote: Compressing objects:  88% (1907/2166)   [Kremote: Compressing objects:  89% (1928/2166)   [Kremote: Compressing objects:  90% (1950/2166)   [Kremote: Compressing objects:  91% (1972/2166)   [Kremote: Compressing objects:  92% (1993/2166)   [Kremote: Compressing objects:  93% (2015/2166)   [Kremote: Compressing objects:  94% (2037/2166)   [Kremote: Compressing objects:  95% (2058/2166)   [Kremote: Compressing objects:  96% (2080/2166)   [Kremote: Compressing objects:  97% (2102/2166)   [Kremote: Compressing objects:  98% (2123/2166)   [Kremote: Compressing objects:  99% (2145/2166)   [Kremote: Compressing objects: 100% (2166/2166)   [Kremote: Compressing objects: 100% (2166/2166), done.[K
+Receiving objects:   0% (1/2780)   Receiving objects:   1% (28/2780)   Receiving objects:   2% (56/2780)   Receiving objects:   3% (84/2780)   Receiving objects:   4% (112/2780)   Receiving objects:   5% (139/2780)   Receiving objects:   6% (167/2780)   Receiving objects:   7% (195/2780)   Receiving objects:   8% (223/2780)   Receiving objects:   9% (251/2780)   Receiving objects:  10% (278/2780)   Receiving objects:  11% (306/2780)   Receiving objects:  12% (334/2780)   Receiving objects:  13% (362/2780)   Receiving objects:  14% (390/2780)   Receiving objects:  15% (417/2780)   Receiving objects:  16% (445/2780)   Receiving objects:  17% (473/2780)   Receiving objects:  18% (501/2780)   Receiving objects:  19% (529/2780)   Receiving objects:  20% (556/2780)   Receiving objects:  21% (584/2780)   Receiving objects:  22% (612/2780)   Receiving objects:  23% (640/2780)   Receiving objects:  24% (668/2780)   Receiving objects:  25% (695/2780)   Receiving objects:  26% (723/2780)   Receiving objects:  27% (751/2780)   Receiving objects:  28% (779/2780)   Receiving objects:  29% (807/2780)   Receiving objects:  30% (834/2780)   Receiving objects:  31% (862/2780)   Receiving objects:  32% (890/2780)   Receiving objects:  33% (918/2780)   Receiving objects:  34% (946/2780)   Receiving objects:  35% (973/2780)   Receiving objects:  36% (1001/2780)   Receiving objects:  37% (1029/2780)   Receiving objects:  38% (1057/2780), 11.61 MiB | 23.16 MiB/s   Receiving objects:  39% (1085/2780), 11.61 MiB | 23.16 MiB/s   Receiving objects:  40% (1112/2780), 11.61 MiB | 23.16 MiB/s   Receiving objects:  41% (1140/2780), 11.61 MiB | 23.16 MiB/s   Receiving objects:  42% (1168/2780), 11.61 MiB | 23.16 MiB/s   Receiving objects:  42% (1181/2780), 26.18 MiB | 26.12 MiB/s   Receiving objects:  43% (1196/2780), 26.18 MiB | 26.12 MiB/s   Receiving objects:  44% (1224/2780), 26.18 MiB | 26.12 MiB/s   Receiving objects:  45% (1251/2780), 26.18 MiB | 26.12 MiB/s   Receiving objects:  46% (1279/2780), 26.18 MiB | 26.12 MiB/s   Receiving objects:  47% (1307/2780), 26.18 MiB | 26.12 MiB/s   Receiving objects:  48% (1335/2780), 41.07 MiB | 27.33 MiB/s   Receiving objects:  49% (1363/2780), 41.07 MiB | 27.33 MiB/s   Receiving objects:  50% (1390/2780), 41.07 MiB | 27.33 MiB/s   Receiving objects:  51% (1418/2780), 41.07 MiB | 27.33 MiB/s   Receiving objects:  51% (1442/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  52% (1446/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  53% (1474/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  54% (1502/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  55% (1529/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  56% (1557/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  57% (1585/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  58% (1613/2780), 55.89 MiB | 27.89 MiB/s   Receiving objects:  59% (1641/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  60% (1668/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  61% (1696/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  62% (1724/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  63% (1752/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  64% (1780/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  65% (1807/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  65% (1810/2780), 70.49 MiB | 28.14 MiB/s   Receiving objects:  66% (1835/2780), 84.28 MiB | 28.04 MiB/s   Receiving objects:  67% (1863/2780), 84.28 MiB | 28.04 MiB/s   Receiving objects:  68% (1891/2780), 84.28 MiB | 28.04 MiB/s   Receiving objects:  69% (1919/2780), 84.28 MiB | 28.04 MiB/s   Receiving objects:  70% (1946/2780), 84.28 MiB | 28.04 MiB/s   Receiving objects:  71% (1974/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  72% (2002/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  73% (2030/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  74% (2058/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  75% (2085/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  76% (2113/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  77% (2141/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  78% (2169/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  79% (2197/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  79% (2222/2780), 92.43 MiB | 26.36 MiB/s   Receiving objects:  80% (2224/2780), 106.56 MiB | 26.59 MiB/s   Receiving objects:  81% (2252/2780), 106.56 MiB | 26.59 MiB/s   Receiving objects:  82% (2280/2780), 106.56 MiB | 26.59 MiB/s   Receiving objects:  83% (2308/2780), 106.56 MiB | 26.59 MiB/s   Receiving objects:  84% (2336/2780), 106.56 MiB | 26.59 MiB/s   Receiving objects:  85% (2363/2780), 106.56 MiB | 26.59 MiB/s   Receiving objects:  86% (2391/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  87% (2419/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  88% (2447/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  89% (2475/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  90% (2502/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  91% (2530/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  92% (2558/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  93% (2586/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  94% (2614/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  95% (2641/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  96% (2669/2780), 120.43 MiB | 26.71 MiB/s   remote: Total 2780 (delta 381), reused 2206 (delta 166), pack-reused 0[K
+Receiving objects:  97% (2697/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  98% (2725/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects:  99% (2753/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects: 100% (2780/2780), 120.43 MiB | 26.71 MiB/s   Receiving objects: 100% (2780/2780), 128.11 MiB | 27.15 MiB/s, done.
+Resolving deltas:   0% (0/381)   Resolving deltas:   2% (9/381)   Resolving deltas:   3% (12/381)   Resolving deltas:   6% (23/381)   Resolving deltas:   7% (28/381)   Resolving deltas:   8% (31/381)   Resolving deltas:   9% (35/381)   Resolving deltas:  10% (39/381)   Resolving deltas:  11% (42/381)   Resolving deltas:  12% (46/381)   Resolving deltas:  13% (50/381)   Resolving deltas:  15% (60/381)   Resolving deltas:  17% (68/381)   Resolving deltas:  18% (69/381)   Resolving deltas:  22% (85/381)   Resolving deltas:  26% (102/381)   Resolving deltas:  27% (104/381)   Resolving deltas:  28% (107/381)   Resolving deltas:  29% (112/381)   Resolving deltas:  30% (118/381)   Resolving deltas:  31% (119/381)   Resolving deltas:  32% (122/381)   Resolving deltas:  33% (128/381)   Resolving deltas:  34% (132/381)   Resolving deltas:  35% (135/381)   Resolving deltas:  36% (139/381)   Resolving deltas:  37% (142/381)   Resolving deltas:  38% (146/381)   Resolving deltas:  39% (151/381)   Resolving deltas:  40% (153/381)   Resolving deltas:  43% (166/381)   Resolving deltas:  44% (168/381)   Resolving deltas:  45% (174/381)   Resolving deltas:  46% (177/381)   Resolving deltas:  47% (180/381)   Resolving deltas:  48% (183/381)   Resolving deltas:  49% (187/381)   Resolving deltas:  50% (191/381)   Resolving deltas:  51% (195/381)   Resolving deltas:  52% (199/381)   Resolving deltas:  53% (202/381)   Resolving deltas:  54% (207/381)   Resolving deltas:  55% (210/381)   Resolving deltas:  56% (214/381)   Resolving deltas:  57% (218/381)   Resolving deltas:  58% (221/381)   Resolving deltas:  59% (225/381)   Resolving deltas:  60% (229/381)   Resolving deltas:  61% (235/381)   Resolving deltas:  62% (237/381)   Resolving deltas:  63% (241/381)   Resolving deltas:  64% (244/381)   Resolving deltas:  65% (248/381)   Resolving deltas:  66% (252/381)   Resolving deltas:  67% (256/381)   Resolving deltas:  68% (260/381)   Resolving deltas:  69% (264/381)   Resolving deltas:  79% (303/381)   Resolving deltas:  80% (308/381)   Resolving deltas:  81% (309/381)   Resolving deltas:  82% (315/381)   Resolving deltas:  84% (322/381)   Resolving deltas:  85% (324/381)   Resolving deltas:  86% (329/381)   Resolving deltas:  87% (332/381)   Resolving deltas:  88% (339/381)   Resolving deltas:  89% (340/381)   Resolving deltas:  91% (347/381)   Resolving deltas:  92% (351/381)   Resolving deltas:  93% (355/381)   Resolving deltas:  94% (359/381)   Resolving deltas:  95% (362/381)   Resolving deltas:  96% (367/381)   Resolving deltas:  97% (370/381)   Resolving deltas:  98% (374/381)   Resolving deltas:  99% (378/381)   Resolving deltas: 100% (381/381)   Resolving deltas: 100% (381/381), done.
+Checking connectivity... done.
+
+travis_time:end:0a868922:start=1467876065400885457,finish=1467876073404646781,duration=8003761324[0K$ cd zxing/zxing
+travis_time:start:235149b7[0K$ git fetch origin +refs/pull/631/merge:
+remote: Counting objects: 12, done.[K
+remote: Compressing objects:  50% (1/2)   [Kremote: Compressing objects: 100% (2/2)   [Kremote: Compressing objects: 100% (2/2), done.[K
+remote: Total 12 (delta 5), reused 11 (delta 5), pack-reused 0[K
+Unpacking objects:   8% (1/12)   Unpacking objects:  16% (2/12)   Unpacking objects:  25% (3/12)   Unpacking objects:  33% (4/12)   Unpacking objects:  41% (5/12)   Unpacking objects:  50% (6/12)   Unpacking objects:  58% (7/12)   Unpacking objects:  66% (8/12)   Unpacking objects:  75% (9/12)   Unpacking objects:  83% (10/12)   Unpacking objects:  91% (11/12)   Unpacking objects: 100% (12/12)   Unpacking objects: 100% (12/12), done.
+From https://github.com/zxing/zxing
+ * branch            refs/pull/631/merge -> FETCH_HEAD
+
+travis_time:end:235149b7:start=1467876073408479138,finish=1467876073735922893,duration=327443755[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export ANDROID_HOME=$HOME/android-sdk-linux
+
+$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:36509286[0K$ Installing caching utilities
+
+travis_time:end:36509286:start=1467876083243113713,finish=1467876083305964835,duration=62851122[0Ktravis_time:start:1fc79f2e[0K
+travis_time:end:1fc79f2e:start=1467876083311603868,finish=1467876083315363082,duration=3759214[0Ktravis_time:start:13078d8c[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching PR.631/cache-linux-precise-332620bb45ccef131523f06d854bbd177d6746dbbe65cd330eb285c7929e62bf--jdk-oraclejdk8.tgz[0m
+[32;1mfetching PR.631/cache--jdk-oraclejdk8.tgz[0m
+[32;1mfetching master/cache-linux-precise-332620bb45ccef131523f06d854bbd177d6746dbbe65cd330eb285c7929e62bf--jdk-oraclejdk8.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:13078d8c:start=1467876083319755713,finish=1467876087039140310,duration=3719384597[0Ktravis_time:start:12b29ef6[0K
+travis_time:end:12b29ef6:start=1467876087042935125,finish=1467876087046262125,duration=3327000[0Ktravis_time:start:00e27c5a[0K[32;1madding /home/travis/.m2 to cache[0m
+
+travis_time:end:00e27c5a:start=1467876087050104716,finish=1467876089890499333,duration=2840394617[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_fold:start:before_install[0Ktravis_time:start:053a3354[0K$ curl -s https://storage.googleapis.com/zxing-build/android-sdk-linux.tar.bz2 | bunzip2 | tar xf - -C $HOME
+
+travis_time:end:053a3354:start=1467876090322704234,finish=1467876108635292056,duration=18312587822[0Ktravis_fold:end:before_install[0Ktravis_fold:start:install[0Ktravis_time:start:040d5dc6[0K$ mvn -T 2 -Ptravis -DskipTests=true -B -V install
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=192m; support was removed in 8.0
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.8.0_31, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO] Downloading: https://repository.apache.org/snapshots/com/google/zxing/core/3.2.2-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading: https://repository.apache.org/snapshots/com/google/zxing/android-core/3.2.2-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading: https://repository.apache.org/snapshots/com/google/zxing/android-integration/3.2.2-SNAPSHOT/maven-metadata.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] ZXing
+[INFO] ZXing Core
+[INFO] ZXing Java SE extensions
+[INFO] ZXing Android Core
+[INFO] ZXing Android Integration lib
+[INFO] ZXing Appspot-based encoder
+[INFO] ZXing zxing.org web app
+[INFO] Android Barcode Scanner app
+[INFO] Android ZXing Test app
+[INFO] Android Barcode Scanner app for Google Glass
+[INFO] 
+[INFO] Using the MultiThreadedBuilder implementation with a thread count of 2
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ZXing 3.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ zxing-parent ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ zxing-parent ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (attach-javadocs) @ zxing-parent ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.0:jar-no-fork (attach-sources) @ zxing-parent ---
+[INFO] Skipping source per configuration.
+[INFO] 
+[INFO] >>> clirr-maven-plugin:2.7:check (check-api) > compile @ zxing-parent >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ zxing-parent ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ zxing-parent ---
+[INFO] 
+[INFO] <<< clirr-maven-plugin:2.7:check (check-api) < compile @ zxing-parent <<<
+[INFO] 
+[INFO] --- clirr-maven-plugin:2.7:check (check-api) @ zxing-parent ---
+[INFO] Not generating Clirr report as there are no classes generated by the project
+[INFO] 
+[INFO] --- apache-rat-plugin:0.12:check (default) @ zxing-parent ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Parsing exclusions from /home/travis/build/zxing/zxing/.gitignore
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 73 implicit excludes (use -debug for more details).
+[INFO] Exclude: **/.*
+[INFO] Exclude: **/.settings/**
+[INFO] Exclude: **/*.iml
+[INFO] Exclude: **/*.md
+[INFO] Exclude: **/*.textile
+[INFO] Exclude: **/*.txt
+[INFO] Exclude: **/*.html
+[INFO] Exclude: **/*.js
+[INFO] Exclude: **/*.css
+[INFO] Exclude: **/*.properties
+[INFO] Exclude: **/*.cfg
+[INFO] Exclude: **/*.config
+[INFO] Exclude: **/*.yaml
+[INFO] Exclude: **/gen/**
+[INFO] Exclude: **/resources/**
+[INFO] Exclude: **/symbolMaps/**
+[INFO] Exclude: **/target/**
+[INFO] Exclude: **/dependency-reduced-pom.xml
+[INFO] Exclude: private/**
+[INFO] Exclude: CHANGES
+[INFO] Exclude: false
+[INFO] 7 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 4 licenses.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ zxing-parent ---
+[INFO] Installing /home/travis/build/zxing/zxing/pom.xml to /home/travis/.m2/repository/com/google/zxing/zxing-parent/3.2.2-SNAPSHOT/zxing-parent-3.2.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ZXing Android Core 3.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ZXing Core 3.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ core ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ android-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ android-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ android-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/android-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ android-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/zxing/zxing/android-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ android-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/android-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ android-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ android-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.1:jar (default-jar) @ android-core ---
+[INFO] Building jar: /home/travis/build/zxing/zxing/android-core/target/android-core-3.2.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (attach-javadocs) @ android-core ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.0:jar-no-fork (attach-sources) @ android-core ---
+[INFO] Skipping source per configuration.
+[INFO] 
+[INFO] >>> clirr-maven-plugin:2.7:check (check-api) > compile @ android-core >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ android-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ android-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ android-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/android-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ android-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< clirr-maven-plugin:2.7:check (check-api) < compile @ android-core <<<
+[INFO] 
+[INFO] --- clirr-maven-plugin:2.7:check (check-api) @ android-core ---
+[INFO] artifact com.google.zxing:android-core: checking for updates from central
+[INFO] artifact com.google.zxing:android-core: checking for updates from sonatype
+[INFO] artifact com.google.zxing:android-core: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:android-core: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:android-core: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:android-core: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:android-core' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org: unknown error
+[INFO] artifact com.google.zxing:android-core: checking for updates from sonatype
+[INFO] artifact com.google.zxing:android-core: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:android-core: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:android-core: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:android-core: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:android-core' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org
+[INFO] Comparing to version: 3.2.1
+[INFO] Succeeded with 0 errors; 0 warnings; and 0 other changes.
+[INFO] 
+[INFO] --- apache-rat-plugin:0.12:check (default) @ android-core ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 61 implicit excludes (use -debug for more details).
+[INFO] Exclude: **/.*
+[INFO] Exclude: **/.settings/**
+[INFO] Exclude: **/*.iml
+[INFO] Exclude: **/*.md
+[INFO] Exclude: **/*.textile
+[INFO] Exclude: **/*.txt
+[INFO] Exclude: **/*.html
+[INFO] Exclude: **/*.js
+[INFO] Exclude: **/*.css
+[INFO] Exclude: **/*.properties
+[INFO] Exclude: **/*.cfg
+[INFO] Exclude: **/*.config
+[INFO] Exclude: **/*.yaml
+[INFO] Exclude: **/gen/**
+[INFO] Exclude: **/resources/**
+[INFO] Exclude: **/symbolMaps/**
+[INFO] Exclude: **/target/**
+[INFO] Exclude: **/dependency-reduced-pom.xml
+[INFO] Exclude: private/**
+[INFO] Exclude: CHANGES
+[INFO] Exclude: false
+[INFO] 2 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 2 licenses.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ android-core ---
+[INFO] Installing /home/travis/build/zxing/zxing/android-core/target/android-core-3.2.2-SNAPSHOT.jar to /home/travis/.m2/repository/com/google/zxing/android-core/3.2.2-SNAPSHOT/android-core-3.2.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/zxing/zxing/android-core/pom.xml to /home/travis/.m2/repository/com/google/zxing/android-core/3.2.2-SNAPSHOT/android-core-3.2.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ZXing Android Integration lib 3.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ android-integration ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ android-integration ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ android-integration ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/android-integration/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ android-integration ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/zxing/zxing/android-integration/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ android-integration ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/android-integration/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ android-integration ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ android-integration ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.1:jar (default-jar) @ android-integration ---
+[INFO] Building jar: /home/travis/build/zxing/zxing/android-integration/target/android-integration-3.2.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (attach-javadocs) @ android-integration ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.0:jar-no-fork (attach-sources) @ android-integration ---
+[INFO] Skipping source per configuration.
+[INFO] 
+[INFO] >>> clirr-maven-plugin:2.7:check (check-api) > compile @ android-integration >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ android-integration ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ android-integration ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ android-integration ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/android-integration/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ android-integration ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< clirr-maven-plugin:2.7:check (check-api) < compile @ android-integration <<<
+[INFO] 
+[INFO] --- clirr-maven-plugin:2.7:check (check-api) @ android-integration ---
+[INFO] artifact com.google.zxing:android-integration: checking for updates from central
+[INFO] artifact com.google.zxing:android-integration: checking for updates from sonatype
+[INFO] artifact com.google.zxing:android-integration: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:android-integration: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:android-integration: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:android-integration: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:android-integration' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org: unknown error
+[INFO] artifact com.google.zxing:android-integration: checking for updates from sonatype
+[INFO] artifact com.google.zxing:android-integration: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:android-integration: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:android-integration: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:android-integration: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:android-integration' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org
+[INFO] Comparing to version: 3.2.1
+[INFO] Succeeded with 0 errors; 0 warnings; and 0 other changes.
+[INFO] 
+[INFO] --- apache-rat-plugin:0.12:check (default) @ android-integration ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 61 implicit excludes (use -debug for more details).
+[INFO] Exclude: **/.*
+[INFO] Exclude: **/.settings/**
+[INFO] Exclude: **/*.iml
+[INFO] Exclude: **/*.md
+[INFO] Exclude: **/*.textile
+[INFO] Exclude: **/*.txt
+[INFO] Exclude: **/*.html
+[INFO] Exclude: **/*.js
+[INFO] Exclude: **/*.css
+[INFO] Exclude: **/*.properties
+[INFO] Exclude: **/*.cfg
+[INFO] Exclude: **/*.config
+[INFO] Exclude: **/*.yaml
+[INFO] Exclude: **/gen/**
+[INFO] Exclude: **/resources/**
+[INFO] Exclude: **/symbolMaps/**
+[INFO] Exclude: **/target/**
+[INFO] Exclude: **/dependency-reduced-pom.xml
+[INFO] Exclude: private/**
+[INFO] Exclude: CHANGES
+[INFO] Exclude: false
+[INFO] 3 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 3 licenses.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ android-integration ---
+[INFO] Installing /home/travis/build/zxing/zxing/android-integration/target/android-integration-3.2.2-SNAPSHOT.jar to /home/travis/.m2/repository/com/google/zxing/android-integration/3.2.2-SNAPSHOT/android-integration-3.2.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/zxing/zxing/android-integration/pom.xml to /home/travis/.m2/repository/com/google/zxing/android-integration/3.2.2-SNAPSHOT/android-integration-3.2.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ZXing Appspot-based encoder 3.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ zxing.appspot.com ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ zxing.appspot.com ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ zxing.appspot.com ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ zxing.appspot.com ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to /home/travis/build/zxing/zxing/zxing.appspot.com/target/classes
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ zxing.appspot.com ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/zxing.appspot.com/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ zxing.appspot.com ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 231 source files to /home/travis/build/zxing/zxing/core/target/classes
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ zxing.appspot.com ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- gwt-maven-plugin:2.8.0-beta1:compile (default) @ zxing.appspot.com ---
+[INFO] auto discovered modules [com.google.zxing.web.generator.Generator]
+[ERROR] Jul 07, 2016 7:23:01 AM java.util.prefs.FileSystemPreferences$1 run
+[ERROR] INFO: Created user preferences directory.
+[INFO] Compiling module com.google.zxing.web.generator.Generator
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2294 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 126 source files to /home/travis/build/zxing/zxing/core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.1:jar (default-jar) @ core ---
+[INFO] Building jar: /home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (attach-javadocs) @ core ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.0:jar-no-fork (attach-sources) @ core ---
+[INFO] Skipping source per configuration.
+[INFO] 
+[INFO] --- proguard-maven-plugin:2.0.13:proguard (default) @ core ---
+[INFO] execute ProGuard [-injars, '/home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT_proguard_base.jar', -outjars, '/home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT.jar', -dontobfuscate, -libraryjars, '/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar', -printmapping, '/home/travis/build/zxing/zxing/core/target/proguard_map.txt', -printseeds, '/home/travis/build/zxing/zxing/core/target/proguard_seed.txt', -target 1.7, -dontshrink, -keep class * { !private *; }, -verbose, -optimizationpasses 3, -optimizations !code/simplification/cast,!code/allocation/variable,!field/*,!class/*,!method/*]
+[INFO] proguard jar: /home/travis/.m2/repository/net/sf/proguard/proguard-base/5.2.1/proguard-base-5.2.1.jar
+ [proguard] ProGuard, version 5.2.1
+ [proguard] Reading input...
+ [proguard] Reading program jar [/home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT_proguard_base.jar]
+ [proguard] Reading library jar [/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar]
+ [proguard] Initializing...
+ [proguard] Ignoring unused library classes...
+ [proguard]   Original number of library classes: 20024
+ [proguard]   Final number of library classes:    172
+ [proguard] Setting target versions...
+ [proguard] Printing kept classes, fields, and methods...
+ [proguard] Inlining subroutines...
+ [proguard] Optimizing...
+ [proguard]   Number of finalized classes:                 0   (disabled)
+ [proguard]   Number of unboxed enum classes:              0   (disabled)
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           0   (disabled)
+ [proguard]   Number of privatized methods:                0   (disabled)
+ [proguard]   Number of staticized methods:                0   (disabled)
+ [proguard]   Number of finalized methods:                 0   (disabled)
+ [proguard]   Number of removed method parameters:         0   (disabled)
+ [proguard]   Number of inlined constant parameters:       0   (disabled)
+ [proguard]   Number of inlined constant return values:    0   (disabled)
+ [proguard]   Number of inlined short method calls:        0   (disabled)
+ [proguard]   Number of inlined unique method calls:       0   (disabled)
+ [proguard]   Number of inlined tail recursion calls:      0   (disabled)
+ [proguard]   Number of merged code blocks:                2
+ [proguard]   Number of variable peephole optimizations:   845
+ [proguard]   Number of arithmetic peephole optimizations: 103
+ [proguard]   Number of cast peephole optimizations:       0   (disabled)
+ [proguard]   Number of field peephole optimizations:      10
+ [proguard]   Number of branch peephole optimizations:     311
+ [proguard]   Number of string peephole optimizations:     71
+ [proguard]   Number of simplified instructions:           108
+ [proguard]   Number of removed instructions:              153
+ [proguard]   Number of removed local variables:           6
+ [proguard]   Number of removed exception blocks:          2
+ [proguard]   Number of optimized local variable frames:   0   (disabled)
+ [proguard] Optimizing...
+[INFO]    Compiling 5 permutations
+[INFO]       Compiling permutation 0...
+[INFO]       Process output
+[INFO]          Compiling
+[INFO]             Compiling permutation 4...
+[INFO]       Process output
+[INFO]          Compiling
+[INFO]             Compiling permutation 1...
+[INFO]       Process output
+[INFO]          Compiling
+[INFO]             Compiling permutation 2...
+[INFO]       Process output
+[INFO]          Compiling
+[INFO]             Compiling permutation 3...
+ [proguard]   Number of finalized classes:                 0   (disabled)
+ [proguard]   Number of unboxed enum classes:              0   (disabled)
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           0   (disabled)
+ [proguard]   Number of privatized methods:                0   (disabled)
+ [proguard]   Number of staticized methods:                0   (disabled)
+ [proguard]   Number of finalized methods:                 0   (disabled)
+ [proguard]   Number of removed method parameters:         0   (disabled)
+ [proguard]   Number of inlined constant parameters:       0   (disabled)
+ [proguard]   Number of inlined constant return values:    0   (disabled)
+ [proguard]   Number of inlined short method calls:        0   (disabled)
+ [proguard]   Number of inlined unique method calls:       0   (disabled)
+ [proguard]   Number of inlined tail recursion calls:      0   (disabled)
+ [proguard]   Number of merged code blocks:                0
+ [proguard]   Number of variable peephole optimizations:   8
+ [proguard]   Number of arithmetic peephole optimizations: 5
+ [proguard]   Number of cast peephole optimizations:       0   (disabled)
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     3
+ [proguard]   Number of string peephole optimizations:     0
+ [proguard]   Number of simplified instructions:           0
+ [proguard]   Number of removed instructions:              303
+ [proguard]   Number of removed local variables:           40
+ [proguard]   Number of removed exception blocks:          0
+ [proguard]   Number of optimized local variable frames:   0   (disabled)
+ [proguard] Optimizing...
+[INFO]    Compile of permutations succeeded
+[INFO]    Compilation succeeded -- 195.914s
+[INFO] Linking into /home/travis/build/zxing/zxing/zxing.appspot.com/src/main/webapp/generator
+[INFO]    Link succeeded
+[INFO]    Linking succeeded -- 0.961s
+ [proguard]   Number of finalized classes:                 0   (disabled)
+ [proguard]   Number of unboxed enum classes:              0   (disabled)
+ [proguard]   Number of vertically merged classes:         0   (disabled)
+ [proguard]   Number of horizontally merged classes:       0   (disabled)
+ [proguard]   Number of removed write-only fields:         0   (disabled)
+ [proguard]   Number of privatized fields:                 0   (disabled)
+ [proguard]   Number of inlined constant fields:           0   (disabled)
+ [proguard]   Number of privatized methods:                0   (disabled)
+ [proguard]   Number of staticized methods:                0   (disabled)
+ [proguard]   Number of finalized methods:                 0   (disabled)
+ [proguard]   Number of removed method parameters:         0   (disabled)
+ [proguard]   Number of inlined constant parameters:       0   (disabled)
+ [proguard]   Number of inlined constant return values:    0   (disabled)
+ [proguard]   Number of inlined short method calls:        0   (disabled)
+ [proguard]   Number of inlined unique method calls:       0   (disabled)
+ [proguard]   Number of inlined tail recursion calls:      0   (disabled)
+ [proguard]   Number of merged code blocks:                0
+ [proguard]   Number of variable peephole optimizations:   0
+ [proguard]   Number of arithmetic peephole optimizations: 0
+ [proguard]   Number of cast peephole optimizations:       0   (disabled)
+ [proguard]   Number of field peephole optimizations:      0
+ [proguard]   Number of branch peephole optimizations:     0
+ [proguard]   Number of string peephole optimizations:     0
+ [proguard]   Number of simplified instructions:           0
+ [proguard]   Number of removed instructions:              12
+ [proguard]   Number of removed local variables:           1
+ [proguard]   Number of removed exception blocks:          0
+ [proguard]   Number of optimized local variable frames:   0   (disabled)
+ [proguard] Preverifying...
+[INFO] 
+[INFO] --- maven-war-plugin:2.6:war (default-war) @ zxing.appspot.com ---
+ [proguard] Writing output...
+ [proguard] Preparing output jar [/home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT.jar]
+ [proguard]   Copying resources from program jar [/home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT_proguard_base.jar]
+[INFO] 
+[INFO] >>> clirr-maven-plugin:2.7:check (check-api) > compile @ core >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ core ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [zxing.appspot.com] in [/home/travis/build/zxing/zxing/zxing.appspot.com/target/zxing.appspot.com-3.2.2-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/travis/build/zxing/zxing/zxing.appspot.com/src/main/webapp]
+[INFO] Webapp assembled in [266 msecs]
+[INFO] Building war: /home/travis/build/zxing/zxing/zxing.appspot.com/target/zxing.appspot.com-3.2.2-SNAPSHOT.war
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (attach-javadocs) @ zxing.appspot.com ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.0:jar-no-fork (attach-sources) @ zxing.appspot.com ---
+[INFO] Skipping source per configuration.
+[INFO] 
+[INFO] >>> clirr-maven-plugin:2.7:check (check-api) > compile @ zxing.appspot.com >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ zxing.appspot.com ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ zxing.appspot.com ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ zxing.appspot.com ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ zxing.appspot.com ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< clirr-maven-plugin:2.7:check (check-api) < compile @ zxing.appspot.com <<<
+[INFO] 
+[INFO] --- clirr-maven-plugin:2.7:check (check-api) @ zxing.appspot.com ---
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from central
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from sonatype
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:zxing.appspot.com' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org: unknown error
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from sonatype
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:zxing.appspot.com: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:zxing.appspot.com' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org
+[INFO] Comparing to version: 3.2.1
+[INFO] Succeeded with 0 errors; 0 warnings; and 0 other changes.
+[INFO] 
+[INFO] --- apache-rat-plugin:0.12:check (default) @ zxing.appspot.com ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 61 implicit excludes (use -debug for more details).
+[INFO] Exclude: **/.*
+[INFO] Exclude: **/.settings/**
+[INFO] Exclude: **/*.iml
+[INFO] Exclude: **/*.md
+[INFO] Exclude: **/*.textile
+[INFO] Exclude: **/*.txt
+[INFO] Exclude: **/*.html
+[INFO] Exclude: **/*.js
+[INFO] Exclude: **/*.css
+[INFO] Exclude: **/*.properties
+[INFO] Exclude: **/*.cfg
+[INFO] Exclude: **/*.config
+[INFO] Exclude: **/*.yaml
+[INFO] Exclude: **/gen/**
+[INFO] Exclude: **/resources/**
+[INFO] Exclude: **/symbolMaps/**
+[INFO] Exclude: **/target/**
+[INFO] Exclude: **/dependency-reduced-pom.xml
+[INFO] Exclude: private/**
+[INFO] Exclude: CHANGES
+[INFO] Exclude: false
+[INFO] 39 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 19 licenses.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ zxing.appspot.com ---
+[INFO] Installing /home/travis/build/zxing/zxing/zxing.appspot.com/target/zxing.appspot.com-3.2.2-SNAPSHOT.war to /home/travis/.m2/repository/com/google/zxing/zxing.appspot.com/3.2.2-SNAPSHOT/zxing.appspot.com-3.2.2-SNAPSHOT.war
+[INFO] Installing /home/travis/build/zxing/zxing/zxing.appspot.com/pom.xml to /home/travis/.m2/repository/com/google/zxing/zxing.appspot.com/3.2.2-SNAPSHOT/zxing.appspot.com-3.2.2-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< clirr-maven-plugin:2.7:check (check-api) < compile @ core <<<
+[INFO] 
+[INFO] --- clirr-maven-plugin:2.7:check (check-api) @ core ---
+[INFO] artifact com.google.zxing:core: checking for updates from central
+[INFO] artifact com.google.zxing:core: checking for updates from sonatype
+[INFO] artifact com.google.zxing:core: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:core: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:core: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:core: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:core' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org
+[INFO] artifact com.google.zxing:core: checking for updates from sonatype
+[INFO] artifact com.google.zxing:core: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:core: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:core: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:core: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:core' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org
+[INFO] Comparing to version: 3.2.1
+[INFO] Succeeded with 0 errors; 0 warnings; and 0 other changes.
+[INFO] 
+[INFO] --- apache-rat-plugin:0.12:check (default) @ core ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 61 implicit excludes (use -debug for more details).
+[INFO] Exclude: **/.*
+[INFO] Exclude: **/.settings/**
+[INFO] Exclude: **/*.iml
+[INFO] Exclude: **/*.md
+[INFO] Exclude: **/*.textile
+[INFO] Exclude: **/*.txt
+[INFO] Exclude: **/*.html
+[INFO] Exclude: **/*.js
+[INFO] Exclude: **/*.css
+[INFO] Exclude: **/*.properties
+[INFO] Exclude: **/*.cfg
+[INFO] Exclude: **/*.config
+[INFO] Exclude: **/*.yaml
+[INFO] Exclude: **/gen/**
+[INFO] Exclude: **/resources/**
+[INFO] Exclude: **/symbolMaps/**
+[INFO] Exclude: **/target/**
+[INFO] Exclude: **/dependency-reduced-pom.xml
+[INFO] Exclude: private/**
+[INFO] Exclude: CHANGES
+[INFO] Exclude: false
+[INFO] 358 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 358 licenses.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ core ---
+[INFO] Installing /home/travis/build/zxing/zxing/core/target/core-3.2.2-SNAPSHOT.jar to /home/travis/.m2/repository/com/google/zxing/core/3.2.2-SNAPSHOT/core-3.2.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/zxing/zxing/core/pom.xml to /home/travis/.m2/repository/com/google/zxing/core/3.2.2-SNAPSHOT/core-3.2.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building ZXing Java SE extensions 3.2.2-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ javase ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Android Barcode Scanner app 4.7.6
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ android ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ javase ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ javase ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/javase/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ javase ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /home/travis/build/zxing/zxing/javase/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ javase ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/javase/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ javase ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ javase ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.1:jar (default-jar) @ javase ---
+[INFO] Building jar: /home/travis/build/zxing/zxing/javase/target/javase-3.2.2-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (attach-javadocs) @ javase ---
+[INFO] Skipping javadoc generation
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.0:jar-no-fork (attach-sources) @ javase ---
+[INFO] Skipping source per configuration.
+[INFO] 
+[INFO] >>> clirr-maven-plugin:2.7:check (check-api) > compile @ javase >>>
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ javase ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce) @ javase ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ javase ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/zxing/zxing/javase/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ javase ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< clirr-maven-plugin:2.7:check (check-api) < compile @ javase <<<
+[INFO] 
+[INFO] --- clirr-maven-plugin:2.7:check (check-api) @ javase ---
+[INFO] artifact com.google.zxing:javase: checking for updates from central
+Jul 07, 2016 7:26:58 AM org.apache.maven.wagon.providers.http.httpclient.impl.execchain.RetryExec execute
+INFO: I/O exception (java.net.SocketException) caught when processing request to {}->http://repo.maven.apache.org:80: Connection reset
+Jul 07, 2016 7:26:58 AM org.apache.maven.wagon.providers.http.httpclient.impl.execchain.RetryExec execute
+INFO: Retrying request to {}->http://repo.maven.apache.org:80
+[INFO] artifact com.google.zxing:javase: checking for updates from sonatype
+[INFO] artifact com.google.zxing:javase: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:javase: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:javase: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:javase: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:javase' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org: unknown error
+[INFO] artifact com.google.zxing:javase: checking for updates from sonatype
+[INFO] artifact com.google.zxing:javase: checking for updates from sonatype-snapshots
+[INFO] artifact com.google.zxing:javase: checking for updates from sonatype-apache
+[INFO] artifact com.google.zxing:javase: checking for updates from apache-snapshots
+[INFO] artifact com.google.zxing:javase: checking for updates from codehaus-snapshots
+[WARNING] repository metadata for: 'artifact com.google.zxing:javase' could not be retrieved from repository: codehaus-snapshots due to an error: nexus.codehaus.org
+[INFO] Comparing to version: 3.2.1
+[INFO] Succeeded with 0 errors; 0 warnings; and 0 other changes.
+[INFO] 
+[INFO] --- apache-rat-plugin:0.12:check (default) @ javase ---
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 61 implicit excludes (use -debug for more details).
+[INFO] Exclude: **/.*
+[INFO] Exclude: **/.settings/**
+[INFO] Exclude: **/*.iml
+[INFO] Exclude: **/*.md
+[INFO] Exclude: **/*.textile
+[INFO] Exclude: **/*.txt
+[INFO] Exclude: **/*.html
+[INFO] Exclude: **/*.js
+[INFO] Exclude: **/*.css
+[INFO] Exclude: **/*.properties
+[INFO] Exclude: **/*.cfg
+[INFO] Exclude: **/*.config
+[INFO] Exclude: **/*.yaml
+[INFO] Exclude: **/gen/**
+[INFO] Exclude: **/resources/**
+[INFO] Exclude: **/symbolMaps/**
+[INFO] Exclude: **/target/**
+[INFO] Exclude: **/dependency-reduced-pom.xml
+[INFO] Exclude: private/**
+[INFO] Exclude: CHANGES
+[INFO] Exclude: false
+[INFO] 16 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 0, unknown: 0, generated: 0, approved: 16 licenses.
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ javase ---
+[INFO] Installing /home/travis/build/zxing/zxing/javase/target/javase-3.2.2-SNAPSHOT.jar to /home/travis/.m2/repository/com/google/zxing/javase/3.2.2-SNAPSHOT/javase-3.2.2-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/zxing/zxing/javase/pom.xml to /home/travis/.m2/repository/com/google/zxing/javase/3.2.2-SNAPSHOT/javase-3.2.2-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Android ZXing Test app 1.4.2
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.17:check (validate) @ androidtest ---
+[INFO] There is 1 error reported by Checkstyle 6.19 with src/checkstyle/checkstyle.xml ruleset.
+[ERROR] src/com/google/zxing/client/android/camera/PreviewCallback.java:[47,29] (whitespace) WhitespaceAfter: ';' is not followed by whitespace.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] ZXing .............................................. SUCCESS [ 12.729 s]
+[INFO] ZXing Core ......................................... SUCCESS [04:25 min]
+[INFO] ZXing Java SE extensions ........................... SUCCESS [ 19.695 s]
+[INFO] ZXing Android Core ................................. SUCCESS [ 22.372 s]
+[INFO] ZXing Android Integration lib ...................... SUCCESS [ 13.158 s]
+[INFO] ZXing Appspot-based encoder ........................ SUCCESS [03:42 min]
+[INFO] ZXing zxing.org web app ............................ SKIPPED
+[INFO] Android Barcode Scanner app ........................ FAILURE [ 22.229 s]
+[INFO] Android ZXing Test app ............................. SKIPPED
+[INFO] Android Barcode Scanner app for Google Glass ....... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:12 min (Wall Clock)
+[INFO] Finished at: 2016-07-07T07:27:03+00:00
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping Android Barcode Scanner app for Google Glass
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping ZXing zxing.org web app
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO] Final Memory: 56M/499M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (validate) on project android: You have 1 Checkstyle violation. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :android
+
+travis_time:end:040d5dc6:start=1467876108639765297,finish=1467876436184625290,duration=327544859993[0K
+[31;1mThe command "mvn -T 2 -Ptravis -DskipTests=true -B -V install" failed and exited with 1 during .[0m
+
+Your build has been stopped.

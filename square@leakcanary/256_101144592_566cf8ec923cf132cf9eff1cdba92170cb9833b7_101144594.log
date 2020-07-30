@@ -1,0 +1,1720 @@
+Using worker: worker-linux-docker-b91e6c40.prod.travis-ci.org:travis-linux-2
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: android
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:1f7d8b95[0K$ git clone --depth=50 --branch=py/reasons https://github.com/square/leakcanary.git square/leakcanary
+Cloning into 'square/leakcanary'...
+remote: Counting objects: 1427, done.[K
+remote: Compressing objects:   0% (1/631)   [Kremote: Compressing objects:   1% (7/631)   [Kremote: Compressing objects:   2% (13/631)   [Kremote: Compressing objects:   3% (19/631)   [Kremote: Compressing objects:   4% (26/631)   [Kremote: Compressing objects:   5% (32/631)   [Kremote: Compressing objects:   6% (38/631)   [Kremote: Compressing objects:   7% (45/631)   [Kremote: Compressing objects:   8% (51/631)   [Kremote: Compressing objects:   9% (57/631)   [Kremote: Compressing objects:  10% (64/631)   [Kremote: Compressing objects:  11% (70/631)   [Kremote: Compressing objects:  12% (76/631)   [Kremote: Compressing objects:  13% (83/631)   [Kremote: Compressing objects:  14% (89/631)   [Kremote: Compressing objects:  15% (95/631)   [Kremote: Compressing objects:  16% (101/631)   [Kremote: Compressing objects:  17% (108/631)   [Kremote: Compressing objects:  18% (114/631)   [Kremote: Compressing objects:  19% (120/631)   [Kremote: Compressing objects:  20% (127/631)   [Kremote: Compressing objects:  21% (133/631)   [Kremote: Compressing objects:  22% (139/631)   [Kremote: Compressing objects:  23% (146/631)   [Kremote: Compressing objects:  24% (152/631)   [Kremote: Compressing objects:  25% (158/631)   [Kremote: Compressing objects:  26% (165/631)   [Kremote: Compressing objects:  27% (171/631)   [Kremote: Compressing objects:  28% (177/631)   [Kremote: Compressing objects:  29% (183/631)   [Kremote: Compressing objects:  30% (190/631)   [Kremote: Compressing objects:  31% (196/631)   [Kremote: Compressing objects:  32% (202/631)   [Kremote: Compressing objects:  33% (209/631)   [Kremote: Compressing objects:  34% (215/631)   [Kremote: Compressing objects:  35% (221/631)   [Kremote: Compressing objects:  36% (228/631)   [Kremote: Compressing objects:  37% (234/631)   [Kremote: Compressing objects:  38% (240/631)   [Kremote: Compressing objects:  39% (247/631)   [Kremote: Compressing objects:  40% (253/631)   [Kremote: Compressing objects:  41% (259/631)   [Kremote: Compressing objects:  42% (266/631)   [Kremote: Compressing objects:  43% (272/631)   [Kremote: Compressing objects:  44% (278/631)   [Kremote: Compressing objects:  45% (284/631)   [Kremote: Compressing objects:  46% (291/631)   [Kremote: Compressing objects:  47% (297/631)   [Kremote: Compressing objects:  48% (303/631)   [Kremote: Compressing objects:  49% (310/631)   [Kremote: Compressing objects:  50% (316/631)   [Kremote: Compressing objects:  51% (322/631)   [Kremote: Compressing objects:  52% (329/631)   [Kremote: Compressing objects:  53% (335/631)   [Kremote: Compressing objects:  54% (341/631)   [Kremote: Compressing objects:  55% (348/631)   [Kremote: Compressing objects:  56% (354/631)   [Kremote: Compressing objects:  57% (360/631)   [Kremote: Compressing objects:  58% (366/631)   [Kremote: Compressing objects:  59% (373/631)   [Kremote: Compressing objects:  60% (379/631)   [Kremote: Compressing objects:  61% (385/631)   [Kremote: Compressing objects:  62% (392/631)   [Kremote: Compressing objects:  63% (398/631)   [Kremote: Compressing objects:  64% (404/631)   [Kremote: Compressing objects:  65% (411/631)   [Kremote: Compressing objects:  66% (417/631)   [Kremote: Compressing objects:  67% (423/631)   [Kremote: Compressing objects:  68% (430/631)   [Kremote: Compressing objects:  69% (436/631)   [Kremote: Compressing objects:  70% (442/631)   [Kremote: Compressing objects:  71% (449/631)   [Kremote: Compressing objects:  72% (455/631)   [Kremote: Compressing objects:  73% (461/631)   [Kremote: Compressing objects:  74% (467/631)   [Kremote: Compressing objects:  75% (474/631)   [Kremote: Compressing objects:  76% (480/631)   [Kremote: Compressing objects:  77% (486/631)   [Kremote: Compressing objects:  78% (493/631)   [Kremote: Compressing objects:  79% (499/631)   [Kremote: Compressing objects:  80% (505/631)   [Kremote: Compressing objects:  81% (512/631)   [Kremote: Compressing objects:  82% (518/631)   [Kremote: Compressing objects:  83% (524/631)   [Kremote: Compressing objects:  84% (531/631)   [Kremote: Compressing objects:  85% (537/631)   [Kremote: Compressing objects:  86% (543/631)   [Kremote: Compressing objects:  87% (549/631)   [Kremote: Compressing objects:  88% (556/631)   [Kremote: Compressing objects:  89% (562/631)   [Kremote: Compressing objects:  90% (568/631)   [Kremote: Compressing objects:  91% (575/631)   [Kremote: Compressing objects:  92% (581/631)   [Kremote: Compressing objects:  93% (587/631)   [Kremote: Compressing objects:  94% (594/631)   [Kremote: Compressing objects:  95% (600/631)   [Kremote: Compressing objects:  96% (606/631)   [Kremote: Compressing objects:  97% (613/631)   [Kremote: Compressing objects:  98% (619/631)   [Kremote: Compressing objects:  99% (625/631)   [Kremote: Compressing objects: 100% (631/631)   [Kremote: Compressing objects: 100% (631/631), done.[K
+Receiving objects:   0% (1/1427)   Receiving objects:   1% (15/1427)   Receiving objects:   2% (29/1427)   Receiving objects:   3% (43/1427)   Receiving objects:   4% (58/1427)   Receiving objects:   5% (72/1427)   Receiving objects:   6% (86/1427)   Receiving objects:   7% (100/1427)   Receiving objects:   8% (115/1427)   Receiving objects:   9% (129/1427)   Receiving objects:  10% (143/1427)   Receiving objects:  11% (157/1427)   Receiving objects:  12% (172/1427)   Receiving objects:  13% (186/1427)   Receiving objects:  14% (200/1427)   Receiving objects:  15% (215/1427)   Receiving objects:  16% (229/1427)   Receiving objects:  17% (243/1427)   Receiving objects:  18% (257/1427)   Receiving objects:  19% (272/1427)   Receiving objects:  20% (286/1427)   Receiving objects:  21% (300/1427)   Receiving objects:  22% (314/1427)   Receiving objects:  23% (329/1427)   Receiving objects:  24% (343/1427)   Receiving objects:  25% (357/1427)   Receiving objects:  26% (372/1427)   Receiving objects:  27% (386/1427)   Receiving objects:  28% (400/1427)   Receiving objects:  29% (414/1427)   Receiving objects:  30% (429/1427)   Receiving objects:  31% (443/1427)   Receiving objects:  32% (457/1427)   Receiving objects:  33% (471/1427)   Receiving objects:  34% (486/1427)   Receiving objects:  35% (500/1427)   Receiving objects:  36% (514/1427)   Receiving objects:  37% (528/1427)   Receiving objects:  38% (543/1427)   Receiving objects:  39% (557/1427)   Receiving objects:  40% (571/1427)   Receiving objects:  41% (586/1427)   Receiving objects:  42% (600/1427)   Receiving objects:  43% (614/1427)   Receiving objects:  44% (628/1427)   Receiving objects:  45% (643/1427)   Receiving objects:  46% (657/1427)   Receiving objects:  47% (671/1427)   Receiving objects:  48% (685/1427)   Receiving objects:  49% (700/1427)   Receiving objects:  50% (714/1427)   Receiving objects:  51% (728/1427)   Receiving objects:  52% (743/1427)   Receiving objects:  53% (757/1427)   Receiving objects:  54% (771/1427)   Receiving objects:  55% (785/1427)   Receiving objects:  56% (800/1427)   Receiving objects:  57% (814/1427)   Receiving objects:  58% (828/1427)   Receiving objects:  59% (842/1427)   Receiving objects:  60% (857/1427)   Receiving objects:  61% (871/1427)   Receiving objects:  62% (885/1427)   Receiving objects:  63% (900/1427)   Receiving objects:  64% (914/1427)   Receiving objects:  65% (928/1427)   Receiving objects:  66% (942/1427)   Receiving objects:  67% (957/1427)   Receiving objects:  68% (971/1427)   Receiving objects:  69% (985/1427)   Receiving objects:  70% (999/1427)   Receiving objects:  71% (1014/1427)   Receiving objects:  72% (1028/1427)   Receiving objects:  73% (1042/1427)   Receiving objects:  74% (1056/1427)   Receiving objects:  75% (1071/1427)   Receiving objects:  76% (1085/1427)   Receiving objects:  77% (1099/1427)   Receiving objects:  78% (1114/1427)   Receiving objects:  79% (1128/1427)   Receiving objects:  80% (1142/1427)   Receiving objects:  81% (1156/1427)   Receiving objects:  82% (1171/1427)   Receiving objects:  83% (1185/1427)   Receiving objects:  84% (1199/1427)   Receiving objects:  85% (1213/1427)   Receiving objects:  86% (1228/1427)   Receiving objects:  87% (1242/1427)   Receiving objects:  88% (1256/1427)   Receiving objects:  89% (1271/1427)   Receiving objects:  90% (1285/1427)   Receiving objects:  91% (1299/1427)   Receiving objects:  92% (1313/1427)   remote: Total 1427 (delta 566), reused 1279 (delta 426), pack-reused 0[K
+Receiving objects:  93% (1328/1427)   Receiving objects:  94% (1342/1427)   Receiving objects:  95% (1356/1427)   Receiving objects:  96% (1370/1427)   Receiving objects:  97% (1385/1427)   Receiving objects:  98% (1399/1427)   Receiving objects:  99% (1413/1427)   Receiving objects: 100% (1427/1427)   Receiving objects: 100% (1427/1427), 9.17 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/566)   Resolving deltas:   1% (6/566)   Resolving deltas:  11% (63/566)   Resolving deltas:  12% (68/566)   Resolving deltas:  20% (114/566)   Resolving deltas:  21% (124/566)   Resolving deltas:  22% (125/566)   Resolving deltas:  23% (132/566)   Resolving deltas:  24% (137/566)   Resolving deltas:  25% (147/566)   Resolving deltas:  28% (159/566)   Resolving deltas:  29% (166/566)   Resolving deltas:  30% (170/566)   Resolving deltas:  32% (184/566)   Resolving deltas:  33% (189/566)   Resolving deltas:  34% (195/566)   Resolving deltas:  35% (203/566)   Resolving deltas:  36% (205/566)   Resolving deltas:  37% (210/566)   Resolving deltas:  39% (224/566)   Resolving deltas:  49% (282/566)   Resolving deltas:  50% (284/566)   Resolving deltas:  51% (291/566)   Resolving deltas:  57% (325/566)   Resolving deltas:  59% (335/566)   Resolving deltas:  63% (361/566)   Resolving deltas:  66% (378/566)   Resolving deltas:  67% (380/566)   Resolving deltas:  68% (387/566)   Resolving deltas:  69% (392/566)   Resolving deltas:  71% (403/566)   Resolving deltas:  72% (410/566)   Resolving deltas:  75% (429/566)   Resolving deltas:  76% (433/566)   Resolving deltas:  77% (436/566)   Resolving deltas:  78% (446/566)   Resolving deltas:  79% (451/566)   Resolving deltas:  81% (460/566)   Resolving deltas:  82% (468/566)   Resolving deltas:  83% (471/566)   Resolving deltas:  84% (477/566)   Resolving deltas:  91% (516/566)   Resolving deltas:  92% (521/566)   Resolving deltas:  93% (532/566)   Resolving deltas:  95% (540/566)   Resolving deltas:  97% (550/566)   Resolving deltas:  98% (555/566)   Resolving deltas:  99% (565/566)   Resolving deltas: 100% (566/566)   Resolving deltas: 100% (566/566), done.
+Checking connectivity... done.
+travis_time:end:1f7d8b95:start=1452282874864542278,finish=1452282876050881998,duration=1186339720[0K$ cd square/leakcanary
+$ git checkout -qf 566cf8ec923cf132cf9eff1cdba92170cb9833b7
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export ORG_GRADLE_PROJECT_SONATYPE_NEXUS_USERNAME=[secure]
+$ export ORG_GRADLE_PROJECT_SONATYPE_NEXUS_PASSWORD=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0a745a4c[0K$ Installing caching utilities
+travis_time:end:0a745a4c:start=1452282879699782947,finish=1452282879778482763,duration=78699816[0Ktravis_time:start:0b65dc88[0Ktravis_time:end:0b65dc88:start=1452282879783249070,finish=1452282879786428334,duration=3179264[0Ktravis_time:start:07d5fe97[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching pyreasons/cache--jdk-oraclejdk8.tgz[0m
+[32;1mfound cache[0m
+travis_time:end:07d5fe97:start=1452282879790011409,finish=1452282882822738695,duration=3032727286[0Ktravis_time:start:02a9ce94[0Ktravis_time:end:02a9ce94:start=1452282882827068530,finish=1452282882830611838,duration=3543308[0Ktravis_time:start:1242f3aa[0K[32;1madding /home/travis/.gradle to cache[0m
+travis_time:end:1242f3aa:start=1452282882834251892,finish=1452282887345481294,duration=4511229402[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk8
+Switching to Oracle JDK8 (java-8-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-8-oracle
+$ export TERM=dumb
+travis_fold:start:android.install[0KInstalling Android dependencies
+travis_time:start:207d2fec[0K$ android-update-sdk --components=tools
+Installing tools
+spawn android update sdk --no-ui --all --filter tools
+Refresh Sources:
+  Fetching https://dl-ssl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/repository-10.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/repository-10.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl-ssl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - Android SDK Tools, revision 24.4.1
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading Android SDK Tools, revision 24.4.1
+     (1%, 2213 KiB/s, 2 minutes left)     (2%, 2300 KiB/s, 2 minutes left)     (2%, 2331 KiB/s, 2 minutes left)     (3%, 2325 KiB/s, 2 minutes left)     (4%, 2381 KiB/s, 2 minutes left)     (5%, 2410 KiB/s, 2 minutes left)     (6%, 2431 KiB/s, 2 minutes left)     (6%, 2455 KiB/s, 120 seconds left)     (8%, 2556 KiB/s, 114 seconds left)     (9%, 2647 KiB/s, 109 seconds left)     (10%, 2659 KiB/s, 107 seconds left)     (10%, 2682 KiB/s, 105 seconds left)     (12%, 2746 KiB/s, 102 seconds left)     (12%, 2732 KiB/s, 101 seconds left)     (13%, 2699 KiB/s, 102 seconds left)     (14%, 2725 KiB/s, 99 seconds left)     (15%, 2762 KiB/s, 97 seconds left)     (16%, 2786 KiB/s, 95 seconds left)     (17%, 2805 KiB/s, 93 seconds left)     (18%, 2784 KiB/s, 93 seconds left)     (19%, 2767 KiB/s, 93 seconds left)     (20%, 2770 KiB/s, 91 seconds left)     (21%, 2786 KiB/s, 90 seconds left)     (21%, 2769 KiB/s, 90 seconds left)     (22%, 2756 KiB/s, 89 seconds left)     (23%, 2758 KiB/s, 88 seconds left)     (24%, 2758 KiB/s, 87 seconds left)     (25%, 2784 KiB/s, 85 seconds left)     (26%, 2810 KiB/s, 83 seconds left)     (27%, 2819 KiB/s, 81 seconds left)     (28%, 2838 KiB/s, 80 seconds left)     (29%, 2823 KiB/s, 79 seconds left)     (30%, 2808 KiB/s, 79 seconds left)     (31%, 2821 KiB/s, 77 seconds left)     (32%, 2825 KiB/s, 76 seconds left)     (33%, 2830 KiB/s, 75 seconds left)     (34%, 2845 KiB/s, 73 seconds left)     (35%, 2861 KiB/s, 72 seconds left)     (36%, 2875 KiB/s, 70 seconds left)     (37%, 2892 KiB/s, 69 seconds left)     (38%, 2908 KiB/s, 67 seconds left)     (39%, 2924 KiB/s, 65 seconds left)     (40%, 2936 KiB/s, 64 seconds left)     (41%, 2946 KiB/s, 63 seconds left)     (42%, 2959 KiB/s, 61 seconds left)     (44%, 2971 KiB/s, 60 seconds left)     (45%, 2979 KiB/s, 58 seconds left)     (46%, 2989 KiB/s, 57 seconds left)     (47%, 2999 KiB/s, 56 seconds left)     (48%, 3009 KiB/s, 54 seconds left)     (49%, 3018 KiB/s, 53 seconds left)     (50%, 3028 KiB/s, 52 seconds left)     (51%, 3034 KiB/s, 50 seconds left)     (52%, 3038 KiB/s, 49 seconds left)     (53%, 3046 KiB/s, 48 seconds left)     (54%, 3055 KiB/s, 47 seconds left)     (55%, 3048 KiB/s, 46 seconds left)     (56%, 3050 KiB/s, 45 seconds left)     (57%, 3048 KiB/s, 44 seconds left)     (58%, 3048 KiB/s, 43 seconds left)     (59%, 3052 KiB/s, 42 seconds left)     (60%, 3052 KiB/s, 41 seconds left)     (61%, 3047 KiB/s, 40 seconds left)     (62%, 3043 KiB/s, 39 seconds left)     (63%, 3038 KiB/s, 38 seconds left)     (64%, 3044 KiB/s, 37 seconds left)     (65%, 3050 KiB/s, 36 seconds left)     (66%, 3048 KiB/s, 35 seconds left)     (67%, 3055 KiB/s, 34 seconds left)     (68%, 3062 KiB/s, 32 seconds left)     (69%, 3065 KiB/s, 31 seconds left)     (70%, 3055 KiB/s, 31 seconds left)     (71%, 3061 KiB/s, 29 seconds left)     (72%, 3068 KiB/s, 28 seconds left)     (73%, 3073 KiB/s, 27 seconds left)     (74%, 3072 KiB/s, 26 seconds left)     (75%, 3078 KiB/s, 25 seconds left)     (76%, 3070 KiB/s, 24 seconds left)     (77%, 3063 KiB/s, 23 seconds left)     (77%, 3053 KiB/s, 23 seconds left)     (78%, 3045 KiB/s, 22 seconds left)     (79%, 3041 KiB/s, 21 seconds left)     (80%, 3037 KiB/s, 20 seconds left)     (81%, 3031 KiB/s, 19 seconds left)     (81%, 3023 KiB/s, 19 seconds left)     (82%, 3019 KiB/s, 18 seconds left)     (83%, 3015 KiB/s, 17 seconds left)     (84%, 3016 KiB/s, 16 seconds left)     (85%, 3015 KiB/s, 15 seconds left)     (86%, 3009 KiB/s, 14 seconds left)     (87%, 3007 KiB/s, 13 seconds left)     (87%, 3003 KiB/s, 12 seconds left)     (88%, 2997 KiB/s, 11 seconds left)     (89%, 2995 KiB/s, 11 seconds left)     (90%, 3001 KiB/s, 9 seconds left)     (91%, 3006 KiB/s, 8 seconds left)     (92%, 3012 KiB/s, 7 seconds left)     (94%, 3015 KiB/s, 6 seconds left)     (94%, 3010 KiB/s, 5 seconds left)     (95%, 3008 KiB/s, 4 seconds left)     (96%, 3012 KiB/s, 3 seconds left)     (97%, 3013 KiB/s, 2 seconds left)     (98%, 3017 KiB/s, 1 seconds left)     (99%, 3013 KiB/s, 0 seconds left)  Installing Android SDK Tools, revision 24.4.1
+  Unzipping Android SDK Tools, revision 24.4.1 (1%)  Unzipping Android SDK Tools, revision 24.4.1 (3%)  Unzipping Android SDK Tools, revision 24.4.1 (4%)  Unzipping Android SDK Tools, revision 24.4.1 (5%)  Unzipping Android SDK Tools, revision 24.4.1 (6%)  Unzipping Android SDK Tools, revision 24.4.1 (7%)  Unzipping Android SDK Tools, revision 24.4.1 (8%)  Unzipping Android SDK Tools, revision 24.4.1 (9%)  Unzipping Android SDK Tools, revision 24.4.1 (10%)  Unzipping Android SDK Tools, revision 24.4.1 (11%)  Unzipping Android SDK Tools, revision 24.4.1 (12%)  Unzipping Android SDK Tools, revision 24.4.1 (13%)  Unzipping Android SDK Tools, revision 24.4.1 (14%)  Unzipping Android SDK Tools, revision 24.4.1 (15%)  Unzipping Android SDK Tools, revision 24.4.1 (16%)  Unzipping Android SDK Tools, revision 24.4.1 (18%)  Unzipping Android SDK Tools, revision 24.4.1 (19%)  Unzipping Android SDK Tools, revision 24.4.1 (20%)  Unzipping Android SDK Tools, revision 24.4.1 (21%)  Unzipping Android SDK Tools, revision 24.4.1 (25%)  Unzipping Android SDK Tools, revision 24.4.1 (32%)  Unzipping Android SDK Tools, revision 24.4.1 (38%)  Unzipping Android SDK Tools, revision 24.4.1 (44%)  Unzipping Android SDK Tools, revision 24.4.1 (45%)  Unzipping Android SDK Tools, revision 24.4.1 (46%)  Unzipping Android SDK Tools, revision 24.4.1 (47%)  Unzipping Android SDK Tools, revision 24.4.1 (48%)  Unzipping Android SDK Tools, revision 24.4.1 (49%)  Unzipping Android SDK Tools, revision 24.4.1 (50%)  Unzipping Android SDK Tools, revision 24.4.1 (51%)  Unzipping Android SDK Tools, revision 24.4.1 (52%)  Unzipping Android SDK Tools, revision 24.4.1 (53%)  Unzipping Android SDK Tools, revision 24.4.1 (54%)  Unzipping Android SDK Tools, revision 24.4.1 (55%)  Unzipping Android SDK Tools, revision 24.4.1 (56%)  Unzipping Android SDK Tools, revision 24.4.1 (57%)  Unzipping Android SDK Tools, revision 24.4.1 (58%)  Unzipping Android SDK Tools, revision 24.4.1 (59%)  Unzipping Android SDK Tools, revision 24.4.1 (61%)  Unzipping Android SDK Tools, revision 24.4.1 (63%)  Unzipping Android SDK Tools, revision 24.4.1 (65%)  Unzipping Android SDK Tools, revision 24.4.1 (68%)  Unzipping Android SDK Tools, revision 24.4.1 (69%)  Unzipping Android SDK Tools, revision 24.4.1 (70%)  Unzipping Android SDK Tools, revision 24.4.1 (71%)  Unzipping Android SDK Tools, revision 24.4.1 (72%)  Unzipping Android SDK Tools, revision 24.4.1 (73%)  Unzipping Android SDK Tools, revision 24.4.1 (75%)  Unzipping Android SDK Tools, revision 24.4.1 (77%)  Unzipping Android SDK Tools, revision 24.4.1 (79%)  Unzipping Android SDK Tools, revision 24.4.1 (85%)  Unzipping Android SDK Tools, revision 24.4.1 (91%)  Unzipping Android SDK Tools, revision 24.4.1 (98%)  Unzipping Android SDK Tools, revision 24.4.1 (99%)    Installed Android SDK Tools, revision 24.4.1
+  Done. 1 package installed.
+travis_time:end:207d2fec:start=1452282887354477790,finish=1452283006751047765,duration=119396569975[0Ktravis_time:start:04d1973c[0K$ android-update-sdk --components=platform-tools
+Installing platform-tools
+spawn android update sdk --no-ui --all --filter platform-tools
+Refresh Sources:
+  Fetching https://dl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl.google.com/android/repository/repository-11.xml
+  Validate XML: https://dl.google.com/android/repository/repository-11.xml
+  Parse XML:    https://dl.google.com/android/repository/repository-11.xml
+  Fetching URL: https://dl.google.com/android/repository/addon.xml
+  Validate XML: https://dl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - Android SDK Platform-tools, revision 23.1
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading Android SDK Platform-tools, revision 23.1
+  Installing Android SDK Platform-tools, revision 23.1
+    Stopping ADB server succeeded.
+  Unzipping Android SDK Platform-tools, revision 23.1 (26%)  Unzipping Android SDK Platform-tools, revision 23.1 (29%)  Unzipping Android SDK Platform-tools, revision 23.1 (42%)  Unzipping Android SDK Platform-tools, revision 23.1 (46%)  Unzipping Android SDK Platform-tools, revision 23.1 (55%)  Unzipping Android SDK Platform-tools, revision 23.1 (67%)  Unzipping Android SDK Platform-tools, revision 23.1 (69%)  Unzipping Android SDK Platform-tools, revision 23.1 (88%)  Unzipping Android SDK Platform-tools, revision 23.1 (99%)    Installed Android SDK Platform-tools, revision 23.1
+    Stopping ADB server succeeded.
+    Starting ADB server succeeded.
+  Done. 1 package installed.
+travis_time:end:04d1973c:start=1452283006755558229,finish=1452283015690872002,duration=8935313773[0Ktravis_time:start:3340fc50[0K$ android-update-sdk --components=build-tools-23.0.2
+Installing build-tools-23.0.2
+spawn android update sdk --no-ui --all --filter build-tools-23.0.2
+Refresh Sources:
+  Fetching https://dl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl.google.com/android/repository/repository-11.xml
+  Validate XML: https://dl.google.com/android/repository/repository-11.xml
+  Parse XML:    https://dl.google.com/android/repository/repository-11.xml
+  Fetching URL: https://dl.google.com/android/repository/addon.xml
+  Validate XML: https://dl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - Android SDK Build-tools, revision 23.0.2
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading Android SDK Build-tools, revision 23.0.2
+     (16%, 3150 KiB/s, 10 seconds left)     (24%, 3173 KiB/s, 9 seconds left)     (32%, 3059 KiB/s, 8 seconds left)     (39%, 2998 KiB/s, 7 seconds left)     (46%, 2979 KiB/s, 6 seconds left)     (54%, 2963 KiB/s, 5 seconds left)     (63%, 3032 KiB/s, 4 seconds left)     (70%, 2983 KiB/s, 3 seconds left)     (79%, 3031 KiB/s, 2 seconds left)     (88%, 3075 KiB/s, 1 seconds left)     (96%, 3069 KiB/s, 0 seconds left)  Installing Android SDK Build-tools, revision 23.0.2
+  Unzipping Android SDK Build-tools, revision 23.0.2 (1%)  Unzipping Android SDK Build-tools, revision 23.0.2 (2%)  Unzipping Android SDK Build-tools, revision 23.0.2 (4%)  Unzipping Android SDK Build-tools, revision 23.0.2 (5%)  Unzipping Android SDK Build-tools, revision 23.0.2 (6%)  Unzipping Android SDK Build-tools, revision 23.0.2 (8%)  Unzipping Android SDK Build-tools, revision 23.0.2 (9%)  Unzipping Android SDK Build-tools, revision 23.0.2 (10%)  Unzipping Android SDK Build-tools, revision 23.0.2 (11%)  Unzipping Android SDK Build-tools, revision 23.0.2 (12%)  Unzipping Android SDK Build-tools, revision 23.0.2 (13%)  Unzipping Android SDK Build-tools, revision 23.0.2 (17%)  Unzipping Android SDK Build-tools, revision 23.0.2 (20%)  Unzipping Android SDK Build-tools, revision 23.0.2 (28%)  Unzipping Android SDK Build-tools, revision 23.0.2 (29%)  Unzipping Android SDK Build-tools, revision 23.0.2 (30%)  Unzipping Android SDK Build-tools, revision 23.0.2 (31%)  Unzipping Android SDK Build-tools, revision 23.0.2 (32%)  Unzipping Android SDK Build-tools, revision 23.0.2 (49%)  Unzipping Android SDK Build-tools, revision 23.0.2 (72%)  Unzipping Android SDK Build-tools, revision 23.0.2 (73%)  Unzipping Android SDK Build-tools, revision 23.0.2 (74%)  Unzipping Android SDK Build-tools, revision 23.0.2 (76%)  Unzipping Android SDK Build-tools, revision 23.0.2 (77%)  Unzipping Android SDK Build-tools, revision 23.0.2 (99%)    Installed Android SDK Build-tools, revision 23.0.2
+  Done. 1 package installed.
+travis_time:end:3340fc50:start=1452283015694771371,finish=1452283032529912963,duration=16835141592[0Ktravis_time:start:08e17e38[0K$ android-update-sdk --components=android-23
+Installing android-23
+spawn android update sdk --no-ui --all --filter android-23
+Refresh Sources:
+  Fetching https://dl.google.com/android/repository/addons_list-2.xml
+  Validate XML
+  Parse XML
+  Fetched Add-ons List successfully
+  Refresh Sources
+  Fetching URL: https://dl.google.com/android/repository/repository-11.xml
+  Validate XML: https://dl.google.com/android/repository/repository-11.xml
+  Parse XML:    https://dl.google.com/android/repository/repository-11.xml
+  Fetching URL: https://dl.google.com/android/repository/addon.xml
+  Validate XML: https://dl.google.com/android/repository/addon.xml
+  Parse XML:    https://dl.google.com/android/repository/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/addon-6.xml
+  Validate XML: https://dl.google.com/android/repository/addon-6.xml
+  Parse XML:    https://dl.google.com/android/repository/addon-6.xml
+  Fetching URL: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Validate XML: https://dl-ssl.google.com/glass/gdk/addon.xml
+  Parse XML:    https://dl-ssl.google.com/glass/gdk/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/extras/intel/addon.xml
+  Validate XML: https://dl.google.com/android/repository/extras/intel/addon.xml
+  Parse XML:    https://dl.google.com/android/repository/extras/intel/addon.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android-wear/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/android-tv/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/google_apis/sys-img.xml
+  Fetching URL: https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Validate XML: https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+  Parse XML:    https://dl.google.com/android/repository/sys-img/x86/addon-x86.xml
+-------------------------------
+License id: android-sdk-license-5be876d5
+Used by: 
+ - SDK Platform Android 6.0, API 23, revision 2
+-------------------------------
+
+To get started with the Android SDK, you must agree to the following terms and conditions.
+
+This is the Android SDK License Agreement (the "License Agreement").
+
+1. Introduction
+
+1.1 The Android SDK (referred to in the License Agreement as the "SDK" and specifically including the Android system files, packaged APIs, and SDK library files and tools , if and when they are made available) is licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of the SDK.
+
+1.2 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: http://source.android.com/, as updated from time to time.
+
+1.3 "Google" means Google Inc., a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
+
+2. Accepting the License Agreement
+
+2.1 In order to use the SDK, you must first agree to the License Agreement. You may not use the SDK if you do not accept the License Agreement.
+
+2.2 By clicking to accept and/or using the SDK, you hereby agree to the terms of the License Agreement.
+
+2.3 You may not use the SDK and may not accept the License Agreement if you are a person barred from receiving the SDK under the laws of the United States or other countries including the country in which you are resident or from which you use the SDK.
+
+2.4 If you will use the SDK internally within your company or organization you agree to be bound by the License Agreement on behalf of your employer or other entity, and you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use the SDK on behalf of your employer or other entity.
+
+3. SDK License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a royalty-free, non-assignable, non-exclusive, non-sublicensable, limited, revocable license to use the SDK, personally or internally within your company or organization, solely to develop and distribute applications to run on the Android platform.
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to the SDK, including any Intellectual Property Rights that subsist in the SDK. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.
+
+3.3 You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not: (a) copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK; or (b) load any part of the SDK onto a mobile handset or any other hardware device except a personal computer, combine any part of the SDK with other software, or distribute any software or device incorporating a part of the SDK.
+
+3.4 You agree that you will not take any actions that may cause or result in the fragmentation of Android, including but not limited to distributing, participating in the creation of, or promoting in any way a software development kit derived from the SDK.
+
+3.5 Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement. You agree to remain a licensee in good standing in regard to such open source software licenses under all the rights granted and to refrain from any actions that may terminate, suspend, or breach such rights.
+
+3.6 You agree that the form and nature of the SDK that Google provides may change without prior notice to you and that future versions of the SDK may be incompatible with applications developed on previous versions of the SDK. You agree that Google may stop (permanently or temporarily) providing the SDK (or any features within the SDK) to you or to users generally at Google's sole discretion, without prior notice to you.
+
+3.7 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.
+
+3.8 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within the SDK.
+
+4. Use of the SDK by You
+
+4.1 Google agrees that nothing in the License Agreement gives Google any right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you develop using the SDK, including any intellectual property rights that subsist in those applications.
+
+4.2 You agree to use the SDK and write applications only for purposes that are permitted by (a) the License Agreement, and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).
+
+4.3 You agree that if you use the SDK to develop applications, you will protect the privacy and legal rights of users. If users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If users provide you with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, each user has given you permission to do so.
+
+4.4 You agree that you will not engage in any activity with the SDK, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of Google or any third party.
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.
+
+5. Your Developer Credentials
+
+5.1 You agree that you are responsible for maintaining the confidentiality of any developer credentials that may be issued to you by Google or which you may choose yourself and that you will be solely responsible for all applications that are developed under your developer credentials.
+
+6. Privacy and Information
+
+6.1 In order to continually innovate and improve the SDK, Google may collect certain usage statistics from the software including but not limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in the SDK are being used and how they are being used. Before any of this information is collected, the SDK will notify you and seek your consent. If you withhold consent, the information will not be collected.
+
+6.2 The data collected is examined in the aggregate to improve the SDK and is maintained in accordance with Google's Privacy Policy located at http://www.google.com/policies/privacy/.
+
+7. Third Party Applications
+
+7.1 If you use the SDK to run applications developed by a third party or that access data, content or resources provided by a third party, you agree that Google is not responsible for those applications, data, content, or resources. You understand that all data, content or resources which you may access through such third party applications are the sole responsibility of the person from which they originated and that Google is not liable for any loss or damage that you may experience as a result of the use or access of any of those third party applications, data, content, or resources.
+
+7.2 You should be aware the data, content, and resources presented to you through such a third party application may be protected by intellectual property rights which are owned by the providers (or by other persons or companies on their behalf). You may not modify, rent, lease, loan, sell, distribute or create derivative works based on these data, content, or resources (either in whole or in part) unless you have been specifically given permission to do so by the relevant owners.
+
+7.3 You acknowledge that your use of such third party applications, data, content, or resources may be subject to separate terms between you and the relevant third party.
+
+8. Using Google APIs
+
+8.1 Google APIs
+
+8.1.1 If you use any API to retrieve data from Google, you acknowledge that the data may be protected by intellectual property rights which are owned by Google or those parties that provide the data (or by other persons or companies on their behalf). Your use of any such API may be subject to additional Terms of Service. You may not modify, rent, lease, loan, sell, distribute or create derivative works based on this data (either in whole or in part) unless allowed by the relevant Terms of Service.
+
+8.1.2 If you use any API to retrieve a user's data from Google, you acknowledge and agree that you shall retrieve data only with the user's explicit consent and only when, and for the limited purposes for which, the user has given you permission to do so.
+
+9. Terminating the License Agreement
+
+9.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.
+
+9.2 If you want to terminate the License Agreement, you may do so by ceasing your use of the SDK and any relevant developer credentials.
+
+9.3 Google may at any time, terminate the License Agreement, with or without cause, upon notice to you.
+
+9.4 The License Agreement will automatically terminate without notice or other action when Google ceases to provide the SDK or certain parts of the SDK to users in the country in which you are resident or from which you use the service.
+
+9.5 When the License Agreement is terminated, the license granted to you in the License Agreement will terminate, you will immediately cease all use of the SDK, and the provisions of paragraphs 10, 11, 12 and 14 shall survive indefinitely.
+
+10. DISCLAIMERS
+
+10.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SDK IS AT YOUR SOLE RISK AND THAT THE SDK IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.
+
+10.2 YOUR USE OF THE SDK AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SDK IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH USE. WITHOUT LIMITING THE FOREGOING, YOU UNDERSTAND THAT THE SDK MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE.
+
+10.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+11. LIMITATION OF LIABILITY
+
+11.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+
+12. Indemnification
+
+12.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys’ fees) arising out of or accruing from (a) your use of the SDK, (b) any application you develop on the SDK that infringes any Intellectual Property Rights of any person or defames any person or violates their rights of publicity or privacy, and (c) any non-compliance by you of the License Agreement.
+
+13. Changes to the License Agreement
+
+13.1 Google may make changes to the License Agreement as it distributes new versions of the SDK. When these changes are made, Google will make a new version of the License Agreement available on the website where the SDK is made available.
+
+14. General Legal Terms
+
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK.
+
+14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.
+
+14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.
+
+14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.
+
+14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.
+
+14.6 The License Agreement may not be assigned or transferred by you without the prior written approval of Google, and any attempted assignment without such approval will be void. You shall not delegate your responsibilities or obligations under the License Agreement without the prior written approval of Google.
+
+14.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.
+
+June 2014.
+    
+Do you accept the license 'android-sdk-license-5be876d5' [y/n]: y
+
+Installing Archives:
+  Preparing to install archives
+  Downloading SDK Platform Android 6.0, API 23, revision 2
+     (8%, 2798 KiB/s, 22 seconds left)     (11%, 2709 KiB/s, 22 seconds left)     (16%, 2887 KiB/s, 19 seconds left)     (20%, 2823 KiB/s, 19 seconds left)     (24%, 2794 KiB/s, 18 seconds left)     (27%, 2726 KiB/s, 18 seconds left)     (31%, 2685 KiB/s, 17 seconds left)     (34%, 2644 KiB/s, 16 seconds left)     (38%, 2669 KiB/s, 15 seconds left)     (43%, 2713 KiB/s, 14 seconds left)     (47%, 2733 KiB/s, 13 seconds left)     (51%, 2730 KiB/s, 12 seconds left)     (55%, 2715 KiB/s, 11 seconds left)     (59%, 2733 KiB/s, 10 seconds left)     (64%, 2759 KiB/s, 8 seconds left)     (68%, 2767 KiB/s, 7 seconds left)     (73%, 2787 KiB/s, 6 seconds left)     (77%, 2783 KiB/s, 5 seconds left)     (80%, 2769 KiB/s, 4 seconds left)     (84%, 2767 KiB/s, 3 seconds left)     (88%, 2769 KiB/s, 2 seconds left)     (93%, 2791 KiB/s, 1 seconds left)     (96%, 2768 KiB/s, 0 seconds left)  Installing SDK Platform Android 6.0, API 23, revision 2
+  Unzipping SDK Platform Android 6.0, API 23, revision 2 (20%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (21%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (55%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (56%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (57%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (58%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (59%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (60%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (61%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (62%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (63%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (64%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (65%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (66%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (67%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (68%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (69%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (70%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (71%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (72%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (73%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (74%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (75%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (76%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (77%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (78%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (79%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (80%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (81%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (82%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (83%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (84%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (85%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (88%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (89%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (90%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (93%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (94%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (95%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (96%)  Unzipping SDK Platform Android 6.0, API 23, revision 2 (97%)    Installed SDK Platform Android 6.0, API 23, revision 2
+  Done. 1 package installed.
+travis_time:end:08e17e38:start=1452283032535642928,finish=1452283064103974806,duration=31568331878[0Ktravis_fold:end:android.install[0K$ java -Xmx32m -version
+java version "1.8.0_31"
+Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.8.0_31
+travis_time:start:06864cdc[0K$ ./gradlew clean build
+No resolved dependencies found when searching for the jacoco version.
+No resolved dependencies found when searching for the jacoco version.
+No resolved dependencies found when searching for the jacoco version.
+No resolved dependencies found when searching for the jacoco version.
+No resolved dependencies found when searching for the jacoco version.
+:leakcanary-analyzer:clean UP-TO-DATE
+:leakcanary-android:clean UP-TO-DATE
+:leakcanary-android-no-op:clean UP-TO-DATE
+:leakcanary-sample:clean UP-TO-DATE
+:leakcanary-watcher:clean UP-TO-DATE
+:leakcanary-analyzer:androidJavadocs/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/haha/perflib/HahaSpy.java:20: error: cannot find symbol
+  public static Instance allocatingThread(Instance instance) {
+                                          ^
+  symbol:   class Instance
+  location: class HahaSpy
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/haha/perflib/HahaSpy.java:20: error: cannot find symbol
+  public static Instance allocatingThread(Instance instance) {
+                ^
+  symbol:   class Instance
+  location: class HahaSpy
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakTraceElement.java:52: error: cannot find symbol
+  public final Exclusion exclusion;
+               ^
+  symbol:   class Exclusion
+  location: class LeakTraceElement
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakTraceElement.java:58: error: cannot find symbol
+      Exclusion exclusion, List<String> fields) {
+      ^
+  symbol:   class Exclusion
+  location: class LeakTraceElement
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:18: error: cannot find symbol
+import com.squareup.haha.perflib.ArrayInstance;
+                                ^
+  symbol:   class ArrayInstance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:19: error: cannot find symbol
+import com.squareup.haha.perflib.ClassInstance;
+                                ^
+  symbol:   class ClassInstance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:20: error: cannot find symbol
+import com.squareup.haha.perflib.ClassObj;
+                                ^
+  symbol:   class ClassObj
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:21: error: cannot find symbol
+import com.squareup.haha.perflib.Field;
+                                ^
+  symbol:   class Field
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:22: error: cannot find symbol
+import com.squareup.haha.perflib.Heap;
+                                ^
+  symbol:   class Heap
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:23: error: cannot find symbol
+import com.squareup.haha.perflib.Instance;
+                                ^
+  symbol:   class Instance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:24: error: cannot find symbol
+import com.squareup.haha.perflib.Type;
+                                ^
+  symbol:   class Type
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:30: error: cannot find symbol
+import static com.squareup.leakcanary.Preconditions.checkNotNull;
+                                     ^
+  symbol:   class Preconditions
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:30: error: static import only from classes and interfaces
+import static com.squareup.leakcanary.Preconditions.checkNotNull;
+^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:40: error: cannot find symbol
+  static String fieldToString(Map.Entry<Field, Object> entry) {
+                                        ^
+  symbol:   class Field
+  location: class HahaHelper
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:44: error: package ClassInstance does not exist
+  static String fieldToString(ClassInstance.FieldValue fieldValue) {
+                                           ^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:48: error: cannot find symbol
+  static String fieldToString(Field field, Object value) {
+                              ^
+  symbol:   class Field
+  location: class HahaHelper
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:52: error: cannot find symbol
+  static String threadName(Instance holder) {
+                           ^
+  symbol:   class Instance
+  location: class HahaHelper
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:58: error: cannot find symbol
+  static boolean extendsThread(ClassObj clazz) {
+                               ^
+  symbol:   class ClassObj
+  location: class HahaHelper
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:141: error: cannot find symbol
+  static List<ClassInstance.FieldValue> classInstanceValues(Instance instance) {
+                                                            ^
+  symbol:   class Instance
+  location: class HahaHelper
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:141: error: package ClassInstance does not exist
+  static List<ClassInstance.FieldValue> classInstanceValues(Instance instance) {
+                           ^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:146: error: package ClassInstance does not exist
+  static <T> T fieldValue(List<ClassInstance.FieldValue> values, String fieldName) {
+                                            ^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java:156: error: package ClassInstance does not exist
+  static boolean hasField(List<ClassInstance.FieldValue> values, String fieldName) {
+                                            ^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:18: error: cannot find symbol
+import com.squareup.haha.perflib.ArrayInstance;
+                                ^
+  symbol:   class ArrayInstance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:19: error: cannot find symbol
+import com.squareup.haha.perflib.ClassInstance;
+                                ^
+  symbol:   class ClassInstance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:20: error: cannot find symbol
+import com.squareup.haha.perflib.ClassObj;
+                                ^
+  symbol:   class ClassObj
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:21: error: cannot find symbol
+import com.squareup.haha.perflib.Field;
+                                ^
+  symbol:   class Field
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:22: error: cannot find symbol
+import com.squareup.haha.perflib.HprofParser;
+                                ^
+  symbol:   class HprofParser
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:23: error: cannot find symbol
+import com.squareup.haha.perflib.Instance;
+                                ^
+  symbol:   class Instance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:24: error: cannot find symbol
+import com.squareup.haha.perflib.RootObj;
+                                ^
+  symbol:   class RootObj
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:25: error: cannot find symbol
+import com.squareup.haha.perflib.RootType;
+                                ^
+  symbol:   class RootType
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:26: error: cannot find symbol
+import com.squareup.haha.perflib.Snapshot;
+                                ^
+  symbol:   class Snapshot
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:27: error: cannot find symbol
+import com.squareup.haha.perflib.Type;
+                                ^
+  symbol:   class Type
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:28: error: package com.squareup.haha.perflib.io does not exist
+import com.squareup.haha.perflib.io.HprofBuffer;
+                                   ^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:29: error: package com.squareup.haha.perflib.io does not exist
+import com.squareup.haha.perflib.io.MemoryMappedFileBuffer;
+                                   ^
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:57: error: cannot find symbol
+  private final ExcludedRefs excludedRefs;
+                ^
+  symbol:   class ExcludedRefs
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:59: error: cannot find symbol
+  public HeapAnalyzer(ExcludedRefs excludedRefs) {
+                      ^
+  symbol:   class ExcludedRefs
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:93: error: cannot find symbol
+  private Instance findLeakingReference(String key, Snapshot snapshot) {
+                                                    ^
+  symbol:   class Snapshot
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:93: error: cannot find symbol
+  private Instance findLeakingReference(String key, Snapshot snapshot) {
+          ^
+  symbol:   class Instance
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:108: error: cannot find symbol
+  private AnalysisResult findLeakTrace(long analysisStartNanoTime, Snapshot snapshot,
+                                                                   ^
+  symbol:   class Snapshot
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:109: error: cannot find symbol
+      Instance leakingRef) {
+      ^
+  symbol:   class Instance
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:145: error: cannot find symbol
+  private int computeIgnoredBitmapRetainedSize(Snapshot snapshot, Instance leakingInstance) {
+                                               ^
+  symbol:   class Snapshot
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:145: error: cannot find symbol
+  private int computeIgnoredBitmapRetainedSize(Snapshot snapshot, Instance leakingInstance) {
+                                                                  ^
+  symbol:   class Instance
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:169: error: cannot find symbol
+  private boolean isIgnoredDominator(Instance dominator, Instance instance) {
+                                     ^
+  symbol:   class Instance
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:169: error: cannot find symbol
+  private boolean isIgnoredDominator(Instance dominator, Instance instance) {
+                                                         ^
+  symbol:   class Instance
+  location: class HeapAnalyzer
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakNode.java:18: error: cannot find symbol
+import com.squareup.haha.perflib.Instance;
+                                ^
+  symbol:   class Instance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakNode.java:22: error: cannot find symbol
+  final Exclusion exclusion;
+        ^
+  symbol:   class Exclusion
+  location: class LeakNode
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakNode.java:23: error: cannot find symbol
+  final Instance instance;
+        ^
+  symbol:   class Instance
+  location: class LeakNode
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakNode.java:28: error: cannot find symbol
+  LeakNode(Exclusion exclusion, Instance instance, LeakNode parent,
+           ^
+  symbol:   class Exclusion
+  location: class LeakNode
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/LeakNode.java:28: error: cannot find symbol
+  LeakNode(Exclusion exclusion, Instance instance, LeakNode parent,
+                                ^
+  symbol:   class Instance
+  location: class LeakNode
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:18: error: cannot find symbol
+import com.squareup.haha.perflib.ArrayInstance;
+                                ^
+  symbol:   class ArrayInstance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:19: error: cannot find symbol
+import com.squareup.haha.perflib.ClassInstance;
+                                ^
+  symbol:   class ClassInstance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:20: error: cannot find symbol
+import com.squareup.haha.perflib.ClassObj;
+                                ^
+  symbol:   class ClassObj
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:21: error: cannot find symbol
+import com.squareup.haha.perflib.Field;
+                                ^
+  symbol:   class Field
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:23: error: cannot find symbol
+import com.squareup.haha.perflib.Instance;
+                                ^
+  symbol:   class Instance
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:24: error: cannot find symbol
+import com.squareup.haha.perflib.RootObj;
+                                ^
+  symbol:   class RootObj
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:25: error: cannot find symbol
+import com.squareup.haha.perflib.RootType;
+                                ^
+  symbol:   class RootType
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:26: error: cannot find symbol
+import com.squareup.haha.perflib.Snapshot;
+                                ^
+  symbol:   class Snapshot
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:27: error: cannot find symbol
+import com.squareup.haha.perflib.Type;
+                                ^
+  symbol:   class Type
+  location: package com.squareup.haha.perflib
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:51: error: cannot find symbol
+  private final ExcludedRefs excludedRefs;
+                ^
+  symbol:   class ExcludedRefs
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:54: error: cannot find symbol
+  private final LinkedHashSet<Instance> toVisitSet;
+                              ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:55: error: cannot find symbol
+  private final LinkedHashSet<Instance> toVisitIfNoPathSet;
+                              ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:56: error: cannot find symbol
+  private final LinkedHashSet<Instance> visitedSet;
+                              ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:59: error: cannot find symbol
+  ShortestPathFinder(ExcludedRefs excludedRefs) {
+                     ^
+  symbol:   class ExcludedRefs
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:78: error: cannot find symbol
+  Result findPath(Snapshot snapshot, Instance leakingRef) {
+                  ^
+  symbol:   class Snapshot
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:78: error: cannot find symbol
+  Result findPath(Snapshot snapshot, Instance leakingRef) {
+                                     ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:131: error: cannot find symbol
+  private void enqueueGcRoots(Snapshot snapshot) {
+                              ^
+  symbol:   class Snapshot
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:202: error: cannot find symbol
+  private Exclusion rootSuperClassAlwaysIgnored(Instance child) {
+                                                ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:202: error: cannot find symbol
+  private Exclusion rootSuperClassAlwaysIgnored(Instance child) {
+          ^
+  symbol:   class Exclusion
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:306: error: cannot find symbol
+  private void enqueue(Exclusion exclusion, LeakNode parent, Instance child, String referenceName,
+                       ^
+  symbol:   class Exclusion
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:306: error: cannot find symbol
+  private void enqueue(Exclusion exclusion, LeakNode parent, Instance child, String referenceName,
+                                                             ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/ShortestPathFinder.java:338: error: cannot find symbol
+  private boolean isString(Instance instance) {
+                           ^
+  symbol:   class Instance
+  location: class ShortestPathFinder
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:53: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:67: warning - Tag @link: reference not found: KeyedWeakReference
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:67: warning - Tag @link: reference not found: KeyedWeakReference
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:53: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:67: warning - Tag @link: reference not found: KeyedWeakReference
+/home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HeapAnalyzer.java:53: warning - Tag @link: reference not found: RefWatcher
+
+77 warnings
+:leakcanary-analyzer:androidJavadocsJar
+:leakcanary-analyzer:androidSourcesJar
+:leakcanary-analyzer:preBuild UP-TO-DATE
+:leakcanary-analyzer:preDebugBuild UP-TO-DATE
+:leakcanary-analyzer:compileDebugNdk UP-TO-DATE
+:leakcanary-analyzer:compileLint
+:leakcanary-analyzer:copyDebugLint UP-TO-DATE
+:leakcanary-analyzer:mergeDebugProguardFiles
+:leakcanary-analyzer:packageDebugRenderscript UP-TO-DATE
+:leakcanary-analyzer:checkDebugManifest
+:leakcanary-analyzer:preDebugAndroidTestBuild UP-TO-DATE
+:leakcanary-analyzer:preDebugUnitTestBuild UP-TO-DATE
+:leakcanary-analyzer:preReleaseBuild UP-TO-DATE
+:leakcanary-analyzer:preReleaseUnitTestBuild UP-TO-DATE
+:leakcanary-watcher:preBuild UP-TO-DATE
+:leakcanary-watcher:preReleaseBuild UP-TO-DATE
+:leakcanary-watcher:compileReleaseNdk UP-TO-DATE
+:leakcanary-watcher:compileLint
+:leakcanary-watcher:copyReleaseLint UP-TO-DATE
+:leakcanary-watcher:mergeReleaseProguardFiles
+:leakcanary-watcher:packageReleaseRenderscript UP-TO-DATE
+:leakcanary-watcher:checkReleaseManifest
+:leakcanary-watcher:prepareReleaseDependencies
+:leakcanary-watcher:compileReleaseRenderscript
+:leakcanary-watcher:generateReleaseResValues
+:leakcanary-watcher:generateReleaseResources
+:leakcanary-watcher:packageReleaseResources
+:leakcanary-watcher:compileReleaseAidl
+:leakcanary-watcher:generateReleaseBuildConfig
+:leakcanary-watcher:generateReleaseAssets UP-TO-DATE
+:leakcanary-watcher:mergeReleaseAssets
+:leakcanary-watcher:processReleaseManifest
+:leakcanary-watcher:processReleaseResources
+:leakcanary-watcher:generateReleaseSources
+:leakcanary-watcher:compileReleaseJavaWithJavac
+:leakcanary-watcher:processReleaseJavaRes UP-TO-DATE
+:leakcanary-watcher:transformResourcesWithMergeJavaResForRelease
+:leakcanary-watcher:transformClassesAndResourcesWithSyncLibJarsForRelease
+:leakcanary-watcher:mergeReleaseJniLibFolders
+:leakcanary-watcher:transformNative_libsWithMergeJniLibsForRelease
+:leakcanary-watcher:transformNative_libsWithSyncJniLibsForRelease
+:leakcanary-watcher:bundleRelease
+:leakcanary-analyzer:prepareComSquareupLeakcanaryLeakcanaryWatcher14SNAPSHOTLibrary
+:leakcanary-analyzer:prepareDebugDependencies
+:leakcanary-analyzer:compileDebugRenderscript
+:leakcanary-analyzer:generateDebugResValues
+:leakcanary-analyzer:generateDebugResources
+:leakcanary-analyzer:packageDebugResources
+:leakcanary-analyzer:compileDebugAidl
+:leakcanary-analyzer:generateDebugBuildConfig
+:leakcanary-analyzer:generateDebugAssets UP-TO-DATE
+:leakcanary-analyzer:mergeDebugAssets
+:leakcanary-analyzer:mergeDebugResources
+:leakcanary-analyzer:processDebugManifest
+:leakcanary-analyzer:processDebugResources
+:leakcanary-analyzer:generateDebugSources
+:leakcanary-analyzer:compileDebugJavaWithJavacNote: /home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:leakcanary-analyzer:processDebugJavaRes UP-TO-DATE
+:leakcanary-analyzer:transformResourcesWithMergeJavaResForDebug
+:leakcanary-analyzer:transformClassesAndResourcesWithSyncLibJarsForDebug
+:leakcanary-analyzer:mergeDebugJniLibFolders
+:leakcanary-analyzer:transformNative_libsWithMergeJniLibsForDebug
+:leakcanary-analyzer:transformNative_libsWithSyncJniLibsForDebug
+:leakcanary-analyzer:bundleDebug
+:leakcanary-analyzer:compileDebugSources
+:leakcanary-analyzer:assembleDebug
+:leakcanary-analyzer:compileReleaseNdk UP-TO-DATE
+:leakcanary-analyzer:copyReleaseLint UP-TO-DATE
+:leakcanary-analyzer:mergeReleaseProguardFiles
+:leakcanary-analyzer:packageReleaseRenderscript UP-TO-DATE
+:leakcanary-analyzer:checkReleaseManifest
+:leakcanary-analyzer:prepareReleaseDependencies
+:leakcanary-analyzer:compileReleaseRenderscript
+:leakcanary-analyzer:generateReleaseResValues
+:leakcanary-analyzer:generateReleaseResources
+:leakcanary-analyzer:packageReleaseResources
+:leakcanary-analyzer:compileReleaseAidl
+:leakcanary-analyzer:generateReleaseBuildConfig
+:leakcanary-analyzer:generateReleaseAssets UP-TO-DATE
+:leakcanary-analyzer:mergeReleaseAssets
+:leakcanary-analyzer:mergeReleaseResources
+:leakcanary-analyzer:processReleaseManifest
+:leakcanary-analyzer:processReleaseResources
+:leakcanary-analyzer:generateReleaseSources
+:leakcanary-analyzer:compileReleaseJavaWithJavacNote: /home/travis/build/square/leakcanary/leakcanary-analyzer/src/main/java/com/squareup/leakcanary/HahaHelper.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:leakcanary-analyzer:processReleaseJavaRes UP-TO-DATE
+:leakcanary-analyzer:transformResourcesWithMergeJavaResForRelease
+:leakcanary-analyzer:transformClassesAndResourcesWithSyncLibJarsForRelease
+:leakcanary-analyzer:mergeReleaseJniLibFolders
+:leakcanary-analyzer:transformNative_libsWithMergeJniLibsForRelease
+:leakcanary-analyzer:transformNative_libsWithSyncJniLibsForRelease
+:leakcanary-analyzer:bundleRelease
+:leakcanary-analyzer:compileReleaseSources
+:leakcanary-analyzer:assembleRelease
+:leakcanary-analyzer:jarRelease
+:leakcanary-analyzer:signArchives SKIPPED
+:leakcanary-analyzer:assemble
+:leakcanary-analyzer:checkstyleDebug
+:leakcanary-analyzer:checkstyleRelease
+:leakcanary-analyzer:lint
+Wrote HTML report to file:///home/travis/build/square/leakcanary/leakcanary-analyzer/build/outputs/lint-results.html
+Wrote XML report to file:///home/travis/build/square/leakcanary/leakcanary-analyzer/build/outputs/lint-results.xml
+Lint found 0 errors and 1 warnings
+:leakcanary-analyzer:prepareDebugUnitTestDependencies
+:leakcanary-analyzer:compileDebugUnitTestJavaWithJavac
+:leakcanary-analyzer:processDebugUnitTestJavaRes
+:leakcanary-analyzer:compileDebugUnitTestSources
+:leakcanary-analyzer:mockableAndroidJar
+:leakcanary-analyzer:assembleDebugUnitTest
+:leakcanary-analyzer:copyTestResources
+:leakcanary-analyzer:testDebugUnitTest
+:leakcanary-analyzer:prepareReleaseUnitTestDependencies
+:leakcanary-analyzer:compileReleaseUnitTestJavaWithJavac
+:leakcanary-analyzer:processReleaseUnitTestJavaRes
+:leakcanary-analyzer:compileReleaseUnitTestSources
+:leakcanary-analyzer:assembleReleaseUnitTest
+:leakcanary-analyzer:testReleaseUnitTest
+:leakcanary-analyzer:test
+:leakcanary-analyzer:check
+:leakcanary-analyzer:build
+:leakcanary-android:androidJavadocs/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:28: error: cannot find symbol
+      HeapDump heapDump, AnalysisResult result) {
+      ^
+  symbol:   class HeapDump
+  location: class AbstractAnalysisResultService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:28: error: cannot find symbol
+      HeapDump heapDump, AnalysisResult result) {
+                         ^
+  symbol:   class AnalysisResult
+  location: class AbstractAnalysisResultService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:67: error: cannot find symbol
+  protected abstract void onHeapAnalyzed(HeapDump heapDump, AnalysisResult result);
+                                         ^
+  symbol:   class HeapDump
+  location: class AbstractAnalysisResultService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:67: error: cannot find symbol
+  protected abstract void onHeapAnalyzed(HeapDump heapDump, AnalysisResult result);
+                                                            ^
+  symbol:   class AnalysisResult
+  location: class AbstractAnalysisResultService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ActivityRefWatcher.java:25: error: cannot find symbol
+import static com.squareup.leakcanary.Preconditions.checkNotNull;
+                                     ^
+  symbol:   class Preconditions
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ActivityRefWatcher.java:25: error: static import only from classes and interfaces
+import static com.squareup.leakcanary.Preconditions.checkNotNull;
+^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ActivityRefWatcher.java:29: error: cannot find symbol
+  public static void installOnIcsPlus(Application application, RefWatcher refWatcher) {
+                                                               ^
+  symbol:   class RefWatcher
+  location: class ActivityRefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ActivityRefWatcher.java:64: error: cannot find symbol
+  private final RefWatcher refWatcher;
+                ^
+  symbol:   class RefWatcher
+  location: class ActivityRefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ActivityRefWatcher.java:70: error: cannot find symbol
+  public ActivityRefWatcher(Application application, final RefWatcher refWatcher) {
+                                                           ^
+  symbol:   class RefWatcher
+  location: class ActivityRefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidDebuggerControl.java:20: error: cannot find symbol
+public final class AndroidDebuggerControl implements DebuggerControl {
+                                                     ^
+  symbol: class DebuggerControl
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/LeakCanaryInternals.java:30: error: cannot find symbol
+import com.squareup.leakcanary.R;
+                              ^
+  symbol:   class R
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java:435: error: package ExcludedRefs does not exist
+  public static ExcludedRefs.Builder createAndroidDefaults() {
+                            ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java:447: error: package ExcludedRefs does not exist
+  public static ExcludedRefs.Builder createAppDefaults() {
+                            ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java:451: error: package ExcludedRefs does not exist
+  public static ExcludedRefs.Builder createBuilder(EnumSet<AndroidExcludedRefs> refs) {
+                            ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidExcludedRefs.java:472: error: package ExcludedRefs does not exist
+  abstract void add(ExcludedRefs.Builder excluded);
+                                ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidHeapDumper.java:33: error: cannot find symbol
+public final class AndroidHeapDumper implements HeapDumper {
+                                                ^
+  symbol: class HeapDumper
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:46: error: cannot find symbol
+  @Override protected final void onHeapAnalyzed(HeapDump heapDump, AnalysisResult result) {
+                                                ^
+  symbol:   class HeapDump
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:46: error: cannot find symbol
+  @Override protected final void onHeapAnalyzed(HeapDump heapDump, AnalysisResult result) {
+                                                                   ^
+  symbol:   class AnalysisResult
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:89: error: cannot find symbol
+  private boolean saveResult(HeapDump heapDump, AnalysisResult result) {
+                             ^
+  symbol:   class HeapDump
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:89: error: cannot find symbol
+  private boolean saveResult(HeapDump heapDump, AnalysisResult result) {
+                                                ^
+  symbol:   class AnalysisResult
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:112: error: cannot find symbol
+  private HeapDump renameHeapdump(HeapDump heapDump) {
+                                  ^
+  symbol:   class HeapDump
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:112: error: cannot find symbol
+  private HeapDump renameHeapdump(HeapDump heapDump) {
+          ^
+  symbol:   class HeapDump
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:155: error: cannot find symbol
+  protected void afterDefaultHandling(HeapDump heapDump, AnalysisResult result, String leakInfo) {
+                                      ^
+  symbol:   class HeapDump
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:155: error: cannot find symbol
+  protected void afterDefaultHandling(HeapDump heapDump, AnalysisResult result, String leakInfo) {
+                                                         ^
+  symbol:   class AnalysisResult
+  location: class DisplayLeakService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:38: error: cannot find symbol
+  public static RefWatcher install(Application application) {
+                ^
+  symbol:   class RefWatcher
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:49: error: cannot find symbol
+      ExcludedRefs excludedRefs) {
+      ^
+  symbol:   class ExcludedRefs
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:47: error: cannot find symbol
+  public static RefWatcher install(Application application,
+                ^
+  symbol:   class RefWatcher
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:64: error: package HeapDump does not exist
+  public static RefWatcher androidWatcher(Context context, HeapDump.Listener heapDumpListener,
+                                                                   ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:65: error: cannot find symbol
+      ExcludedRefs excludedRefs) {
+      ^
+  symbol:   class ExcludedRefs
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:64: error: cannot find symbol
+  public static RefWatcher androidWatcher(Context context, HeapDump.Listener heapDumpListener,
+                ^
+  symbol:   class RefWatcher
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:87: error: cannot find symbol
+  public static String leakInfo(Context context, HeapDump heapDump, AnalysisResult result,
+                                                 ^
+  symbol:   class HeapDump
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:87: error: cannot find symbol
+  public static String leakInfo(Context context, HeapDump heapDump, AnalysisResult result,
+                                                                    ^
+  symbol:   class AnalysisResult
+  location: class LeakCanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ServiceHeapDumpListener.java:21: error: cannot find symbol
+import static com.squareup.leakcanary.Preconditions.checkNotNull;
+                                     ^
+  symbol:   class Preconditions
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ServiceHeapDumpListener.java:21: error: static import only from classes and interfaces
+import static com.squareup.leakcanary.Preconditions.checkNotNull;
+^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ServiceHeapDumpListener.java:24: error: package HeapDump does not exist
+public final class ServiceHeapDumpListener implements HeapDump.Listener {
+                                                              ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/ServiceHeapDumpListener.java:37: error: cannot find symbol
+  @Override public void analyze(HeapDump heapDump) {
+                                ^
+  symbol:   class HeapDump
+  location: class ServiceHeapDumpListener
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:41: error: cannot find symbol
+import com.squareup.leakcanary.AnalysisResult;
+                              ^
+  symbol:   class AnalysisResult
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:44: error: cannot find symbol
+import com.squareup.leakcanary.HeapDump;
+                              ^
+  symbol:   class HeapDump
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:46: error: cannot find symbol
+import com.squareup.leakcanary.R;
+                              ^
+  symbol:   class R
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:395: error: cannot find symbol
+    final HeapDump heapDump;
+          ^
+  symbol:   class HeapDump
+  location: class Leak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:396: error: cannot find symbol
+    final AnalysisResult result;
+          ^
+  symbol:   class AnalysisResult
+  location: class Leak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:399: error: cannot find symbol
+    Leak(HeapDump heapDump, AnalysisResult result, File resultFile) {
+         ^
+  symbol:   class HeapDump
+  location: class Leak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java:399: error: cannot find symbol
+    Leak(HeapDump heapDump, AnalysisResult result, File resultFile) {
+                            ^
+  symbol:   class AnalysisResult
+  location: class Leak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:25: error: cannot find symbol
+import com.squareup.leakcanary.Exclusion;
+                              ^
+  symbol:   class Exclusion
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:26: error: cannot find symbol
+import com.squareup.leakcanary.LeakTrace;
+                              ^
+  symbol:   class LeakTrace
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:27: error: cannot find symbol
+import com.squareup.leakcanary.LeakTraceElement;
+                              ^
+  symbol:   class LeakTraceElement
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:28: error: cannot find symbol
+import com.squareup.leakcanary.R;
+                              ^
+  symbol:   class R
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:33: error: package com.squareup.leakcanary.LeakTraceElement does not exist
+import static com.squareup.leakcanary.LeakTraceElement.Holder.ARRAY;
+                                                      ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:33: error: static import only from classes and interfaces
+import static com.squareup.leakcanary.LeakTraceElement.Holder.ARRAY;
+^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:34: error: package com.squareup.leakcanary.LeakTraceElement does not exist
+import static com.squareup.leakcanary.LeakTraceElement.Holder.THREAD;
+                                                      ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:34: error: static import only from classes and interfaces
+import static com.squareup.leakcanary.LeakTraceElement.Holder.THREAD;
+^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:35: error: package com.squareup.leakcanary.LeakTraceElement does not exist
+import static com.squareup.leakcanary.LeakTraceElement.Type.STATIC_FIELD;
+                                                      ^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:35: error: static import only from classes and interfaces
+import static com.squareup.leakcanary.LeakTraceElement.Type.STATIC_FIELD;
+^
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:44: error: cannot find symbol
+  private List<LeakTraceElement> elements = Collections.emptyList();
+               ^
+  symbol:   class LeakTraceElement
+  location: class DisplayLeakAdapter
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:90: error: cannot find symbol
+  private String elementToHtmlString(LeakTraceElement element, boolean root, boolean opened) {
+                                     ^
+  symbol:   class LeakTraceElement
+  location: class DisplayLeakAdapter
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:156: error: cannot find symbol
+  public void update(LeakTrace leakTrace, String referenceKey, String referenceName) {
+                     ^
+  symbol:   class LeakTrace
+  location: class DisplayLeakAdapter
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:177: error: cannot find symbol
+  @Override public LeakTraceElement getItem(int position) {
+                   ^
+  symbol:   class LeakTraceElement
+  location: class DisplayLeakAdapter
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/HeapAnalyzerService.java:22: error: cannot find symbol
+import com.squareup.leakcanary.AnalysisResult;
+                              ^
+  symbol:   class AnalysisResult
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/HeapAnalyzerService.java:24: error: cannot find symbol
+import com.squareup.leakcanary.HeapAnalyzer;
+                              ^
+  symbol:   class HeapAnalyzer
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/HeapAnalyzerService.java:25: error: cannot find symbol
+import com.squareup.leakcanary.HeapDump;
+                              ^
+  symbol:   class HeapDump
+  location: package com.squareup.leakcanary
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/HeapAnalyzerService.java:36: error: cannot find symbol
+  public static void runAnalysis(Context context, HeapDump heapDump,
+                                                  ^
+  symbol:   class HeapDump
+  location: class HeapAnalyzerService
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:67: warning - Tag @link: reference not found: AnalysisResult#leakFound
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:67: warning - Tag @link: reference not found: AnalysisResult#excludedLeak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AndroidWatchExecutor.java:29: warning - Tag @link: reference not found: R.integer#leak_canary_watch_delay_millis
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:67: warning - Tag @link: reference not found: AnalysisResult#leakFound
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/AbstractAnalysisResultService.java:67: warning - Tag @link: reference not found: AnalysisResult#excludedLeak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:155: warning - Tag @link: reference not found: AnalysisResult#leakFound
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/DisplayLeakService.java:155: warning - Tag @link: reference not found: AnalysisResult#excludedLeak
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:64: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:38: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:47: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:38: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:47: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:64: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:64: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:38: warning - Tag @link: reference not found: RefWatcher
+/home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/LeakCanary.java:47: warning - Tag @link: reference not found: RefWatcher
+
+77 warnings
+:leakcanary-android:androidJavadocsJar
+:leakcanary-android:androidSourcesJar
+:leakcanary-android:preBuild UP-TO-DATE
+:leakcanary-android:preDebugBuild UP-TO-DATE
+:leakcanary-android:compileDebugNdk UP-TO-DATE
+:leakcanary-android:compileLint
+:leakcanary-android:copyDebugLint UP-TO-DATE
+:leakcanary-android:mergeDebugProguardFiles
+:leakcanary-android:packageDebugRenderscript UP-TO-DATE
+:leakcanary-android:checkDebugManifest
+:leakcanary-android:preDebugAndroidTestBuild UP-TO-DATE
+:leakcanary-android:preDebugUnitTestBuild UP-TO-DATE
+:leakcanary-android:preReleaseBuild UP-TO-DATE
+:leakcanary-android:preReleaseUnitTestBuild UP-TO-DATE
+:leakcanary-android:prepareComSquareupLeakcanaryLeakcanaryAnalyzer14SNAPSHOTLibrary
+:leakcanary-android:prepareComSquareupLeakcanaryLeakcanaryWatcher14SNAPSHOTLibrary
+:leakcanary-android:prepareDebugDependencies
+:leakcanary-android:compileDebugRenderscript
+:leakcanary-android:generateDebugResValues
+:leakcanary-android:generateDebugResources
+:leakcanary-android:packageDebugResources
+:leakcanary-android:compileDebugAidl
+:leakcanary-android:generateDebugBuildConfig
+:leakcanary-android:generateDebugAssets UP-TO-DATE
+:leakcanary-android:mergeDebugAssets
+:leakcanary-android:mergeDebugResources
+:leakcanary-android:processDebugManifest
+:leakcanary-android:processDebugResources
+:leakcanary-android:generateDebugSources
+:leakcanary-android:compileDebugJavaWithJavacNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:leakcanary-android:processDebugJavaRes UP-TO-DATE
+:leakcanary-android:transformResourcesWithMergeJavaResForDebug
+:leakcanary-android:transformClassesAndResourcesWithSyncLibJarsForDebug
+:leakcanary-android:mergeDebugJniLibFolders
+:leakcanary-android:transformNative_libsWithMergeJniLibsForDebug
+:leakcanary-android:transformNative_libsWithSyncJniLibsForDebug
+:leakcanary-android:bundleDebug
+:leakcanary-android:compileDebugSources
+:leakcanary-android:assembleDebug
+:leakcanary-android:compileReleaseNdk UP-TO-DATE
+:leakcanary-android:copyReleaseLint UP-TO-DATE
+:leakcanary-android:mergeReleaseProguardFiles
+:leakcanary-android:packageReleaseRenderscript UP-TO-DATE
+:leakcanary-android:checkReleaseManifest
+:leakcanary-android:prepareReleaseDependencies
+:leakcanary-android:compileReleaseRenderscript
+:leakcanary-android:generateReleaseResValues
+:leakcanary-android:generateReleaseResources
+:leakcanary-android:packageReleaseResources
+:leakcanary-android:compileReleaseAidl
+:leakcanary-android:generateReleaseBuildConfig
+:leakcanary-android:generateReleaseAssets UP-TO-DATE
+:leakcanary-android:mergeReleaseAssets
+:leakcanary-android:mergeReleaseResources
+:leakcanary-android:processReleaseManifest
+:leakcanary-android:processReleaseResources
+:leakcanary-android:generateReleaseSources
+:leakcanary-android:compileReleaseJavaWithJavacNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakActivity.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:leakcanary-android:processReleaseJavaRes UP-TO-DATE
+:leakcanary-android:transformResourcesWithMergeJavaResForRelease
+:leakcanary-android:transformClassesAndResourcesWithSyncLibJarsForRelease
+:leakcanary-android:mergeReleaseJniLibFolders
+:leakcanary-android:transformNative_libsWithMergeJniLibsForRelease
+:leakcanary-android:transformNative_libsWithSyncJniLibsForRelease
+:leakcanary-android:bundleRelease
+:leakcanary-android:compileReleaseSources
+:leakcanary-android:assembleRelease
+:leakcanary-android:signArchives SKIPPED
+:leakcanary-android:assemble
+:leakcanary-android:checkstyleDebug[ant:checkstyle] /home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:146:77: '+' is not preceded with whitespace.
+[ant:checkstyle] /home/travis/build/square/leakcanary/leakcanary-android/src/main/java/com/squareup/leakcanary/internal/DisplayLeakAdapter.java:146:78: '+' is not followed by whitespace.
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':leakcanary-android:checkstyleDebug'.
+> Checkstyle rule violations were found. See the report at: file:///home/travis/build/square/leakcanary/leakcanary-android/build/reports/checkstyle/debug.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1 mins 45.593 secs
+travis_time:end:06864cdc:start=1452283064505460498,finish=1452283170544846153,duration=106039385655[0K
+[31;1mThe command "./gradlew clean build" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:01338e23[0Ktravis_time:end:01338e23:start=1452283170548950942,finish=1452283170552113171,duration=3162229[0Ktravis_time:start:08b65a7c[0K[32;1mchange detected:
+/home/travis/.gradle/caches/modules-2/modules-2.lock
+
+[0m
+[32;1mchanges detected, packing new archive[0m
+.
+[32;1muploading archive[0m
+travis_time:end:08b65a7c:start=1452283170555797944,finish=1452283185582850676,duration=15027052732[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

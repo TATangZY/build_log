@@ -1,0 +1,1036 @@
+Using worker: worker-linux-8-1.bb.travis-ci.org:travis-linux-1
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Sun Dec  7 05:49:51 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+5736160 https://github.com/travis-ci/travis-cookbooks/tree/5736160
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.3.3
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.0
+------------------------------------------------------------
+
+Build time:   2014-07-01 07:45:34 UTC
+Build number: none
+Revision:     b6ead6fa452dfdadec484059191eb641d817226c
+
+Groovy:       2.3.3
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:14fb5231[0K$ git clone --depth=50 git://github.com/Netflix/Hystrix.git Netflix/Hystrix
+Cloning into 'Netflix/Hystrix'...
+remote: Counting objects: 2921, done.[K
+remote: Compressing objects:   0% (1/1172)   [Kremote: Compressing objects:   1% (12/1172)   [Kremote: Compressing objects:   2% (24/1172)   [Kremote: Compressing objects:   3% (36/1172)   [Kremote: Compressing objects:   4% (47/1172)   [Kremote: Compressing objects:   5% (59/1172)   [Kremote: Compressing objects:   6% (71/1172)   [Kremote: Compressing objects:   7% (83/1172)   [Kremote: Compressing objects:   8% (94/1172)   [Kremote: Compressing objects:   9% (106/1172)   [Kremote: Compressing objects:  10% (118/1172)   [Kremote: Compressing objects:  11% (129/1172)   [Kremote: Compressing objects:  12% (141/1172)   [Kremote: Compressing objects:  13% (153/1172)   [Kremote: Compressing objects:  14% (165/1172)   [Kremote: Compressing objects:  15% (176/1172)   [Kremote: Compressing objects:  16% (188/1172)   [Kremote: Compressing objects:  17% (200/1172)   [Kremote: Compressing objects:  18% (211/1172)   [Kremote: Compressing objects:  19% (223/1172)   [Kremote: Compressing objects:  20% (235/1172)   [Kremote: Compressing objects:  21% (247/1172)   [Kremote: Compressing objects:  22% (258/1172)   [Kremote: Compressing objects:  23% (270/1172)   [Kremote: Compressing objects:  24% (282/1172)   [Kremote: Compressing objects:  25% (293/1172)   [Kremote: Compressing objects:  26% (305/1172)   [Kremote: Compressing objects:  27% (317/1172)   [Kremote: Compressing objects:  28% (329/1172)   [Kremote: Compressing objects:  29% (340/1172)   [Kremote: Compressing objects:  30% (352/1172)   [Kremote: Compressing objects:  31% (364/1172)   [Kremote: Compressing objects:  32% (376/1172)   [Kremote: Compressing objects:  33% (387/1172)   [Kremote: Compressing objects:  34% (399/1172)   [Kremote: Compressing objects:  35% (411/1172)   [Kremote: Compressing objects:  36% (422/1172)   [Kremote: Compressing objects:  37% (434/1172)   [Kremote: Compressing objects:  38% (446/1172)   [Kremote: Compressing objects:  39% (458/1172)   [Kremote: Compressing objects:  40% (469/1172)   [Kremote: Compressing objects:  41% (481/1172)   [Kremote: Compressing objects:  42% (493/1172)   [Kremote: Compressing objects:  43% (504/1172)   [Kremote: Compressing objects:  44% (516/1172)   [Kremote: Compressing objects:  45% (528/1172)   [Kremote: Compressing objects:  46% (540/1172)   [Kremote: Compressing objects:  47% (551/1172)   [Kremote: Compressing objects:  48% (563/1172)   [Kremote: Compressing objects:  49% (575/1172)   [Kremote: Compressing objects:  50% (586/1172)   [Kremote: Compressing objects:  51% (598/1172)   [Kremote: Compressing objects:  52% (610/1172)   [Kremote: Compressing objects:  53% (622/1172)   [Kremote: Compressing objects:  54% (633/1172)   [Kremote: Compressing objects:  55% (645/1172)   [Kremote: Compressing objects:  56% (657/1172)   [Kremote: Compressing objects:  57% (669/1172)   [Kremote: Compressing objects:  58% (680/1172)   [Kremote: Compressing objects:  59% (692/1172)   [Kremote: Compressing objects:  60% (704/1172)   [Kremote: Compressing objects:  61% (715/1172)   [Kremote: Compressing objects:  62% (727/1172)   [Kremote: Compressing objects:  63% (739/1172)   [Kremote: Compressing objects:  64% (751/1172)   [Kremote: Compressing objects:  65% (762/1172)   [Kremote: Compressing objects:  66% (774/1172)   [Kremote: Compressing objects:  67% (786/1172)   [Kremote: Compressing objects:  68% (797/1172)   [Kremote: Compressing objects:  69% (809/1172)   [Kremote: Compressing objects:  70% (821/1172)   [Kremote: Compressing objects:  71% (833/1172)   [Kremote: Compressing objects:  72% (844/1172)   [Kremote: Compressing objects:  73% (856/1172)   [Kremote: Compressing objects:  74% (868/1172)   [Kremote: Compressing objects:  75% (879/1172)   [Kremote: Compressing objects:  76% (891/1172)   [Kremote: Compressing objects:  77% (903/1172)   [Kremote: Compressing objects:  78% (915/1172)   [Kremote: Compressing objects:  79% (926/1172)   [Kremote: Compressing objects:  80% (938/1172)   [Kremote: Compressing objects:  81% (950/1172)   [Kremote: Compressing objects:  82% (962/1172)   [Kremote: Compressing objects:  83% (973/1172)   [Kremote: Compressing objects:  84% (985/1172)   [Kremote: Compressing objects:  85% (997/1172)   [Kremote: Compressing objects:  86% (1008/1172)   [Kremote: Compressing objects:  87% (1020/1172)   [Kremote: Compressing objects:  88% (1032/1172)   [Kremote: Compressing objects:  89% (1044/1172)   [Kremote: Compressing objects:  90% (1055/1172)   [Kremote: Compressing objects:  91% (1067/1172)   [Kremote: Compressing objects:  92% (1079/1172)   [Kremote: Compressing objects:  93% (1090/1172)   [Kremote: Compressing objects:  94% (1102/1172)   [Kremote: Compressing objects:  95% (1114/1172)   [Kremote: Compressing objects:  96% (1126/1172)   [Kremote: Compressing objects:  97% (1137/1172)   [Kremote: Compressing objects:  98% (1149/1172)   [Kremote: Compressing objects:  99% (1161/1172)   [Kremote: Compressing objects: 100% (1172/1172)   [Kremote: Compressing objects: 100% (1172/1172), done.[K
+Receiving objects:   0% (1/2921)   Receiving objects:   1% (30/2921)   Receiving objects:   2% (59/2921)   Receiving objects:   3% (88/2921)   Receiving objects:   4% (117/2921)   Receiving objects:   5% (147/2921)   Receiving objects:   6% (176/2921)   Receiving objects:   7% (205/2921)   Receiving objects:   8% (234/2921)   Receiving objects:   9% (263/2921)   Receiving objects:  10% (293/2921)   Receiving objects:  11% (322/2921)   Receiving objects:  12% (351/2921)   Receiving objects:  13% (380/2921)   Receiving objects:  14% (409/2921)   Receiving objects:  15% (439/2921)   Receiving objects:  16% (468/2921)   Receiving objects:  17% (497/2921)   Receiving objects:  18% (526/2921)   Receiving objects:  19% (555/2921)   Receiving objects:  20% (585/2921)   Receiving objects:  21% (614/2921)   Receiving objects:  22% (643/2921)   Receiving objects:  23% (672/2921)   Receiving objects:  24% (702/2921)   Receiving objects:  25% (731/2921)   Receiving objects:  26% (760/2921)   Receiving objects:  27% (789/2921)   Receiving objects:  28% (818/2921)   Receiving objects:  29% (848/2921)   Receiving objects:  30% (877/2921)   Receiving objects:  31% (906/2921)   Receiving objects:  32% (935/2921)   Receiving objects:  33% (964/2921)   Receiving objects:  34% (994/2921)   Receiving objects:  35% (1023/2921)   Receiving objects:  36% (1052/2921)   Receiving objects:  37% (1081/2921)   Receiving objects:  38% (1110/2921)   Receiving objects:  39% (1140/2921)   Receiving objects:  40% (1169/2921)   Receiving objects:  41% (1198/2921)   Receiving objects:  42% (1227/2921)   Receiving objects:  43% (1257/2921)   Receiving objects:  44% (1286/2921)   Receiving objects:  45% (1315/2921)   Receiving objects:  46% (1344/2921)   Receiving objects:  47% (1373/2921)   Receiving objects:  48% (1403/2921)   Receiving objects:  49% (1432/2921)   Receiving objects:  50% (1461/2921)   Receiving objects:  51% (1490/2921)   Receiving objects:  52% (1519/2921)   Receiving objects:  53% (1549/2921)   Receiving objects:  54% (1578/2921)   Receiving objects:  55% (1607/2921)   Receiving objects:  56% (1636/2921)   Receiving objects:  57% (1665/2921)   Receiving objects:  58% (1695/2921)   Receiving objects:  59% (1724/2921)   Receiving objects:  60% (1753/2921)   Receiving objects:  61% (1782/2921)   Receiving objects:  62% (1812/2921)   Receiving objects:  63% (1841/2921)   Receiving objects:  64% (1870/2921)   Receiving objects:  65% (1899/2921)   Receiving objects:  66% (1928/2921)   Receiving objects:  67% (1958/2921)   Receiving objects:  68% (1987/2921)   Receiving objects:  69% (2016/2921)   Receiving objects:  70% (2045/2921)   Receiving objects:  71% (2074/2921)   Receiving objects:  72% (2104/2921)   Receiving objects:  73% (2133/2921)   Receiving objects:  74% (2162/2921)   Receiving objects:  75% (2191/2921)   Receiving objects:  76% (2220/2921)   Receiving objects:  77% (2250/2921)   Receiving objects:  78% (2279/2921)   Receiving objects:  79% (2308/2921)   Receiving objects:  80% (2337/2921)   Receiving objects:  81% (2367/2921)   Receiving objects:  82% (2396/2921)   Receiving objects:  83% (2425/2921)   Receiving objects:  84% (2454/2921)   Receiving objects:  85% (2483/2921)   Receiving objects:  86% (2513/2921)   Receiving objects:  87% (2542/2921)   Receiving objects:  88% (2571/2921)   Receiving objects:  89% (2600/2921)   Receiving objects:  90% (2629/2921)   Receiving objects:  91% (2659/2921)   Receiving objects:  92% (2688/2921)   Receiving objects:  93% (2717/2921)   Receiving objects:  94% (2746/2921)   remote: Total 2921 (delta 1090), reused 2597 (delta 840)[K
+Receiving objects:  95% (2775/2921)   Receiving objects:  96% (2805/2921)   Receiving objects:  97% (2834/2921)   Receiving objects:  98% (2863/2921)   Receiving objects:  99% (2892/2921)   Receiving objects: 100% (2921/2921)   Receiving objects: 100% (2921/2921), 1.05 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1090)   Resolving deltas:   1% (11/1090)   Resolving deltas:   2% (23/1090)   Resolving deltas:   3% (34/1090)   Resolving deltas:   4% (44/1090)   Resolving deltas:   5% (60/1090)   Resolving deltas:   6% (66/1090)   Resolving deltas:   7% (85/1090)   Resolving deltas:   8% (88/1090)   Resolving deltas:   9% (100/1090)   Resolving deltas:  10% (114/1090)   Resolving deltas:  13% (149/1090)   Resolving deltas:  16% (177/1090)   Resolving deltas:  18% (201/1090)   Resolving deltas:  19% (209/1090)   Resolving deltas:  20% (220/1090)   Resolving deltas:  22% (242/1090)   Resolving deltas:  23% (251/1090)   Resolving deltas:  24% (263/1090)   Resolving deltas:  25% (275/1090)   Resolving deltas:  26% (285/1090)   Resolving deltas:  27% (297/1090)   Resolving deltas:  28% (308/1090)   Resolving deltas:  29% (318/1090)   Resolving deltas:  31% (339/1090)   Resolving deltas:  32% (351/1090)   Resolving deltas:  33% (361/1090)   Resolving deltas:  35% (388/1090)   Resolving deltas:  36% (398/1090)   Resolving deltas:  37% (404/1090)   Resolving deltas:  38% (421/1090)   Resolving deltas:  39% (427/1090)   Resolving deltas:  41% (456/1090)   Resolving deltas:  42% (458/1090)   Resolving deltas:  43% (471/1090)   Resolving deltas:  45% (494/1090)   Resolving deltas:  46% (502/1090)   Resolving deltas:  55% (601/1090)   Resolving deltas:  56% (611/1090)   Resolving deltas:  57% (623/1090)   Resolving deltas:  58% (634/1090)   Resolving deltas:  59% (645/1090)   Resolving deltas:  60% (654/1090)   Resolving deltas:  61% (666/1090)   Resolving deltas:  62% (678/1090)   Resolving deltas:  63% (692/1090)   Resolving deltas:  64% (705/1090)   Resolving deltas:  65% (713/1090)   Resolving deltas:  66% (722/1090)   Resolving deltas:  67% (731/1090)   Resolving deltas:  68% (743/1090)   Resolving deltas:  69% (755/1090)   Resolving deltas:  70% (764/1090)   Resolving deltas:  71% (775/1090)   Resolving deltas:  72% (786/1090)   Resolving deltas:  73% (796/1090)   Resolving deltas:  74% (816/1090)   Resolving deltas:  75% (827/1090)   Resolving deltas:  76% (829/1090)   Resolving deltas:  78% (852/1090)   Resolving deltas:  79% (864/1090)   Resolving deltas:  80% (872/1090)   Resolving deltas:  81% (885/1090)   Resolving deltas:  82% (895/1090)   Resolving deltas:  83% (906/1090)   Resolving deltas:  84% (917/1090)   Resolving deltas:  85% (927/1090)   Resolving deltas:  86% (940/1090)   Resolving deltas:  87% (952/1090)   Resolving deltas:  88% (963/1090)   Resolving deltas:  89% (973/1090)   Resolving deltas:  90% (983/1090)   Resolving deltas:  91% (992/1090)   Resolving deltas:  92% (1003/1090)   Resolving deltas:  93% (1015/1090)   Resolving deltas:  94% (1028/1090)   Resolving deltas:  95% (1036/1090)   Resolving deltas:  96% (1050/1090)   Resolving deltas: 100% (1090/1090)   Resolving deltas: 100% (1090/1090), done.
+Checking connectivity... done.
+travis_time:end:14fb5231:start=1422320585106033889,finish=1422320585553289373,duration=447255484[0K$ cd Netflix/Hystrix
+travis_time:start:07bbd6f0[0K$ git fetch origin +refs/pull/571/merge:
+remote: Counting objects: 93, done.[K
+remote: Compressing objects:   2% (1/43)   [Kremote: Compressing objects:   4% (2/43)   [Kremote: Compressing objects:   6% (3/43)   [Kremote: Compressing objects:   9% (4/43)   [Kremote: Compressing objects:  11% (5/43)   [Kremote: Compressing objects:  13% (6/43)   [Kremote: Compressing objects:  16% (7/43)   [Kremote: Compressing objects:  18% (8/43)   [Kremote: Compressing objects:  20% (9/43)   [Kremote: Compressing objects:  23% (10/43)   [Kremote: Compressing objects:  25% (11/43)   [Kremote: Compressing objects:  27% (12/43)   [Kremote: Compressing objects:  30% (13/43)   [Kremote: Compressing objects:  32% (14/43)   [Kremote: Compressing objects:  34% (15/43)   [Kremote: Compressing objects:  37% (16/43)   [Kremote: Compressing objects:  39% (17/43)   [Kremote: Compressing objects:  41% (18/43)   [Kremote: Compressing objects:  44% (19/43)   [Kremote: Compressing objects:  46% (20/43)   [Kremote: Compressing objects:  48% (21/43)   [Kremote: Compressing objects:  51% (22/43)   [Kremote: Compressing objects:  53% (23/43)   [Kremote: Compressing objects:  55% (24/43)   [Kremote: Compressing objects:  58% (25/43)   [Kremote: Compressing objects:  60% (26/43)   [Kremote: Compressing objects:  62% (27/43)   [Kremote: Compressing objects:  65% (28/43)   [Kremote: Compressing objects:  67% (29/43)   [Kremote: Compressing objects:  69% (30/43)   [Kremote: Compressing objects:  72% (31/43)   [Kremote: Compressing objects:  74% (32/43)   [Kremote: Compressing objects:  76% (33/43)   [Kremote: Compressing objects:  79% (34/43)   [Kremote: Compressing objects:  81% (35/43)   [Kremote: Compressing objects:  83% (36/43)   [Kremote: Compressing objects:  86% (37/43)   [Kremote: Compressing objects:  88% (38/43)   [Kremote: Compressing objects:  90% (39/43)   [Kremote: Compressing objects:  93% (40/43)   [Kremote: Compressing objects:  95% (41/43)   [Kremote: Compressing objects:  97% (42/43)   [Kremote: Compressing objects: 100% (43/43)   [Kremote: Compressing objects: 100% (43/43), done.[K
+remote: Total 93 (delta 37), reused 67 (delta 12)[K
+Unpacking objects:   1% (1/93)   Unpacking objects:   2% (2/93)   Unpacking objects:   3% (3/93)   Unpacking objects:   4% (4/93)   Unpacking objects:   5% (5/93)   Unpacking objects:   6% (6/93)   Unpacking objects:   7% (7/93)   Unpacking objects:   8% (8/93)   Unpacking objects:   9% (9/93)   Unpacking objects:  10% (10/93)   Unpacking objects:  11% (11/93)   Unpacking objects:  12% (12/93)   Unpacking objects:  13% (13/93)   Unpacking objects:  15% (14/93)   Unpacking objects:  16% (15/93)   Unpacking objects:  17% (16/93)   Unpacking objects:  18% (17/93)   Unpacking objects:  19% (18/93)   Unpacking objects:  20% (19/93)   Unpacking objects:  21% (20/93)   Unpacking objects:  22% (21/93)   Unpacking objects:  23% (22/93)   Unpacking objects:  24% (23/93)   Unpacking objects:  25% (24/93)   Unpacking objects:  26% (25/93)   Unpacking objects:  27% (26/93)   Unpacking objects:  29% (27/93)   Unpacking objects:  30% (28/93)   Unpacking objects:  31% (29/93)   Unpacking objects:  32% (30/93)   Unpacking objects:  33% (31/93)   Unpacking objects:  34% (32/93)   Unpacking objects:  35% (33/93)   Unpacking objects:  36% (34/93)   Unpacking objects:  37% (35/93)   Unpacking objects:  38% (36/93)   Unpacking objects:  39% (37/93)   Unpacking objects:  40% (38/93)   Unpacking objects:  41% (39/93)   Unpacking objects:  43% (40/93)   Unpacking objects:  44% (41/93)   Unpacking objects:  45% (42/93)   Unpacking objects:  46% (43/93)   Unpacking objects:  47% (44/93)   Unpacking objects:  48% (45/93)   Unpacking objects:  49% (46/93)   Unpacking objects:  50% (47/93)   Unpacking objects:  51% (48/93)   Unpacking objects:  52% (49/93)   Unpacking objects:  53% (50/93)   Unpacking objects:  54% (51/93)   Unpacking objects:  55% (52/93)   Unpacking objects:  56% (53/93)   Unpacking objects:  58% (54/93)   Unpacking objects:  59% (55/93)   Unpacking objects:  60% (56/93)   Unpacking objects:  61% (57/93)   Unpacking objects:  62% (58/93)   Unpacking objects:  63% (59/93)   Unpacking objects:  64% (60/93)   Unpacking objects:  65% (61/93)   Unpacking objects:  66% (62/93)   Unpacking objects:  67% (63/93)   Unpacking objects:  68% (64/93)   Unpacking objects:  69% (65/93)   Unpacking objects:  70% (66/93)   Unpacking objects:  72% (67/93)   Unpacking objects:  73% (68/93)   Unpacking objects:  74% (69/93)   Unpacking objects:  75% (70/93)   Unpacking objects:  76% (71/93)   Unpacking objects:  77% (72/93)   Unpacking objects:  78% (73/93)   Unpacking objects:  79% (74/93)   Unpacking objects:  80% (75/93)   Unpacking objects:  81% (76/93)   Unpacking objects:  82% (77/93)   Unpacking objects:  83% (78/93)   Unpacking objects:  84% (79/93)   Unpacking objects:  86% (80/93)   Unpacking objects:  87% (81/93)   Unpacking objects:  88% (82/93)   Unpacking objects:  89% (83/93)   Unpacking objects:  90% (84/93)   Unpacking objects:  91% (85/93)   Unpacking objects:  92% (86/93)   Unpacking objects:  93% (87/93)   Unpacking objects:  94% (88/93)   Unpacking objects:  95% (89/93)   Unpacking objects:  96% (90/93)   Unpacking objects:  97% (91/93)   Unpacking objects:  98% (92/93)   Unpacking objects: 100% (93/93)   Unpacking objects: 100% (93/93), done.
+From git://github.com/Netflix/Hystrix
+ * branch            refs/pull/571/merge -> FETCH_HEAD
+travis_time:end:07bbd6f0:start=1422320585561733642,finish=1422320585701372816,duration=139639174[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:061ecd2c[0K$ ./gradlew assemble
+Downloading https://services.gradle.org/distributions/gradle-2.2.1-bin.zip
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.2.1-bin/88n1whbyjvxg3s40jzz5ur27/gradle-2.2.1-bin.zip to /home/travis/.gradle/wrapper/dists/gradle-2.2.1-bin/88n1whbyjvxg3s40jzz5ur27
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.2.1-bin/88n1whbyjvxg3s40jzz5ur27/gradle-2.2.1/bin/gradle
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-extra-configurations-plugin/2.0.1/gradle-extra-configurations-plugin-2.0.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-netflixoss-project-plugin/2.2.5/gradle-netflixoss-project-plugin-2.2.5.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/2.0.1/gradle-contacts-plugin-2.0.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-dependency-lock-plugin/2.0.2/gradle-dependency-lock-plugin-2.0.2.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-info-plugin/2.0.0/gradle-info-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-bintray-plugin/2.0.2/nebula-bintray-plugin-2.0.2.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-core/2.0.0/nebula-core-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-project-plugin/2.0.0/nebula-project-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-publishing-plugin/2.0.1/nebula-publishing-plugin-2.0.1.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-release-plugin/2.2.4/nebula-release-plugin-2.2.4.pom
+Download https://jcenter.bintray.com/nl/javadude/gradle/plugins/license-gradle-plugin/0.11.0/license-gradle-plugin-0.11.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-scm-plugin/2.0.0/gradle-scm-plugin-2.0.0.pom
+Download https://jcenter.bintray.com/com/perforce/p4java-jfrog/2011.1.297684/p4java-jfrog-2011.1.297684.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.2.0.201312181205-r/org.eclipse.jgit-3.2.0.201312181205-r.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit-parent/3.2.0.201312181205-r/org.eclipse.jgit-parent-3.2.0.201312181205-r.pom
+Download https://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/1.0/gradle-bintray-plugin-1.0.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor-gradle/3.0.1/build-info-extractor-gradle-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/32/commons-parent-32.pom
+Download https://jcenter.bintray.com/org/apache/apache/13/apache-13.pom
+Download https://jcenter.bintray.com/org/ajoberstar/gradle-git/0.12.0/gradle-git-0.12.0.pom
+Download https://jcenter.bintray.com/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.pom
+Download https://jcenter.bintray.com/com/mycila/parent-pom/5/parent-pom-5.pom
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.pom
+Download https://jcenter.bintray.com/com/google/guava/guava-parent/17.0/guava-parent-17.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://jcenter.bintray.com/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.46/jsch-0.1.46.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/6/oss-parent-6.pom
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.5.6/JavaEWAH-0.5.6.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://jcenter.bintray.com/org/codehaus/groovy/modules/http-builder/http-builder/0.7.2/http-builder-0.7.2.pom
+Download https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/15/commons-parent-15.pom
+Download https://jcenter.bintray.com/org/apache/apache/7/apache-7.pom
+Download https://jcenter.bintray.com/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download https://jcenter.bintray.com/org/apache/apache/4/apache-4.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor/2.3.0/build-info-extractor-2.3.0.pom
+Download https://jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.pom
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/9/commons-parent-9.pom
+Download https://jcenter.bintray.com/org/ajoberstar/grgit/0.4.0/grgit-0.4.0.pom
+Download https://jcenter.bintray.com/com/github/zafarkhaja/java-semver/0.8.0/java-semver-0.8.0.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-plugin-api/3.0.1/maven-plugin-api-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven/3.0.1/maven-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/15/maven-parent-15.pom
+Download https://jcenter.bintray.com/org/apache/apache/6/apache-6.pom
+Download https://jcenter.bintray.com/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-project/3.0-alpha-2/maven-project-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven/3.0-alpha-2/maven-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/10/maven-parent-10.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.2.1/httpcomponents-client-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/project/6/project-6.pom
+Download https://jcenter.bintray.com/net/sf/json-lib/json-lib/2.3/json-lib-2.3.pom
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.pom
+Download https://jcenter.bintray.com/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.pom
+Download https://jcenter.bintray.com/org/apache/apache/3/apache-3.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-client/2.3.0/build-info-client-2.3.0.pom
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.pom
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream-parent/1.3.1/xstream-parent-1.3.1.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit.ui/3.3.2.201404171909-r/org.eclipse.jgit.ui-3.3.2.201404171909-r.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit-parent/3.3.2.201404171909-r/org.eclipse.jgit-parent-3.3.2.201404171909-r.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.jsch/0.0.7/jsch.agentproxy.jsch-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy/0.0.7/jsch.agentproxy-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.pageant/0.0.7/jsch.agentproxy.pageant-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.sshagent/0.0.7/jsch.agentproxy.sshagent-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-jna/0.0.7/jsch.agentproxy.usocket-jna-0.0.7.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-nc/0.0.7/jsch.agentproxy.usocket-nc-0.0.7.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.7/slf4j-parent-1.7.7.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-model/3.0.1/maven-model-3.0.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-artifact/3.0.1/maven-artifact-3.0.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-plexus/1.4.3.1/sisu-inject-plexus-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-plexus/1.4.3.1/guice-plexus-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-bean/1.4.3.1/guice-bean-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject/1.4.3.1/sisu-inject-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-parent/1.4.3.1/sisu-parent-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-interpolation/1.1/plexus-interpolation-1.1.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-compat/3.0-alpha-2/maven-compat-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-container-default/1.0-beta-3.0.5/plexus-container-default-1.0-beta-3.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-containers/1.0-beta-3.0.5/plexus-containers-1.0-beta-3.0.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
+Download https://jcenter.bintray.com/org/codehaus/woodstox/wstx-asl/3.2.6/wstx-asl-3.2.6.pom
+Download https://jcenter.bintray.com/org/sonatype/spice/model-builder/1.3/model-builder-1.3.pom
+Download https://jcenter.bintray.com/org/sonatype/spice/spice-parent/10/spice-parent-10.pom
+Download https://jcenter.bintray.com/org/sonatype/forge/forge-parent/3/forge-parent-3.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-project-builder/3.0-alpha-2/maven-project-builder-3.0-alpha-2.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.2.1/httpcomponents-core-4.2.1.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/22/commons-parent-22.pom
+Download https://jcenter.bintray.com/org/apache/apache/9/apache-9.pom
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download https://jcenter.bintray.com/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.pom
+Download https://jcenter.bintray.com/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.pom
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.pom
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-api/2.3.0/build-info-api-2.3.0.pom
+Download https://jcenter.bintray.com/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.core/0.0.7/jsch.agentproxy.core-0.0.7.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/3.4.0/jna-3.4.0.pom
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.4.0/platform-3.4.0.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-bean/1.4.3.1/sisu-inject-bean-1.4.3.1.pom
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon-provider-api/1.0-beta-4/wagon-provider-api-1.0-beta-4.pom
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon/1.0-beta-4/wagon-1.0-beta-4.pom
+Download https://jcenter.bintray.com/org/apache/maven/maven-parent/8/maven-parent-8.pom
+Download https://jcenter.bintray.com/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.pom
+Download https://jcenter.bintray.com/org/apache/xbean/xbean/3.4/xbean-3.4.pom
+Download https://jcenter.bintray.com/com/google/code/google-collections/google-collect/snapshot-20080530/google-collect-snapshot-20080530.pom
+Download https://jcenter.bintray.com/stax/stax-api/1.0.1/stax-api-1.0.1.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-guice/2.9.1/sisu-guice-2.9.1.pom
+Download https://jcenter.bintray.com/org/sonatype/sisu/inject/guice-parent/2.9.1/guice-parent-2.9.1.pom
+Download https://jcenter.bintray.com/log4j/log4j/1.2.12/log4j-1.2.12.pom
+Download https://jcenter.bintray.com/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.pom
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.3.2.201404171909-r/org.eclipse.jgit-3.3.2.201404171909-r.pom
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.8/commons-codec-1.8.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/28/commons-parent-28.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-client/4.2.5/httpcomponents-client-4.2.5.pom
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.50/jsch-0.1.50.pom
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.4/httpcore-4.2.4.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcomponents-core/4.2.4/httpcomponents-core-4.2.4.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-extra-configurations-plugin/2.0.1/gradle-extra-configurations-plugin-2.0.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-netflixoss-project-plugin/2.2.5/gradle-netflixoss-project-plugin-2.2.5.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-contacts-plugin/2.0.1/gradle-contacts-plugin-2.0.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-dependency-lock-plugin/2.0.2/gradle-dependency-lock-plugin-2.0.2.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-info-plugin/2.0.0/gradle-info-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-bintray-plugin/2.0.2/nebula-bintray-plugin-2.0.2.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-core/2.0.0/nebula-core-2.0.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-project-plugin/2.0.0/nebula-project-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-publishing-plugin/2.0.1/nebula-publishing-plugin-2.0.1.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-release-plugin/2.2.4/nebula-release-plugin-2.2.4.jar
+Download https://jcenter.bintray.com/nl/javadude/gradle/plugins/license-gradle-plugin/0.11.0/license-gradle-plugin-0.11.0.jar
+Download https://jcenter.bintray.com/com/netflix/nebula/gradle-scm-plugin/2.0.0/gradle-scm-plugin-2.0.0.jar
+Download https://jcenter.bintray.com/com/perforce/p4java-jfrog/2011.1.297684/p4java-jfrog-2011.1.297684.jar
+Download https://jcenter.bintray.com/com/jfrog/bintray/gradle/gradle-bintray-plugin/1.0/gradle-bintray-plugin-1.0.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor-gradle/3.0.1/build-info-extractor-gradle-3.0.1.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.2.1/commons-lang3-3.2.1.jar
+Download https://jcenter.bintray.com/org/ajoberstar/gradle-git/0.12.0/gradle-git-0.12.0.jar
+Download https://jcenter.bintray.com/com/mycila/maven-license-plugin/maven-license-plugin/1.10.b1/maven-license-plugin-1.10.b1.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/17.0/guava-17.0.jar
+Download https://jcenter.bintray.com/com/jcraft/jzlib/1.0.7/jzlib-1.0.7.jar
+Download https://jcenter.bintray.com/org/codehaus/groovy/modules/http-builder/http-builder/0.7.2/http-builder-0.7.2.jar
+Download https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar
+Download https://jcenter.bintray.com/org/apache/ivy/ivy/2.2.0/ivy-2.2.0.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-extractor/2.3.0/build-info-extractor-2.3.0.jar
+Download https://jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
+Download https://jcenter.bintray.com/org/ajoberstar/grgit/0.4.0/grgit-0.4.0.jar
+Download https://jcenter.bintray.com/com/github/zafarkhaja/java-semver/0.8.0/java-semver-0.8.0.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-plugin-api/3.0.1/maven-plugin-api-3.0.1.jar
+Download https://jcenter.bintray.com/com/mycila/xmltool/xmltool/3.3/xmltool-3.3.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-project/3.0-alpha-2/maven-project-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.jar
+Download https://jcenter.bintray.com/net/sf/json-lib/json-lib/2.3/json-lib-2.3-jdk15.jar
+Download https://jcenter.bintray.com/net/sourceforge/nekohtml/nekohtml/1.9.16/nekohtml-1.9.16.jar
+Download https://jcenter.bintray.com/xml-resolver/xml-resolver/1.2/xml-resolver-1.2.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-client/2.3.0/build-info-client-2.3.0.jar
+Download https://jcenter.bintray.com/com/thoughtworks/xstream/xstream/1.3.1/xstream-1.3.1.jar
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit.ui/3.3.2.201404171909-r/org.eclipse.jgit.ui-3.3.2.201404171909-r.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.jsch/0.0.7/jsch.agentproxy.jsch-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.pageant/0.0.7/jsch.agentproxy.pageant-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.sshagent/0.0.7/jsch.agentproxy.sshagent-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-jna/0.0.7/jsch.agentproxy.usocket-jna-0.0.7.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.usocket-nc/0.0.7/jsch.agentproxy.usocket-nc-0.0.7.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-model/3.0.1/maven-model-3.0.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-artifact/3.0.1/maven-artifact-3.0.1.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-plexus/1.4.3.1/sisu-inject-plexus-1.4.3.1.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-interpolation/1.1/plexus-interpolation-1.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-compat/3.0-alpha-2/maven-compat-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-container-default/1.0-beta-3.0.5/plexus-container-default-1.0-beta-3.0.5.jar
+Download https://jcenter.bintray.com/org/codehaus/woodstox/wstx-asl/3.2.6/wstx-asl-3.2.6.jar
+Download https://jcenter.bintray.com/org/sonatype/spice/model-builder/1.3/model-builder-1.3.jar
+Download https://jcenter.bintray.com/org/apache/maven/maven-project-builder/3.0-alpha-2/maven-project-builder-3.0-alpha-2.jar
+Download https://jcenter.bintray.com/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar
+Download https://jcenter.bintray.com/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+Download https://jcenter.bintray.com/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar
+Download https://jcenter.bintray.com/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.jar
+Download https://jcenter.bintray.com/org/jfrog/buildinfo/build-info-api/2.3.0/build-info-api-2.3.0.jar
+Download https://jcenter.bintray.com/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch.agentproxy.core/0.0.7/jsch.agentproxy.core-0.0.7.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar
+Download https://jcenter.bintray.com/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+Download https://jcenter.bintray.com/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-inject-bean/1.4.3.1/sisu-inject-bean-1.4.3.1.jar
+Download https://jcenter.bintray.com/org/apache/maven/wagon/wagon-provider-api/1.0-beta-4/wagon-provider-api-1.0-beta-4.jar
+Download https://jcenter.bintray.com/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+Download https://jcenter.bintray.com/com/google/code/google-collections/google-collect/snapshot-20080530/google-collect-snapshot-20080530.jar
+Download https://jcenter.bintray.com/stax/stax-api/1.0.1/stax-api-1.0.1.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.jar
+Download https://jcenter.bintray.com/org/sonatype/sisu/sisu-guice/2.9.1/sisu-guice-2.9.1-noaop.jar
+Download https://jcenter.bintray.com/log4j/log4j/1.2.12/log4j-1.2.12.jar
+Download https://jcenter.bintray.com/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar
+Download https://jcenter.bintray.com/org/eclipse/jgit/org.eclipse.jgit/3.3.2.201404171909-r/org.eclipse.jgit-3.3.2.201404171909-r.jar
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.8/commons-codec-1.8.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.5/httpclient-4.2.5.jar
+Download https://jcenter.bintray.com/com/jcraft/jsch/0.1.50/jsch-0.1.50.jar
+Download https://jcenter.bintray.com/com/googlecode/javaewah/JavaEWAH/0.7.9/JavaEWAH-0.7.9.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.4/httpcore-4.2.4.jar
+Inferred version: 1.4.0-SNAPSHOT
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-clojure-plugin/1.12.2/nebula-clojure-plugin-1.12.2.pom
+Download http://clojars.org/repo/clojuresque/clojuresque/1.7.0/clojuresque-1.7.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-extras/1.1.0/clojuresque-extras-1.1.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-nrepl/1.1.0/clojuresque-nrepl-1.1.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-clojars/1.4.1/clojuresque-clojars-1.4.1.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-base/1.7.0/clojuresque-base-1.7.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-common/1.1.0/clojuresque-common-1.1.0.pom
+Download http://clojars.org/repo/de/kotka/gradle/gradle-utils/0.1.1/gradle-utils-0.1.1.pom
+Download https://jcenter.bintray.com/us/bpsm/edn-java/0.4.3/edn-java-0.4.3.pom
+Download http://clojars.org/repo/de/kotka/groovy/zweig/0.3.0/zweig-0.3.0.pom
+Download https://jcenter.bintray.com/org/codehaus/groovy/groovy/1.8.9/groovy-1.8.9.pom
+Download https://jcenter.bintray.com/antlr/antlr/2.7.7/antlr-2.7.7.pom
+Download https://jcenter.bintray.com/asm/asm/3.2/asm-3.2.pom
+Download https://jcenter.bintray.com/asm/asm-parent/3.2/asm-parent-3.2.pom
+Download https://jcenter.bintray.com/asm/asm-commons/3.2/asm-commons-3.2.pom
+Download https://jcenter.bintray.com/asm/asm-util/3.2/asm-util-3.2.pom
+Download https://jcenter.bintray.com/asm/asm-analysis/3.2/asm-analysis-3.2.pom
+Download https://jcenter.bintray.com/asm/asm-tree/3.2/asm-tree-3.2.pom
+Download http://clojars.org/repo/de/kotka/gradle/gradle-utils/0.2.2/gradle-utils-0.2.2.pom
+Download https://jcenter.bintray.com/de/kotka/groovy/zweig/0.4.0/zweig-0.4.0.pom
+Download https://jcenter.bintray.com/com/netflix/nebula/nebula-clojure-plugin/1.12.2/nebula-clojure-plugin-1.12.2.jar
+Download http://clojars.org/repo/clojuresque/clojuresque/1.7.0/clojuresque-1.7.0.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-extras/1.1.0/clojuresque-extras-1.1.0.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-nrepl/1.1.0/clojuresque-nrepl-1.1.0.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-clojars/1.4.1/clojuresque-clojars-1.4.1.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-base/1.7.0/clojuresque-base-1.7.0.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-common/1.1.0/clojuresque-common-1.1.0.jar
+Download https://jcenter.bintray.com/us/bpsm/edn-java/0.4.3/edn-java-0.4.3.jar
+Download https://jcenter.bintray.com/org/codehaus/groovy/groovy/1.8.9/groovy-1.8.9.jar
+Download https://jcenter.bintray.com/antlr/antlr/2.7.7/antlr-2.7.7.jar
+Download https://jcenter.bintray.com/asm/asm/3.2/asm-3.2.jar
+Download https://jcenter.bintray.com/asm/asm-commons/3.2/asm-commons-3.2.jar
+Download https://jcenter.bintray.com/asm/asm-util/3.2/asm-util-3.2.jar
+Download https://jcenter.bintray.com/asm/asm-analysis/3.2/asm-analysis-3.2.jar
+Download https://jcenter.bintray.com/asm/asm-tree/3.2/asm-tree-3.2.jar
+Download http://clojars.org/repo/de/kotka/gradle/gradle-utils/0.2.2/gradle-utils-0.2.2.jar
+Download https://jcenter.bintray.com/de/kotka/groovy/zweig/0.4.0/zweig-0.4.0.jar
+Inferred version: 1.4.0-SNAPSHOT
+Download https://jcenter.bintray.com/org/clojure/tools.nrepl/0.2.1/tools.nrepl-0.2.1.pom
+Download https://jcenter.bintray.com/org/clojure/pom.contrib/0.0.26/pom.contrib-0.0.26.pom
+Download https://jcenter.bintray.com/org/clojure/clojure/1.4.0/clojure-1.4.0.pom
+Download https://jcenter.bintray.com/org/clojure/tools.nrepl/0.2.1/tools.nrepl-0.2.1.jar
+Download https://jcenter.bintray.com/org/clojure/clojure/1.4.0/clojure-1.4.0.jar
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Publication mavenNebula not found in project :.
+[buildinfo] Properties file path was not found! (Relevant only for builds running on a CI Server)
+Publication named 'mavenNebula' does not exist for project ':' in task ':artifactoryPublish'.
+None of the specified publications matched for project ':' - nothing to publish.
+Download https://jcenter.bintray.com/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.pom
+Download https://jcenter.bintray.com/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar
+:assemble UP-TO-DATE
+:hystrix-core:compileJava
+Download https://jcenter.bintray.com/com/netflix/archaius/archaius-core/0.4.1/archaius-core-0.4.1.pom
+Download https://jcenter.bintray.com/io/reactivex/rxjava/1.0.4/rxjava-1.0.4.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.0/slf4j-api-1.7.0.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.0/slf4j-parent-1.7.0.pom
+Download https://jcenter.bintray.com/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/23/commons-parent-23.pom
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.6/commons-lang-2.6.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-parent/17/commons-parent-17.pom
+Download https://jcenter.bintray.com/com/netflix/archaius/archaius-core/0.4.1/archaius-core-0.4.1.jar
+Download https://jcenter.bintray.com/io/reactivex/rxjava/1.0.4/rxjava-1.0.4.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.0/slf4j-api-1.7.0.jar
+Download https://jcenter.bintray.com/commons-configuration/commons-configuration/1.8/commons-configuration-1.8.jar
+Download https://jcenter.bintray.com/commons-lang/commons-lang/2.6/commons-lang-2.6.jar
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:118: warning: Unsafe is internal proprietary API and may be removed in a future release
+        private static final sun.misc.Unsafe UNSAFE;
+                                     ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:316: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static final sun.misc.Unsafe UNSAFE;
+                                 ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:339: warning: Unsafe is internal proprietary API and may be removed in a future release
+    private static sun.misc.Unsafe getUnsafe() {
+                           ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:341: warning: Unsafe is internal proprietary API and may be removed in a future release
+            return sun.misc.Unsafe.getUnsafe();
+                           ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:346: warning: Unsafe is internal proprietary API and may be removed in a future release
+                     .PrivilegedExceptionAction<sun.misc.Unsafe>() {
+                                                        ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:347: warning: Unsafe is internal proprietary API and may be removed in a future release
+                        public sun.misc.Unsafe run() throws Exception {
+                                       ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:349: warning: Unsafe is internal proprietary API and may be removed in a future release
+                                .Unsafe.class.getDeclaredField("theUnsafe");
+                                ^
+/home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/util/Striped64.java:351: warning: Unsafe is internal proprietary API and may be removed in a future release
+                            return (sun.misc.Unsafe) f.get(null);
+                                            ^
+Note: /home/travis/build/Netflix/Hystrix/hystrix-core/src/main/java/com/netflix/hystrix/strategy/properties/HystrixProperty.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+8 warnings
+:hystrix-core:processResources UP-TO-DATE
+:hystrix-core:classes
+:hystrix-core:writeManifestProperties
+:hystrix-core:jar
+:hystrix-clj:compileClojure
+Download https://jcenter.bintray.com/org/clojure/clojure/1.5.1/clojure-1.5.1.pom
+Download https://jcenter.bintray.com/org/clojure/clojure/1.5.1/clojure-1.5.1.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-common-runtime/1.1.0/clojuresque-common-runtime-1.1.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-base-runtime/1.7.0/clojuresque-base-runtime-1.7.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-nrepl-runtime/1.1.0/clojuresque-nrepl-runtime-1.1.0.pom
+Download http://clojars.org/repo/clojuresque/clojuresque-common-runtime/1.1.0/clojuresque-common-runtime-1.1.0.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-base-runtime/1.7.0/clojuresque-base-runtime-1.7.0.jar
+Download http://clojars.org/repo/clojuresque/clojuresque-nrepl-runtime/1.1.0/clojuresque-nrepl-runtime-1.1.0.jar
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+:hystrix-clj:compileJava UP-TO-DATE
+:hystrix-clj:processResources UP-TO-DATE
+:hystrix-clj:classes
+:hystrix-clj:writeManifestProperties
+:hystrix-clj:jar
+:hystrix-core:javadoc SKIPPED
+:hystrix-clj:javadoc UP-TO-DATE
+:hystrix-clj:javadocJar
+:hystrix-clj:sourceJar
+:hystrix-clj:assemble
+:hystrix-codahale-metrics-publisher:compileJava
+Download https://jcenter.bintray.com/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.pom
+Download https://jcenter.bintray.com/com/codahale/metrics/metrics-parent/3.0.2/metrics-parent-3.0.2.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.5/slf4j-parent-1.7.5.pom
+Download https://jcenter.bintray.com/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar
+:hystrix-codahale-metrics-publisher:processResources UP-TO-DATE
+:hystrix-codahale-metrics-publisher:classes
+:hystrix-codahale-metrics-publisher:writeManifestProperties
+:hystrix-codahale-metrics-publisher:jar
+:hystrix-codahale-metrics-publisher:javadoc
+:hystrix-codahale-metrics-publisher:javadocJar
+:hystrix-codahale-metrics-publisher:sourceJar
+:hystrix-codahale-metrics-publisher:assemble
+:hystrix-core:javadocJar
+:hystrix-core:sourceJar
+:hystrix-core:assemble
+:hystrix-dashboard:compileJava
+Download https://jcenter.bintray.com/log4j/log4j/1.2.17/log4j-1.2.17.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-log4j12/1.7.0/slf4j-log4j12-1.7.0.pom
+Download https://jcenter.bintray.com/javax/servlet/servlet-api/2.5/servlet-api-2.5.pom
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpclient/4.2.1/httpclient-4.2.1.jar
+Download https://jcenter.bintray.com/log4j/log4j/1.2.17/log4j-1.2.17.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-log4j12/1.7.0/slf4j-log4j12-1.7.0.jar
+Download https://jcenter.bintray.com/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar
+Download https://jcenter.bintray.com/org/apache/httpcomponents/httpcore/4.2.1/httpcore-4.2.1.jar
+Download https://jcenter.bintray.com/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
+:hystrix-dashboard:processResources
+:hystrix-dashboard:classes
+:hystrix-dashboard:javadoc
+:hystrix-dashboard:writeManifestProperties
+:hystrix-dashboard:javadocJar
+:hystrix-dashboard:sourceJar
+:hystrix-dashboard:war
+:hystrix-dashboard:assemble
+:hystrix-examples:compileJava
+Download https://jcenter.bintray.com/junit/junit-dep/4.10/junit-dep-4.10.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-parent/1.1/hamcrest-parent-1.1.pom
+Download https://jcenter.bintray.com/junit/junit-dep/4.10/junit-dep-4.10.jar
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar
+:hystrix-examples:processResources UP-TO-DATE
+:hystrix-examples:classes
+:hystrix-examples:writeManifestProperties
+:hystrix-examples:jar
+:hystrix-examples:javadoc
+:hystrix-examples:javadocJar
+:hystrix-examples:sourceJar
+:hystrix-examples:assemble
+:hystrix-metrics-event-stream:compileJava
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.jar
+:hystrix-metrics-event-stream:processResources UP-TO-DATE
+:hystrix-metrics-event-stream:classes
+:hystrix-metrics-event-stream:writeManifestProperties
+:hystrix-metrics-event-stream:jar
+:hystrix-request-servlet:compileJava
+:hystrix-request-servlet:processResources UP-TO-DATE
+:hystrix-request-servlet:classes
+:hystrix-request-servlet:writeManifestProperties
+:hystrix-request-servlet:jar
+:hystrix-examples-webapp:compileJava UP-TO-DATE
+:hystrix-examples-webapp:processResources UP-TO-DATE
+:hystrix-examples-webapp:classes UP-TO-DATE
+:hystrix-metrics-event-stream:javadoc/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-metrics-event-stream/src/main/java/com/netflix/hystrix/contrib/metrics/eventstream/HystrixMetricsPoller.java:74: warning - @param argument "MetricsAsJsonPollerListener" is not a parameter name.
+
+1 warning
+:hystrix-request-servlet:javadoc
+:hystrix-examples-webapp:javadoc UP-TO-DATE
+:hystrix-examples-webapp:writeManifestProperties
+:hystrix-examples-webapp:javadocJar
+:hystrix-examples-webapp:sourceJar
+:hystrix-examples-webapp:war
+:hystrix-examples-webapp:assemble
+:hystrix-javanica:compileJava
+Download https://jcenter.bintray.com/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.pom
+Download https://jcenter.bintray.com/org/aspectj/aspectjrt/1.7.4/aspectjrt-1.7.4.pom
+Download https://jcenter.bintray.com/com/google/guava/guava/15.0/guava-15.0.pom
+Download https://jcenter.bintray.com/com/google/guava/guava-parent/15.0/guava-parent-15.0.pom
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom
+Download https://jcenter.bintray.com/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.pom
+Download https://jcenter.bintray.com/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar
+Download https://jcenter.bintray.com/org/aspectj/aspectjrt/1.7.4/aspectjrt-1.7.4.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/15.0/guava-15.0.jar
+Download https://jcenter.bintray.com/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
+Download https://jcenter.bintray.com/com/google/code/findbugs/jsr305/2.0.0/jsr305-2.0.0.jar
+:hystrix-javanica:processResources
+:hystrix-javanica:classes
+:hystrix-javanica:writeManifestProperties
+:hystrix-javanica:jar
+:hystrix-javanica:javadoc/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/annotation/HystrixCommand.java:57: warning - @HystrixCommand is an unknown tag.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/annotation/HystrixCommand.java:84: warning - @HystrixCommand(fallbackMethod is an unknown tag.
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:28: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/GenericCommand.java:64: warning - Tag @link: reference not found: super#getFallback()
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:28: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:69: warning - Tag @link: reference not found: HystrixCommand.Setter
+/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/main/java/com/netflix/hystrix/contrib/javanica/command/CommandSetterBuilder.java:28: warning - Tag @link: reference not found: HystrixCommand.Setter
+
+10 warnings
+:hystrix-javanica:javadocJar
+:hystrix-javanica:sourceJar
+:hystrix-javanica:assemble
+:hystrix-metrics-event-stream:javadocJar
+:hystrix-metrics-event-stream:sourceJar
+:hystrix-metrics-event-stream:assemble
+:hystrix-network-auditor-agent:compileJava
+:hystrix-network-auditor-agent:processResources UP-TO-DATE
+:hystrix-network-auditor-agent:classes
+:hystrix-network-auditor-agent:writeManifestProperties
+:hystrix-network-auditor-agent:jar
+:hystrix-network-auditor-agent:javadoc/home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-network-auditor-agent/src/main/java/com/netflix/hystrix/contrib/networkauditor/HystrixNetworkAuditorEventListener.java:42: warning - End Delimiter } missing for possible See Tag in comment string: "Invoked by the {@link HystrixNetworkAuditorAgent} when network events occur.
+ <p>
+ An event may be the opening of a socket, channel or reading/writing bytes. It is not guaranteed to be a one-to-one relationship with a request/response.
+ <p>
+ No arguments are returned as it is left to the implementation to decide whether the current thread stacktrace should be captured or not.
+ <p>
+ Typical implementations will want to filter to non-Hystrix isolated network traffic with code such as this:
+ 
+ <pre> {@code
+ 
+ if (Hystrix.getCurrentThreadExecutingCommand() == null) {
+      // this event is not inside a Hystrix context (according to ThreadLocal variables)
+      StackTraceElement[] stack = Thread.currentThread().getStackTrace();
+      // increment counters, fire alerts, log stack traces etc
+ } </pre>"
+
+1 warning
+:hystrix-network-auditor-agent:javadocJar
+:hystrix-network-auditor-agent:sourceJar
+:hystrix-network-auditor-agent:assemble
+:hystrix-request-servlet:javadocJar
+:hystrix-request-servlet:sourceJar
+:hystrix-request-servlet:assemble
+:hystrix-rx-netty-metrics-stream:compileJava
+Download https://jcenter.bintray.com/com/netflix/rxnetty/rx-netty/0.3.8/rx-netty-0.3.8.pom
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.pom
+Download https://jcenter.bintray.com/com/netflix/rxjava/rxjava-core/0.19.1/rxjava-core-0.19.1.pom
+Download https://jcenter.bintray.com/io/netty/netty-codec-http/4.0.21.Final/netty-codec-http-4.0.21.Final.pom
+Download https://jcenter.bintray.com/io/netty/netty-parent/4.0.21.Final/netty-parent-4.0.21.Final.pom
+Download https://jcenter.bintray.com/io/netty/netty-codec/4.0.21.Final/netty-codec-4.0.21.Final.pom
+Download https://jcenter.bintray.com/io/netty/netty-handler/4.0.21.Final/netty-handler-4.0.21.Final.pom
+Download https://jcenter.bintray.com/io/netty/netty-transport/4.0.21.Final/netty-transport-4.0.21.Final.pom
+Download https://jcenter.bintray.com/io/netty/netty-buffer/4.0.21.Final/netty-buffer-4.0.21.Final.pom
+Download https://jcenter.bintray.com/io/netty/netty-common/4.0.21.Final/netty-common-4.0.21.Final.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.6/slf4j-parent-1.7.6.pom
+Download https://jcenter.bintray.com/com/netflix/rxnetty/rx-netty/0.3.8/rx-netty-0.3.8.jar
+Download https://jcenter.bintray.com/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar
+Download https://jcenter.bintray.com/com/netflix/rxjava/rxjava-core/0.19.1/rxjava-core-0.19.1.jar
+Download https://jcenter.bintray.com/io/netty/netty-codec-http/4.0.21.Final/netty-codec-http-4.0.21.Final.jar
+Download https://jcenter.bintray.com/io/netty/netty-codec/4.0.21.Final/netty-codec-4.0.21.Final.jar
+Download https://jcenter.bintray.com/io/netty/netty-handler/4.0.21.Final/netty-handler-4.0.21.Final.jar
+Download https://jcenter.bintray.com/io/netty/netty-transport/4.0.21.Final/netty-transport-4.0.21.Final.jar
+Download https://jcenter.bintray.com/io/netty/netty-buffer/4.0.21.Final/netty-buffer-4.0.21.Final.jar
+Download https://jcenter.bintray.com/io/netty/netty-common/4.0.21.Final/netty-common-4.0.21.Final.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar
+:hystrix-rx-netty-metrics-stream:processResources UP-TO-DATE
+:hystrix-rx-netty-metrics-stream:classes
+:hystrix-rx-netty-metrics-stream:writeManifestProperties
+:hystrix-rx-netty-metrics-stream:jar
+:hystrix-rx-netty-metrics-stream:javadoc
+:hystrix-rx-netty-metrics-stream:javadocJar
+:hystrix-rx-netty-metrics-stream:sourceJar
+:hystrix-rx-netty-metrics-stream:assemble
+:hystrix-servo-metrics-publisher:compileJava
+Download https://jcenter.bintray.com/com/netflix/servo/servo-core/0.7.5/servo-core-0.7.5.pom
+Download https://jcenter.bintray.com/com/google/guava/guava/14.0.1/guava-14.0.1.pom
+Download https://jcenter.bintray.com/com/google/guava/guava-parent/14.0.1/guava-parent-14.0.1.pom
+Download https://jcenter.bintray.com/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.pom
+Download https://jcenter.bintray.com/com/netflix/servo/servo-core/0.7.5/servo-core-0.7.5.jar
+Download https://jcenter.bintray.com/com/google/guava/guava/14.0.1/guava-14.0.1.jar
+Download https://jcenter.bintray.com/com/google/code/findbugs/annotations/2.0.0/annotations-2.0.0.jar
+:hystrix-servo-metrics-publisher:processResources UP-TO-DATE
+:hystrix-servo-metrics-publisher:classes
+:hystrix-servo-metrics-publisher:writeManifestProperties
+:hystrix-servo-metrics-publisher:jar
+:hystrix-servo-metrics-publisher:javadoc
+:hystrix-servo-metrics-publisher:javadocJar
+:hystrix-servo-metrics-publisher:sourceJar
+:hystrix-servo-metrics-publisher:assemble
+:hystrix-yammer-metrics-publisher:compileJava
+Download https://jcenter.bintray.com/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.pom
+Download https://jcenter.bintray.com/com/yammer/metrics/metrics-parent/2.2.0/metrics-parent-2.2.0.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-parent/1.7.2/slf4j-parent-1.7.2.pom
+Download https://jcenter.bintray.com/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar
+:hystrix-yammer-metrics-publisher:processResources UP-TO-DATE
+:hystrix-yammer-metrics-publisher:classes
+:hystrix-yammer-metrics-publisher:writeManifestProperties
+:hystrix-yammer-metrics-publisher:jar
+:hystrix-yammer-metrics-publisher:javadoc
+:hystrix-yammer-metrics-publisher:javadocJar
+:hystrix-yammer-metrics-publisher:sourceJar
+:hystrix-yammer-metrics-publisher:assemble
+
+BUILD SUCCESSFUL
+
+Total time: 2 mins 28.236 secs
+travis_time:end:061ecd2c:start=1422320586020583661,finish=1422320734728440377,duration=148707856716[0Ktravis_fold:end:install[0Ktravis_time:start:018fc702[0K$ ./gradlew check
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Inferred version: 1.4.0-SNAPSHOT
+Publication mavenNebula not found in project :.
+[buildinfo] Properties file path was not found! (Relevant only for builds running on a CI Server)
+Publication named 'mavenNebula' does not exist for project ':' in task ':artifactoryPublish'.
+None of the specified publications matched for project ':' - nothing to publish.
+:license UP-TO-DATE
+:check UP-TO-DATE
+:hystrix-clj:writeLicenseHeader
+:hystrix-clj:licenseMain
+Missing header in: hystrix-contrib/hystrix-clj/src/main/clojure/com/netflix/hystrix/core.clj
+:hystrix-clj:licenseTest
+Missing header in: hystrix-contrib/hystrix-clj/src/test/clojure/com/netflix/hystrix/core_test.clj
+:hystrix-clj:license
+:hystrix-core:compileJava UP-TO-DATE
+:hystrix-core:processResources UP-TO-DATE
+:hystrix-core:classes UP-TO-DATE
+:hystrix-core:writeManifestProperties UP-TO-DATE
+:hystrix-core:jar UP-TO-DATE
+:hystrix-clj:compileClojure UP-TO-DATE
+:hystrix-clj:compileJava UP-TO-DATE
+:hystrix-clj:processResources UP-TO-DATE
+:hystrix-clj:classes UP-TO-DATE
+:hystrix-clj:clojureTestSLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+
+Testing com.netflix.hystrix.core-test
+Got collapses with sizes: [8 8 8 7 8 8 8 7 8 7 8 7 8]
+Got maps with sizes: [8 8 8 7 8 8 8 7 8 7 8 7 8]
+Got batches with sizes: [8 8 8 7 8 8 8 7 8 7 8 7 8]
+
+Ran 14 tests containing 73 assertions.
+0 failures, 0 errors.
+:hystrix-clj:compileTestJava UP-TO-DATE
+:hystrix-clj:processTestResources UP-TO-DATE
+:hystrix-clj:testClasses UP-TO-DATE
+:hystrix-clj:test UP-TO-DATE
+:hystrix-clj:check
+:hystrix-codahale-metrics-publisher:writeLicenseHeader
+:hystrix-codahale-metrics-publisher:licenseMain
+Missing header in: hystrix-contrib/hystrix-codahale-metrics-publisher/src/main/java/com/netflix/hystrix/contrib/codahalemetricspublisher/HystrixCodaHaleMetricsPublisherThreadPool.java
+Missing header in: hystrix-contrib/hystrix-codahale-metrics-publisher/src/main/java/com/netflix/hystrix/contrib/codahalemetricspublisher/HystrixCodaHaleMetricsPublisher.java
+Missing header in: hystrix-contrib/hystrix-codahale-metrics-publisher/src/main/java/com/netflix/hystrix/contrib/codahalemetricspublisher/HystrixCodaHaleMetricsPublisherCommand.java
+:hystrix-codahale-metrics-publisher:licenseTest UP-TO-DATE
+:hystrix-codahale-metrics-publisher:license
+:hystrix-codahale-metrics-publisher:compileJava UP-TO-DATE
+:hystrix-codahale-metrics-publisher:processResources UP-TO-DATE
+:hystrix-codahale-metrics-publisher:classes UP-TO-DATE
+:hystrix-codahale-metrics-publisher:compileTestJava
+Download https://jcenter.bintray.com/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.pom
+Download https://jcenter.bintray.com/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar
+:hystrix-codahale-metrics-publisher:processTestResources UP-TO-DATE
+:hystrix-codahale-metrics-publisher:testClasses
+:hystrix-codahale-metrics-publisher:test
+:hystrix-codahale-metrics-publisher:check
+:hystrix-core:writeLicenseHeader
+:hystrix-core:licenseMain
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/HystrixInvokable.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/Hystrix.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestCollapserFactory.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestCollapser.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RequestBatch.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/RealCollapserTimer.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/HystrixCollapserBridge.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/CollapserTimer.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/CollapsedRequestObservableFunction.java
+Missing header in: hystrix-core/src/main/java/com/netflix/hystrix/collapser/README.txt
+:hystrix-core:licenseTest
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/TestableExecutionHook.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCollapserTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixThreadPoolTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixThreadPoolMetricsTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixRequestLogTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixRequestCacheTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandMetricsTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCircuitBreakerTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandPropertiesTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandTimeoutConcurrencyTesting.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/util/HystrixTimerTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/properties/HystrixPropertyTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/HystrixPluginsTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/collapser/CollapsedRequestObservableFunctionTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/metrics/HystrixMetricsPublisherFactoryTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/concurrency/HystrixConcurrencyStrategyTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/strategy/properties/HystrixPropertiesChainedArchaiusPropertyTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/util/HystrixRollingNumberTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/util/HystrixRollingPercentileTest.java
+Missing header in: hystrix-core/src/test/java/com/netflix/hystrix/HystrixObservableCommandTest.java
+:hystrix-core:license
+:hystrix-core:compileTestJavaNote: /home/travis/build/Netflix/Hystrix/hystrix-core/src/test/java/com/netflix/hystrix/HystrixCommandPropertiesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /home/travis/build/Netflix/Hystrix/hystrix-core/src/test/java/com/netflix/hystrix/HystrixCircuitBreakerTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+:hystrix-core:processTestResources UP-TO-DATE
+:hystrix-core:testClasses
+:hystrix-core:test
+:hystrix-core:check
+:hystrix-dashboard:writeLicenseHeader
+:hystrix-dashboard:licenseMain
+Unknown file extension: hystrix-dashboard/src/main/resources/com/netflix/hystrix/dashboard/stream/hystrix.stream
+Missing header in: hystrix-dashboard/src/main/java/com/netflix/hystrix/dashboard/stream/ProxyStreamServlet.java
+Missing header in: hystrix-dashboard/src/main/java/com/netflix/hystrix/dashboard/stream/MockStreamServlet.java
+:hystrix-dashboard:licenseTest UP-TO-DATE
+:hystrix-dashboard:license
+:hystrix-dashboard:compileJava UP-TO-DATE
+:hystrix-dashboard:processResources UP-TO-DATE
+:hystrix-dashboard:classes UP-TO-DATE
+:hystrix-dashboard:compileTestJava UP-TO-DATE
+:hystrix-dashboard:processTestResources UP-TO-DATE
+:hystrix-dashboard:testClasses UP-TO-DATE
+:hystrix-dashboard:test UP-TO-DATE
+:hystrix-dashboard:check
+:hystrix-examples:writeLicenseHeader
+:hystrix-examples:licenseMain UP-TO-DATE
+:hystrix-examples:licenseTest UP-TO-DATE
+:hystrix-examples:license UP-TO-DATE
+:hystrix-examples:compileJava UP-TO-DATE
+:hystrix-examples:processResources UP-TO-DATE
+:hystrix-examples:classes UP-TO-DATE
+:hystrix-examples:compileTestJava UP-TO-DATE
+:hystrix-examples:processTestResources UP-TO-DATE
+:hystrix-examples:testClasses UP-TO-DATE
+:hystrix-examples:test UP-TO-DATE
+:hystrix-examples:check UP-TO-DATE
+:hystrix-examples-webapp:writeLicenseHeader
+:hystrix-examples-webapp:licenseMain UP-TO-DATE
+:hystrix-examples-webapp:licenseTest UP-TO-DATE
+:hystrix-examples-webapp:license UP-TO-DATE
+:hystrix-examples:writeManifestProperties UP-TO-DATE
+:hystrix-examples:jar UP-TO-DATE
+:hystrix-metrics-event-stream:compileJava UP-TO-DATE
+:hystrix-metrics-event-stream:processResources UP-TO-DATE
+:hystrix-metrics-event-stream:classes UP-TO-DATE
+:hystrix-metrics-event-stream:writeManifestProperties UP-TO-DATE
+:hystrix-metrics-event-stream:jar UP-TO-DATE
+:hystrix-request-servlet:compileJava UP-TO-DATE
+:hystrix-request-servlet:processResources UP-TO-DATE
+:hystrix-request-servlet:classes UP-TO-DATE
+:hystrix-request-servlet:writeManifestProperties UP-TO-DATE
+:hystrix-request-servlet:jar UP-TO-DATE
+:hystrix-examples-webapp:compileJava UP-TO-DATE
+:hystrix-examples-webapp:processResources UP-TO-DATE
+:hystrix-examples-webapp:classes UP-TO-DATE
+:hystrix-examples-webapp:compileTestJava UP-TO-DATE
+:hystrix-examples-webapp:processTestResources UP-TO-DATE
+:hystrix-examples-webapp:testClasses UP-TO-DATE
+:hystrix-examples-webapp:test UP-TO-DATE
+:hystrix-examples-webapp:check UP-TO-DATE
+:hystrix-javanica:writeLicenseHeader
+:hystrix-javanica:licenseMain
+Missing header in: hystrix-contrib/hystrix-javanica/src/main/resources/dummy.txt
+:hystrix-javanica:licenseTest
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/resources/dummy.txt
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/resources/log4j.properties
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/CommonUtils.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/observable/ObservableTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/error/ErrorPropagationTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/domain/User.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/fallback/CommandFallbackTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/conf/AopJdkConfig.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/configuration/command/CommandPropertiesTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/command/CommandTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/conf/SpringApplicationContext.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/cache/CacheTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/configuration/collapser/CollapserPropertiesTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/domain/Profile.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/cache/CacheInvocationParameterTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/cache/CacheInvocationContextFactoryTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/cache/HystrixCacheKeyGeneratorTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/command/ExecutionTypeTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/collapser/CollapserTest.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/conf/AopCglibConfig.java
+Missing header in: hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/conf/AopLoadTimeWeavingConfig.java
+:hystrix-javanica:license
+:hystrix-javanica:compileJava UP-TO-DATE
+:hystrix-javanica:processResources UP-TO-DATE
+:hystrix-javanica:classes UP-TO-DATE
+:hystrix-javanica:compileTestJava
+Download https://jcenter.bintray.com/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.pom
+Download https://jcenter.bintray.com/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE.pom
+Download https://jcenter.bintray.com/org/springframework/spring-aop/4.0.0.RELEASE/spring-aop-4.0.0.RELEASE.pom
+Download https://jcenter.bintray.com/org/springframework/spring-test/4.0.0.RELEASE/spring-test-4.0.0.RELEASE.pom
+Download https://jcenter.bintray.com/cglib/cglib/3.1/cglib-3.1.pom
+Download https://jcenter.bintray.com/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.pom
+Download https://jcenter.bintray.com/org/springframework/spring-beans/4.0.0.RELEASE/spring-beans-4.0.0.RELEASE.pom
+Download https://jcenter.bintray.com/org/springframework/spring-expression/4.0.0.RELEASE/spring-expression-4.0.0.RELEASE.pom
+Download https://jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm/4.2/asm-4.2.pom
+Download https://jcenter.bintray.com/org/ow2/asm/asm-parent/4.2/asm-parent-4.2.pom
+Download https://jcenter.bintray.com/org/ow2/ow2/1.3/ow2-1.3.pom
+Download https://jcenter.bintray.com/org/springframework/spring-core/4.0.0.RELEASE/spring-core-4.0.0.RELEASE.jar
+Download https://jcenter.bintray.com/org/springframework/spring-context/4.0.0.RELEASE/spring-context-4.0.0.RELEASE.jar
+Download https://jcenter.bintray.com/org/springframework/spring-aop/4.0.0.RELEASE/spring-aop-4.0.0.RELEASE.jar
+Download https://jcenter.bintray.com/org/springframework/spring-test/4.0.0.RELEASE/spring-test-4.0.0.RELEASE.jar
+Download https://jcenter.bintray.com/cglib/cglib/3.1/cglib-3.1.jar
+Download https://jcenter.bintray.com/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar
+Download https://jcenter.bintray.com/org/springframework/spring-beans/4.0.0.RELEASE/spring-beans-4.0.0.RELEASE.jar
+Download https://jcenter.bintray.com/org/springframework/spring-expression/4.0.0.RELEASE/spring-expression-4.0.0.RELEASE.jar
+Download https://jcenter.bintray.com/aopalliance/aopalliance/1.0/aopalliance-1.0.jar
+Download https://jcenter.bintray.com/org/ow2/asm/asm/4.2/asm-4.2.jar
+Note: /home/travis/build/Netflix/Hystrix/hystrix-contrib/hystrix-javanica/src/test/java/com/netflix/hystrix/contrib/javanica/test/spring/error/ErrorPropagationTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+:hystrix-javanica:processTestResources
+:hystrix-javanica:testClasses
+:hystrix-javanica:test
+:hystrix-javanica:check
+:hystrix-metrics-event-stream:writeLicenseHeader
+:hystrix-metrics-event-stream:licenseMain UP-TO-DATE
+:hystrix-metrics-event-stream:licenseTest UP-TO-DATE
+:hystrix-metrics-event-stream:license UP-TO-DATE
+:hystrix-metrics-event-stream:compileTestJava UP-TO-DATE
+:hystrix-metrics-event-stream:processTestResources UP-TO-DATE
+:hystrix-metrics-event-stream:testClasses UP-TO-DATE
+:hystrix-metrics-event-stream:test UP-TO-DATE
+:hystrix-metrics-event-stream:check UP-TO-DATE
+:hystrix-network-auditor-agent:writeLicenseHeader
+:hystrix-network-auditor-agent:licenseMain UP-TO-DATE
+:hystrix-network-auditor-agent:licenseTest UP-TO-DATE
+:hystrix-network-auditor-agent:license UP-TO-DATE
+:hystrix-network-auditor-agent:compileJava UP-TO-DATE
+:hystrix-network-auditor-agent:processResources UP-TO-DATE
+:hystrix-network-auditor-agent:classes UP-TO-DATE
+:hystrix-network-auditor-agent:compileTestJava UP-TO-DATE
+:hystrix-network-auditor-agent:processTestResources UP-TO-DATE
+:hystrix-network-auditor-agent:testClasses UP-TO-DATE
+:hystrix-network-auditor-agent:test UP-TO-DATE
+:hystrix-network-auditor-agent:check UP-TO-DATE
+:hystrix-request-servlet:writeLicenseHeader
+:hystrix-request-servlet:licenseMain UP-TO-DATE
+:hystrix-request-servlet:licenseTest UP-TO-DATE
+:hystrix-request-servlet:license UP-TO-DATE
+:hystrix-request-servlet:compileTestJava UP-TO-DATE
+:hystrix-request-servlet:processTestResources UP-TO-DATE
+:hystrix-request-servlet:testClasses UP-TO-DATE
+:hystrix-request-servlet:test UP-TO-DATE
+:hystrix-request-servlet:check UP-TO-DATE
+:hystrix-rx-netty-metrics-stream:writeLicenseHeader
+:hystrix-rx-netty-metrics-stream:licenseMain
+Missing header in: hystrix-contrib/hystrix-rx-netty-metrics-stream/src/main/java/com/netflix/hystrix/contrib/rxnetty/metricsstream/JsonMappers.java
+Missing header in: hystrix-contrib/hystrix-rx-netty-metrics-stream/src/main/java/com/netflix/hystrix/contrib/rxnetty/metricsstream/HystrixMetricsStreamHandler.java
+:hystrix-rx-netty-metrics-stream:licenseTest
+Missing header in: hystrix-contrib/hystrix-rx-netty-metrics-stream/src/test/java/com/netflix/hystrix/HystrixCommandMetricsSamples.java
+Missing header in: hystrix-contrib/hystrix-rx-netty-metrics-stream/src/test/java/com/netflix/hystrix/contrib/rxnetty/metricsstream/HystrixMetricsStreamHandlerTest.java
+:hystrix-rx-netty-metrics-stream:license
+:hystrix-rx-netty-metrics-stream:compileJava UP-TO-DATE
+:hystrix-rx-netty-metrics-stream:processResources UP-TO-DATE
+:hystrix-rx-netty-metrics-stream:classes UP-TO-DATE
+:hystrix-rx-netty-metrics-stream:compileTestJava
+Download https://jcenter.bintray.com/org/powermock/powermock-easymock-release-full/1.5.5/powermock-easymock-release-full-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock/1.5.5/powermock-1.5.5.pom
+Download https://jcenter.bintray.com/org/easymock/easymock/3.2/easymock-3.2.pom
+Download https://jcenter.bintray.com/org/easymock/easymock-parent/3.2/easymock-parent-3.2.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-api-easymock/1.5.5/powermock-api-easymock-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-api/1.5.5/powermock-api-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4-common/1.5.5/powermock-module-junit4-common-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-modules/1.5.5/powermock-modules-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4/1.5.5/powermock-module-junit4-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4-legacy/1.5.5/powermock-module-junit4-legacy-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit3/1.5.5/powermock-module-junit3-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-module-testng/1.5.5/powermock-module-testng-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-module-testng-common/1.5.5/powermock-module-testng-common-1.5.5.pom
+Download https://jcenter.bintray.com/org/powermock/powermock-classloading-base/1.5.5/powermock-classloading-base-1.5.5.pom
+Download https://jcenter.bintray.com/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.pom
+Download https://jcenter.bintray.com/org/objenesis/objenesis/1.3/objenesis-1.3.pom
+Download https://jcenter.bintray.com/org/objenesis/objenesis-parent/1.3/objenesis-parent-1.3.pom
+Download https://jcenter.bintray.com/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.pom
+Download https://jcenter.bintray.com/junit/junit/4.4/junit-4.4.pom
+Download https://jcenter.bintray.com/org/testng/testng/6.8.8/testng-6.8.8.pom
+Download https://jcenter.bintray.com/org/sonatype/oss/oss-parent/3/oss-parent-3.pom
+Download https://jcenter.bintray.com/org/beanshell/bsh/2.0b4/bsh-2.0b4.pom
+Download https://jcenter.bintray.com/org/beanshell/beanshell/2.0b4/beanshell-2.0b4.pom
+Download https://jcenter.bintray.com/com/beust/jcommander/1.27/jcommander-1.27.pom
+Download https://jcenter.bintray.com/junit/junit/4.11/junit-4.11.pom
+Download https://jcenter.bintray.com/org/objenesis/objenesis/2.1/objenesis-2.1.pom
+Download https://jcenter.bintray.com/org/objenesis/objenesis-parent/2.1/objenesis-parent-2.1.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
+Download https://jcenter.bintray.com/org/easymock/easymock/3.2/easymock-3.2.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-api-easymock/1.5.5/powermock-api-easymock-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-api-easymock/1.5.5/powermock-api-easymock-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4-common/1.5.5/powermock-module-junit4-common-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4-common/1.5.5/powermock-module-junit4-common-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4/1.5.5/powermock-module-junit4-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4/1.5.5/powermock-module-junit4-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4-legacy/1.5.5/powermock-module-junit4-legacy-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit4-legacy/1.5.5/powermock-module-junit4-legacy-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit3/1.5.5/powermock-module-junit3-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-junit3/1.5.5/powermock-module-junit3-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-testng/1.5.5/powermock-module-testng-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-testng/1.5.5/powermock-module-testng-1.5.5-sources.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-module-testng-common/1.5.5/powermock-module-testng-common-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-classloading-base/1.5.5/powermock-classloading-base-1.5.5.jar
+Download https://jcenter.bintray.com/org/powermock/powermock-classloading-base/1.5.5/powermock-classloading-base-1.5.5-sources.jar
+Download https://jcenter.bintray.com/cglib/cglib-nodep/2.2.2/cglib-nodep-2.2.2.jar
+Download https://jcenter.bintray.com/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar
+Download https://jcenter.bintray.com/org/testng/testng/6.8.8/testng-6.8.8.jar
+Download https://jcenter.bintray.com/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar
+Download https://jcenter.bintray.com/com/beust/jcommander/1.27/jcommander-1.27.jar
+Download https://jcenter.bintray.com/junit/junit/4.11/junit-4.11.jar
+Download https://jcenter.bintray.com/org/objenesis/objenesis/2.1/objenesis-2.1.jar
+Download https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+:hystrix-rx-netty-metrics-stream:processTestResources UP-TO-DATE
+:hystrix-rx-netty-metrics-stream:testClasses
+:hystrix-rx-netty-metrics-stream:test
+:hystrix-rx-netty-metrics-stream:check
+:hystrix-servo-metrics-publisher:writeLicenseHeader
+:hystrix-servo-metrics-publisher:licenseMain UP-TO-DATE
+:hystrix-servo-metrics-publisher:licenseTest UP-TO-DATE
+:hystrix-servo-metrics-publisher:license UP-TO-DATE
+:hystrix-servo-metrics-publisher:compileJava UP-TO-DATE
+:hystrix-servo-metrics-publisher:processResources UP-TO-DATE
+:hystrix-servo-metrics-publisher:classes UP-TO-DATE
+:hystrix-servo-metrics-publisher:compileTestJava UP-TO-DATE
+:hystrix-servo-metrics-publisher:processTestResources UP-TO-DATE
+:hystrix-servo-metrics-publisher:testClasses UP-TO-DATE
+:hystrix-servo-metrics-publisher:test UP-TO-DATE
+:hystrix-servo-metrics-publisher:check UP-TO-DATE
+:hystrix-yammer-metrics-publisher:writeLicenseHeader
+:hystrix-yammer-metrics-publisher:licenseMain
+Missing header in: hystrix-contrib/hystrix-yammer-metrics-publisher/src/main/java/com/netflix/hystrix/contrib/yammermetricspublisher/HystrixYammerMetricsPublisherThreadPool.java
+Missing header in: hystrix-contrib/hystrix-yammer-metrics-publisher/src/main/java/com/netflix/hystrix/contrib/yammermetricspublisher/HystrixYammerMetricsPublisherCommand.java
+Missing header in: hystrix-contrib/hystrix-yammer-metrics-publisher/src/main/java/com/netflix/hystrix/contrib/yammermetricspublisher/HystrixYammerMetricsPublisher.java
+:hystrix-yammer-metrics-publisher:licenseTest UP-TO-DATE
+:hystrix-yammer-metrics-publisher:license
+:hystrix-yammer-metrics-publisher:compileJava UP-TO-DATE
+:hystrix-yammer-metrics-publisher:processResources UP-TO-DATE
+:hystrix-yammer-metrics-publisher:classes UP-TO-DATE
+:hystrix-yammer-metrics-publisher:compileTestJava UP-TO-DATE
+:hystrix-yammer-metrics-publisher:processTestResources UP-TO-DATE
+:hystrix-yammer-metrics-publisher:testClasses UP-TO-DATE
+:hystrix-yammer-metrics-publisher:test UP-TO-DATE
+:hystrix-yammer-metrics-publisher:check
+
+BUILD SUCCESSFUL
+
+Total time: 2 mins 13.749 secs
+travis_time:end:018fc702:start=1422320734736484087,finish=1422320868970975293,duration=134234491206[0K
+[32;1mThe command "./gradlew check" exited with 0.[0m
+
+Done. Your build exited with 0.

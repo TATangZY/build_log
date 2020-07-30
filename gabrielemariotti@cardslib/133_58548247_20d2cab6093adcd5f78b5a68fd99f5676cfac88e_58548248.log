@@ -1,0 +1,1484 @@
+Using worker: worker-linux-bb3654bb-1.bb.travis-ci.org:travis-linux-11
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Wed Feb  4 18:22:50 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+2.6.32-042stab090.5
+[34m[1mCookbooks Version[0m
+23bb455 https://github.com/travis-ci/travis-cookbooks/tree/23bb455
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:24110b60[0K$ git clone --depth=50 git://github.com/gabrielemariotti/cardslib.git gabrielemariotti/cardslib
+Cloning into 'gabrielemariotti/cardslib'...
+remote: Counting objects: 3359, done.[K
+remote: Compressing objects:   0% (1/1551)   [Kremote: Compressing objects:   1% (16/1551)   [Kremote: Compressing objects:   2% (32/1551)   [Kremote: Compressing objects:   3% (47/1551)   [Kremote: Compressing objects:   4% (63/1551)   [Kremote: Compressing objects:   5% (78/1551)   [Kremote: Compressing objects:   6% (94/1551)   [Kremote: Compressing objects:   7% (109/1551)   [Kremote: Compressing objects:   8% (125/1551)   [Kremote: Compressing objects:   9% (140/1551)   [Kremote: Compressing objects:  10% (156/1551)   [Kremote: Compressing objects:  11% (171/1551)   [Kremote: Compressing objects:  12% (187/1551)   [Kremote: Compressing objects:  13% (202/1551)   [Kremote: Compressing objects:  14% (218/1551)   [Kremote: Compressing objects:  15% (233/1551)   [Kremote: Compressing objects:  16% (249/1551)   [Kremote: Compressing objects:  17% (264/1551)   [Kremote: Compressing objects:  18% (280/1551)   [Kremote: Compressing objects:  19% (295/1551)   [Kremote: Compressing objects:  20% (311/1551)   [Kremote: Compressing objects:  21% (326/1551)   [Kremote: Compressing objects:  22% (342/1551)   [Kremote: Compressing objects:  23% (357/1551)   [Kremote: Compressing objects:  24% (373/1551)   [Kremote: Compressing objects:  25% (388/1551)   [Kremote: Compressing objects:  26% (404/1551)   [Kremote: Compressing objects:  27% (419/1551)   [Kremote: Compressing objects:  28% (435/1551)   [Kremote: Compressing objects:  29% (450/1551)   [Kremote: Compressing objects:  30% (466/1551)   [Kremote: Compressing objects:  31% (481/1551)   [Kremote: Compressing objects:  32% (497/1551)   [Kremote: Compressing objects:  33% (512/1551)   [Kremote: Compressing objects:  34% (528/1551)   [Kremote: Compressing objects:  35% (543/1551)   [Kremote: Compressing objects:  36% (559/1551)   [Kremote: Compressing objects:  37% (574/1551)   [Kremote: Compressing objects:  38% (590/1551)   [Kremote: Compressing objects:  39% (605/1551)   [Kremote: Compressing objects:  40% (621/1551)   [Kremote: Compressing objects:  41% (636/1551)   [Kremote: Compressing objects:  42% (652/1551)   [Kremote: Compressing objects:  43% (667/1551)   [Kremote: Compressing objects:  44% (683/1551)   [Kremote: Compressing objects:  45% (698/1551)   [Kremote: Compressing objects:  46% (714/1551)   [Kremote: Compressing objects:  47% (729/1551)   [Kremote: Compressing objects:  48% (745/1551)   [Kremote: Compressing objects:  49% (760/1551)   [Kremote: Compressing objects:  50% (776/1551)   [Kremote: Compressing objects:  51% (792/1551)   [Kremote: Compressing objects:  52% (807/1551)   [Kremote: Compressing objects:  53% (823/1551)   [Kremote: Compressing objects:  54% (838/1551)   [Kremote: Compressing objects:  55% (854/1551)   [Kremote: Compressing objects:  56% (869/1551)   [Kremote: Compressing objects:  57% (885/1551)   [Kremote: Compressing objects:  58% (900/1551)   [Kremote: Compressing objects:  59% (916/1551)   [Kremote: Compressing objects:  60% (931/1551)   [Kremote: Compressing objects:  61% (947/1551)   [Kremote: Compressing objects:  62% (962/1551)   [Kremote: Compressing objects:  63% (978/1551)   [Kremote: Compressing objects:  64% (993/1551)   [Kremote: Compressing objects:  65% (1009/1551)   [Kremote: Compressing objects:  66% (1024/1551)   [Kremote: Compressing objects:  67% (1040/1551)   [Kremote: Compressing objects:  68% (1055/1551)   [Kremote: Compressing objects:  69% (1071/1551)   [Kremote: Compressing objects:  70% (1086/1551)   [Kremote: Compressing objects:  71% (1102/1551)   [Kremote: Compressing objects:  72% (1117/1551)   [Kremote: Compressing objects:  73% (1133/1551)   [Kremote: Compressing objects:  74% (1148/1551)   [Kremote: Compressing objects:  75% (1164/1551)   [Kremote: Compressing objects:  76% (1179/1551)   [Kremote: Compressing objects:  77% (1195/1551)   [Kremote: Compressing objects:  78% (1210/1551)   [Kremote: Compressing objects:  79% (1226/1551)   [Kremote: Compressing objects:  80% (1241/1551)   [Kremote: Compressing objects:  81% (1257/1551)   [Kremote: Compressing objects:  82% (1272/1551)   [Kremote: Compressing objects:  83% (1288/1551)   [Kremote: Compressing objects:  84% (1303/1551)   [Kremote: Compressing objects:  85% (1319/1551)   [Kremote: Compressing objects:  86% (1334/1551)   [Kremote: Compressing objects:  87% (1350/1551)   [Kremote: Compressing objects:  88% (1365/1551)   [Kremote: Compressing objects:  89% (1381/1551)   [Kremote: Compressing objects:  90% (1396/1551)   [Kremote: Compressing objects:  91% (1412/1551)   [Kremote: Compressing objects:  92% (1427/1551)   [Kremote: Compressing objects:  93% (1443/1551)   [Kremote: Compressing objects:  94% (1458/1551)   [Kremote: Compressing objects:  95% (1474/1551)   [Kremote: Compressing objects:  96% (1489/1551)   [Kremote: Compressing objects:  97% (1505/1551)   [Kremote: Compressing objects:  98% (1520/1551)   [Kremote: Compressing objects:  99% (1536/1551)   [Kremote: Compressing objects: 100% (1551/1551)   [Kremote: Compressing objects: 100% (1551/1551), done.[K
+Receiving objects:   0% (1/3359)   Receiving objects:   1% (34/3359)   Receiving objects:   2% (68/3359)   Receiving objects:   3% (101/3359)   Receiving objects:   4% (135/3359)   Receiving objects:   5% (168/3359)   Receiving objects:   6% (202/3359)   Receiving objects:   7% (236/3359)   Receiving objects:   8% (269/3359)   Receiving objects:   9% (303/3359)   Receiving objects:  10% (336/3359)   Receiving objects:  11% (370/3359)   Receiving objects:  12% (404/3359)   Receiving objects:  13% (437/3359)   Receiving objects:  14% (471/3359)   Receiving objects:  15% (504/3359)   Receiving objects:  16% (538/3359)   Receiving objects:  17% (572/3359)   Receiving objects:  18% (605/3359)   Receiving objects:  19% (639/3359)   Receiving objects:  20% (672/3359)   Receiving objects:  21% (706/3359)   Receiving objects:  22% (739/3359)   Receiving objects:  23% (773/3359)   Receiving objects:  24% (807/3359)   Receiving objects:  25% (840/3359)   Receiving objects:  26% (874/3359)   Receiving objects:  27% (907/3359)   Receiving objects:  28% (941/3359)   Receiving objects:  29% (975/3359)   Receiving objects:  30% (1008/3359)   Receiving objects:  31% (1042/3359)   Receiving objects:  32% (1075/3359)   Receiving objects:  33% (1109/3359)   Receiving objects:  34% (1143/3359)   Receiving objects:  35% (1176/3359)   Receiving objects:  36% (1210/3359)   Receiving objects:  37% (1243/3359)   Receiving objects:  38% (1277/3359)   Receiving objects:  39% (1311/3359)   Receiving objects:  40% (1344/3359)   Receiving objects:  41% (1378/3359)   Receiving objects:  42% (1411/3359)   Receiving objects:  43% (1445/3359)   Receiving objects:  44% (1478/3359)   Receiving objects:  45% (1512/3359)   Receiving objects:  46% (1546/3359)   Receiving objects:  47% (1579/3359)   Receiving objects:  48% (1613/3359)   Receiving objects:  49% (1646/3359)   Receiving objects:  50% (1680/3359)   Receiving objects:  51% (1714/3359)   Receiving objects:  52% (1747/3359)   Receiving objects:  53% (1781/3359)   Receiving objects:  54% (1814/3359)   Receiving objects:  55% (1848/3359)   Receiving objects:  56% (1882/3359)   Receiving objects:  57% (1915/3359)   Receiving objects:  58% (1949/3359)   Receiving objects:  59% (1982/3359)   Receiving objects:  60% (2016/3359)   Receiving objects:  61% (2049/3359)   Receiving objects:  62% (2083/3359)   Receiving objects:  63% (2117/3359)   Receiving objects:  64% (2150/3359)   Receiving objects:  65% (2184/3359)   Receiving objects:  66% (2217/3359)   Receiving objects:  67% (2251/3359)   Receiving objects:  68% (2285/3359)   Receiving objects:  69% (2318/3359)   Receiving objects:  70% (2352/3359)   Receiving objects:  71% (2385/3359)   Receiving objects:  72% (2419/3359)   Receiving objects:  73% (2453/3359)   Receiving objects:  74% (2486/3359)   Receiving objects:  75% (2520/3359)   Receiving objects:  76% (2553/3359)   Receiving objects:  77% (2587/3359)   Receiving objects:  78% (2621/3359)   Receiving objects:  79% (2654/3359)   Receiving objects:  80% (2688/3359)   Receiving objects:  81% (2721/3359)   Receiving objects:  82% (2755/3359)   Receiving objects:  83% (2788/3359)   Receiving objects:  84% (2822/3359)   Receiving objects:  85% (2856/3359)   Receiving objects:  86% (2889/3359)   Receiving objects:  87% (2923/3359)   Receiving objects:  88% (2956/3359)   Receiving objects:  89% (2990/3359)   Receiving objects:  90% (3024/3359)   Receiving objects:  91% (3057/3359)   Receiving objects:  92% (3091/3359)   remote: Total 3359 (delta 1906), reused 2670 (delta 1372), pack-reused 0[K
+Receiving objects:  93% (3124/3359)   Receiving objects:  94% (3158/3359)   Receiving objects:  95% (3192/3359)   Receiving objects:  96% (3225/3359)   Receiving objects:  97% (3259/3359)   Receiving objects:  98% (3292/3359)   Receiving objects:  99% (3326/3359)   Receiving objects: 100% (3359/3359)   Receiving objects: 100% (3359/3359), 17.20 MiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/1906)   Resolving deltas:   1% (21/1906)   Resolving deltas:   2% (39/1906)   Resolving deltas:   3% (61/1906)   Resolving deltas:   4% (77/1906)   Resolving deltas:   5% (98/1906)   Resolving deltas:   6% (116/1906)   Resolving deltas:   7% (138/1906)   Resolving deltas:   8% (153/1906)   Resolving deltas:   9% (173/1906)   Resolving deltas:  10% (196/1906)   Resolving deltas:  11% (210/1906)   Resolving deltas:  12% (241/1906)   Resolving deltas:  13% (251/1906)   Resolving deltas:  14% (268/1906)   Resolving deltas:  15% (290/1906)   Resolving deltas:  16% (320/1906)   Resolving deltas:  17% (336/1906)   Resolving deltas:  18% (347/1906)   Resolving deltas:  19% (366/1906)   Resolving deltas:  20% (396/1906)   Resolving deltas:  21% (403/1906)   Resolving deltas:  22% (421/1906)   Resolving deltas:  23% (442/1906)   Resolving deltas:  24% (459/1906)   Resolving deltas:  25% (478/1906)   Resolving deltas:  26% (511/1906)   Resolving deltas:  27% (515/1906)   Resolving deltas:  28% (534/1906)   Resolving deltas:  29% (557/1906)   Resolving deltas:  30% (581/1906)   Resolving deltas:  31% (602/1906)   Resolving deltas:  32% (611/1906)   Resolving deltas:  34% (658/1906)   Resolving deltas:  35% (673/1906)   Resolving deltas:  36% (689/1906)   Resolving deltas:  37% (707/1906)   Resolving deltas:  38% (728/1906)   Resolving deltas:  39% (749/1906)   Resolving deltas:  40% (768/1906)   Resolving deltas:  41% (785/1906)   Resolving deltas:  42% (813/1906)   Resolving deltas:  44% (843/1906)   Resolving deltas:  45% (860/1906)   Resolving deltas:  46% (880/1906)   Resolving deltas:  48% (931/1906)   Resolving deltas:  51% (989/1906)   Resolving deltas:  54% (1039/1906)   Resolving deltas:  55% (1057/1906)   Resolving deltas:  56% (1069/1906)   Resolving deltas:  57% (1103/1906)   Resolving deltas:  58% (1112/1906)   Resolving deltas:  60% (1144/1906)   Resolving deltas:  62% (1187/1906)   Resolving deltas:  63% (1209/1906)   Resolving deltas:  64% (1223/1906)   Resolving deltas:  67% (1286/1906)   Resolving deltas:  68% (1311/1906)   Resolving deltas:  70% (1340/1906)   Resolving deltas:  72% (1378/1906)   Resolving deltas:  75% (1448/1906)   Resolving deltas:  76% (1449/1906)   Resolving deltas:  77% (1471/1906)   Resolving deltas:  78% (1489/1906)   Resolving deltas:  80% (1536/1906)   Resolving deltas:  81% (1559/1906)   Resolving deltas:  82% (1572/1906)   Resolving deltas:  83% (1588/1906)   Resolving deltas:  84% (1604/1906)   Resolving deltas:  85% (1624/1906)   Resolving deltas:  86% (1644/1906)   Resolving deltas:  87% (1659/1906)   Resolving deltas:  88% (1686/1906)   Resolving deltas:  89% (1706/1906)   Resolving deltas:  90% (1729/1906)   Resolving deltas:  91% (1745/1906)   Resolving deltas:  92% (1760/1906)   Resolving deltas:  93% (1773/1906)   Resolving deltas:  94% (1802/1906)   Resolving deltas:  95% (1815/1906)   Resolving deltas:  96% (1832/1906)   Resolving deltas:  97% (1851/1906)   Resolving deltas:  98% (1868/1906)   Resolving deltas:  99% (1890/1906)   Resolving deltas: 100% (1906/1906)   Resolving deltas: 100% (1906/1906), done.
+Checking connectivity... done.
+travis_time:end:24110b60:start=1429073969922682049,finish=1429073970764871765,duration=842189716[0K$ cd gabrielemariotti/cardslib
+travis_time:start:02cc82a6[0K$ git fetch origin +refs/pull/436/merge:
+remote: Counting objects: 26, done.[K
+remote: Compressing objects:   5% (1/19)   [Kremote: Compressing objects:  10% (2/19)   [Kremote: Compressing objects:  15% (3/19)   [Kremote: Compressing objects:  21% (4/19)   [Kremote: Compressing objects:  26% (5/19)   [Kremote: Compressing objects:  31% (6/19)   [Kremote: Compressing objects:  36% (7/19)   [Kremote: Compressing objects:  42% (8/19)   [Kremote: Compressing objects:  47% (9/19)   [Kremote: Compressing objects:  52% (10/19)   [Kremote: Compressing objects:  57% (11/19)   [Kremote: Compressing objects:  63% (12/19)   [Kremote: Compressing objects:  68% (13/19)   [Kremote: Compressing objects:  73% (14/19)   [Kremote: Compressing objects:  78% (15/19)   [Kremote: Compressing objects:  84% (16/19)   [Kremote: Compressing objects:  89% (17/19)   [Kremote: Compressing objects:  94% (18/19)   [Kremote: Compressing objects: 100% (19/19)   [Kremote: Compressing objects: 100% (19/19), done.[K
+Unpacking objects:   3% (1/26)   Unpacking objects:   7% (2/26)   Unpacking objects:  11% (3/26)   Unpacking objects:  15% (4/26)   Unpacking objects:  19% (5/26)   Unpacking objects:  23% (6/26)   remote: Total 26 (delta 19), reused 12 (delta 6), pack-reused 0[K
+Unpacking objects:  26% (7/26)   Unpacking objects:  30% (8/26)   Unpacking objects:  34% (9/26)   Unpacking objects:  38% (10/26)   Unpacking objects:  42% (11/26)   Unpacking objects:  46% (12/26)   Unpacking objects:  50% (13/26)   Unpacking objects:  53% (14/26)   Unpacking objects:  57% (15/26)   Unpacking objects:  61% (16/26)   Unpacking objects:  65% (17/26)   Unpacking objects:  69% (18/26)   Unpacking objects:  73% (19/26)   Unpacking objects:  76% (20/26)   Unpacking objects:  80% (21/26)   Unpacking objects:  84% (22/26)   Unpacking objects:  88% (23/26)   Unpacking objects:  92% (24/26)   Unpacking objects:  96% (25/26)   Unpacking objects: 100% (26/26)   Unpacking objects: 100% (26/26), done.
+From git://github.com/gabrielemariotti/cardslib
+ * branch            refs/pull/436/merge -> FETCH_HEAD
+travis_time:end:02cc82a6:start=1429073970773643816,finish=1429073970905336589,duration=131692773[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export ANDROID_SDK_VERSION="r23"
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ export TERM=dumb
+$ java -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -version
+javac 1.7.0_76
+travis_fold:start:before_install.1[0Ktravis_time:start:002563c3[0K$ gradle -v
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_76 (Oracle Corporation 24.76-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+travis_time:end:002563c3:start=1429073971400939257,finish=1429073972598081235,duration=1197141978[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:0fae2bf6[0K$ uname -a
+Linux testing-worker-linux-bb3654bb-1-10893-linux-11-58548248 2.6.32-042stab090.5 #1 SMP Sat Jun 21 00:15:09 MSK 2014 x86_64 x86_64 x86_64 GNU/Linux
+travis_time:end:0fae2bf6:start=1429073972605337691,finish=1429073972612597608,duration=7259917[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:1c120338[0K$ sudo apt-get update -qq
+travis_time:end:1c120338:start=1429073972620004602,finish=1429073978539162320,duration=5919157718[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:before_install.4[0Ktravis_time:start:1010b118[0K$ if [ `uname -m` = x86_64 ]; then sudo apt-get update; fi
+0% [Working]            Hit http://downloads-distro.mongodb.org dist Release.gpg
+            7% [Connecting to us.archive.ubuntu.com (2001:67c:1562::17)] [Connecting to sec                                                                               Hit http://downloads-distro.mongodb.org dist Release
+7% [Waiting for headers] [Connecting to security.ubuntu.com (2001:67c:1360:8c017% [Release gpgv 2,042 B] [Waiting for headers] [Connecting to security.ubuntu.12% [Waiting for headers] [Connecting to security.ubuntu.com (2001:67c:1360:8c0                                                                               Hit http://us.archive.ubuntu.com precise Release.gpg
+                                                                               Hit http://us.archive.ubuntu.com precise-updates Release.gpg
+                                                                               Hit http://us.archive.ubuntu.com precise-backports Release.gpg
+25% [Connecting to security.ubuntu.com (2001:67c:1360:8c01::19)] [Connecting to                                                                               Hit http://downloads-distro.mongodb.org dist/10gen amd64 Packages
+25% [Waiting for headers] [Connecting to security.ubuntu.com (2001:67c:1360:8c025% [Packages 506 kB] [Waiting for headers] [Connecting to security.ubuntu.com                                                                                Hit http://downloads-distro.mongodb.org dist/10gen i386 Packages
+25% [Packages 506 kB] [Waiting for headers] [Connecting to security.ubuntu.com                                                                                Hit http://us.archive.ubuntu.com precise Release
+25% [Packages 506 kB] [Connecting to security.ubuntu.com (2001:67c:1360:8c01::1                                                                               Hit http://us.archive.ubuntu.com precise-updates Release
+25% [Packages 506 kB] [Connecting to security.ubuntu.com (2001:67c:1360:8c01::125% [Packages 506 kB] [Release gpgv 49.6 kB] [Connecting to security.ubuntu.com                                                                               Ign http://downloads-distro.mongodb.org dist/10gen TranslationIndex
+27% [Packages 506 kB] [Release gpgv 49.6 kB] [Waiting for headers] [Connecting 18% [Packages 506 kB] [Waiting for headers] [Connecting to security.ubuntu.com 18% [Packages 506 kB] [Release gpgv 196 kB] [Waiting for headers] [Connecting t100% [Release gpgv 196 kB] [Waiting for headers] [Connecting to security.ubuntu100% [Packages 505 kB] [Release gpgv 196 kB] [Waiting for headers] [Connecting 100% [Packages 505 kB] [Waiting for headers] [Connecting to security.ubuntu.com                                                                               Hit http://us.archive.ubuntu.com precise-backports Release
+100% [Packages 505 kB] [Connecting to security.ubuntu.com (2001:67c:1360:8c01::100% [Packages 505 kB] [Release gpgv 54.3 kB] [Connecting to security.ubuntu.co100% [Packages 505 kB] [Waiting for headers] [Connecting to security.ubuntu.com100% [Waiting for headers] [Connecting to security.ubuntu.com (2001:67c:1360:8c                                                                               Hit http://us.archive.ubuntu.com precise/main Sources
+100% [Connecting to security.ubuntu.com (2001:67c:1360:8c01::19)] [Connecting t                                                                               Hit http://us.archive.ubuntu.com precise/restricted Sources
+                                                                               Hit http://us.archive.ubuntu.com precise/universe Sources
+                                                                               Hit http://us.archive.ubuntu.com precise/multiverse Sources
+100% [Waiting for headers] [Connecting to security.ubuntu.com (2001:67c:1360:8c                                                                               Hit http://us.archive.ubuntu.com precise/main amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/restricted amd64 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Connecting to security.ubuntu.co                                                                               Hit http://us.archive.ubuntu.com precise/universe amd64 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Connecting to security.ubuntu.co                                                                               Hit http://us.archive.ubuntu.com precise/multiverse amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/main i386 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Connecting to security.ubuntu.co                                                                               Hit http://us.archive.ubuntu.com precise/restricted i386 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Connecting to security.ubuntu.co                                                                               Ign http://downloads-distro.mongodb.org dist/10gen Translation-en_US
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://us.archive.ubuntu.com precise/universe i386 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://us.archive.ubuntu.com precise/multiverse i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise/main TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise/multiverse TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise/restricted TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise/universe TranslationIndex
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://us.archive.ubuntu.com precise-updates/main Sources
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/restricted Sources
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/universe Sources
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/multiverse Sources
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Ign http://downloads-distro.mongodb.org dist/10gen Translation-en
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://us.archive.ubuntu.com precise-updates/main amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/restricted amd64 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://us.archive.ubuntu.com precise-updates/universe amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/multiverse amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/main i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/restricted i386 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://us.archive.ubuntu.com precise-updates/universe i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/multiverse i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/main TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/multiverse TranslationIndex
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://us.archive.ubuntu.com precise-updates/restricted TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/universe TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/main Sources
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://us.archive.ubuntu.com precise-backports/restricted Sources
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/universe Sources
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/multiverse Sources
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://security.ubuntu.com precise-security Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://us.archive.ubuntu.com precise-backports/main amd64 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://us.archive.ubuntu.com precise-backports/restricted amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/universe amd64 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/multiverse amd64 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://us.archive.ubuntu.com precise-backports/main i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/restricted i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/universe i386 Packages
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://us.archive.ubuntu.com precise-backports/multiverse i386 Packages
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/main TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/multiverse TranslationIndex
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Connecting                                                                               Hit http://ppa.launchpad.net precise Release.gpg
+100% [Sources 4,356 kB] [Waiting for headers] [Waiting for headers] [Waiting fo100% [Waiting for headers] [Waiting for headers] [Waiting for headers] [Connect100% [Sources 19.0 kB] [Waiting for headers] [Waiting for headers] [Waiting for100% [Waiting for headers] [Waiting for headers] [Waiting for headers] [Connect100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Waiting for                                                                               Hit http://us.archive.ubuntu.com precise-backports/restricted TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/universe TranslationIndex
+                                                                               Hit http://us.archive.ubuntu.com precise/main Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Waiting for                                                                               Hit http://us.archive.ubuntu.com precise/multiverse Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Waiting for                                                                               Hit http://us.archive.ubuntu.com precise/restricted Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://us.archive.ubuntu.com precise/universe Translation-en
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/main Translation-en
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/multiverse Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Waiting for                                                                               Hit http://us.archive.ubuntu.com precise-updates/restricted Translation-en
+                                                                               Hit http://us.archive.ubuntu.com precise-updates/universe Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Waiting for                                                                               Hit http://us.archive.ubuntu.com precise-backports/main Translation-en
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/multiverse Translation-en
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/restricted Translation-en
+                                                                               Hit http://us.archive.ubuntu.com precise-backports/universe Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security Release
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [Release gpgv 54.3 kB] [Waiting for headers] [Connecting100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://ppa.launchpad.net precise Release
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]100% [Sources 21.3 MB] [Release gpgv 12.4 kB] [Waiting for headers] [Waiting fo100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/main Sources
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://ppa.launchpad.net precise Release
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise Release
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting 100% [Sources 21.3 MB] [Release gpgv 12.9 kB] [Waiting for headers] [Waiting fo                                                                               Hit http://ppa.launchpad.net precise Release
+100% [Sources 21.3 MB] [Release gpgv 12.9 kB] [Waiting for headers] [Waiting fo                                                                               Hit http://ppa.launchpad.net precise Release
+100% [Sources 21.3 MB] [Release gpgv 12.9 kB] [Waiting for headers] [Waiting fo100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting 100% [Sources 21.3 MB] [Release gpgv 12.9 kB] [Waiting for headers] [Waiting fo100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting 100% [Sources 21.3 MB] [Release gpgv 12.9 kB] [Waiting for headers] [Waiting fo100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting 100% [Sources 21.3 MB] [Release gpgv 12.4 kB] [Waiting for headers] [Waiting fo100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/restricted Sources
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://security.ubuntu.com precise-security/universe Sources
+                                                                               Hit http://security.ubuntu.com precise-security/multiverse Sources
+                                                                               Hit http://security.ubuntu.com precise-security/main amd64 Packages
+                                                                               Hit http://security.ubuntu.com precise-security/restricted amd64 Packages
+                                                                               Hit http://security.ubuntu.com precise-security/universe amd64 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/multiverse amd64 Packages
+                                                                               Hit http://security.ubuntu.com precise-security/main i386 Packages
+                                                                               Hit http://security.ubuntu.com precise-security/restricted i386 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://security.ubuntu.com precise-security/universe i386 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise Release
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting 100% [Sources 21.3 MB] [Release gpgv 13.0 kB] [Waiting for headers] [Waiting fo100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/multiverse i386 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/main TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main i386 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main i386 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main i386 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://security.ubuntu.com precise-security/multiverse TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://security.ubuntu.com precise-security/restricted TranslationIndex
+                                                                               Hit http://security.ubuntu.com precise-security/universe TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main i386 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main amd64 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main i386 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/main Translation-en
+                                                                               Hit http://security.ubuntu.com precise-security/multiverse Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/restricted Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               Hit http://ppa.launchpad.net precise/main amd64 Packages
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://ppa.launchpad.net precise/main i386 Packages
+                                                                               Hit http://ppa.launchpad.net precise/main TranslationIndex
+100% [Sources 21.3 MB] [Waiting for headers] [Waiting for headers] [Connecting                                                                                Hit http://security.ubuntu.com precise-security/universe Translation-en
+100% [Sources 21.3 MB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               100% [Waiting for headers] [Connecting to apt.postgresql.org]                                                             100% [Sources 629 kB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                              100% [Waiting for headers] [Connecting to apt.postgresql.org]                                                             100% [Packages 7,819 kB] [Waiting for headers] [Connecting to apt.postgresql.or                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [Packages 7,819 kB] [Waiting for headers] [Connecting to apt.postgresql.or                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+                                                                               100% [Packages 7,819 kB] [Connecting to apt.postgresql.org]                                                           Hit http://ppa.launchpad.net precise/main Translation-en
+100% [Packages 7,819 kB] [Connecting to apt.postgresql.org]                                                           Hit http://ppa.launchpad.net precise/main Translation-en
+                                                           100% [Packages 7,819 kB] [Waiting for headers] [Connecting to apt.postgresql.or                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+100% [Packages 7,819 kB] [Waiting for headers] [Connecting to apt.postgresql.or                                                                               100% [Waiting for headers] [Connecting to apt.postgresql.org]                                                             100% [Packages 135 kB] [Waiting for headers] [Connecting to apt.postgresql.org]                                                                               100% [Waiting for headers] [Connecting to apt.postgresql.org]                                                             100% [Packages 25.5 MB] [Waiting for headers] [Connecting to apt.postgresql.org                                                                               Hit http://ppa.launchpad.net precise/main Translation-en
+                                                                               100% [Packages 25.5 MB] [Connecting to apt.postgresql.org]                                                          Hit http://apt.postgresql.org precise-pgdg Release.gpg
+                                                          100% [Packages 25.5 MB]                       Hit http://apt.postgresql.org precise-pgdg Release
+100% [Packages 25.5 MB]                       100% [Packages 25.5 MB] [Release gpgv 32.9 kB]                                              100% [Packages 25.5 MB]                       Hit http://apt.postgresql.org precise-pgdg/main amd64 Packages
+100% [Packages 25.5 MB]                       Hit http://apt.postgresql.org precise-pgdg/main i386 Packages
+100% [Packages 25.5 MB]                       Ign http://apt.postgresql.org precise-pgdg/main TranslationIndex
+100% [Packages 25.5 MB]                       100% [Waiting for headers]                          100% [Packages 582 kB] [Waiting for headers]                                            100% [Waiting for headers]                          100% [Packages 7,816 kB] [Waiting for headers]                                              Ign http://apt.postgresql.org precise-pgdg/main Translation-en_US
+                                              100% [Packages 7,816 kB]                        Ign http://apt.postgresql.org precise-pgdg/main Translation-en
+100% [Packages 7,816 kB]                        100% [Working]              100% [Packages 135 kB]                      100% [Working]              100% [Packages 25.6 MB]100% [Packages 25.6 MB]                       100% [Working]              100% [Packages 592 kB]                      100% [Working]              100% [Sources 2,573 kB]                       100% [Working]              100% [Sources 37.4 kB]                      100% [Working]              100% [Sources 476 kB]                     100% [Working]              100% [Sources 32.8 kB]                      100% [Working]              100% [Packages 6,405 kB]                        100% [Working]              100% [Packages 201 kB]                      100% [Working]              100% [Packages 1,402 kB]                        100% [Working]              100% [Packages 80.4 kB]                       100% [Working]              100% [Packages 6,862 kB]                        100% [Working]              100% [Packages 200 kB]                      100% [Working]              100% [Packages 1,477 kB]                        100% [Working]              100% [Packages 78.9 kB]                       100% [Working]              100% [Sources 16.6 kB]                      100% [Working]              100% [Sources 0 B]                  100% [Working]              100% [Sources 168 kB]                     100% [Working]              100% [Sources 18.9 kB]                      100% [Working]              100% [Packages 21.7 kB]                       100% [Working]              100% [Packages 0 B]                   100% [Working]              100% [Packages 219 kB]                      100% [Working]              100% [Packages 19.7 kB]                       100% [Working]              100% [Packages 21.6 kB]                       100% [Working]              100% [Packages 0 B]                   100% [Working]              100% [Packages 218 kB]                      100% [Working]              100% [Packages 19.6 kB]                       100% [Working]              100% [Translation-en 3,862 kB]                              100% [Working]              100% [Translation-en 367 kB]                            100% [Working]              100% [Translation-en 10.2 kB]                             100% [Working]              100% [Translation-en 15.0 MB]                             100% [Working]              100% [Translation-en 4,104 kB]                              100% [Working]              100% [Translation-en 36.1 kB]                             100% [Working]              100% [Translation-en 18.6 kB]                             100% [Working]              100% [Translation-en 812 kB]                            100% [Working]              100% [Translation-en 14.7 kB]                             100% [Working]              100% [Translation-en 13.6 kB]                             100% [Working]              100% [Translation-en 0 B]                         100% [Working]              100% [Translation-en 138 kB]                            100% [Working]              100% [Sources 630 kB]                     100% [Working]              100% [Sources 16.6 kB]                      100% [Working]              100% [Sources 135 kB]                     100% [Working]              100% [Sources 4,314 B]                      100% [Working]              100% [Packages 3,622 kB]                        100% [Working]              100% [Packages 162 kB]                      100% [Working]              100% [Packages 627 kB]                      100% [Working]              100% [Packages 6,410 B]                       100% [Working]              100% [Packages 4,064 kB]                        100% [Working]              100% [Packages 162 kB]                      100% [Working]              100% [Packages 699 kB]                      100% [Working]              100% [Packages 7,318 B]                       100% [Working]              100% [Packages 2,464 B]                       100% [Working]              100% [Packages 2,461 B]                       100% [Working]              100% [Packages 12.4 kB]                       100% [Working]              100% [Packages 12.4 kB]                       100% [Working]              100% [Packages 1,162 B]                       100% [Working]              100% [Packages 1,160 B]                       100% [Working]              100% [Packages 3,792 B]                       100% [Working]              100% [Packages 1,924 B]                       100% [Working]              100% [Packages 137 kB]                      100% [Working]              100% [Packages 137 kB]                      100% [Working]              100% [Translation-en 2,880 kB]                              100% [Working]              100% [Translation-en 2,884 B]                             100% [Working]              100% [Translation-en 12.6 kB]                             100% [Working]              100% [Packages 19.5 kB]                       100% [Working]              100% [Packages 19.5 kB]                       100% [Working]              100% [Translation-en 392 kB]                            100% [Working]              100% [Translation-en 2,489 B]                             100% [Working]              100% [Translation-en 13.8 kB]                             100% [Working]              100% [Translation-en 871 B]                           100% [Working]              100% [Translation-en 3,276 B]                             100% [Working]              100% [Translation-en 97.3 kB]                             100% [Working]              100% [Translation-en 6,192 B]                             100% [Working]              100% [Packages 361 kB]                      100% [Working]              100% [Packages 361 kB]                      100% [Working]              Reading package lists... 0%Reading package lists... 0%Reading package lists... 1%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 24%Reading package lists... 26%Reading package lists... 26%Reading package lists... 27%Reading package lists... 27%Reading package lists... 33%Reading package lists... 33%Reading package lists... 33%Reading package lists... 33%Reading package lists... 51%Reading package lists... 53%Reading package lists... 53%Reading package lists... 54%Reading package lists... 54%Reading package lists... 57%Reading package lists... 57%Reading package lists... 57%Reading package lists... 57%Reading package lists... 57%Reading package lists... 57%Reading package lists... 69%Reading package lists... 69%Reading package lists... 74%Reading package lists... 74%Reading package lists... 74%Reading package lists... 74%Reading package lists... 74%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 76%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 81%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 82%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 86%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 87%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 90%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 94%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+travis_time:end:1010b118:start=1429073978546253516,finish=1429073985613488361,duration=7067234845[0Ktravis_fold:end:before_install.4[0Ktravis_fold:start:before_install.5[0Ktravis_time:start:0ae9a5fc[0K$ if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
+Extracting templates from packages: 9%Extracting templates from packages: 18%Extracting templates from packages: 27%Extracting templates from packages: 37%Extracting templates from packages: 46%Extracting templates from packages: 55%Extracting templates from packages: 65%Extracting templates from packages: 74%Extracting templates from packages: 83%Extracting templates from packages: 93%Extracting templates from packages: 100%
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73599 files and directories currently installed.)
+Preparing to replace libc-dev-bin 2.15-0ubuntu10 (using .../libc-dev-bin_2.15-0ubuntu10.12_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc6-dev 2.15-0ubuntu10 (using .../libc6-dev_2.15-0ubuntu10.12_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-bin 2.15-0ubuntu10 (using .../libc-bin_2.15-0ubuntu10.12_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.12) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73598 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10 (using .../libc6_2.15-0ubuntu10.12_amd64.deb) ...
+Unpacking replacement libc6 ...
+Selecting previously unselected package libc6:i386.
+Unpacking libc6:i386 (from .../libc6_2.15-0ubuntu10.12_i386.deb) ...
+Setting up libc6 (2.15-0ubuntu10.12) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libgcc1:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73901 files and directories currently installed.)
+Unpacking libgcc1:i386 (from .../libgcc1_1%3a4.6.3-1ubuntu5_i386.deb) ...
+Selecting previously unselected package gcc-4.6-base:i386.
+Unpacking gcc-4.6-base:i386 (from .../gcc-4.6-base_4.6.3-1ubuntu5_i386.deb) ...
+Processing triggers for ccache ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up gcc-4.6-base:i386 (4.6.3-1ubuntu5) ...
+Setting up libc6:i386 (2.15-0ubuntu10.12) ...
+Setting up libgcc1:i386 (1:4.6.3-1ubuntu5) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73906 files and directories currently installed.)
+Preparing to replace libfreetype6-dev 2.4.8-1ubuntu2.1 (using .../libfreetype6-dev_2.4.8-1ubuntu2.2_amd64.deb) ...
+Unpacking replacement libfreetype6-dev ...
+Preparing to replace libfreetype6 2.4.8-1ubuntu2.1 (using .../libfreetype6_2.4.8-1ubuntu2.2_amd64.deb) ...
+Unpacking replacement libfreetype6 ...
+Processing triggers for man-db ...
+dpkg: libgd2-noxpm: dependency problems, but removing anyway as you requested:
+ libgvc5 depends on libgd2-noxpm (>= 2.0.36~rc1~dfsg) | libgd2-xpm (>= 2.0.36~rc1~dfsg); however:
+  Package libgd2-noxpm is to be removed.
+  Package libgd2-xpm is not installed.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73906 files and directories currently installed.)
+Removing libgd2-noxpm ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libgd2-xpm.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73897 files and directories currently installed.)
+Unpacking libgd2-xpm (from .../libgd2-xpm_2.0.36~rc1~dfsg-6ubuntu2_amd64.deb) ...
+Selecting previously unselected package libgd2-xpm:i386.
+Unpacking libgd2-xpm:i386 (from .../libgd2-xpm_2.0.36~rc1~dfsg-6ubuntu2_i386.deb) ...
+Setting up libfreetype6 (2.4.8-1ubuntu2.2) ...
+Setting up libgd2-xpm (2.0.36~rc1~dfsg-6ubuntu2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libfontconfig1:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73908 files and directories currently installed.)
+Unpacking libfontconfig1:i386 (from .../libfontconfig1_2.8.0-3ubuntu9.1_i386.deb) ...
+Selecting previously unselected package libexpat1:i386.
+Unpacking libexpat1:i386 (from .../libexpat1_2.0.1-7.2ubuntu1.1_i386.deb) ...
+Setting up libexpat1:i386 (2.0.1-7.2ubuntu1.1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73914 files and directories currently installed.)
+Preparing to replace libfreetype6 2.4.8-1ubuntu2.2 (using .../libfreetype6_2.4.8-1ubuntu2.2_amd64.deb) ...
+Unpacking replacement libfreetype6 ...
+Selecting previously unselected package libfreetype6:i386.
+Unpacking libfreetype6:i386 (from .../libfreetype6_2.4.8-1ubuntu2.2_i386.deb) ...
+Selecting previously unselected package zlib1g:i386.
+Unpacking zlib1g:i386 (from .../zlib1g_1%3a1.2.3.4.dfsg-3ubuntu4_i386.deb) ...
+Setting up zlib1g:i386 (1:1.2.3.4.dfsg-3ubuntu4) ...
+Setting up libfreetype6:i386 (2.4.8-1ubuntu2.2) ...
+Setting up libfreetype6 (2.4.8-1ubuntu2.2) ...
+Setting up libfontconfig1:i386 (2.8.0-3ubuntu9.1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libjpeg8:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73918 files and directories currently installed.)
+Unpacking libjpeg8:i386 (from .../libjpeg8_8c-2ubuntu7_i386.deb) ...
+Selecting previously unselected package libjpeg-turbo8:i386.
+Unpacking libjpeg-turbo8:i386 (from .../libjpeg-turbo8_1.1.90+svn733-0ubuntu4.4_i386.deb) ...
+Setting up libjpeg-turbo8:i386 (1.1.90+svn733-0ubuntu4.4) ...
+Setting up libjpeg8:i386 (8c-2ubuntu7) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libpng12-0:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73920 files and directories currently installed.)
+Unpacking libpng12-0:i386 (from .../libpng12-0_1.2.46-3ubuntu4_i386.deb) ...
+Setting up libpng12-0:i386 (1.2.46-3ubuntu4) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libxpm4:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73922 files and directories currently installed.)
+Unpacking libxpm4:i386 (from .../libxpm4_1%3a3.5.9-4_i386.deb) ...
+Preparing to replace libx11-6 2:1.4.99.1-0ubuntu2.2 (using .../libx11-6_2%3a1.4.99.1-0ubuntu2.3_amd64.deb) ...
+Unpacking replacement libx11-6 ...
+Selecting previously unselected package libx11-6:i386.
+Unpacking libx11-6:i386 (from .../libx11-6_2%3a1.4.99.1-0ubuntu2.3_i386.deb) ...
+Selecting previously unselected package libxcb1:i386.
+Unpacking libxcb1:i386 (from .../libxcb1_1.8.1-1ubuntu0.2_i386.deb) ...
+Selecting previously unselected package libxau6:i386.
+Unpacking libxau6:i386 (from .../libxau6_1%3a1.0.6-4_i386.deb) ...
+Setting up libxau6:i386 (1:1.0.6-4) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libxdmcp6:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73930 files and directories currently installed.)
+Unpacking libxdmcp6:i386 (from .../libxdmcp6_1%3a1.1.0-4_i386.deb) ...
+Setting up libxdmcp6:i386 (1:1.1.0-4) ...
+Setting up libxcb1:i386 (1.8.1-1ubuntu0.2) ...
+Setting up libx11-6:i386 (2:1.4.99.1-0ubuntu2.3) ...
+Setting up libx11-6 (2:1.4.99.1-0ubuntu2.3) ...
+Setting up libxpm4:i386 (1:3.5.9-4) ...
+Setting up libgd2-xpm:i386 (2.0.36~rc1~dfsg-6ubuntu2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73932 files and directories currently installed.)
+Preparing to replace comerr-dev 2.1-1.42-1ubuntu2 (using .../comerr-dev_2.1-1.42-1ubuntu2.2_amd64.deb) ...
+Unpacking replacement comerr-dev ...
+Preparing to replace libcomerr2 1.42-1ubuntu2 (using .../libcomerr2_1.42-1ubuntu2.2_amd64.deb) ...
+Unpacking replacement libcomerr2 ...
+Selecting previously unselected package libcomerr2:i386.
+Unpacking libcomerr2:i386 (from .../libcomerr2_1.42-1ubuntu2.2_i386.deb) ...
+Processing triggers for man-db ...
+Setting up libcomerr2 (1.42-1ubuntu2.2) ...
+Setting up libcomerr2:i386 (1.42-1ubuntu2.2) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73934 files and directories currently installed.)
+Preparing to replace libssl-dev 1.0.1-4ubuntu5.21 (using .../libssl-dev_1.0.1-4ubuntu5.25_amd64.deb) ...
+Unpacking replacement libssl-dev ...
+Preparing to replace libssl1.0.0 1.0.1-4ubuntu5.21 (using .../libssl1.0.0_1.0.1-4ubuntu5.25_amd64.deb) ...
+Unpacking replacement libssl1.0.0 ...
+Selecting previously unselected package libssl1.0.0:i386.
+Unpacking libssl1.0.0:i386 (from .../libssl1.0.0_1.0.1-4ubuntu5.25_i386.deb) ...
+Setting up libssl1.0.0 (1.0.1-4ubuntu5.25) ...
+Setting up libssl1.0.0:i386 (1.0.1-4ubuntu5.25) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73950 files and directories currently installed.)
+Preparing to replace libuuid1 2.20.1-1ubuntu3 (using .../libuuid1_2.20.1-1ubuntu3.1_amd64.deb) ...
+Unpacking replacement libuuid1 ...
+Selecting previously unselected package libuuid1:i386.
+Unpacking libuuid1:i386 (from .../libuuid1_2.20.1-1ubuntu3.1_i386.deb) ...
+Setting up libuuid1 (2.20.1-1ubuntu3.1) ...
+Setting up libuuid1:i386 (2.20.1-1ubuntu3.1) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libsqlite3-0:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73952 files and directories currently installed.)
+Unpacking libsqlite3-0:i386 (from .../libsqlite3-0_3.7.9-2ubuntu1.1_i386.deb) ...
+Selecting previously unselected package libssl0.9.8:i386.
+Unpacking libssl0.9.8:i386 (from .../libssl0.9.8_0.9.8o-7ubuntu3.2_i386.deb) ...
+Selecting previously unselected package libstdc++6:i386.
+Unpacking libstdc++6:i386 (from .../libstdc++6_4.6.3-1ubuntu5_i386.deb) ...
+Selecting previously unselected package libusb-0.1-4:i386.
+Unpacking libusb-0.1-4:i386 (from .../libusb-0.1-4_2%3a0.1.12-20_i386.deb) ...
+Selecting previously unselected package libattr1:i386.
+Unpacking libattr1:i386 (from .../libattr1_1%3a2.4.46-5ubuntu1_i386.deb) ...
+Selecting previously unselected package libacl1:i386.
+Unpacking libacl1:i386 (from .../libacl1_2.2.51-5ubuntu1_i386.deb) ...
+Selecting previously unselected package libbz2-1.0:i386.
+Unpacking libbz2-1.0:i386 (from .../libbz2-1.0_1.0.6-1_i386.deb) ...
+Selecting previously unselected package libdb5.1:i386.
+Unpacking libdb5.1:i386 (from .../libdb5.1_5.1.25-11build1_i386.deb) ...
+Preparing to replace libdbus-1-3 1.4.18-1ubuntu1 (using .../libdbus-1-3_1.4.18-1ubuntu1.7_amd64.deb) ...
+Unpacking replacement libdbus-1-3 ...
+Selecting previously unselected package libdbus-1-3:i386.
+Unpacking libdbus-1-3:i386 (from .../libdbus-1-3_1.4.18-1ubuntu1.7_i386.deb) ...
+Selecting previously unselected package libdrm2:i386.
+Unpacking libdrm2:i386 (from .../libdrm2_2.4.52-1~precise2_i386.deb) ...
+Preparing to replace libpciaccess0 0.12.902-1 (using .../libpciaccess0_0.12.902-1ubuntu0.2_amd64.deb) ...
+Unpacking replacement libpciaccess0 ...
+Selecting previously unselected package libpciaccess0:i386.
+Unpacking libpciaccess0:i386 (from .../libpciaccess0_0.12.902-1ubuntu0.2_i386.deb) ...
+Selecting previously unselected package libdrm-intel1:i386.
+Unpacking libdrm-intel1:i386 (from .../libdrm-intel1_2.4.52-1~precise2_i386.deb) ...
+Selecting previously unselected package libdrm-nouveau1a:i386.
+Unpacking libdrm-nouveau1a:i386 (from .../libdrm-nouveau1a_2.4.52-1~precise2_i386.deb) ...
+Selecting previously unselected package libdrm-radeon1:i386.
+Unpacking libdrm-radeon1:i386 (from .../libdrm-radeon1_2.4.52-1~precise2_i386.deb) ...
+Selecting previously unselected package libffi6:i386.
+Unpacking libffi6:i386 (from .../libffi6_3.0.11~rc1-5_i386.deb) ...
+Selecting previously unselected package libpcre3:i386.
+Unpacking libpcre3:i386 (from .../libpcre3_8.12-4_i386.deb) ...
+Selecting previously unselected package libselinux1:i386.
+Unpacking libselinux1:i386 (from .../libselinux1_2.1.0-4.1ubuntu1_i386.deb) ...
+Selecting previously unselected package libglib2.0-0:i386.
+Unpacking libglib2.0-0:i386 (from .../libglib2.0-0_2.32.4-0ubuntu1_i386.deb) ...
+Selecting previously unselected package liblzma5:i386.
+Unpacking liblzma5:i386 (from .../liblzma5_5.1.1alpha+20110809-3_i386.deb) ...
+Selecting previously unselected package libtinfo5:i386.
+Unpacking libtinfo5:i386 (from .../libtinfo5_5.9-4_i386.deb) ...
+Processing triggers for man-db ...
+Processing triggers for libglib2.0-0 ...
+Setting up libtinfo5:i386 (5.9-4) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Selecting previously unselected package libncurses5:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 74024 files and directories currently installed.)
+Unpacking libncurses5:i386 (from .../libncurses5_5.9-4_i386.deb) ...
+Selecting previously unselected package libncursesw5:i386.
+Unpacking libncursesw5:i386 (from .../libncursesw5_5.9-4_i386.deb) ...
+Selecting previously unselected package libslang2:i386.
+Unpacking libslang2:i386 (from .../libslang2_2.2.4-3ubuntu1_i386.deb) ...
+Preparing to replace libudev0 175-0ubuntu9 (using .../libudev0_175-0ubuntu9.9_amd64.deb) ...
+Unpacking replacement libudev0 ...
+Selecting previously unselected package libudev0:i386.
+Unpacking libudev0:i386 (from .../libudev0_175-0ubuntu9.9_i386.deb) ...
+Preparing to replace libroken18-heimdal 1.6~git20120311.dfsg.1-2 (using .../libroken18-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libroken18-heimdal ...
+Preparing to replace libasn1-8-heimdal 1.6~git20120311.dfsg.1-2 (using .../libasn1-8-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libasn1-8-heimdal ...
+Selecting previously unselected package libroken18-heimdal:i386.
+Unpacking libroken18-heimdal:i386 (from .../libroken18-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libasn1-8-heimdal:i386.
+Unpacking libasn1-8-heimdal:i386 (from .../libasn1-8-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libdbus-glib-1-2:i386.
+Unpacking libdbus-glib-1-2:i386 (from .../libdbus-glib-1-2_0.98-1ubuntu1.1_i386.deb) ...
+Preparing to replace libgcrypt11-dev 1.5.0-3ubuntu0.3 (using .../libgcrypt11-dev_1.5.0-3ubuntu0.4_amd64.deb) ...
+Unpacking replacement libgcrypt11-dev ...
+Preparing to replace libgcrypt11 1.5.0-3ubuntu0.3 (using .../libgcrypt11_1.5.0-3ubuntu0.4_amd64.deb) ...
+Unpacking replacement libgcrypt11 ...
+Selecting previously unselected package libgpg-error0:i386.
+Unpacking libgpg-error0:i386 (from .../libgpg-error0_1.10-2ubuntu1_i386.deb) ...
+Selecting previously unselected package libgcrypt11:i386.
+Unpacking libgcrypt11:i386 (from .../libgcrypt11_1.5.0-3ubuntu0.4_i386.deb) ...
+Selecting previously unselected package libgdbm3:i386.
+Unpacking libgdbm3:i386 (from .../libgdbm3_1.8.3-10_i386.deb) ...
+Preparing to replace libgnutls-dev 2.12.14-5ubuntu3.8 (using .../libgnutls-dev_2.12.14-5ubuntu3.9_amd64.deb) ...
+Unpacking replacement libgnutls-dev ...
+Preparing to replace libgnutlsxx27 2.12.14-5ubuntu3.8 (using .../libgnutlsxx27_2.12.14-5ubuntu3.9_amd64.deb) ...
+Unpacking replacement libgnutlsxx27 ...
+Preparing to replace libtasn1-3-dev 2.10-1ubuntu1.2 (using .../libtasn1-3-dev_2.10-1ubuntu1.3_amd64.deb) ...
+Unpacking replacement libtasn1-3-dev ...
+Preparing to replace libtasn1-3 2.10-1ubuntu1.2 (using .../libtasn1-3_2.10-1ubuntu1.3_amd64.deb) ...
+Unpacking replacement libtasn1-3 ...
+Preparing to replace libgnutls-openssl27 2.12.14-5ubuntu3.8 (using .../libgnutls-openssl27_2.12.14-5ubuntu3.9_amd64.deb) ...
+Unpacking replacement libgnutls-openssl27 ...
+Preparing to replace libgnutls26 2.12.14-5ubuntu3.8 (using .../libgnutls26_2.12.14-5ubuntu3.9_amd64.deb) ...
+Unpacking replacement libgnutls26 ...
+Selecting previously unselected package libp11-kit0:i386.
+Unpacking libp11-kit0:i386 (from .../libp11-kit0_0.12-2ubuntu1_i386.deb) ...
+Selecting previously unselected package libtasn1-3:i386.
+Unpacking libtasn1-3:i386 (from .../libtasn1-3_2.10-1ubuntu1.3_i386.deb) ...
+Selecting previously unselected package libgnutls26:i386.
+Unpacking libgnutls26:i386 (from .../libgnutls26_2.12.14-5ubuntu3.9_i386.deb) ...
+Preparing to replace libkrb5-dev 1.10+dfsg~beta1-2ubuntu0.5 (using .../libkrb5-dev_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libkrb5-dev ...
+Preparing to replace krb5-multidev 1.10+dfsg~beta1-2ubuntu0.5 (using .../krb5-multidev_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement krb5-multidev ...
+Preparing to replace libk5crypto3 1.10+dfsg~beta1-2ubuntu0.5 (using .../libk5crypto3_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libk5crypto3 ...
+Preparing to replace libgssapi-krb5-2 1.10+dfsg~beta1-2ubuntu0.5 (using .../libgssapi-krb5-2_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libgssapi-krb5-2 ...
+Preparing to replace libkrb5-3 1.10+dfsg~beta1-2ubuntu0.5 (using .../libkrb5-3_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libkrb5-3 ...
+Preparing to replace libkrb5support0 1.10+dfsg~beta1-2ubuntu0.5 (using .../libkrb5support0_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libkrb5support0 ...
+Preparing to replace libgssrpc4 1.10+dfsg~beta1-2ubuntu0.5 (using .../libgssrpc4_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libgssrpc4 ...
+Preparing to replace libkadm5srv-mit8 1.10+dfsg~beta1-2ubuntu0.5 (using .../libkadm5srv-mit8_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libkadm5srv-mit8 ...
+Preparing to replace libkadm5clnt-mit8 1.10+dfsg~beta1-2ubuntu0.5 (using .../libkadm5clnt-mit8_1.10+dfsg~beta1-2ubuntu0.6_amd64.deb) ...
+Unpacking replacement libkadm5clnt-mit8 ...
+Selecting previously unselected package libkrb5support0:i386.
+Unpacking libkrb5support0:i386 (from .../libkrb5support0_1.10+dfsg~beta1-2ubuntu0.6_i386.deb) ...
+Selecting previously unselected package libk5crypto3:i386.
+Unpacking libk5crypto3:i386 (from .../libk5crypto3_1.10+dfsg~beta1-2ubuntu0.6_i386.deb) ...
+Selecting previously unselected package libkeyutils1:i386.
+Unpacking libkeyutils1:i386 (from .../libkeyutils1_1.5.2-2_i386.deb) ...
+Selecting previously unselected package libkrb5-3:i386.
+Unpacking libkrb5-3:i386 (from .../libkrb5-3_1.10+dfsg~beta1-2ubuntu0.6_i386.deb) ...
+Selecting previously unselected package libgssapi-krb5-2:i386.
+Unpacking libgssapi-krb5-2:i386 (from .../libgssapi-krb5-2_1.10+dfsg~beta1-2ubuntu0.6_i386.deb) ...
+Preparing to replace libhcrypto4-heimdal 1.6~git20120311.dfsg.1-2 (using .../libhcrypto4-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libhcrypto4-heimdal ...
+Preparing to replace libheimbase1-heimdal 1.6~git20120311.dfsg.1-2 (using .../libheimbase1-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libheimbase1-heimdal ...
+Preparing to replace libwind0-heimdal 1.6~git20120311.dfsg.1-2 (using .../libwind0-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libwind0-heimdal ...
+Preparing to replace libhx509-5-heimdal 1.6~git20120311.dfsg.1-2 (using .../libhx509-5-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libhx509-5-heimdal ...
+Preparing to replace libkrb5-26-heimdal 1.6~git20120311.dfsg.1-2 (using .../libkrb5-26-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libkrb5-26-heimdal ...
+Preparing to replace libheimntlm0-heimdal 1.6~git20120311.dfsg.1-2 (using .../libheimntlm0-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libheimntlm0-heimdal ...
+Preparing to replace libgssapi3-heimdal 1.6~git20120311.dfsg.1-2 (using .../libgssapi3-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_amd64.deb) ...
+Unpacking replacement libgssapi3-heimdal ...
+Selecting previously unselected package libhcrypto4-heimdal:i386.
+Unpacking libhcrypto4-heimdal:i386 (from .../libhcrypto4-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libheimbase1-heimdal:i386.
+Unpacking libheimbase1-heimdal:i386 (from .../libheimbase1-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libwind0-heimdal:i386.
+Unpacking libwind0-heimdal:i386 (from .../libwind0-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libhx509-5-heimdal:i386.
+Unpacking libhx509-5-heimdal:i386 (from .../libhx509-5-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libkrb5-26-heimdal:i386.
+Unpacking libkrb5-26-heimdal:i386 (from .../libkrb5-26-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libheimntlm0-heimdal:i386.
+Unpacking libheimntlm0-heimdal:i386 (from .../libheimntlm0-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libgssapi3-heimdal:i386.
+Unpacking libgssapi3-heimdal:i386 (from .../libgssapi3-heimdal_1.6~git20120311.dfsg.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libidn11:i386.
+Unpacking libidn11:i386 (from .../libidn11_1.23-2_i386.deb) ...
+Selecting previously unselected package libsasl2-2:i386.
+Unpacking libsasl2-2:i386 (from .../libsasl2-2_2.1.25.dfsg1-3ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libldap-2.4-2:i386.
+Unpacking libldap-2.4-2:i386 (from .../libldap-2.4-2_2.4.28-1.1ubuntu4.4_i386.deb) ...
+Selecting previously unselected package librtmp0:i386.
+Unpacking librtmp0:i386 (from .../librtmp0_2.4~20110711.gitc28f1bab-1_i386.deb) ...
+Preparing to replace libx11-dev 2:1.4.99.1-0ubuntu2.2 (using .../libx11-dev_2%3a1.4.99.1-0ubuntu2.3_amd64.deb) ...
+Unpacking replacement libx11-dev ...
+Preparing to replace libxext-dev 2:1.3.0-3ubuntu0.1 (using .../libxext-dev_2%3a1.3.0-3ubuntu0.2_amd64.deb) ...
+Unpacking replacement libxext-dev ...
+Preparing to replace libxext6 2:1.3.0-3ubuntu0.1 (using .../libxext6_2%3a1.3.0-3ubuntu0.2_amd64.deb) ...
+Unpacking replacement libxext6 ...
+Selecting previously unselected package libxext6:i386.
+Unpacking libxext6:i386 (from .../libxext6_2%3a1.3.0-3ubuntu0.2_i386.deb) ...
+Preparing to replace libxml2-dev 2.7.8.dfsg-5.1ubuntu4.11 (using .../libxml2-dev_2.8.0+dfsg1-5ubuntu2.2~precise1_amd64.deb) ...
+Unpacking replacement libxml2-dev ...
+Preparing to replace libxml2 2.7.8.dfsg-5.1ubuntu4.11 (using .../libxml2_2.8.0+dfsg1-5ubuntu2.2~precise1_amd64.deb) ...
+Unpacking replacement libxml2 ...
+Selecting previously unselected package libxml2:i386.
+Unpacking libxml2:i386 (from .../libxml2_2.8.0+dfsg1-5ubuntu2.2~precise1_i386.deb) ...
+Selecting previously unselected package libcap-ng0.
+Unpacking libcap-ng0 (from .../libcap-ng0_0.6.6-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package python-dbus-dev.
+Unpacking python-dbus-dev (from .../python-dbus-dev_1.0.0-1ubuntu1_all.deb) ...
+Selecting previously unselected package python-dbus.
+Unpacking python-dbus (from .../python-dbus_1.0.0-1ubuntu1_amd64.deb) ...
+Selecting previously unselected package bluez.
+Unpacking bluez (from .../bluez_4.98-2ubuntu7.2_amd64.deb) ...
+Selecting previously unselected package libgpm2:i386.
+Unpacking libgpm2:i386 (from .../libgpm2_1.20.4-4_i386.deb) ...
+Selecting previously unselected package libaa1:i386.
+Unpacking libaa1:i386 (from .../libaa1_1.4p5-39ubuntu1_i386.deb) ...
+Selecting previously unselected package libraw1394-11:i386.
+Unpacking libraw1394-11:i386 (from .../libraw1394-11_2.0.7-1ubuntu1_i386.deb) ...
+Selecting previously unselected package libavc1394-0:i386.
+Unpacking libavc1394-0:i386 (from .../libavc1394-0_0.5.3-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libcaca0:i386.
+Unpacking libcaca0:i386 (from .../libcaca0_0.99.beta17-2.1ubuntu2_i386.deb) ...
+Selecting previously unselected package libpixman-1-0:i386.
+Unpacking libpixman-1-0:i386 (from .../libpixman-1-0_0.30.2-1ubuntu0.0.0.0.2_i386.deb) ...
+Selecting previously unselected package libxcb-render0:i386.
+Unpacking libxcb-render0:i386 (from .../libxcb-render0_1.8.1-1ubuntu0.2_i386.deb) ...
+Selecting previously unselected package libxcb-shm0:i386.
+Unpacking libxcb-shm0:i386 (from .../libxcb-shm0_1.8.1-1ubuntu0.2_i386.deb) ...
+Preparing to replace libxrender-dev 1:0.9.6-2ubuntu0.1 (using .../libxrender-dev_1%3a0.9.6-2ubuntu0.2_amd64.deb) ...
+Unpacking replacement libxrender-dev ...
+Preparing to replace libxrender1 1:0.9.6-2ubuntu0.1 (using .../libxrender1_1%3a0.9.6-2ubuntu0.2_amd64.deb) ...
+Unpacking replacement libxrender1 ...
+Selecting previously unselected package libxrender1:i386.
+Unpacking libxrender1:i386 (from .../libxrender1_1%3a0.9.6-2ubuntu0.2_i386.deb) ...
+Selecting previously unselected package libcairo2:i386.
+Unpacking libcairo2:i386 (from .../libcairo2_1.10.2-6.1ubuntu3_i386.deb) ...
+Selecting previously unselected package libcairo-gobject2:i386.
+Unpacking libcairo-gobject2:i386 (from .../libcairo-gobject2_1.10.2-6.1ubuntu3_i386.deb) ...
+Selecting previously unselected package libdv4:i386.
+Unpacking libdv4:i386 (from .../libdv4_1.0.0-3ubuntu1_i386.deb) ...
+Selecting previously unselected package libogg0:i386.
+Unpacking libogg0:i386 (from .../libogg0_1.2.2~dfsg-1ubuntu1_i386.deb) ...
+Selecting previously unselected package libflac8:i386.
+Unpacking libflac8:i386 (from .../libflac8_1.2.1-6ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libjasper1:i386.
+Unpacking libjasper1:i386 (from .../libjasper1_1.900.1-13ubuntu0.2_i386.deb) ...
+Preparing to replace libtiff4-dev 3.9.5-2ubuntu1.6 (using .../libtiff4-dev_3.9.5-2ubuntu1.8_amd64.deb) ...
+Unpacking replacement libtiff4-dev ...
+Preparing to replace libtiffxx0c2 3.9.5-2ubuntu1.6 (using .../libtiffxx0c2_3.9.5-2ubuntu1.8_amd64.deb) ...
+Unpacking replacement libtiffxx0c2 ...
+Preparing to replace libtiff4 3.9.5-2ubuntu1.6 (using .../libtiff4_3.9.5-2ubuntu1.8_amd64.deb) ...
+Unpacking replacement libtiff4 ...
+Selecting previously unselected package libtiff4:i386.
+Unpacking libtiff4:i386 (from .../libtiff4_3.9.5-2ubuntu1.8_i386.deb) ...
+Selecting previously unselected package libgdk-pixbuf2.0-0:i386.
+Unpacking libgdk-pixbuf2.0-0:i386 (from .../libgdk-pixbuf2.0-0_2.26.1-1ubuntu1.1_i386.deb) ...
+Selecting previously unselected package libgstreamer0.10-0:i386.
+Unpacking libgstreamer0.10-0:i386 (from .../libgstreamer0.10-0_0.10.36-1ubuntu1_i386.deb) ...
+Selecting previously unselected package liborc-0.4-0:i386.
+Unpacking liborc-0.4-0:i386 (from .../liborc-0.4-0_1%3a0.4.16-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libgstreamer-plugins-base0.10-0:i386.
+Unpacking libgstreamer-plugins-base0.10-0:i386 (from .../libgstreamer-plugins-base0.10-0_0.10.36-1ubuntu0.1_i386.deb) ...
+Preparing to replace libgudev-1.0-0 1:175-0ubuntu9.8 (using .../libgudev-1.0-0_1%3a175-0ubuntu9.9_amd64.deb) ...
+Unpacking replacement libgudev-1.0-0 ...
+Selecting previously unselected package libgudev-1.0-0:i386.
+Unpacking libgudev-1.0-0:i386 (from .../libgudev-1.0-0_1%3a175-0ubuntu9.9_i386.deb) ...
+Selecting previously unselected package libiec61883-0:i386.
+Unpacking libiec61883-0:i386 (from .../libiec61883-0_1.2.0-0.1ubuntu1_i386.deb) ...
+Selecting previously unselected package libsamplerate0:i386.
+Unpacking libsamplerate0:i386 (from .../libsamplerate0_0.1.8-4_i386.deb) ...
+Selecting previously unselected package libjack-jackd2-0:i386.
+Unpacking libjack-jackd2-0:i386 (from .../libjack-jackd2-0_1.9.8~dfsg.1-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libspeex1:i386.
+Unpacking libspeex1:i386 (from .../libspeex1_1.2~rc1-3ubuntu2_i386.deb) ...
+Selecting previously unselected package libtheora0:i386.
+Unpacking libtheora0:i386 (from .../libtheora0_1.1.1+dfsg.1-3ubuntu2_i386.deb) ...
+Selecting previously unselected package libvorbis0a:i386.
+Unpacking libvorbis0a:i386 (from .../libvorbis0a_1.3.2-1ubuntu3_i386.deb) ...
+Selecting previously unselected package libshout3:i386.
+Unpacking libshout3:i386 (from .../libshout3_2.2.2-7ubuntu1_i386.deb) ...
+Selecting previously unselected package libgnome-keyring0:i386.
+Unpacking libgnome-keyring0:i386 (from .../libgnome-keyring0_3.2.2-2_i386.deb) ...
+Selecting previously unselected package libproxy1:i386.
+Unpacking libproxy1:i386 (from .../libproxy1_0.4.7-0ubuntu4.1_i386.deb) ...
+Selecting previously unselected package libproxy1.
+Unpacking libproxy1 (from .../libproxy1_0.4.7-0ubuntu4.1_amd64.deb) ...
+Selecting previously unselected package glib-networking-common.
+Unpacking glib-networking-common (from .../glib-networking-common_2.32.1-1ubuntu2_all.deb) ...
+Selecting previously unselected package glib-networking-services.
+Unpacking glib-networking-services (from .../glib-networking-services_2.32.1-1ubuntu2_amd64.deb) ...
+Selecting previously unselected package gsettings-desktop-schemas.
+Unpacking gsettings-desktop-schemas (from .../gsettings-desktop-schemas_3.4.1-0ubuntu1_all.deb) ...
+Selecting previously unselected package glib-networking:i386.
+Unpacking glib-networking:i386 (from .../glib-networking_2.32.1-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libsoup2.4-1:i386.
+Unpacking libsoup2.4-1:i386 (from .../libsoup2.4-1_2.38.1-1_i386.deb) ...
+Selecting previously unselected package libsoup-gnome2.4-1:i386.
+Unpacking libsoup-gnome2.4-1:i386 (from .../libsoup-gnome2.4-1_2.38.1-1_i386.deb) ...
+Selecting previously unselected package libtag1-vanilla:i386.
+Unpacking libtag1-vanilla:i386 (from .../libtag1-vanilla_1.7-1ubuntu5_i386.deb) ...
+Selecting previously unselected package libtag1c2a:i386.
+Unpacking libtag1c2a:i386 (from .../libtag1c2a_1.7-1ubuntu5_i386.deb) ...
+Selecting previously unselected package libv4lconvert0:i386.
+Unpacking libv4lconvert0:i386 (from .../libv4lconvert0_0.8.6-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libv4l-0:i386.
+Unpacking libv4l-0:i386 (from .../libv4l-0_0.8.6-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libwavpack1:i386.
+Unpacking libwavpack1:i386 (from .../libwavpack1_4.60.1-2_i386.deb) ...
+Selecting previously unselected package libxdamage1:i386.
+Unpacking libxdamage1:i386 (from .../libxdamage1_1%3a1.1.3-2build1_i386.deb) ...
+Preparing to replace libxfixes-dev 1:5.0-4ubuntu4.3 (using .../libxfixes-dev_1%3a5.0-4ubuntu4.4_amd64.deb) ...
+Unpacking replacement libxfixes-dev ...
+Preparing to replace libxfixes3 1:5.0-4ubuntu4.3 (using .../libxfixes3_1%3a5.0-4ubuntu4.4_amd64.deb) ...
+Unpacking replacement libxfixes3 ...
+Selecting previously unselected package libxfixes3:i386.
+Unpacking libxfixes3:i386 (from .../libxfixes3_1%3a5.0-4ubuntu4.4_i386.deb) ...
+Preparing to replace libxv1 2:1.0.6-2ubuntu0.1 (using .../libxv1_2%3a1.0.6-2ubuntu0.2_amd64.deb) ...
+Unpacking replacement libxv1 ...
+Selecting previously unselected package libxv1:i386.
+Unpacking libxv1:i386 (from .../libxv1_2%3a1.0.6-2ubuntu0.2_i386.deb) ...
+Selecting previously unselected package libcdparanoia0:i386.
+Unpacking libcdparanoia0:i386 (from .../libcdparanoia0_3.10.2+debian-10ubuntu1_i386.deb) ...
+Selecting previously unselected package libvisual-0.4-0:i386.
+Unpacking libvisual-0.4-0:i386 (from .../libvisual-0.4-0_0.4.0-4_i386.deb) ...
+Selecting previously unselected package libvorbisenc2:i386.
+Unpacking libvorbisenc2:i386 (from .../libvorbisenc2_1.3.2-1ubuntu3_i386.deb) ...
+Selecting previously unselected package gstreamer0.10-plugins-base:i386.
+Unpacking gstreamer0.10-plugins-base:i386 (from .../gstreamer0.10-plugins-base_0.10.36-1ubuntu0.1_i386.deb) ...
+Selecting previously unselected package gstreamer0.10-plugins-good:i386.
+Unpacking gstreamer0.10-plugins-good:i386 (from .../gstreamer0.10-plugins-good_0.10.31-1ubuntu1.2_i386.deb) ...
+Selecting previously unselected package libdatrie1:i386.
+Unpacking libdatrie1:i386 (from .../libdatrie1_0.2.5-3_i386.deb) ...
+Selecting previously unselected package libthai0:i386.
+Unpacking libthai0:i386 (from .../libthai0_0.1.16-3_i386.deb) ...
+Selecting previously unselected package libxft2:i386.
+Unpacking libxft2:i386 (from .../libxft2_2.2.0-3ubuntu2_i386.deb) ...
+Selecting previously unselected package libpango1.0-0:i386.
+Unpacking libpango1.0-0:i386 (from .../libpango1.0-0_1.30.0-0ubuntu3.1_i386.deb) ...
+Selecting previously unselected package gtk2-engines-oxygen:i386.
+Unpacking gtk2-engines-oxygen:i386 (from .../gtk2-engines-oxygen_1.2.2-0ubuntu1.1_i386.deb) ...
+Selecting previously unselected package libaio1:i386.
+Unpacking libaio1:i386 (from .../libaio1_0.3.109-2ubuntu1_i386.deb) ...
+Selecting previously unselected package libao-common.
+Unpacking libao-common (from .../libao-common_1.1.0-1ubuntu2_all.deb) ...
+Selecting previously unselected package libao4:i386.
+Unpacking libao4:i386 (from .../libao4_1.1.0-1ubuntu2_i386.deb) ...
+Selecting previously unselected package libasound2:i386.
+Unpacking libasound2:i386 (from .../libasound2_1.0.25-1ubuntu10.2_i386.deb) ...
+Selecting previously unselected package libasyncns0:i386.
+Unpacking libasyncns0:i386 (from .../libasyncns0_0.8-4_i386.deb) ...
+Selecting previously unselected package libatk1.0-0:i386.
+Unpacking libatk1.0-0:i386 (from .../libatk1.0-0_2.4.0-0ubuntu1_i386.deb) ...
+Selecting previously unselected package libice6:i386.
+Unpacking libice6:i386 (from .../libice6_2%3a1.0.7-2build1_i386.deb) ...
+Selecting previously unselected package libsm6:i386.
+Unpacking libsm6:i386 (from .../libsm6_2%3a1.2.0-2build1_i386.deb) ...
+Selecting previously unselected package libxt6:i386.
+Unpacking libxt6:i386 (from .../libxt6_1%3a1.1.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libaudio2:i386.
+Unpacking libaudio2:i386 (from .../libaudio2_1.9.3-4ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libaudiofile1:i386.
+Unpacking libaudiofile1:i386 (from .../libaudiofile1_0.3.3-2_i386.deb) ...
+Selecting previously unselected package libavahi-common-data:i386.
+Unpacking libavahi-common-data:i386 (from .../libavahi-common-data_0.6.30-5ubuntu2.1_i386.deb) ...
+Selecting previously unselected package libavahi-common3:i386.
+Unpacking libavahi-common3:i386 (from .../libavahi-common3_0.6.30-5ubuntu2.1_i386.deb) ...
+Selecting previously unselected package libavahi-client3:i386.
+Unpacking libavahi-client3:i386 (from .../libavahi-client3_0.6.30-5ubuntu2.1_i386.deb) ...
+Selecting previously unselected package libltdl7:i386.
+Unpacking libltdl7:i386 (from .../libltdl7_2.4.2-1ubuntu1_i386.deb) ...
+Selecting previously unselected package libtdb1:i386.
+Unpacking libtdb1:i386 (from .../libtdb1_1.2.9-4_i386.deb) ...
+Selecting previously unselected package libvorbisfile3:i386.
+Unpacking libvorbisfile3:i386 (from .../libvorbisfile3_1.3.2-1ubuntu3_i386.deb) ...
+Selecting previously unselected package libcanberra0:i386.
+Unpacking libcanberra0:i386 (from .../libcanberra0_0.28-3ubuntu3_i386.deb) ...
+Preparing to replace libcups2 1.5.3-0ubuntu8.5 (using .../libcups2_1.5.3-0ubuntu8.6_amd64.deb) ...
+Unpacking replacement libcups2 ...
+Selecting previously unselected package libcups2:i386.
+Unpacking libcups2:i386 (from .../libcups2_1.5.3-0ubuntu8.6_i386.deb) ...
+Selecting previously unselected package libxcomposite1:i386.
+Unpacking libxcomposite1:i386 (from .../libxcomposite1_1%3a0.4.3-2build1_i386.deb) ...
+Selecting previously unselected package libxcursor1:i386.
+Unpacking libxcursor1:i386 (from .../libxcursor1_1%3a1.1.12-1ubuntu0.1_i386.deb) ...
+Preparing to replace libxi-dev 2:1.7.1.901-1ubuntu1~precise2 (using .../libxi-dev_2%3a1.7.1.901-1ubuntu1~precise3_amd64.deb) ...
+Unpacking replacement libxi-dev ...
+Preparing to replace libxi6 2:1.7.1.901-1ubuntu1~precise2 (using .../libxi6_2%3a1.7.1.901-1ubuntu1~precise3_amd64.deb) ...
+Unpacking replacement libxi6 ...
+Selecting previously unselected package libxi6:i386.
+Unpacking libxi6:i386 (from .../libxi6_2%3a1.7.1.901-1ubuntu1~precise3_i386.deb) ...
+Selecting previously unselected package libxinerama1:i386.
+Unpacking libxinerama1:i386 (from .../libxinerama1_2%3a1.1.1-3ubuntu0.1_i386.deb) ...
+Preparing to replace libxrandr-dev 2:1.3.2-2ubuntu0.2 (using .../libxrandr-dev_2%3a1.3.2-2ubuntu0.3_amd64.deb) ...
+Unpacking replacement libxrandr-dev ...
+Preparing to replace libxrandr2 2:1.3.2-2ubuntu0.2 (using .../libxrandr2_2%3a1.3.2-2ubuntu0.3_amd64.deb) ...
+Unpacking replacement libxrandr2 ...
+Selecting previously unselected package libxrandr2:i386.
+Unpacking libxrandr2:i386 (from .../libxrandr2_2%3a1.3.2-2ubuntu0.3_i386.deb) ...
+Selecting previously unselected package libgtk2.0-0:i386.
+Unpacking libgtk2.0-0:i386 (from .../libgtk2.0-0_2.24.10-0ubuntu6.1_i386.deb) ...
+Selecting previously unselected package libcanberra-gtk0:i386.
+Unpacking libcanberra-gtk0:i386 (from .../libcanberra-gtk0_0.28-3ubuntu3_i386.deb) ...
+Selecting previously unselected package libcap2:i386.
+Unpacking libcap2:i386 (from .../libcap2_1%3a2.22-1ubuntu3_i386.deb) ...
+Selecting previously unselected package libcroco3:i386.
+Unpacking libcroco3:i386 (from .../libcroco3_0.6.5-1ubuntu0.1_i386.deb) ...
+Preparing to replace libcupsimage2 1.5.3-0ubuntu8.5 (using .../libcupsimage2_1.5.3-0ubuntu8.6_amd64.deb) ...
+Unpacking replacement libcupsimage2 ...
+Selecting previously unselected package libcupsimage2:i386.
+Unpacking libcupsimage2:i386 (from .../libcupsimage2_1.5.3-0ubuntu8.6_i386.deb) ...
+Selecting previously unselected package libcurl3:i386.
+Unpacking libcurl3:i386 (from .../libcurl3_7.22.0-3ubuntu4.12_i386.deb) ...
+Selecting previously unselected package esound-common.
+Unpacking esound-common (from .../esound-common_0.2.41-10build3_all.deb) ...
+Selecting previously unselected package libesd0:i386.
+Unpacking libesd0:i386 (from .../libesd0_0.2.41-10build3_i386.deb) ...
+Selecting previously unselected package libexif12:i386.
+Unpacking libexif12:i386 (from .../libexif12_0.6.20-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libgail18:i386.
+Unpacking libgail18:i386 (from .../libgail18_2.24.10-0ubuntu6.1_i386.deb) ...
+Selecting previously unselected package libgconf-2-4:i386.
+Unpacking libgconf-2-4:i386 (from .../libgconf-2-4_3.2.5-0ubuntu2_i386.deb) ...
+Selecting previously unselected package libgomp1:i386.
+Unpacking libgomp1:i386 (from .../libgomp1_4.6.3-1ubuntu5_i386.deb) ...
+Selecting previously unselected package libunistring0:i386.
+Unpacking libunistring0:i386 (from .../libunistring0_0.9.3-5_i386.deb) ...
+Selecting previously unselected package libgettextpo0:i386.
+Unpacking libgettextpo0:i386 (from .../libgettextpo0_0.18.1.1-5ubuntu3_i386.deb) ...
+Selecting previously unselected package libglapi-mesa:i386.
+Unpacking libglapi-mesa:i386 (from .../libglapi-mesa_8.0.4-0ubuntu0.7_i386.deb) ...
+Preparing to replace libx11-xcb1 2:1.4.99.1-0ubuntu2.2 (using .../libx11-xcb1_2%3a1.4.99.1-0ubuntu2.3_amd64.deb) ...
+Unpacking replacement libx11-xcb1 ...
+Selecting previously unselected package libx11-xcb1:i386.
+Unpacking libx11-xcb1:i386 (from .../libx11-xcb1_2%3a1.4.99.1-0ubuntu2.3_i386.deb) ...
+Selecting previously unselected package libxcb-glx0:i386.
+Unpacking libxcb-glx0:i386 (from .../libxcb-glx0_1.8.1-1ubuntu0.2_i386.deb) ...
+Selecting previously unselected package libxxf86vm1:i386.
+Unpacking libxxf86vm1:i386 (from .../libxxf86vm1_1%3a1.1.1-2ubuntu0.1_i386.deb) ...
+Selecting previously unselected package libgl1-mesa-glx:i386.
+Unpacking libgl1-mesa-glx:i386 (from .../libgl1-mesa-glx_8.0.4-0ubuntu0.7_i386.deb) ...
+Selecting previously unselected package libgphoto2-port0:i386.
+Unpacking libgphoto2-port0:i386 (from .../libgphoto2-port0_2.4.13-1ubuntu1.2_i386.deb) ...
+Selecting previously unselected package libgphoto2-2:i386.
+Unpacking libgphoto2-2:i386 (from .../libgphoto2-2_2.4.13-1ubuntu1.2_i386.deb) ...
+Selecting previously unselected package libibus-1.0-0:i386.
+Unpacking libibus-1.0-0:i386 (from .../libibus-1.0-0_1.4.1-3ubuntu1_i386.deb) ...
+Selecting previously unselected package libieee1284-3:i386.
+Unpacking libieee1284-3:i386 (from .../libieee1284-3_0.2.11-10build1_i386.deb) ...
+Selecting previously unselected package liblcms1:i386.
+Unpacking liblcms1:i386 (from .../liblcms1_1.19.dfsg-1ubuntu3_i386.deb) ...
+Selecting previously unselected package libllvm3.0:i386.
+Unpacking libllvm3.0:i386 (from .../libllvm3.0_3.0-4ubuntu1_i386.deb) ...
+Selecting previously unselected package libmad0:i386.
+Unpacking libmad0:i386 (from .../libmad0_0.15.1b-7ubuntu1_i386.deb) ...
+Selecting previously unselected package oss-compat.
+Unpacking oss-compat (from .../archives/oss-compat_1_all.deb) ...
+Selecting previously unselected package libmikmod2:i386.
+Unpacking libmikmod2:i386 (from .../libmikmod2_3.1.12-2_i386.deb) ...
+Selecting previously unselected package libmng1:i386.
+Unpacking libmng1:i386 (from .../libmng1_1.0.10-3_i386.deb) ...
+Selecting previously unselected package libmpg123-0:i386.
+Unpacking libmpg123-0:i386 (from .../libmpg123-0_1.12.1-3.2ubuntu1_i386.deb) ...
+Selecting previously unselected package libmysqlclient18:i386.
+Unpacking libmysqlclient18:i386 (from .../libmysqlclient18_5.5.41-0ubuntu0.12.04.1_i386.deb) ...
+Selecting previously unselected package libnspr4:i386.
+Unpacking libnspr4:i386 (from .../libnspr4_4.10.7-0ubuntu0.12.04.1_i386.deb) ...
+Preparing to replace libnss3-1d 3.17.1-0ubuntu0.12.04.2 (using .../libnss3-1d_3.17.4-0ubuntu0.12.04.1_amd64.deb) ...
+Unpacking replacement libnss3-1d ...
+Preparing to replace libnss3 3.17.1-0ubuntu0.12.04.2 (using .../libnss3_3.17.4-0ubuntu0.12.04.1_amd64.deb) ...
+Unpacking replacement libnss3 ...
+Selecting previously unselected package libnss3:i386.
+Unpacking libnss3:i386 (from .../libnss3_3.17.4-0ubuntu0.12.04.1_i386.deb) ...
+Selecting previously unselected package libodbc1:i386.
+Unpacking libodbc1:i386 (from .../libodbc1_2.2.14p2-5ubuntu3_i386.deb) ...
+Selecting previously unselected package libjson0:i386.
+Unpacking libjson0:i386 (from .../libjson0_0.9-1ubuntu1.1_i386.deb) ...
+Selecting previously unselected package libsndfile1:i386.
+Unpacking libsndfile1:i386 (from .../libsndfile1_1.0.25-4_i386.deb) ...
+Selecting previously unselected package libwrap0:i386.
+Unpacking libwrap0:i386 (from .../libwrap0_7.6.q-21_i386.deb) ...
+Selecting previously unselected package libpulse0:i386.
+Unpacking libpulse0:i386 (from .../libpulse0_1%3a1.1-0ubuntu15.4_i386.deb) ...
+Selecting previously unselected package libpulse-mainloop-glib0:i386.
+Unpacking libpulse-mainloop-glib0:i386 (from .../libpulse-mainloop-glib0_1%3a1.1-0ubuntu15.4_i386.deb) ...
+Selecting previously unselected package libpulsedsp:i386.
+Unpacking libpulsedsp:i386 (from .../libpulsedsp_1%3a1.1-0ubuntu15.4_i386.deb) ...
+Selecting previously unselected package libqtcore4:i386.
+Unpacking libqtcore4:i386 (from .../libqtcore4_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-xml:i386.
+Unpacking libqt4-xml:i386 (from .../libqt4-xml_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-dbus:i386.
+Unpacking libqt4-dbus:i386 (from .../libqt4-dbus_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-network:i386.
+Unpacking libqt4-network:i386 (from .../libqt4-network_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-script:i386.
+Unpacking libqt4-script:i386 (from .../libqt4-script_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-sql:i386.
+Unpacking libqt4-sql:i386 (from .../libqt4-sql_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-xmlpatterns:i386.
+Unpacking libqt4-xmlpatterns:i386 (from .../libqt4-xmlpatterns_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqtgui4:i386.
+Unpacking libqtgui4:i386 (from .../libqtgui4_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-declarative:i386.
+Unpacking libqt4-declarative:i386 (from .../libqt4-declarative_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-designer:i386.
+Unpacking libqt4-designer:i386 (from .../libqt4-designer_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-opengl:i386.
+Unpacking libqt4-opengl:i386 (from .../libqt4-opengl_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-qt3support:i386.
+Unpacking libqt4-qt3support:i386 (from .../libqt4-qt3support_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-scripttools:i386.
+Unpacking libqt4-scripttools:i386 (from .../libqt4-scripttools_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-sql-mysql:i386.
+Unpacking libqt4-sql-mysql:i386 (from .../libqt4-sql-mysql_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-svg:i386.
+Unpacking libqt4-svg:i386 (from .../libqt4-svg_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqt4-test:i386.
+Unpacking libqt4-test:i386 (from .../libqt4-test_4%3a4.8.1-0ubuntu4.8_i386.deb) ...
+Selecting previously unselected package libqtwebkit4:i386.
+Unpacking libqtwebkit4:i386 (from .../libqtwebkit4_2.2.1-1ubuntu4_i386.deb) ...
+Selecting previously unselected package librsvg2-2:i386.
+Unpacking librsvg2-2:i386 (from .../librsvg2-2_2.36.1-0ubuntu1.1_i386.deb) ...
+Selecting previously unselected package libsane-common.
+Unpacking libsane-common (from .../libsane-common_1.0.22-7ubuntu1_amd64.deb) ...
+Selecting previously unselected package acl.
+Unpacking acl (from .../acl_2.2.51-5ubuntu1_amd64.deb) ...
+Selecting previously unselected package libsane:i386.
+Unpacking libsane:i386 (from .../libsane_1.0.22-7ubuntu1_i386.deb) ...
+Selecting previously unselected package libsdl1.2debian:i386.
+Unpacking libsdl1.2debian:i386 (from .../libsdl1.2debian_1.2.14-6.4ubuntu3.1_i386.deb) ...
+Selecting previously unselected package libsdl-image1.2:i386.
+Unpacking libsdl-image1.2:i386 (from .../libsdl-image1.2_1.2.10-3_i386.deb) ...
+Selecting previously unselected package libsdl-mixer1.2:i386.
+Unpacking libsdl-mixer1.2:i386 (from .../libsdl-mixer1.2_1.2.11-7_i386.deb) ...
+Selecting previously unselected package libsdl-net1.2:i386.
+Unpacking libsdl-net1.2:i386 (from .../libsdl-net1.2_1.2.7-5_i386.deb) ...
+Selecting previously unselected package libsdl-ttf2.0-0:i386.
+Unpacking libsdl-ttf2.0-0:i386 (from .../libsdl-ttf2.0-0_2.0.9-1.1ubuntu1_i386.deb) ...
+Selecting previously unselected package libspeexdsp1:i386.
+Unpacking libspeexdsp1:i386 (from .../libspeexdsp1_1.2~rc1-3ubuntu2_i386.deb) ...
+Selecting previously unselected package libstdc++5:i386.
+Unpacking libstdc++5:i386 (from .../libstdc++5_1%3a3.3.6-25ubuntu1_i386.deb) ...
+Selecting previously unselected package libxmu6:i386.
+Unpacking libxmu6:i386 (from .../libxmu6_2%3a1.1.0-3_i386.deb) ...
+Selecting previously unselected package libxaw7:i386.
+Unpacking libxaw7:i386 (from .../libxaw7_2%3a1.0.9-3ubuntu1_i386.deb) ...
+Selecting previously unselected package libxp6:i386.
+Unpacking libxp6:i386 (from .../libxp6_1%3a1.0.1-2ubuntu0.12.04.2_i386.deb) ...
+Selecting previously unselected package libxslt1.1:i386.
+Unpacking libxslt1.1:i386 (from .../libxslt1.1_1.1.26-8ubuntu1.3_i386.deb) ...
+Selecting previously unselected package libxss1:i386.
+Unpacking libxss1:i386 (from .../libxss1_1%3a1.2.1-2_i386.deb) ...
+Selecting previously unselected package libxtst6:i386.
+Unpacking libxtst6:i386 (from .../libxtst6_2%3a1.2.0-4ubuntu0.1_i386.deb) ...
+Selecting previously unselected package odbcinst1debian2:i386.
+Unpacking odbcinst1debian2:i386 (from .../odbcinst1debian2_2.2.14p2-5ubuntu3_i386.deb) ...
+Selecting previously unselected package libcapi20-3:i386.
+Unpacking libcapi20-3:i386 (from .../libcapi20-3_1%3a3.12.20071127-0ubuntu11_i386.deb) ...
+Selecting previously unselected package libglu1-mesa:i386.
+Unpacking libglu1-mesa:i386 (from .../libglu1-mesa_8.0.4-0ubuntu0.7_i386.deb) ...
+Selecting previously unselected package libopenal-data.
+Unpacking libopenal-data (from .../libopenal-data_1%3a1.13-4ubuntu3_all.deb) ...
+Selecting previously unselected package libopenal1:i386.
+Unpacking libopenal1:i386 (from .../libopenal1_1%3a1.13-4ubuntu3_i386.deb) ...
+Selecting previously unselected package krb5-locales.
+Unpacking krb5-locales (from .../krb5-locales_1.10+dfsg~beta1-2ubuntu0.6_all.deb) ...
+Selecting previously unselected package libsasl2-modules:i386.
+Unpacking libsasl2-modules:i386 (from .../libsasl2-modules_2.1.25.dfsg1-3ubuntu0.1_i386.deb) ...
+Selecting previously unselected package python-gi.
+Unpacking python-gi (from .../python-gi_3.2.2-1~precise_amd64.deb) ...
+Selecting previously unselected package uuid-runtime.
+Unpacking uuid-runtime (from .../uuid-runtime_2.20.1-1ubuntu3.1_amd64.deb) ...
+Selecting previously unselected package bluez-alsa:i386.
+Unpacking bluez-alsa:i386 (from .../bluez-alsa_4.98-2ubuntu7.2_i386.deb) ...
+Selecting previously unselected package glib-networking.
+Unpacking glib-networking (from .../glib-networking_2.32.1-1ubuntu2_amd64.deb) ...
+Selecting previously unselected package gstreamer0.10-x:i386.
+Unpacking gstreamer0.10-x:i386 (from .../gstreamer0.10-x_0.10.36-1ubuntu0.1_i386.deb) ...
+Selecting previously unselected package gtk2-engines:i386.
+Unpacking gtk2-engines:i386 (from .../gtk2-engines_1%3a2.20.2-1ubuntu1_i386.deb) ...
+Selecting previously unselected package gtk2-engines-murrine:i386.
+Unpacking gtk2-engines-murrine:i386 (from .../gtk2-engines-murrine_0.98.2-0ubuntu1_i386.deb) ...
+Selecting previously unselected package gtk2-engines-pixbuf:i386.
+Unpacking gtk2-engines-pixbuf:i386 (from .../gtk2-engines-pixbuf_2.24.10-0ubuntu6.1_i386.deb) ...
+Selecting previously unselected package gvfs-libs:i386.
+Unpacking gvfs-libs:i386 (from .../gvfs-libs_1.12.1-0ubuntu1.2_i386.deb) ...
+Selecting previously unselected package gvfs:i386.
+Unpacking gvfs:i386 (from .../gvfs_1.12.1-0ubuntu1.2_i386.deb) ...
+Selecting previously unselected package ibus-gtk:i386.
+Unpacking ibus-gtk:i386 (from .../ibus-gtk_1.4.1-3ubuntu1_i386.deb) ...
+Selecting previously unselected package libasound2-plugins:i386.
+Unpacking libasound2-plugins:i386 (from .../libasound2-plugins_1.0.25-1ubuntu1_i386.deb) ...
+Selecting previously unselected package libcanberra-gtk-module:i386.
+Unpacking libcanberra-gtk-module:i386 (from .../libcanberra-gtk-module_0.28-3ubuntu3_i386.deb) ...
+Selecting previously unselected package libgail-common:i386.
+Unpacking libgail-common:i386 (from .../libgail-common_2.24.10-0ubuntu6.1_i386.deb) ...
+Selecting previously unselected package librsvg2-common:i386.
+Unpacking librsvg2-common:i386 (from .../librsvg2-common_2.36.1-0ubuntu1.1_i386.deb) ...
+Selecting previously unselected package xaw3dg:i386.
+Unpacking xaw3dg:i386 (from .../xaw3dg_1.5+E-18.1ubuntu1_i386.deb) ...
+Selecting previously unselected package ia32-libs-multiarch:i386.
+Unpacking ia32-libs-multiarch:i386 (from .../ia32-libs-multiarch_20090808ubuntu36_i386.deb) ...
+Selecting previously unselected package ia32-libs.
+Unpacking ia32-libs (from .../ia32-libs_20090808ubuntu36_amd64.deb) ...
+Selecting previously unselected package libgl1-mesa-dri:i386.
+Unpacking libgl1-mesa-dri:i386 (from .../libgl1-mesa-dri_8.0.4-0ubuntu0.7_i386.deb) ...
+Selecting previously unselected package libgphoto2-l10n.
+Unpacking libgphoto2-l10n (from .../libgphoto2-l10n_2.4.13-1ubuntu1.2_all.deb) ...
+Selecting previously unselected package libvisual-0.4-plugins:i386.
+Unpacking libvisual-0.4-plugins:i386 (from .../libvisual-0.4-plugins_0.4.0.dfsg.1-7_i386.deb) ...
+Selecting previously unselected package tcpd.
+Unpacking tcpd (from .../tcpd_7.6.q-21_amd64.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ureadahead ...
+Processing triggers for gconf2 ...
+Processing triggers for libglib2.0-0 ...
+Setting up libc-dev-bin (2.15-0ubuntu10.12) ...
+Setting up libc6-dev (2.15-0ubuntu10.12) ...
+Setting up libfreetype6-dev (2.4.8-1ubuntu2.2) ...
+Setting up comerr-dev (2.1-1.42-1ubuntu2.2) ...
+Setting up libssl-dev (1.0.1-4ubuntu5.25) ...
+Setting up libsqlite3-0:i386 (3.7.9-2ubuntu1.1) ...
+Setting up libssl0.9.8:i386 (0.9.8o-7ubuntu3.2) ...
+Setting up libstdc++6:i386 (4.6.3-1ubuntu5) ...
+Setting up libusb-0.1-4:i386 (2:0.1.12-20) ...
+Setting up libattr1:i386 (1:2.4.46-5ubuntu1) ...
+Setting up libacl1:i386 (2.2.51-5ubuntu1) ...
+Setting up libbz2-1.0:i386 (1.0.6-1) ...
+Setting up libdb5.1:i386 (5.1.25-11build1) ...
+Setting up libdbus-1-3 (1.4.18-1ubuntu1.7) ...
+Setting up libdbus-1-3:i386 (1.4.18-1ubuntu1.7) ...
+Setting up libdrm2:i386 (2.4.52-1~precise2) ...
+Setting up libpciaccess0 (0.12.902-1ubuntu0.2) ...
+Setting up libpciaccess0:i386 (0.12.902-1ubuntu0.2) ...
+Setting up libdrm-intel1:i386 (2.4.52-1~precise2) ...
+Setting up libdrm-nouveau1a:i386 (2.4.52-1~precise2) ...
+Setting up libdrm-radeon1:i386 (2.4.52-1~precise2) ...
+Setting up libffi6:i386 (3.0.11~rc1-5) ...
+Setting up libpcre3:i386 (8.12-4) ...
+Setting up libselinux1:i386 (2.1.0-4.1ubuntu1) ...
+Setting up libglib2.0-0:i386 (2.32.4-0ubuntu1) ...
+Setting up liblzma5:i386 (5.1.1alpha+20110809-3) ...
+Setting up libncurses5:i386 (5.9-4) ...
+Setting up libncursesw5:i386 (5.9-4) ...
+Setting up libslang2:i386 (2.2.4-3ubuntu1) ...
+Setting up libudev0 (175-0ubuntu9.9) ...
+Setting up libudev0:i386 (175-0ubuntu9.9) ...
+Setting up libroken18-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libroken18-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libasn1-8-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libasn1-8-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libdbus-glib-1-2:i386 (0.98-1ubuntu1.1) ...
+Setting up libgcrypt11 (1.5.0-3ubuntu0.4) ...
+Setting up libgpg-error0:i386 (1.10-2ubuntu1) ...
+Setting up libgcrypt11:i386 (1.5.0-3ubuntu0.4) ...
+Setting up libgcrypt11-dev (1.5.0-3ubuntu0.4) ...
+Setting up libgdbm3:i386 (1.8.3-10) ...
+Setting up libtasn1-3 (2.10-1ubuntu1.3) ...
+Setting up libtasn1-3:i386 (2.10-1ubuntu1.3) ...
+Setting up libgnutls26 (2.12.14-5ubuntu3.9) ...
+Setting up libp11-kit0:i386 (0.12-2ubuntu1) ...
+Setting up libgnutls26:i386 (2.12.14-5ubuntu3.9) ...
+Setting up libgnutlsxx27 (2.12.14-5ubuntu3.9) ...
+Setting up libgnutls-openssl27 (2.12.14-5ubuntu3.9) ...
+Setting up libtasn1-3-dev (2.10-1ubuntu1.3) ...
+Setting up libgnutls-dev (2.12.14-5ubuntu3.9) ...
+Setting up libkrb5support0 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libkrb5support0:i386 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libk5crypto3 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libk5crypto3:i386 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libkrb5-3 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libkeyutils1:i386 (1.5.2-2) ...
+Setting up libkrb5-3:i386 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libgssapi-krb5-2 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libgssapi-krb5-2:i386 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libgssrpc4 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libkadm5srv-mit8 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libkadm5clnt-mit8 (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up krb5-multidev (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libkrb5-dev (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libhcrypto4-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libhcrypto4-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libheimbase1-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libheimbase1-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libwind0-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libwind0-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libhx509-5-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libhx509-5-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libkrb5-26-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libkrb5-26-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libheimntlm0-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libheimntlm0-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libgssapi3-heimdal (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libgssapi3-heimdal:i386 (1.6~git20120311.dfsg.1-2ubuntu0.1) ...
+Setting up libidn11:i386 (1.23-2) ...
+Setting up libsasl2-2:i386 (2.1.25.dfsg1-3ubuntu0.1) ...
+Setting up libldap-2.4-2:i386 (2.4.28-1.1ubuntu4.4) ...
+Setting up librtmp0:i386 (2.4~20110711.gitc28f1bab-1) ...
+Setting up libx11-dev (2:1.4.99.1-0ubuntu2.3) ...
+Setting up libxext6 (2:1.3.0-3ubuntu0.2) ...
+Setting up libxext6:i386 (2:1.3.0-3ubuntu0.2) ...
+Setting up libxext-dev (2:1.3.0-3ubuntu0.2) ...
+Setting up libxml2 (2.8.0+dfsg1-5ubuntu2.2~precise1) ...
+Setting up libxml2:i386 (2.8.0+dfsg1-5ubuntu2.2~precise1) ...
+Setting up libxml2-dev (2.8.0+dfsg1-5ubuntu2.2~precise1) ...
+Setting up libcap-ng0 (0.6.6-1ubuntu1) ...
+Setting up python-dbus-dev (1.0.0-1ubuntu1) ...
+Setting up python-dbus (1.0.0-1ubuntu1) ...
+Remove stale byte-compiled files...
+Setting up bluez (4.98-2ubuntu7.2) ...
+bluetooth start/running, process 18777
+Setting up libgpm2:i386 (1.20.4-4) ...
+Setting up libaa1:i386 (1.4p5-39ubuntu1) ...
+Setting up libraw1394-11:i386 (2.0.7-1ubuntu1) ...
+Setting up libavc1394-0:i386 (0.5.3-1ubuntu2) ...
+Setting up libcaca0:i386 (0.99.beta17-2.1ubuntu2) ...
+Setting up libpixman-1-0:i386 (0.30.2-1ubuntu0.0.0.0.2) ...
+Setting up libxcb-render0:i386 (1.8.1-1ubuntu0.2) ...
+Setting up libxcb-shm0:i386 (1.8.1-1ubuntu0.2) ...
+Setting up libxrender1 (1:0.9.6-2ubuntu0.2) ...
+Setting up libxrender1:i386 (1:0.9.6-2ubuntu0.2) ...
+Setting up libxrender-dev (1:0.9.6-2ubuntu0.2) ...
+Setting up libcairo2:i386 (1.10.2-6.1ubuntu3) ...
+Setting up libcairo-gobject2:i386 (1.10.2-6.1ubuntu3) ...
+Setting up libdv4:i386 (1.0.0-3ubuntu1) ...
+Setting up libogg0:i386 (1.2.2~dfsg-1ubuntu1) ...
+Setting up libflac8:i386 (1.2.1-6ubuntu0.1) ...
+Setting up libjasper1:i386 (1.900.1-13ubuntu0.2) ...
+Setting up libtiff4 (3.9.5-2ubuntu1.8) ...
+Setting up libtiff4:i386 (3.9.5-2ubuntu1.8) ...
+Setting up libtiffxx0c2 (3.9.5-2ubuntu1.8) ...
+Setting up libtiff4-dev (3.9.5-2ubuntu1.8) ...
+Setting up libgdk-pixbuf2.0-0:i386 (2.26.1-1ubuntu1.1) ...
+Setting up libgstreamer0.10-0:i386 (0.10.36-1ubuntu1) ...
+Setting up liborc-0.4-0:i386 (1:0.4.16-1ubuntu2) ...
+Setting up libgstreamer-plugins-base0.10-0:i386 (0.10.36-1ubuntu0.1) ...
+Setting up libgudev-1.0-0 (1:175-0ubuntu9.9) ...
+Setting up libgudev-1.0-0:i386 (1:175-0ubuntu9.9) ...
+Setting up libiec61883-0:i386 (1.2.0-0.1ubuntu1) ...
+Setting up libsamplerate0:i386 (0.1.8-4) ...
+Setting up libjack-jackd2-0:i386 (1.9.8~dfsg.1-1ubuntu2) ...
+Setting up libspeex1:i386 (1.2~rc1-3ubuntu2) ...
+Setting up libtheora0:i386 (1.1.1+dfsg.1-3ubuntu2) ...
+Setting up libvorbis0a:i386 (1.3.2-1ubuntu3) ...
+Setting up libshout3:i386 (2.2.2-7ubuntu1) ...
+Setting up libgnome-keyring0:i386 (3.2.2-2) ...
+Setting up libproxy1:i386 (0.4.7-0ubuntu4.1) ...
+Setting up libproxy1 (0.4.7-0ubuntu4.1) ...
+Setting up glib-networking-common (2.32.1-1ubuntu2) ...
+Setting up glib-networking-services (2.32.1-1ubuntu2) ...
+Setting up gsettings-desktop-schemas (3.4.1-0ubuntu1) ...
+Setting up glib-networking:i386 (2.32.1-1ubuntu2) ...
+Setting up glib-networking (2.32.1-1ubuntu2) ...
+Setting up libsoup2.4-1:i386 (2.38.1-1) ...
+Setting up libsoup-gnome2.4-1:i386 (2.38.1-1) ...
+Setting up libtag1-vanilla:i386 (1.7-1ubuntu5) ...
+Setting up libtag1c2a:i386 (1.7-1ubuntu5) ...
+Setting up libv4lconvert0:i386 (0.8.6-1ubuntu2) ...
+Setting up libv4l-0:i386 (0.8.6-1ubuntu2) ...
+Setting up libwavpack1:i386 (4.60.1-2) ...
+Setting up libxdamage1:i386 (1:1.1.3-2build1) ...
+Setting up libxfixes3 (1:5.0-4ubuntu4.4) ...
+Setting up libxfixes3:i386 (1:5.0-4ubuntu4.4) ...
+Setting up libxfixes-dev (1:5.0-4ubuntu4.4) ...
+Setting up libxv1 (2:1.0.6-2ubuntu0.2) ...
+Setting up libxv1:i386 (2:1.0.6-2ubuntu0.2) ...
+Setting up libcdparanoia0:i386 (3.10.2+debian-10ubuntu1) ...
+Setting up libvisual-0.4-0:i386 (0.4.0-4) ...
+Setting up libvorbisenc2:i386 (1.3.2-1ubuntu3) ...
+Setting up gstreamer0.10-plugins-base:i386 (0.10.36-1ubuntu0.1) ...
+Setting up gstreamer0.10-plugins-good:i386 (0.10.31-1ubuntu1.2) ...
+Setting up libdatrie1:i386 (0.2.5-3) ...
+Setting up libthai0:i386 (0.1.16-3) ...
+Setting up libxft2:i386 (2.2.0-3ubuntu2) ...
+Setting up libpango1.0-0:i386 (1.30.0-0ubuntu3.1) ...
+Setting up gtk2-engines-oxygen:i386 (1.2.2-0ubuntu1.1) ...
+Setting up libaio1:i386 (0.3.109-2ubuntu1) ...
+Setting up libao-common (1.1.0-1ubuntu2) ...
+Setting up libao4:i386 (1.1.0-1ubuntu2) ...
+Setting up libasound2:i386 (1.0.25-1ubuntu10.2) ...
+Setting up libasyncns0:i386 (0.8-4) ...
+Setting up libatk1.0-0:i386 (2.4.0-0ubuntu1) ...
+Setting up libice6:i386 (2:1.0.7-2build1) ...
+Setting up libsm6:i386 (2:1.2.0-2build1) ...
+Setting up libxt6:i386 (1:1.1.1-2ubuntu0.1) ...
+Setting up libaudio2:i386 (1.9.3-4ubuntu0.1) ...
+Setting up libaudiofile1:i386 (0.3.3-2) ...
+Setting up libavahi-common-data:i386 (0.6.30-5ubuntu2.1) ...
+Setting up libavahi-common3:i386 (0.6.30-5ubuntu2.1) ...
+Setting up libavahi-client3:i386 (0.6.30-5ubuntu2.1) ...
+Setting up libltdl7:i386 (2.4.2-1ubuntu1) ...
+Setting up libtdb1:i386 (1.2.9-4) ...
+Setting up libvorbisfile3:i386 (1.3.2-1ubuntu3) ...
+Setting up libcanberra0:i386 (0.28-3ubuntu3) ...
+Setting up libcups2 (1.5.3-0ubuntu8.6) ...
+Setting up libcups2:i386 (1.5.3-0ubuntu8.6) ...
+Setting up libxcomposite1:i386 (1:0.4.3-2build1) ...
+Setting up libxcursor1:i386 (1:1.1.12-1ubuntu0.1) ...
+Setting up libxi6 (2:1.7.1.901-1ubuntu1~precise3) ...
+Setting up libxi6:i386 (2:1.7.1.901-1ubuntu1~precise3) ...
+Setting up libxi-dev (2:1.7.1.901-1ubuntu1~precise3) ...
+Setting up libxinerama1:i386 (2:1.1.1-3ubuntu0.1) ...
+Setting up libxrandr2 (2:1.3.2-2ubuntu0.3) ...
+Setting up libxrandr2:i386 (2:1.3.2-2ubuntu0.3) ...
+Setting up libxrandr-dev (2:1.3.2-2ubuntu0.3) ...
+Setting up libgtk2.0-0:i386 (2.24.10-0ubuntu6.1) ...
+Setting up libcanberra-gtk0:i386 (0.28-3ubuntu3) ...
+Setting up libcap2:i386 (1:2.22-1ubuntu3) ...
+Setting up libcroco3:i386 (0.6.5-1ubuntu0.1) ...
+Setting up libcupsimage2 (1.5.3-0ubuntu8.6) ...
+Setting up libcupsimage2:i386 (1.5.3-0ubuntu8.6) ...
+Setting up libcurl3:i386 (7.22.0-3ubuntu4.12) ...
+Setting up esound-common (0.2.41-10build3) ...
+Setting up libesd0:i386 (0.2.41-10build3) ...
+Setting up libexif12:i386 (0.6.20-2ubuntu0.1) ...
+Setting up libgail18:i386 (2.24.10-0ubuntu6.1) ...
+Setting up libgconf-2-4:i386 (3.2.5-0ubuntu2) ...
+Setting up libgomp1:i386 (4.6.3-1ubuntu5) ...
+Setting up libunistring0:i386 (0.9.3-5) ...
+Setting up libgettextpo0:i386 (0.18.1.1-5ubuntu3) ...
+Setting up libglapi-mesa:i386 (8.0.4-0ubuntu0.7) ...
+Setting up libx11-xcb1 (2:1.4.99.1-0ubuntu2.3) ...
+Setting up libx11-xcb1:i386 (2:1.4.99.1-0ubuntu2.3) ...
+Setting up libxcb-glx0:i386 (1.8.1-1ubuntu0.2) ...
+Setting up libxxf86vm1:i386 (1:1.1.1-2ubuntu0.1) ...
+Setting up libgl1-mesa-glx:i386 (8.0.4-0ubuntu0.7) ...
+update-alternatives: using /usr/lib/i386-linux-gnu/mesa/ld.so.conf to provide /etc/ld.so.conf.d/i386-linux-gnu_GL.conf (i386-linux-gnu_gl_conf) in auto mode.
+Setting up libgphoto2-port0:i386 (2.4.13-1ubuntu1.2) ...
+Setting up libgphoto2-2:i386 (2.4.13-1ubuntu1.2) ...
+Setting up libibus-1.0-0:i386 (1.4.1-3ubuntu1) ...
+Setting up libieee1284-3:i386 (0.2.11-10build1) ...
+Setting up liblcms1:i386 (1.19.dfsg-1ubuntu3) ...
+Setting up libllvm3.0:i386 (3.0-4ubuntu1) ...
+Setting up libmad0:i386 (0.15.1b-7ubuntu1) ...
+Setting up oss-compat (1) ...
+Setting up libmikmod2:i386 (3.1.12-2) ...
+Setting up libmng1:i386 (1.0.10-3) ...
+Setting up libmpg123-0:i386 (1.12.1-3.2ubuntu1) ...
+Setting up libmysqlclient18:i386 (5.5.41-0ubuntu0.12.04.1) ...
+Setting up libnspr4:i386 (4.10.7-0ubuntu0.12.04.1) ...
+Setting up libnss3 (3.17.4-0ubuntu0.12.04.1) ...
+Setting up libnss3:i386 (3.17.4-0ubuntu0.12.04.1) ...
+Setting up libnss3-1d (3.17.4-0ubuntu0.12.04.1) ...
+Setting up libodbc1:i386 (2.2.14p2-5ubuntu3) ...
+Setting up libjson0:i386 (0.9-1ubuntu1.1) ...
+Setting up libsndfile1:i386 (1.0.25-4) ...
+Setting up libwrap0:i386 (7.6.q-21) ...
+Setting up libpulse0:i386 (1:1.1-0ubuntu15.4) ...
+Setting up libpulse-mainloop-glib0:i386 (1:1.1-0ubuntu15.4) ...
+Setting up libpulsedsp:i386 (1:1.1-0ubuntu15.4) ...
+Setting up libqtcore4:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-xml:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-dbus:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-network:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-script:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-sql:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-xmlpatterns:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-sql-mysql:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-test:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up librsvg2-2:i386 (2.36.1-0ubuntu1.1) ...
+Setting up libsane-common (1.0.22-7ubuntu1) ...
+Setting up acl (2.2.51-5ubuntu1) ...
+Setting up libsane:i386 (1.0.22-7ubuntu1) ...
+Setting up libsdl1.2debian:i386 (1.2.14-6.4ubuntu3.1) ...
+Setting up libsdl-image1.2:i386 (1.2.10-3) ...
+Setting up libsdl-mixer1.2:i386 (1.2.11-7) ...
+Setting up libsdl-net1.2:i386 (1.2.7-5) ...
+Setting up libsdl-ttf2.0-0:i386 (2.0.9-1.1ubuntu1) ...
+Setting up libspeexdsp1:i386 (1.2~rc1-3ubuntu2) ...
+Setting up libstdc++5:i386 (1:3.3.6-25ubuntu1) ...
+Setting up libxmu6:i386 (2:1.1.0-3) ...
+Setting up libxaw7:i386 (2:1.0.9-3ubuntu1) ...
+Setting up libxp6:i386 (1:1.0.1-2ubuntu0.12.04.2) ...
+Setting up libxslt1.1:i386 (1.1.26-8ubuntu1.3) ...
+Setting up libxss1:i386 (1:1.2.1-2) ...
+Setting up libxtst6:i386 (2:1.2.0-4ubuntu0.1) ...
+Setting up odbcinst1debian2:i386 (2.2.14p2-5ubuntu3) ...
+Setting up libcapi20-3:i386 (1:3.12.20071127-0ubuntu11) ...
+Setting up libglu1-mesa:i386 (8.0.4-0ubuntu0.7) ...
+Setting up libopenal-data (1:1.13-4ubuntu3) ...
+Setting up libopenal1:i386 (1:1.13-4ubuntu3) ...
+Setting up krb5-locales (1.10+dfsg~beta1-2ubuntu0.6) ...
+Setting up libsasl2-modules:i386 (2.1.25.dfsg1-3ubuntu0.1) ...
+Setting up python-gi (3.2.2-1~precise) ...
+Setting up uuid-runtime (2.20.1-1ubuntu3.1) ...
+Setting up bluez-alsa:i386 (4.98-2ubuntu7.2) ...
+Setting up gstreamer0.10-x:i386 (0.10.36-1ubuntu0.1) ...
+Setting up gtk2-engines:i386 (1:2.20.2-1ubuntu1) ...
+Setting up gtk2-engines-murrine:i386 (0.98.2-0ubuntu1) ...
+Setting up gtk2-engines-pixbuf:i386 (2.24.10-0ubuntu6.1) ...
+Setting up gvfs-libs:i386 (1.12.1-0ubuntu1.2) ...
+Setting up gvfs:i386 (1.12.1-0ubuntu1.2) ...
+Setting up ibus-gtk:i386 (1.4.1-3ubuntu1) ...
+Setting up libasound2-plugins:i386 (1.0.25-1ubuntu1) ...
+Setting up libcanberra-gtk-module:i386 (0.28-3ubuntu3) ...
+Setting up libgail-common:i386 (2.24.10-0ubuntu6.1) ...
+Setting up librsvg2-common:i386 (2.36.1-0ubuntu1.1) ...
+Setting up xaw3dg:i386 (1.5+E-18.1ubuntu1) ...
+Setting up libgl1-mesa-dri:i386 (8.0.4-0ubuntu0.7) ...
+Setting up libgphoto2-l10n (2.4.13-1ubuntu1.2) ...
+Setting up libvisual-0.4-plugins:i386 (0.4.0.dfsg.1-7) ...
+Setting up tcpd (7.6.q-21) ...
+Setting up libqtgui4:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-declarative:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-designer:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-opengl:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-qt3support:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-scripttools:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqt4-svg:i386 (4:4.8.1-0ubuntu4.8) ...
+Setting up libqtwebkit4:i386 (2.2.1-1ubuntu4) ...
+Setting up ia32-libs-multiarch:i386 (20090808ubuntu36) ...
+Setting up ia32-libs (20090808ubuntu36) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+Processing triggers for libgdk-pixbuf2.0-0:i386 ...
+travis_time:end:0ae9a5fc:start=1429073985622009401,finish=1429074038812204098,duration=53190194697[0Ktravis_fold:end:before_install.5[0Ktravis_fold:start:before_install.6[0Ktravis_time:start:13479108[0K$ export TERM=dumb
+travis_time:end:13479108:start=1429074038819842450,finish=1429074038826508249,duration=6665799[0Ktravis_fold:end:before_install.6[0Ktravis_fold:start:before_install.7[0Ktravis_time:start:068e3176[0K$ ./gradlew -v
+Downloading http://services.gradle.org/distributions/gradle-2.2.1-all.zip
+..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Unzipping /home/travis/.gradle/wrapper/dists/gradle-2.2.1-all/2m8005s69iu8v0oiejfej094b/gradle-2.2.1-all.zip to /home/travis/.gradle/wrapper/dists/gradle-2.2.1-all/2m8005s69iu8v0oiejfej094b
+Set executable permissions for: /home/travis/.gradle/wrapper/dists/gradle-2.2.1-all/2m8005s69iu8v0oiejfej094b/gradle-2.2.1/bin/gradle
+
+------------------------------------------------------------
+Gradle 2.2.1
+------------------------------------------------------------
+
+Build time:   2014-11-24 09:45:35 UTC
+Build number: none
+Revision:     6fcb59c06f43a4e6b1bcb401f7686a8601a1fb4a
+
+Groovy:       2.3.6
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_76 (Oracle Corporation 24.76-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+travis_time:end:068e3176:start=1429074038834664489,finish=1429074044819347702,duration=5984683213[0Ktravis_fold:end:before_install.7[0Ktravis_fold:start:before_install.8[0Ktravis_time:start:32983f62[0K$ wget http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+--2015-04-15 05:00:44--  http://dl.google.com/android/android-sdk_r23-linux.tgz
+Resolving dl.google.com (dl.google.com)... 2607:f8b0:4004:80d::200e, 216.58.217.142
+Connecting to dl.google.com (dl.google.com)|2607:f8b0:4004:80d::200e|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 137880977 (131M) [application/x-tar]
+Saving to: `android-sdk_r23-linux.tgz'
+
+ 0% [                                       ] 0           --.-K/s               7% [=>                                     ] 10,511,544  50.1M/s              23% [========>                              ] 31,960,720  76.2M/s              39% [==============>                        ] 54,284,464  86.3M/s              55% [====================>                  ] 76,582,472  91.3M/s              71% [==========================>            ] 98,553,872  94.0M/s              87% [=================================>     ] 120,691,024 95.9M/s              100%[======================================>] 137,880,977 97.0M/s   in 1.4s    
+
+2015-04-15 05:00:46 (97.0 MB/s) - `android-sdk_r23-linux.tgz' saved [137880977/137880977]
+
+travis_time:end:32983f62:start=1429074044827585826,finish=1429074046240769199,duration=1413183373[0Ktravis_fold:end:before_install.8[0Ktravis_fold:start:before_install.9[0Ktravis_time:start:129e201a[0K$ tar -zxf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+travis_time:end:129e201a:start=1429074046248791696,finish=1429074047887915105,duration=1639123409[0Ktravis_fold:end:before_install.9[0Ktravis_fold:start:before_install.10[0Ktravis_time:start:11225120[0K$ export ANDROID_HOME=`pwd`/android-sdk-linux
+travis_time:end:11225120:start=1429074047896322332,finish=1429074047903441321,duration=7118989[0Ktravis_fold:end:before_install.10[0Ktravis_fold:start:before_install.11[0Ktravis_time:start:04146768[0K$ export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+travis_time:end:04146768:start=1429074047911181492,finish=1429074047917764630,duration=6583138[0Ktravis_fold:end:before_install.11[0Ktravis_fold:start:before_install.12[0Ktravis_time:start:0cdddc6c[0K$ echo "sdk.dir=$ANDROID_HOME" > local.properties
+travis_time:end:0cdddc6c:start=1429074047926835077,finish=1429074047933729563,duration=6894486[0Ktravis_fold:end:before_install.12[0Ktravis_fold:start:before_install.13[0Ktravis_time:start:06c05657[0K$ echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+travis_time:end:06c05657:start=1429074047942778973,finish=1429074057188712036,duration=9245933063[0Ktravis_fold:end:before_install.13[0Ktravis_fold:start:before_install.14[0Ktravis_time:start:03ac8534[0K$ echo yes | android update sdk --all --filter build-tools-21.0.0 --no-ui --force > /dev/null
+travis_time:end:03ac8534:start=1429074057196682281,finish=1429074062693412375,duration=5496730094[0Ktravis_fold:end:before_install.14[0Ktravis_fold:start:before_install.15[0Ktravis_time:start:0806a972[0K$ echo yes | android update sdk --filter android-21 --no-ui --force > /dev/null
+travis_time:end:0806a972:start=1429074062701074344,finish=1429074072148991616,duration=9447917272[0Ktravis_fold:end:before_install.15[0Ktravis_fold:start:before_install.16[0Ktravis_time:start:05b3e1ca[0K$ echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+travis_time:end:05b3e1ca:start=1429074072157837665,finish=1429074077386510097,duration=5228672432[0Ktravis_fold:end:before_install.16[0Ktravis_fold:start:before_install.17[0Ktravis_time:start:0f631006[0K$ echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
+travis_time:end:0f631006:start=1429074077393645272,finish=1429074083638982263,duration=6245336991[0Ktravis_fold:end:before_install.17[0Ktravis_fold:start:install[0Ktravis_time:start:26683ca3[0K$ ./gradlew assemble
+Download https://repo1.maven.org/maven2/com/android/tools/build/gradle/1.1.0/gradle-1.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/build/gradle-core/1.1.0/gradle-core-1.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/build/builder/1.1.0/builder-1.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/lint/lint/24.1.0/lint-24.1.0.pom
+Download https://repo1.maven.org/maven2/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.pom
+Download https://repo1.maven.org/maven2/net/sf/proguard/proguard-parent/5.1/proguard-parent-5.1.pom
+Download https://repo1.maven.org/maven2/com/android/tools/build/builder-model/1.1.0/builder-model-1.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/build/builder-test-api/1.1.0/builder-test-api-1.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/sdklib/24.1.0/sdklib-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/sdk-common/24.1.0/sdk-common-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/common/24.1.0/common-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/build/manifest-merger/24.1.0/manifest-merger-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/ddms/ddmlib/24.1.0/ddmlib-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.pom
+Download https://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.pom
+Download https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.pom
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.pom
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm-parent/5.0.3/asm-parent-5.0.3.pom
+Download https://repo1.maven.org/maven2/org/ow2/ow2/1.3/ow2-1.3.pom
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.pom
+Download https://repo1.maven.org/maven2/com/android/tools/lint/lint-checks/24.1.0/lint-checks-24.1.0.pom
+Download https://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4.pom
+Download https://repo1.maven.org/maven2/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.pom
+Download https://repo1.maven.org/maven2/com/android/tools/annotations/24.1.0/annotations-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/layoutlib/layoutlib-api/24.1.0/layoutlib-api-24.1.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/dvlib/24.1.0/dvlib-24.1.0.pom
+Download https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.pom
+Download https://repo1.maven.org/maven2/org/apache/commons/commons-parent/33/commons-parent-33.pom
+Download https://repo1.maven.org/maven2/org/apache/apache/13/apache-13.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.1.1/httpcomponents-client-4.1.1.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/project/4.1.1/project-4.1.1.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-client/4.1/httpcomponents-client-4.1.pom
+Download https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom
+Download https://repo1.maven.org/maven2/com/google/guava/guava/17.0/guava-17.0.pom
+Download https://repo1.maven.org/maven2/com/google/guava/guava-parent/17.0/guava-parent-17.0.pom
+Download https://repo1.maven.org/maven2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.pom
+Download https://repo1.maven.org/maven2/com/android/tools/lint/lint-api/24.1.0/lint-api-24.1.0.pom
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.pom
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcomponents-core/4.1/httpcomponents-core-4.1.pom
+Download https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
+Download https://repo1.maven.org/maven2/org/apache/commons/commons-parent/5/commons-parent-5.pom
+Download https://repo1.maven.org/maven2/org/apache/apache/4/apache-4.pom
+Download https://repo1.maven.org/maven2/commons-codec/commons-codec/1.4/commons-codec-1.4.pom
+Download https://repo1.maven.org/maven2/org/apache/commons/commons-parent/11/commons-parent-11.pom
+Download https://repo1.maven.org/maven2/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.pom
+Download https://repo1.maven.org/maven2/com/android/tools/build/gradle/1.1.0/gradle-1.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/build/gradle-core/1.1.0/gradle-core-1.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/build/builder/1.1.0/builder-1.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/lint/lint/24.1.0/lint-24.1.0.jar
+Download https://repo1.maven.org/maven2/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.jar
+Download https://repo1.maven.org/maven2/com/android/tools/build/builder-model/1.1.0/builder-model-1.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/build/builder-test-api/1.1.0/builder-test-api-1.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/sdklib/24.1.0/sdklib-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/sdk-common/24.1.0/sdk-common-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/common/24.1.0/common-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/build/manifest-merger/24.1.0/manifest-merger-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/ddms/ddmlib/24.1.0/ddmlib-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar
+Download https://repo1.maven.org/maven2/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar
+Download https://repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar
+Download https://repo1.maven.org/maven2/com/android/tools/lint/lint-checks/24.1.0/lint-checks-24.1.0.jar
+Download https://repo1.maven.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4.jar
+Download https://repo1.maven.org/maven2/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.jar
+Download https://repo1.maven.org/maven2/com/android/tools/annotations/24.1.0/annotations-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/layoutlib/layoutlib-api/24.1.0/layoutlib-api-24.1.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/dvlib/24.1.0/dvlib-24.1.0.jar
+Download https://repo1.maven.org/maven2/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar
+Download https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar
+Download https://repo1.maven.org/maven2/com/google/guava/guava/17.0/guava-17.0.jar
+Download https://repo1.maven.org/maven2/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar
+Download https://repo1.maven.org/maven2/com/android/tools/lint/lint-api/24.1.0/lint-api-24.1.0.jar
+Download https://repo1.maven.org/maven2/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar
+Download https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar
+Download https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
+Download https://repo1.maven.org/maven2/commons-codec/commons-codec/1.4/commons-codec-1.4.jar
+Download https://repo1.maven.org/maven2/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/gabrielemariotti/cardslib/build.gradle' line: 30
+
+* What went wrong:
+A problem occurred evaluating root project 'cardslib'.
+> Failed to apply plugin [id 'android-reporting']
+   > A problem occurred configuring project ':library-recyclerview'.
+      > failed to find Build Tools revision 21.0.2
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 18.373 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed. Retrying, 2 of 3.[0m
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/gabrielemariotti/cardslib/build.gradle' line: 30
+
+* What went wrong:
+A problem occurred evaluating root project 'cardslib'.
+> Failed to apply plugin [id 'android-reporting']
+   > A problem occurred configuring project ':library-recyclerview'.
+      > failed to find Build Tools revision 21.0.2
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 7.146 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed. Retrying, 3 of 3.[0m
+
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/home/travis/build/gabrielemariotti/cardslib/build.gradle' line: 30
+
+* What went wrong:
+A problem occurred evaluating root project 'cardslib'.
+> Failed to apply plugin [id 'android-reporting']
+   > A problem occurred configuring project ':library-recyclerview'.
+      > failed to find Build Tools revision 21.0.2
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 7.496 secs
+
+[31;1mThe command "eval ./gradlew assemble" failed 3 times.[0m
+
+travis_time:end:26683ca3:start=1429074083646770045,finish=1429074125763720261,duration=42116950216[0K
+[31;1mThe command "./gradlew assemble" failed and exited with 1 during .[0m
+
+Your build has been stopped.

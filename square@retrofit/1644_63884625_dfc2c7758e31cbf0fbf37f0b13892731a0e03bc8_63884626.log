@@ -1,0 +1,943 @@
+Using worker: worker-linux-docker-a0724e8f.prod.travis-ci.org:travis-linux-1
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:09eed550[0K$ git clone --depth=50 git://github.com/square/retrofit.git square/retrofit
+Cloning into 'square/retrofit'...
+remote: Counting objects: 1401, done.[K
+remote: Compressing objects:   0% (1/728)   [Kremote: Compressing objects:   1% (8/728)   [Kremote: Compressing objects:   2% (15/728)   [Kremote: Compressing objects:   3% (22/728)   [Kremote: Compressing objects:   4% (30/728)   [Kremote: Compressing objects:   5% (37/728)   [Kremote: Compressing objects:   6% (44/728)   [Kremote: Compressing objects:   7% (51/728)   [Kremote: Compressing objects:   8% (59/728)   [Kremote: Compressing objects:   9% (66/728)   [Kremote: Compressing objects:  10% (73/728)   [Kremote: Compressing objects:  11% (81/728)   [Kremote: Compressing objects:  12% (88/728)   [Kremote: Compressing objects:  13% (95/728)   [Kremote: Compressing objects:  14% (102/728)   [Kremote: Compressing objects:  15% (110/728)   [Kremote: Compressing objects:  16% (117/728)   [Kremote: Compressing objects:  17% (124/728)   [Kremote: Compressing objects:  18% (132/728)   [Kremote: Compressing objects:  19% (139/728)   [Kremote: Compressing objects:  20% (146/728)   [Kremote: Compressing objects:  21% (153/728)   [Kremote: Compressing objects:  22% (161/728)   [Kremote: Compressing objects:  23% (168/728)   [Kremote: Compressing objects:  24% (175/728)   [Kremote: Compressing objects:  25% (182/728)   [Kremote: Compressing objects:  26% (190/728)   [Kremote: Compressing objects:  27% (197/728)   [Kremote: Compressing objects:  28% (204/728)   [Kremote: Compressing objects:  29% (212/728)   [Kremote: Compressing objects:  30% (219/728)   [Kremote: Compressing objects:  31% (226/728)   [Kremote: Compressing objects:  32% (233/728)   [Kremote: Compressing objects:  33% (241/728)   [Kremote: Compressing objects:  34% (248/728)   [Kremote: Compressing objects:  35% (255/728)   [Kremote: Compressing objects:  36% (263/728)   [Kremote: Compressing objects:  37% (270/728)   [Kremote: Compressing objects:  38% (277/728)   [Kremote: Compressing objects:  39% (284/728)   [Kremote: Compressing objects:  40% (292/728)   [Kremote: Compressing objects:  41% (299/728)   [Kremote: Compressing objects:  42% (306/728)   [Kremote: Compressing objects:  43% (314/728)   [Kremote: Compressing objects:  44% (321/728)   [Kremote: Compressing objects:  45% (328/728)   [Kremote: Compressing objects:  46% (335/728)   [Kremote: Compressing objects:  47% (343/728)   [Kremote: Compressing objects:  48% (350/728)   [Kremote: Compressing objects:  49% (357/728)   [Kremote: Compressing objects:  50% (364/728)   [Kremote: Compressing objects:  51% (372/728)   [Kremote: Compressing objects:  52% (379/728)   [Kremote: Compressing objects:  53% (386/728)   [Kremote: Compressing objects:  54% (394/728)   [Kremote: Compressing objects:  55% (401/728)   [Kremote: Compressing objects:  56% (408/728)   [Kremote: Compressing objects:  57% (415/728)   [Kremote: Compressing objects:  58% (423/728)   [Kremote: Compressing objects:  59% (430/728)   [Kremote: Compressing objects:  60% (437/728)   [Kremote: Compressing objects:  61% (445/728)   [Kremote: Compressing objects:  62% (452/728)   [Kremote: Compressing objects:  63% (459/728)   [Kremote: Compressing objects:  64% (466/728)   [Kremote: Compressing objects:  65% (474/728)   [Kremote: Compressing objects:  66% (481/728)   [Kremote: Compressing objects:  67% (488/728)   [Kremote: Compressing objects:  68% (496/728)   [Kremote: Compressing objects:  69% (503/728)   [Kremote: Compressing objects:  70% (510/728)   [Kremote: Compressing objects:  71% (517/728)   [Kremote: Compressing objects:  72% (525/728)   [Kremote: Compressing objects:  73% (532/728)   [Kremote: Compressing objects:  74% (539/728)   [Kremote: Compressing objects:  75% (546/728)   [Kremote: Compressing objects:  76% (554/728)   [Kremote: Compressing objects:  77% (561/728)   [Kremote: Compressing objects:  78% (568/728)   [Kremote: Compressing objects:  79% (576/728)   [Kremote: Compressing objects:  80% (583/728)   [Kremote: Compressing objects:  81% (590/728)   [Kremote: Compressing objects:  82% (597/728)   [Kremote: Compressing objects:  83% (605/728)   [Kremote: Compressing objects:  84% (612/728)   [Kremote: Compressing objects:  85% (619/728)   [Kremote: Compressing objects:  86% (627/728)   [Kremote: Compressing objects:  87% (634/728)   [Kremote: Compressing objects:  88% (641/728)   [Kremote: Compressing objects:  89% (648/728)   [Kremote: Compressing objects:  90% (656/728)   [Kremote: Compressing objects:  91% (663/728)   [Kremote: Compressing objects:  92% (670/728)   [Kremote: Compressing objects:  93% (678/728)   [Kremote: Compressing objects:  94% (685/728)   [Kremote: Compressing objects:  95% (692/728)   [Kremote: Compressing objects:  96% (699/728)   [Kremote: Compressing objects:  97% (707/728)   [Kremote: Compressing objects:  98% (714/728)   [Kremote: Compressing objects:  99% (721/728)   [Kremote: Compressing objects: 100% (728/728)   [Kremote: Compressing objects: 100% (728/728), done.[K
+Receiving objects:   0% (1/1401)   Receiving objects:   1% (15/1401)   Receiving objects:   2% (29/1401)   Receiving objects:   3% (43/1401)   Receiving objects:   4% (57/1401)   Receiving objects:   5% (71/1401)   Receiving objects:   6% (85/1401)   Receiving objects:   7% (99/1401)   Receiving objects:   8% (113/1401)   Receiving objects:   9% (127/1401)   Receiving objects:  10% (141/1401)   Receiving objects:  11% (155/1401)   Receiving objects:  12% (169/1401)   Receiving objects:  13% (183/1401)   Receiving objects:  14% (197/1401)   Receiving objects:  15% (211/1401)   Receiving objects:  16% (225/1401)   Receiving objects:  17% (239/1401)   Receiving objects:  18% (253/1401)   Receiving objects:  19% (267/1401)   Receiving objects:  20% (281/1401)   Receiving objects:  21% (295/1401)   Receiving objects:  22% (309/1401)   Receiving objects:  23% (323/1401)   Receiving objects:  24% (337/1401)   Receiving objects:  25% (351/1401)   Receiving objects:  26% (365/1401)   Receiving objects:  27% (379/1401)   Receiving objects:  28% (393/1401)   Receiving objects:  29% (407/1401)   Receiving objects:  30% (421/1401)   Receiving objects:  31% (435/1401)   Receiving objects:  32% (449/1401)   Receiving objects:  33% (463/1401)   Receiving objects:  34% (477/1401)   Receiving objects:  35% (491/1401)   Receiving objects:  36% (505/1401)   Receiving objects:  37% (519/1401)   Receiving objects:  38% (533/1401)   Receiving objects:  39% (547/1401)   Receiving objects:  40% (561/1401)   Receiving objects:  41% (575/1401)   Receiving objects:  42% (589/1401)   Receiving objects:  43% (603/1401)   Receiving objects:  44% (617/1401)   Receiving objects:  45% (631/1401)   Receiving objects:  46% (645/1401)   Receiving objects:  47% (659/1401)   Receiving objects:  48% (673/1401)   Receiving objects:  49% (687/1401)   Receiving objects:  50% (701/1401)   Receiving objects:  51% (715/1401)   Receiving objects:  52% (729/1401)   Receiving objects:  53% (743/1401)   Receiving objects:  54% (757/1401)   Receiving objects:  55% (771/1401)   Receiving objects:  56% (785/1401)   remote: Total 1401 (delta 486), reused 1164 (delta 320), pack-reused 0[K
+Receiving objects:  57% (799/1401)   Receiving objects:  58% (813/1401)   Receiving objects:  59% (827/1401)   Receiving objects:  60% (841/1401)   Receiving objects:  61% (855/1401)   Receiving objects:  62% (869/1401)   Receiving objects:  63% (883/1401)   Receiving objects:  64% (897/1401)   Receiving objects:  65% (911/1401)   Receiving objects:  66% (925/1401)   Receiving objects:  67% (939/1401)   Receiving objects:  68% (953/1401)   Receiving objects:  69% (967/1401)   Receiving objects:  70% (981/1401)   Receiving objects:  71% (995/1401)   Receiving objects:  72% (1009/1401)   Receiving objects:  73% (1023/1401)   Receiving objects:  74% (1037/1401)   Receiving objects:  75% (1051/1401)   Receiving objects:  76% (1065/1401)   Receiving objects:  77% (1079/1401)   Receiving objects:  78% (1093/1401)   Receiving objects:  79% (1107/1401)   Receiving objects:  80% (1121/1401)   Receiving objects:  81% (1135/1401)   Receiving objects:  82% (1149/1401)   Receiving objects:  83% (1163/1401)   Receiving objects:  84% (1177/1401)   Receiving objects:  85% (1191/1401)   Receiving objects:  86% (1205/1401)   Receiving objects:  87% (1219/1401)   Receiving objects:  88% (1233/1401)   Receiving objects:  89% (1247/1401)   Receiving objects:  90% (1261/1401)   Receiving objects:  91% (1275/1401)   Receiving objects:  92% (1289/1401)   Receiving objects:  93% (1303/1401)   Receiving objects:  94% (1317/1401)   Receiving objects:  95% (1331/1401)   Receiving objects:  96% (1345/1401)   Receiving objects:  97% (1359/1401)   Receiving objects:  98% (1373/1401)   Receiving objects:  99% (1387/1401)   Receiving objects: 100% (1401/1401)   Receiving objects: 100% (1401/1401), 341.81 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/486)   Resolving deltas:   1% (9/486)   Resolving deltas:   2% (12/486)   Resolving deltas:   3% (15/486)   Resolving deltas:   6% (32/486)   Resolving deltas:   7% (35/486)   Resolving deltas:  16% (78/486)   Resolving deltas:  17% (85/486)   Resolving deltas:  22% (108/486)   Resolving deltas:  24% (118/486)   Resolving deltas:  25% (126/486)   Resolving deltas:  26% (127/486)   Resolving deltas:  27% (132/486)   Resolving deltas:  28% (138/486)   Resolving deltas:  29% (145/486)   Resolving deltas:  31% (152/486)   Resolving deltas:  32% (156/486)   Resolving deltas:  35% (173/486)   Resolving deltas:  37% (180/486)   Resolving deltas:  38% (188/486)   Resolving deltas:  39% (190/486)   Resolving deltas:  40% (197/486)   Resolving deltas:  41% (201/486)   Resolving deltas:  42% (205/486)   Resolving deltas:  43% (213/486)   Resolving deltas:  46% (228/486)   Resolving deltas:  47% (230/486)   Resolving deltas:  51% (249/486)   Resolving deltas:  52% (254/486)   Resolving deltas:  53% (261/486)   Resolving deltas:  56% (273/486)   Resolving deltas:  57% (279/486)   Resolving deltas:  58% (282/486)   Resolving deltas:  59% (288/486)   Resolving deltas:  61% (299/486)   Resolving deltas:  62% (302/486)   Resolving deltas:  63% (307/486)   Resolving deltas:  64% (312/486)   Resolving deltas:  67% (329/486)   Resolving deltas:  68% (332/486)   Resolving deltas:  69% (337/486)   Resolving deltas:  71% (347/486)   Resolving deltas:  72% (353/486)   Resolving deltas:  73% (355/486)   Resolving deltas:  74% (361/486)   Resolving deltas:  75% (365/486)   Resolving deltas:  77% (378/486)   Resolving deltas:  78% (382/486)   Resolving deltas:  79% (387/486)   Resolving deltas:  80% (393/486)   Resolving deltas:  81% (398/486)   Resolving deltas:  82% (399/486)   Resolving deltas:  83% (407/486)   Resolving deltas:  84% (409/486)   Resolving deltas:  89% (435/486)   Resolving deltas:  90% (439/486)   Resolving deltas:  91% (446/486)   Resolving deltas:  93% (456/486)   Resolving deltas:  94% (460/486)   Resolving deltas:  98% (480/486)   Resolving deltas:  99% (482/486)   Resolving deltas: 100% (486/486)   Resolving deltas: 100% (486/486), done.
+Checking connectivity... done.
+travis_time:end:09eed550:start=1432501567769022418,finish=1432501568005484432,duration=236462014[0K$ cd square/retrofit
+travis_time:start:17b53c9b[0K$ git fetch origin +refs/pull/858/merge:
+remote: Counting objects: 125, done.[K
+remote: Compressing objects:   1% (1/88)   [Kremote: Compressing objects:   2% (2/88)   [Kremote: Compressing objects:   3% (3/88)   [Kremote: Compressing objects:   4% (4/88)   [Kremote: Compressing objects:   5% (5/88)   [Kremote: Compressing objects:   6% (6/88)   [Kremote: Compressing objects:   7% (7/88)   [Kremote: Compressing objects:   9% (8/88)   [Kremote: Compressing objects:  10% (9/88)   [Kremote: Compressing objects:  11% (10/88)   [Kremote: Compressing objects:  12% (11/88)   [Kremote: Compressing objects:  13% (12/88)   [Kremote: Compressing objects:  14% (13/88)   [Kremote: Compressing objects:  15% (14/88)   [Kremote: Compressing objects:  17% (15/88)   [Kremote: Compressing objects:  18% (16/88)   [Kremote: Compressing objects:  19% (17/88)   [Kremote: Compressing objects:  20% (18/88)   [Kremote: Compressing objects:  21% (19/88)   [Kremote: Compressing objects:  22% (20/88)   [Kremote: Compressing objects:  23% (21/88)   [Kremote: Compressing objects:  25% (22/88)   [Kremote: Compressing objects:  26% (23/88)   [Kremote: Compressing objects:  27% (24/88)   [Kremote: Compressing objects:  28% (25/88)   [Kremote: Compressing objects:  29% (26/88)   [Kremote: Compressing objects:  30% (27/88)   [Kremote: Compressing objects:  31% (28/88)   [Kremote: Compressing objects:  32% (29/88)   [Kremote: Compressing objects:  34% (30/88)   [Kremote: Compressing objects:  35% (31/88)   [Kremote: Compressing objects:  36% (32/88)   [Kremote: Compressing objects:  37% (33/88)   [Kremote: Compressing objects:  38% (34/88)   [Kremote: Compressing objects:  39% (35/88)   [Kremote: Compressing objects:  40% (36/88)   [Kremote: Compressing objects:  42% (37/88)   [Kremote: Compressing objects:  43% (38/88)   [Kremote: Compressing objects:  44% (39/88)   [Kremote: Compressing objects:  45% (40/88)   [Kremote: Compressing objects:  46% (41/88)   [Kremote: Compressing objects:  47% (42/88)   [Kremote: Compressing objects:  48% (43/88)   [Kremote: Compressing objects:  50% (44/88)   [Kremote: Compressing objects:  51% (45/88)   [Kremote: Compressing objects:  52% (46/88)   [Kremote: Compressing objects:  53% (47/88)   [Kremote: Compressing objects:  54% (48/88)   [Kremote: Compressing objects:  55% (49/88)   [Kremote: Compressing objects:  56% (50/88)   [Kremote: Compressing objects:  57% (51/88)   [Kremote: Compressing objects:  59% (52/88)   [Kremote: Compressing objects:  60% (53/88)   [Kremote: Compressing objects:  61% (54/88)   [Kremote: Compressing objects:  62% (55/88)   [Kremote: Compressing objects:  63% (56/88)   [Kremote: Compressing objects:  64% (57/88)   [Kremote: Compressing objects:  65% (58/88)   [Kremote: Compressing objects:  67% (59/88)   [Kremote: Compressing objects:  68% (60/88)   [Kremote: Compressing objects:  69% (61/88)   [Kremote: Compressing objects:  70% (62/88)   [Kremote: Compressing objects:  71% (63/88)   [Kremote: Compressing objects:  72% (64/88)   [Kremote: Compressing objects:  73% (65/88)   [Kremote: Compressing objects:  75% (66/88)   [Kremote: Compressing objects:  76% (67/88)   [Kremote: Compressing objects:  77% (68/88)   [Kremote: Compressing objects:  78% (69/88)   [Kremote: Compressing objects:  79% (70/88)   [Kremote: Compressing objects:  80% (71/88)   [Kremote: Compressing objects:  81% (72/88)   [Kremote: Compressing objects:  82% (73/88)   [Kremote: Compressing objects:  84% (74/88)   [Kremote: Compressing objects:  85% (75/88)   [Kremote: Compressing objects:  86% (76/88)   [Kremote: Compressing objects:  87% (77/88)   [Kremote: Compressing objects:  88% (78/88)   [Kremote: Compressing objects:  89% (79/88)   [Kremote: Compressing objects:  90% (80/88)   [Kremote: Compressing objects:  92% (81/88)   [Kremote: Compressing objects:  93% (82/88)   [Kremote: Compressing objects:  94% (83/88)   [Kremote: Compressing objects:  95% (84/88)   [Kremote: Compressing objects:  96% (85/88)   [Kremote: Compressing objects:  97% (86/88)   [Kremote: Compressing objects:  98% (87/88)   [Kremote: Compressing objects: 100% (88/88)   [Kremote: Compressing objects: 100% (88/88), done.[K
+remote: Total 125 (delta 42), reused 84 (delta 3), pack-reused 0[K
+Receiving objects:   0% (1/125)   Receiving objects:   1% (2/125)   Receiving objects:   2% (3/125)   Receiving objects:   3% (4/125)   Receiving objects:   4% (5/125)   Receiving objects:   5% (7/125)   Receiving objects:   6% (8/125)   Receiving objects:   7% (9/125)   Receiving objects:   8% (10/125)   Receiving objects:   9% (12/125)   Receiving objects:  10% (13/125)   Receiving objects:  11% (14/125)   Receiving objects:  12% (15/125)   Receiving objects:  13% (17/125)   Receiving objects:  14% (18/125)   Receiving objects:  15% (19/125)   Receiving objects:  16% (20/125)   Receiving objects:  17% (22/125)   Receiving objects:  18% (23/125)   Receiving objects:  19% (24/125)   Receiving objects:  20% (25/125)   Receiving objects:  21% (27/125)   Receiving objects:  22% (28/125)   Receiving objects:  23% (29/125)   Receiving objects:  24% (30/125)   Receiving objects:  25% (32/125)   Receiving objects:  26% (33/125)   Receiving objects:  27% (34/125)   Receiving objects:  28% (35/125)   Receiving objects:  29% (37/125)   Receiving objects:  30% (38/125)   Receiving objects:  31% (39/125)   Receiving objects:  32% (40/125)   Receiving objects:  33% (42/125)   Receiving objects:  34% (43/125)   Receiving objects:  35% (44/125)   Receiving objects:  36% (45/125)   Receiving objects:  37% (47/125)   Receiving objects:  38% (48/125)   Receiving objects:  39% (49/125)   Receiving objects:  40% (50/125)   Receiving objects:  41% (52/125)   Receiving objects:  42% (53/125)   Receiving objects:  43% (54/125)   Receiving objects:  44% (55/125)   Receiving objects:  45% (57/125)   Receiving objects:  46% (58/125)   Receiving objects:  47% (59/125)   Receiving objects:  48% (60/125)   Receiving objects:  49% (62/125)   Receiving objects:  50% (63/125)   Receiving objects:  51% (64/125)   Receiving objects:  52% (65/125)   Receiving objects:  53% (67/125)   Receiving objects:  54% (68/125)   Receiving objects:  55% (69/125)   Receiving objects:  56% (70/125)   Receiving objects:  57% (72/125)   Receiving objects:  58% (73/125)   Receiving objects:  59% (74/125)   Receiving objects:  60% (75/125)   Receiving objects:  61% (77/125)   Receiving objects:  62% (78/125)   Receiving objects:  63% (79/125)   Receiving objects:  64% (80/125)   Receiving objects:  65% (82/125)   Receiving objects:  66% (83/125)   Receiving objects:  67% (84/125)   Receiving objects:  68% (85/125)   Receiving objects:  69% (87/125)   Receiving objects:  70% (88/125)   Receiving objects:  71% (89/125)   Receiving objects:  72% (90/125)   Receiving objects:  73% (92/125)   Receiving objects:  74% (93/125)   Receiving objects:  75% (94/125)   Receiving objects:  76% (95/125)   Receiving objects:  77% (97/125)   Receiving objects:  78% (98/125)   Receiving objects:  79% (99/125)   Receiving objects:  80% (100/125)   Receiving objects:  81% (102/125)   Receiving objects:  82% (103/125)   Receiving objects:  83% (104/125)   Receiving objects:  84% (105/125)   Receiving objects:  85% (107/125)   Receiving objects:  86% (108/125)   Receiving objects:  87% (109/125)   Receiving objects:  88% (110/125)   Receiving objects:  89% (112/125)   Receiving objects:  90% (113/125)   Receiving objects:  91% (114/125)   Receiving objects:  92% (115/125)   Receiving objects:  93% (117/125)   Receiving objects:  94% (118/125)   Receiving objects:  95% (119/125)   Receiving objects:  96% (120/125)   Receiving objects:  97% (122/125)   Receiving objects:  98% (123/125)   Receiving objects:  99% (124/125)   Receiving objects: 100% (125/125)   Receiving objects: 100% (125/125), 12.36 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/42)   Resolving deltas:  14% (6/42)   Resolving deltas:  16% (7/42)   Resolving deltas:  21% (9/42)   Resolving deltas:  28% (12/42)   Resolving deltas:  30% (13/42)   Resolving deltas:  61% (26/42)   Resolving deltas:  64% (27/42)   Resolving deltas:  83% (35/42)   Resolving deltas:  95% (40/42)   Resolving deltas:  97% (41/42)   Resolving deltas: 100% (42/42)   Resolving deltas: 100% (42/42), completed with 6 local objects.
+From git://github.com/square/retrofit
+ * branch            refs/pull/858/merge -> FETCH_HEAD
+travis_time:end:17b53c9b:start=1432501568009391480,finish=1432501568123017676,duration=113626196[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:1c26fc93[0K$ Installing caching utilities
+travis_time:end:1c26fc93:start=1432501569878749268,finish=1432501569939739913,duration=60990645[0Ktravis_time:start:0d56b7f8[0Kattempting to download cache archive
+fetching PR.858/cache--jdk-oraclejdk7.tbz
+found cache
+travis_time:end:0d56b7f8:start=1432501569944058478,finish=1432501570952998332,duration=1008939854[0Ktravis_time:start:0bef0b48[0Kadding /home/travis/.m2 to cache
+travis_time:end:0bef0b48:start=1432501570956665558,finish=1432501574918367068,duration=3961701510[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:0cf68a78[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit:samples:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.retrofit:samples:[unknown-version], /home/travis/build/square/retrofit/samples/pom.xml, line 32, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Retrofit (Parent)
+[INFO] Retrofit
+[INFO] Converters
+[INFO] Converter: Protocol Buffers
+[INFO] Converter: Jackson
+[INFO] Converter: Wire Protocol Buffers
+[INFO] Converter: SimpleXML
+[INFO] Converter: LoganSquare
+[INFO] Retrofit Mock Adapter
+[INFO] Samples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit (Parent) 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ parent ---
+[INFO] Installing /home/travis/build/square/retrofit/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/parent/2.0.0-SNAPSHOT/parent-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 36 source files to /home/travis/build/square/retrofit/retrofit/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RestAdapter.java: /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RestAdapter.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RestAdapter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /home/travis/build/square/retrofit/retrofit/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ retrofit ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit/target/retrofit-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ retrofit ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit/target/retrofit-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/retrofit/2.0.0-SNAPSHOT/retrofit-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/retrofit/2.0.0-SNAPSHOT/retrofit-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-converters ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ retrofit-converters ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-converters ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/retrofit-converters/2.0.0-SNAPSHOT/retrofit-converters-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-protobuf ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-protobuf ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-protobuf ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/converter-protobuf-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ converter-protobuf ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-protobuf ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/converter-protobuf-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-protobuf/2.0.0-SNAPSHOT/converter-protobuf-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/protobuf/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-protobuf/2.0.0-SNAPSHOT/converter-protobuf-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Jackson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-jackson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-jackson ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-jackson ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/jackson/target/converter-jackson-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ converter-jackson ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-jackson ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/jackson/target/converter-jackson-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-jackson/2.0.0-SNAPSHOT/converter-jackson-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/jackson/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-jackson/2.0.0-SNAPSHOT/converter-jackson-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Wire Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-wire ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/wire/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/wire/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-wire ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-wire ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/wire/target/converter-wire-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ converter-wire ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-wire ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/wire/target/converter-wire-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-wire/2.0.0-SNAPSHOT/converter-wire-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/wire/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-wire/2.0.0-SNAPSHOT/converter-wire-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: SimpleXML 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-simplexml ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-simplexml ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-simplexml ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/converter-simplexml-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ converter-simplexml ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-simplexml ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/converter-simplexml-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-simplexml/2.0.0-SNAPSHOT/converter-simplexml-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/simplexml/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-simplexml/2.0.0-SNAPSHOT/converter-simplexml-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: LoganSquare 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-logansquare ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-logansquare ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-logansquare ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/java/retrofit/converter/LoganSquareConverter.java: /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/java/retrofit/converter/LoganSquareConverter.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/java/retrofit/converter/LoganSquareConverter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-logansquare ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-logansquare ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-logansquare ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-logansquare ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/converter-logansquare-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ converter-logansquare ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-logansquare ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/converter-logansquare-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-logansquare/2.0.0-SNAPSHOT/converter-logansquare-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/logansquare/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-logansquare/2.0.0-SNAPSHOT/converter-logansquare-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit Mock Adapter 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-mock ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit-mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-mock/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit-mock ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/square/retrofit/retrofit-mock/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit-mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-mock/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit-mock ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-mock/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit-mock ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ retrofit-mock ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-mock/target/retrofit-mock-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ retrofit-mock ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-mock ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-mock/target/retrofit-mock-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/retrofit-mock/2.0.0-SNAPSHOT/retrofit-mock-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-mock/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/retrofit-mock/2.0.0-SNAPSHOT/retrofit-mock-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ samples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ samples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/samples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ samples ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ samples ---
+[INFO] Building jar: /home/travis/build/square/retrofit/samples/target/samples-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.9.1:checkstyle (default) @ samples ---
+[INFO] Starting audit...
+Audit done.
+
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ samples ---
+[INFO] Installing /home/travis/build/square/retrofit/samples/target/samples-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/samples/2.0.0-SNAPSHOT/samples-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/samples/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/samples/2.0.0-SNAPSHOT/samples-2.0.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Retrofit (Parent) .................................. SUCCESS [  2.056 s]
+[INFO] Retrofit ........................................... SUCCESS [  6.581 s]
+[INFO] Converters ......................................... SUCCESS [  0.009 s]
+[INFO] Converter: Protocol Buffers ........................ SUCCESS [  0.774 s]
+[INFO] Converter: Jackson ................................. SUCCESS [  0.724 s]
+[INFO] Converter: Wire Protocol Buffers ................... SUCCESS [  0.663 s]
+[INFO] Converter: SimpleXML ............................... SUCCESS [  0.646 s]
+[INFO] Converter: LoganSquare ............................. SUCCESS [  0.622 s]
+[INFO] Retrofit Mock Adapter .............................. SUCCESS [  0.643 s]
+[INFO] Samples ............................................ SUCCESS [  0.572 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.582 s
+[INFO] Finished at: 2015-05-24T21:06:31+00:00
+[INFO] Final Memory: 39M/448M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:0cf68a78:start=1432501575399100127,finish=1432501591603519335,duration=16204419208[0Ktravis_fold:end:install[0Ktravis_time:start:006647bf[0K$ mvn test -B
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit:samples:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.retrofit:samples:[unknown-version], /home/travis/build/square/retrofit/samples/pom.xml, line 32, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Retrofit (Parent)
+[INFO] Retrofit
+[INFO] Converters
+[INFO] Converter: Protocol Buffers
+[INFO] Converter: Jackson
+[INFO] Converter: Wire Protocol Buffers
+[INFO] Converter: SimpleXML
+[INFO] Converter: LoganSquare
+[INFO] Retrofit Mock Adapter
+[INFO] Samples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit (Parent) 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 36 source files to /home/travis/build/square/retrofit/retrofit/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RestAdapter.java: /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RestAdapter.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RestAdapter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /home/travis/build/square/retrofit/retrofit/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.MethodInfoTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 sec
+Running retrofit.EndpointsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running retrofit.RequestBuilderTest
+Tests run: 85, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.225 sec
+Running retrofit.RestAdapterTest
+May 24, 2015 9:06:37 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[33363] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33363] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33363] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[60750] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[60750] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[60750] received request: GET / HTTP/1.1 and responded: HTTP/1.1 204 Nothin
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[58291] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[58291] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[58291] received request: GET / HTTP/1.1 and responded: HTTP/1.1 205 Nothin
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[60694] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[60694] received request: GET / HTTP/1.1 and responded: HTTP/1.1 500 Broken
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[60694] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[54174] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[54174] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[54174] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[57185] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[57185] received request: GET / HTTP/1.1 and responded: HTTP/1.1 204 Nothin
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[57185] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[34766] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34766] received request: GET / HTTP/1.1 and responded: HTTP/1.1 205 Nothin
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[34766] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[60933] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[60933] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[58864] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[58864] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[58864] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[33091] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33091] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33091] received request: POST / HTTP/1.1 and responded: HTTP/1.1 500 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[54698] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[54698] done accepting connections: Socket is closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[38524] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[38524] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[38524] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[50840] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[50840] received request: GET / HTTP/1.1 and responded: HTTP/1.1 204 Nothin
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[50840] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[50033] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[50033] received request: GET / HTTP/1.1 and responded: HTTP/1.1 205 Nothin
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[50033] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[54625] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[54625] done accepting connections: Socket is closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[49015] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[49015] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[49015] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[52652] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[52652] received request: GET / HTTP/1.1 and responded: HTTP/1.1 500 Broken!
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[52652] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[38026] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[38026] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[38026] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[34871] starting to accept connections
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[34871] done accepting connections: Socket closed
+May 24, 2015 9:06:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[34871] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.071 sec
+Running retrofit.converter.GsonConverterTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running retrofit.ErrorHandlerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+
+Results :
+
+Tests run: 126, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-converters ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-protobuf ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-protobuf ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.converter.ProtoConverterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Jackson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-jackson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-jackson ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/jackson/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.converter.JacksonConverterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.359 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Wire Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-wire ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/wire/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/wire/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-wire ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/wire/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.converter.WireConverterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 sec
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: SimpleXML 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-simplexml ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-simplexml ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.converter.SimpleXMLConverterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: LoganSquare 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-logansquare ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-logansquare ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-logansquare ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/java/retrofit/converter/LoganSquareConverter.java: /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/java/retrofit/converter/LoganSquareConverter.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/main/java/retrofit/converter/LoganSquareConverter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-logansquare ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/logansquare/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-logansquare ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-logansquare ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-converters/logansquare/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.converter.LoganSquareConverterTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit Mock Adapter 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-mock ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit-mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-mock/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit-mock ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/travis/build/square/retrofit/retrofit-mock/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit-mock ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-mock/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit-mock ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-mock/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit-mock ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit-mock/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.MockRestAdapterTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.634 sec
+
+Results :
+
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ samples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ samples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/samples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ samples ---
+[INFO] No tests to run.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Retrofit (Parent) .................................. SUCCESS [  0.382 s]
+[INFO] Retrofit ........................................... SUCCESS [  5.171 s]
+[INFO] Converters ......................................... SUCCESS [  0.003 s]
+[INFO] Converter: Protocol Buffers ........................ SUCCESS [  0.699 s]
+[INFO] Converter: Jackson ................................. SUCCESS [  0.789 s]
+[INFO] Converter: Wire Protocol Buffers ................... SUCCESS [  0.508 s]
+[INFO] Converter: SimpleXML ............................... SUCCESS [  0.536 s]
+[INFO] Converter: LoganSquare ............................. SUCCESS [  0.528 s]
+[INFO] Retrofit Mock Adapter .............................. SUCCESS [  2.446 s]
+[INFO] Samples ............................................ SUCCESS [  0.042 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.392 s
+[INFO] Finished at: 2015-05-24T21:06:44+00:00
+[INFO] Final Memory: 23M/465M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:006647bf:start=1432501591607349835,finish=1432501604795344479,duration=13187994644[0K
+[32;1mThe command "mvn test -B" exited with 0.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0cc7266c[0Kchange detected: /home/travis/.m2/repository/com/squareup/retrofit/parent/2.0.0-SNAPSHOT/_remote.repositories
+changes detected, packing new archive
+uploading archive
+travis_time:end:0cc7266c:start=1432501604799363128,finish=1432501614435493777,duration=9636130649[0Ktravis_fold:end:cache.2[0Ktravis_fold:start:after_success[0Ktravis_time:start:06e182f1[0K$ .buildscript/deploy_snapshot.sh
+Skipping snapshot deployment: wrong JDK. Expected 'oraclejdk8' but was 'oraclejdk7'.
+travis_time:end:06e182f1:start=1432501614439314218,finish=1432501614443828448,duration=4514230[0Ktravis_fold:end:after_success[0K
+Done. Your build exited with 0.

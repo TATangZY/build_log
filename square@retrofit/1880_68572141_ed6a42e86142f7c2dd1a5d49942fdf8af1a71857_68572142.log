@@ -1,0 +1,943 @@
+Using worker: worker-linux-docker-9b913872.prod.travis-ci.org:travis-linux-7
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:190bd244[0K$ git clone --depth=50 --branch=jw/expose-executor-call-adapter-factory git://github.com/square/retrofit.git square/retrofit
+Cloning into 'square/retrofit'...
+remote: Counting objects: 1710, done.[K
+remote: Compressing objects:   0% (1/810)   [Kremote: Compressing objects:   1% (9/810)   [Kremote: Compressing objects:   2% (17/810)   [Kremote: Compressing objects:   3% (25/810)   [Kremote: Compressing objects:   4% (33/810)   [Kremote: Compressing objects:   5% (41/810)   [Kremote: Compressing objects:   6% (49/810)   [Kremote: Compressing objects:   7% (57/810)   [Kremote: Compressing objects:   8% (65/810)   [Kremote: Compressing objects:   9% (73/810)   [Kremote: Compressing objects:  10% (81/810)   [Kremote: Compressing objects:  11% (90/810)   [Kremote: Compressing objects:  12% (98/810)   [Kremote: Compressing objects:  13% (106/810)   [Kremote: Compressing objects:  14% (114/810)   [Kremote: Compressing objects:  15% (122/810)   [Kremote: Compressing objects:  16% (130/810)   [Kremote: Compressing objects:  17% (138/810)   [Kremote: Compressing objects:  18% (146/810)   [Kremote: Compressing objects:  19% (154/810)   [Kremote: Compressing objects:  20% (162/810)   [Kremote: Compressing objects:  21% (171/810)   [Kremote: Compressing objects:  22% (179/810)   [Kremote: Compressing objects:  23% (187/810)   [Kremote: Compressing objects:  24% (195/810)   [Kremote: Compressing objects:  25% (203/810)   [Kremote: Compressing objects:  26% (211/810)   [Kremote: Compressing objects:  27% (219/810)   [Kremote: Compressing objects:  28% (227/810)   [Kremote: Compressing objects:  29% (235/810)   [Kremote: Compressing objects:  30% (243/810)   [Kremote: Compressing objects:  31% (252/810)   [Kremote: Compressing objects:  32% (260/810)   [Kremote: Compressing objects:  33% (268/810)   [Kremote: Compressing objects:  34% (276/810)   [Kremote: Compressing objects:  35% (284/810)   [Kremote: Compressing objects:  36% (292/810)   [Kremote: Compressing objects:  37% (300/810)   [Kremote: Compressing objects:  38% (308/810)   [Kremote: Compressing objects:  39% (316/810)   [Kremote: Compressing objects:  40% (324/810)   [Kremote: Compressing objects:  41% (333/810)   [Kremote: Compressing objects:  42% (341/810)   [Kremote: Compressing objects:  43% (349/810)   [Kremote: Compressing objects:  44% (357/810)   [Kremote: Compressing objects:  45% (365/810)   [Kremote: Compressing objects:  46% (373/810)   [Kremote: Compressing objects:  47% (381/810)   [Kremote: Compressing objects:  48% (389/810)   [Kremote: Compressing objects:  49% (397/810)   [Kremote: Compressing objects:  50% (405/810)   [Kremote: Compressing objects:  51% (414/810)   [Kremote: Compressing objects:  52% (422/810)   [Kremote: Compressing objects:  53% (430/810)   [Kremote: Compressing objects:  54% (438/810)   [Kremote: Compressing objects:  55% (446/810)   [Kremote: Compressing objects:  56% (454/810)   [Kremote: Compressing objects:  57% (462/810)   [Kremote: Compressing objects:  58% (470/810)   [Kremote: Compressing objects:  59% (478/810)   [Kremote: Compressing objects:  60% (486/810)   [Kremote: Compressing objects:  61% (495/810)   [Kremote: Compressing objects:  62% (503/810)   [Kremote: Compressing objects:  63% (511/810)   [Kremote: Compressing objects:  64% (519/810)   [Kremote: Compressing objects:  65% (527/810)   [Kremote: Compressing objects:  66% (535/810)   [Kremote: Compressing objects:  67% (543/810)   [Kremote: Compressing objects:  68% (551/810)   [Kremote: Compressing objects:  69% (559/810)   [Kremote: Compressing objects:  70% (567/810)   [Kremote: Compressing objects:  71% (576/810)   [Kremote: Compressing objects:  72% (584/810)   [Kremote: Compressing objects:  73% (592/810)   [Kremote: Compressing objects:  74% (600/810)   [Kremote: Compressing objects:  75% (608/810)   [Kremote: Compressing objects:  76% (616/810)   [Kremote: Compressing objects:  77% (624/810)   [Kremote: Compressing objects:  78% (632/810)   [Kremote: Compressing objects:  79% (640/810)   [Kremote: Compressing objects:  80% (648/810)   [Kremote: Compressing objects:  81% (657/810)   [Kremote: Compressing objects:  82% (665/810)   [Kremote: Compressing objects:  83% (673/810)   [Kremote: Compressing objects:  84% (681/810)   [Kremote: Compressing objects:  85% (689/810)   [Kremote: Compressing objects:  86% (697/810)   [Kremote: Compressing objects:  87% (705/810)   [Kremote: Compressing objects:  88% (713/810)   [Kremote: Compressing objects:  89% (721/810)   [Kremote: Compressing objects:  90% (729/810)   [Kremote: Compressing objects:  91% (738/810)   [Kremote: Compressing objects:  92% (746/810)   [Kremote: Compressing objects:  93% (754/810)   [Kremote: Compressing objects:  94% (762/810)   [Kremote: Compressing objects:  95% (770/810)   [Kremote: Compressing objects:  96% (778/810)   [Kremote: Compressing objects:  97% (786/810)   [Kremote: Compressing objects:  98% (794/810)   [Kremote: Compressing objects:  99% (802/810)   [Kremote: Compressing objects: 100% (810/810)   [Kremote: Compressing objects: 100% (810/810), done.[K
+Receiving objects:   0% (1/1710)   Receiving objects:   1% (18/1710)   Receiving objects:   2% (35/1710)   Receiving objects:   3% (52/1710)   Receiving objects:   4% (69/1710)   Receiving objects:   5% (86/1710)   Receiving objects:   6% (103/1710)   Receiving objects:   7% (120/1710)   Receiving objects:   8% (137/1710)   Receiving objects:   9% (154/1710)   Receiving objects:  10% (171/1710)   Receiving objects:  11% (189/1710)   Receiving objects:  12% (206/1710)   Receiving objects:  13% (223/1710)   Receiving objects:  14% (240/1710)   Receiving objects:  15% (257/1710)   Receiving objects:  16% (274/1710)   Receiving objects:  17% (291/1710)   Receiving objects:  18% (308/1710)   Receiving objects:  19% (325/1710)   Receiving objects:  20% (342/1710)   Receiving objects:  21% (360/1710)   Receiving objects:  22% (377/1710)   Receiving objects:  23% (394/1710)   Receiving objects:  24% (411/1710)   Receiving objects:  25% (428/1710)   Receiving objects:  26% (445/1710)   Receiving objects:  27% (462/1710)   Receiving objects:  28% (479/1710)   Receiving objects:  29% (496/1710)   Receiving objects:  30% (513/1710)   Receiving objects:  31% (531/1710)   Receiving objects:  32% (548/1710)   Receiving objects:  33% (565/1710)   Receiving objects:  34% (582/1710)   Receiving objects:  35% (599/1710)   Receiving objects:  36% (616/1710)   Receiving objects:  37% (633/1710)   Receiving objects:  38% (650/1710)   Receiving objects:  39% (667/1710)   Receiving objects:  40% (684/1710)   Receiving objects:  41% (702/1710)   Receiving objects:  42% (719/1710)   Receiving objects:  43% (736/1710)   Receiving objects:  44% (753/1710)   Receiving objects:  45% (770/1710)   Receiving objects:  46% (787/1710)   Receiving objects:  47% (804/1710)   Receiving objects:  48% (821/1710)   Receiving objects:  49% (838/1710)   Receiving objects:  50% (855/1710)   Receiving objects:  51% (873/1710)   Receiving objects:  52% (890/1710)   Receiving objects:  53% (907/1710)   Receiving objects:  54% (924/1710)   Receiving objects:  55% (941/1710)   Receiving objects:  56% (958/1710)   Receiving objects:  57% (975/1710)   Receiving objects:  58% (992/1710)   Receiving objects:  59% (1009/1710)   Receiving objects:  60% (1026/1710)   Receiving objects:  61% (1044/1710)   Receiving objects:  62% (1061/1710)   Receiving objects:  63% (1078/1710)   Receiving objects:  64% (1095/1710)   Receiving objects:  65% (1112/1710)   Receiving objects:  66% (1129/1710)   Receiving objects:  67% (1146/1710)   Receiving objects:  68% (1163/1710)   Receiving objects:  69% (1180/1710)   Receiving objects:  70% (1197/1710)   Receiving objects:  71% (1215/1710)   Receiving objects:  72% (1232/1710)   Receiving objects:  73% (1249/1710)   Receiving objects:  74% (1266/1710)   Receiving objects:  75% (1283/1710)   Receiving objects:  76% (1300/1710)   Receiving objects:  77% (1317/1710)   Receiving objects:  78% (1334/1710)   Receiving objects:  79% (1351/1710)   remote: Total 1710 (delta 583), reused 1468 (delta 413), pack-reused 0[K
+Receiving objects:  80% (1368/1710)   Receiving objects:  81% (1386/1710)   Receiving objects:  82% (1403/1710)   Receiving objects:  83% (1420/1710)   Receiving objects:  84% (1437/1710)   Receiving objects:  85% (1454/1710)   Receiving objects:  86% (1471/1710)   Receiving objects:  87% (1488/1710)   Receiving objects:  88% (1505/1710)   Receiving objects:  89% (1522/1710)   Receiving objects:  90% (1539/1710)   Receiving objects:  91% (1557/1710)   Receiving objects:  92% (1574/1710)   Receiving objects:  93% (1591/1710)   Receiving objects:  94% (1608/1710)   Receiving objects:  95% (1625/1710)   Receiving objects:  96% (1642/1710)   Receiving objects:  97% (1659/1710)   Receiving objects:  98% (1676/1710)   Receiving objects:  99% (1693/1710)   Receiving objects: 100% (1710/1710)   Receiving objects: 100% (1710/1710), 440.46 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/583)   Resolving deltas:  11% (68/583)   Resolving deltas:  12% (71/583)   Resolving deltas:  13% (77/583)   Resolving deltas:  14% (85/583)   Resolving deltas:  15% (91/583)   Resolving deltas:  19% (113/583)   Resolving deltas:  22% (133/583)   Resolving deltas:  23% (135/583)   Resolving deltas:  26% (153/583)   Resolving deltas:  27% (159/583)   Resolving deltas:  28% (167/583)   Resolving deltas:  29% (170/583)   Resolving deltas:  30% (175/583)   Resolving deltas:  31% (182/583)   Resolving deltas:  32% (192/583)   Resolving deltas:  34% (201/583)   Resolving deltas:  35% (207/583)   Resolving deltas:  37% (217/583)   Resolving deltas:  38% (223/583)   Resolving deltas:  39% (228/583)   Resolving deltas:  40% (234/583)   Resolving deltas:  41% (244/583)   Resolving deltas:  43% (252/583)   Resolving deltas:  44% (258/583)   Resolving deltas:  45% (267/583)   Resolving deltas:  46% (272/583)   Resolving deltas:  47% (275/583)   Resolving deltas:  51% (299/583)   Resolving deltas:  52% (307/583)   Resolving deltas:  54% (320/583)   Resolving deltas:  55% (321/583)   Resolving deltas:  56% (330/583)   Resolving deltas:  57% (337/583)   Resolving deltas:  61% (359/583)   Resolving deltas:  62% (364/583)   Resolving deltas:  63% (368/583)   Resolving deltas:  64% (376/583)   Resolving deltas:  66% (386/583)   Resolving deltas:  67% (393/583)   Resolving deltas:  68% (401/583)   Resolving deltas:  69% (407/583)   Resolving deltas:  70% (411/583)   Resolving deltas:  71% (415/583)   Resolving deltas:  72% (422/583)   Resolving deltas:  73% (431/583)   Resolving deltas:  74% (433/583)   Resolving deltas:  75% (441/583)   Resolving deltas:  76% (444/583)   Resolving deltas:  77% (452/583)   Resolving deltas:  78% (456/583)   Resolving deltas:  79% (462/583)   Resolving deltas:  80% (468/583)   Resolving deltas:  81% (475/583)   Resolving deltas:  82% (481/583)   Resolving deltas:  83% (484/583)   Resolving deltas:  84% (490/583)   Resolving deltas:  85% (496/583)   Resolving deltas:  86% (505/583)   Resolving deltas:  87% (508/583)   Resolving deltas:  89% (520/583)   Resolving deltas:  90% (525/583)   Resolving deltas:  91% (531/583)   Resolving deltas:  92% (537/583)   Resolving deltas:  93% (543/583)   Resolving deltas:  94% (549/583)   Resolving deltas:  96% (563/583)   Resolving deltas:  97% (569/583)   Resolving deltas:  98% (573/583)   Resolving deltas:  99% (578/583)   Resolving deltas: 100% (583/583)   Resolving deltas: 100% (583/583), done.
+Checking connectivity... done.
+travis_time:end:190bd244:start=1435378614152326420,finish=1435378614381924849,duration=229598429[0K$ cd square/retrofit
+$ git checkout -qf ed6a42e86142f7c2dd1a5d49942fdf8af1a71857
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee http://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:0319bb4c[0K$ Installing caching utilities
+travis_time:end:0319bb4c:start=1435378618381576956,finish=1435378618440227047,duration=58650091[0Ktravis_time:start:238b76bc[0Kattempting to download cache archive
+fetching jwexpose-executor-call-adapter-factory/cache--jdk-oraclejdk7.tbz
+fetching master/cache--jdk-oraclejdk7.tbz
+found cache
+travis_time:end:238b76bc:start=1435378618444961843,finish=1435378619450099194,duration=1005137351[0Ktravis_time:start:04634200[0Kadding /home/travis/.m2 to cache
+travis_time:end:04634200:start=1435378619453902542,finish=1435378623555346406,duration=4101443864[0Ktravis_fold:end:cache.1[0K$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:install[0Ktravis_time:start:00797e67[0K$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit:samples:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.retrofit:samples:[unknown-version], /home/travis/build/square/retrofit/samples/pom.xml, line 36, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Retrofit (Parent)
+[INFO] Retrofit
+[INFO] Adapters
+[INFO] Adapter: RxJava
+[INFO] Converters
+[INFO] Converter: Gson
+[INFO] Converter: Protocol Buffers
+[INFO] Converter: Jackson
+[INFO] Converter: Wire Protocol Buffers
+[INFO] Converter: SimpleXML
+[INFO] Converter: Moshi
+[INFO] Samples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit (Parent) 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ parent ---
+[INFO] Installing /home/travis/build/square/retrofit/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/parent/2.0.0-SNAPSHOT/parent-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 42 source files to /home/travis/build/square/retrofit/retrofit/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RequestBuilderAction.java: /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RequestBuilderAction.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RequestBuilderAction.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/square/retrofit/retrofit/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ retrofit ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit/target/retrofit-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit/target/retrofit-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/retrofit/2.0.0-SNAPSHOT/retrofit-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/retrofit/2.0.0-SNAPSHOT/retrofit-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-adapters ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit-adapters ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-adapters ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/retrofit-adapters/2.0.0-SNAPSHOT/retrofit-adapters-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Adapter: RxJava 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ adapter-rxjava ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ adapter-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/rxjava/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ adapter-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ adapter-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-adapters/rxjava/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ adapter-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ adapter-rxjava ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ adapter-rxjava ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/adapter-rxjava-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ adapter-rxjava ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ adapter-rxjava ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/rxjava/target/adapter-rxjava-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/adapter-rxjava/2.0.0-SNAPSHOT/adapter-rxjava-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-adapters/rxjava/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/adapter-rxjava/2.0.0-SNAPSHOT/adapter-rxjava-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converters 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit-converters ---
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ retrofit-converters ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ retrofit-converters ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/retrofit-converters/2.0.0-SNAPSHOT/retrofit-converters-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Gson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-gson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/gson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/gson/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/gson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/gson/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-gson ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-gson ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/gson/target/converter-gson-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-gson ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-gson ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/gson/target/converter-gson-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-gson/2.0.0-SNAPSHOT/converter-gson-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/gson/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-gson/2.0.0-SNAPSHOT/converter-gson-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-protobuf ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit/ProtoConverterFactory.java: /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit/ProtoConverterFactory.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/main/java/retrofit/ProtoConverterFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-protobuf ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/protobuf/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-protobuf ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-protobuf ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-protobuf ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/converter-protobuf-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-protobuf ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-protobuf ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/protobuf/target/converter-protobuf-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-protobuf/2.0.0-SNAPSHOT/converter-protobuf-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/protobuf/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-protobuf/2.0.0-SNAPSHOT/converter-protobuf-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Jackson 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-jackson ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-jackson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/jackson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-jackson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/jackson/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-jackson ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-jackson ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/jackson/target/converter-jackson-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-jackson ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-jackson ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/jackson/target/converter-jackson-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-jackson/2.0.0-SNAPSHOT/converter-jackson-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/jackson/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-jackson/2.0.0-SNAPSHOT/converter-jackson-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Wire Protocol Buffers 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-wire ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/wire/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/java/retrofit/WireConverterFactory.java: /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/java/retrofit/WireConverterFactory.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit-converters/wire/src/main/java/retrofit/WireConverterFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-wire ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/wire/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-wire ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/wire/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-wire ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-wire ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/wire/target/converter-wire-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-wire ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-wire ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/wire/target/converter-wire-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-wire/2.0.0-SNAPSHOT/converter-wire-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/wire/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-wire/2.0.0-SNAPSHOT/converter-wire-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: SimpleXML 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-simplexml ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-simplexml ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/simplexml/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-simplexml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-simplexml ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-simplexml ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/converter-simplexml-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-simplexml ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-simplexml ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/simplexml/target/converter-simplexml-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-simplexml/2.0.0-SNAPSHOT/converter-simplexml-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/simplexml/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-simplexml/2.0.0-SNAPSHOT/converter-simplexml-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Converter: Moshi 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ converter-moshi ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ converter-moshi ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/moshi/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ converter-moshi ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/retrofit-converters/moshi/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ converter-moshi ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit-converters/moshi/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ converter-moshi ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/travis/build/square/retrofit/retrofit-converters/moshi/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ converter-moshi ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ converter-moshi ---
+[INFO] Building jar: /home/travis/build/square/retrofit/retrofit-converters/moshi/target/converter-moshi-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ converter-moshi ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ converter-moshi ---
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/moshi/target/converter-moshi-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/converter-moshi/2.0.0-SNAPSHOT/converter-moshi-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/retrofit-converters/moshi/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/converter-moshi/2.0.0-SNAPSHOT/converter-moshi-2.0.0-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Samples 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ samples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ samples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /home/travis/build/square/retrofit/samples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ samples ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ samples ---
+[INFO] Building jar: /home/travis/build/square/retrofit/samples/target/samples-2.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:2.15:checkstyle (default) @ samples ---
+[INFO] Starting audit...
+Audit done.
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ samples ---
+[INFO] Installing /home/travis/build/square/retrofit/samples/target/samples-2.0.0-SNAPSHOT.jar to /home/travis/.m2/repository/com/squareup/retrofit/samples/2.0.0-SNAPSHOT/samples-2.0.0-SNAPSHOT.jar
+[INFO] Installing /home/travis/build/square/retrofit/samples/pom.xml to /home/travis/.m2/repository/com/squareup/retrofit/samples/2.0.0-SNAPSHOT/samples-2.0.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Retrofit (Parent) .................................. SUCCESS [  2.271 s]
+[INFO] Retrofit ........................................... SUCCESS [  6.109 s]
+[INFO] Adapters ........................................... SUCCESS [  0.012 s]
+[INFO] Adapter: RxJava .................................... SUCCESS [  1.162 s]
+[INFO] Converters ......................................... SUCCESS [  0.011 s]
+[INFO] Converter: Gson .................................... SUCCESS [  0.729 s]
+[INFO] Converter: Protocol Buffers ........................ SUCCESS [  0.808 s]
+[INFO] Converter: Jackson ................................. SUCCESS [  0.811 s]
+[INFO] Converter: Wire Protocol Buffers ................... SUCCESS [  0.732 s]
+[INFO] Converter: SimpleXML ............................... SUCCESS [  0.694 s]
+[INFO] Converter: Moshi ................................... SUCCESS [  0.476 s]
+[INFO] Samples ............................................ SUCCESS [  0.521 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 14.669 s
+[INFO] Finished at: 2015-06-27T04:17:20+00:00
+[INFO] Final Memory: 33M/448M
+[INFO] ------------------------------------------------------------------------
+travis_time:end:00797e67:start=1435378623947337360,finish=1435378640803365128,duration=16856027768[0Ktravis_fold:end:install[0Ktravis_time:start:20397513[0K$ mvn test -B
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.squareup.retrofit:samples:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-deploy-plugin is missing. @ com.squareup.retrofit:samples:[unknown-version], /home/travis/build/square/retrofit/samples/pom.xml, line 36, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Retrofit (Parent)
+[INFO] Retrofit
+[INFO] Adapters
+[INFO] Adapter: RxJava
+[INFO] Converters
+[INFO] Converter: Gson
+[INFO] Converter: Protocol Buffers
+[INFO] Converter: Jackson
+[INFO] Converter: Wire Protocol Buffers
+[INFO] Converter: SimpleXML
+[INFO] Converter: Moshi
+[INFO] Samples
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit (Parent) 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Retrofit 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ retrofit ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 42 source files to /home/travis/build/square/retrofit/retrofit/target/classes
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RequestBuilderAction.java: /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RequestBuilderAction.java uses unchecked or unsafe operations.
+[WARNING] /home/travis/build/square/retrofit/retrofit/src/main/java/retrofit/RequestBuilderAction.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ retrofit ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/travis/build/square/retrofit/retrofit/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ retrofit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/travis/build/square/retrofit/retrofit/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ retrofit ---
+[INFO] Surefire report directory: /home/travis/build/square/retrofit/retrofit/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running retrofit.RequestFactoryParserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 sec
+Running retrofit.RequestBuilderTest
+Tests run: 83, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.346 sec
+Running retrofit.ExecutorCallAdapterFactoryTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 sec
+Running retrofit.RetrofitTest
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[35470] starting to accept connections
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[35470] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[36213] starting to accept connections
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[36213] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[37259] starting to accept connections
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[37259] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[41049] starting to accept connections
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[41049] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:27 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[36610] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36610] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[36610] done accepting connections: Socket closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[49969] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[49969] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[36222] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[36222] done accepting connections: Socket closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[55887] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[55887] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[55887] done accepting connections: Socket closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[33586] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33586] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[60322] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[60322] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[49202] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[49202] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[36808] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[36808] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[55262] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[55262] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[38150] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[38150] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[44635] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[44635] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[40596] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[40596] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[57296] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[57296] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[44261] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[44261] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[44017] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[44017] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[53775] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[53775] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[33134] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33134] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[43524] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[43524] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[42842] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[42842] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[59457] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[59457] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[45342] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[45342] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[47342] starting to accept connections
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[47342] done accepting connections: Socket is closed
+Tests run: 26, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.506 sec <<< FAILURE!
+callAdapterFactoryDefault(retrofit.RetrofitTest)  Time elapsed: 0.01 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expecting:
+ <Default>
+to be an instance of:
+ <retrofit.ExecutorCallAdapterFactory>
+but was instance of:
+ <retrofit.Platform.NothingCallAdapterFactory>
+	at retrofit.RetrofitTest.callAdapterFactoryDefault(RetrofitTest.java:392)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:48)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+customReturnTypeAdapterMissingThrows(retrofit.RetrofitTest)  Time elapsed: 0.005 sec  <<< FAILURE!
+java.lang.AssertionError: 
+Expecting message:
+ <"Call adapter factory 'Default CallAdapterFactory' was unable to handle return type java.util.concurrent.Future<java.lang.String>
+    for method FutureMethod.method">
+but was:
+ <"Call adapter factory 'Default' was unable to handle return type java.util.concurrent.Future<java.lang.String>
+    for method FutureMethod.method">
+	at retrofit.RetrofitTest.customReturnTypeAdapterMissingThrows(RetrofitTest.java:154)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:48)
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Running retrofit.CallTest
+Jun 27, 2015 4:17:28 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[45743] starting to accept connections
+Jun 27, 2015 4:17:29 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[45743] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[45743] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[43226] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43226] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 OK
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[43226] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[53715] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[53715] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[42100] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42100] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[42100] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[39921] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[39921] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[43629] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[43629] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43629] received request: GET / HTTP/1.1 and responded: HTTP/1.1 404 OK
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[42036] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[42036] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[42036] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[39873] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[39873] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[39873] received request: GET / HTTP/1.1 and responded: HTTP/1.1 204 Nothin
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[43341] starting to accept connections
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[43341] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[43341] done accepting connections: Socket closed
+Jun 27, 2015 4:17:30 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[51450] starting to accept connections
+Jun 27, 2015 4:17:31 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[51450] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[51450] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[55194] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[55194] received request: POST / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[55194] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[38484] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[38484] done accepting connections: Socket is closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[36856] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[36856] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[36856] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[47902] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[47902] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47902] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[47099] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[47099] received request: GET / HTTP/1.1 and responded: HTTP/1.1 205 Nothin
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[47099] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[56492] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[56492] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[56492] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[60396] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[60396] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[48567] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[48567] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[48567] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 execute
+INFO: MockWebServer[33297] starting to accept connections
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$2 acceptConnections
+INFO: MockWebServer[33297] done accepting connections: Socket closed
+Jun 27, 2015 4:17:32 AM com.squareup.okhttp.mockwebserver.MockWebServer$3 processOneRequest
+INFO: MockWebServer[33297] received request: GET / HTTP/1.1 and responded: HTTP/1.1 200 OK
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.233 sec
+
+Results :
+
+Failed tests:   callAdapterFactoryDefault(retrofit.RetrofitTest): (..)
+  customReturnTypeAdapterMissingThrows(retrofit.RetrofitTest): (..)
+
+Tests run: 138, Failures: 2, Errors: 0, Skipped: 2
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Retrofit (Parent) .................................. SUCCESS [  0.441 s]
+[INFO] Retrofit ........................................... FAILURE [  9.456 s]
+[INFO] Adapters ........................................... SKIPPED
+[INFO] Adapter: RxJava .................................... SKIPPED
+[INFO] Converters ......................................... SKIPPED
+[INFO] Converter: Gson .................................... SKIPPED
+[INFO] Converter: Protocol Buffers ........................ SKIPPED
+[INFO] Converter: Jackson ................................. SKIPPED
+[INFO] Converter: Wire Protocol Buffers ................... SKIPPED
+[INFO] Converter: SimpleXML ............................... SKIPPED
+[INFO] Converter: Moshi ................................... SKIPPED
+[INFO] Samples ............................................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.283 s
+[INFO] Finished at: 2015-06-27T04:17:32+00:00
+[INFO] Final Memory: 17M/465M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project retrofit: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/travis/build/square/retrofit/retrofit/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :retrofit
+travis_time:end:20397513:start=1435378640807095288,finish=1435378653034962005,duration=12227866717[0K
+[31;1mThe command "mvn test -B" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:0731f5bd[0Kchange detected: /home/travis/.m2/repository/com/squareup/retrofit/parent/2.0.0-SNAPSHOT/_remote.repositories
+changes detected, packing new archive
+uploading archive
+travis_time:end:0731f5bd:start=1435378653039363216,finish=1435378664823266244,duration=11783903028[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.

@@ -1,0 +1,34 @@
+Using worker: bluebox-linux-1.worker.travis-ci.org:travis-linux-20
+
+$ git clone --depth=100 --quiet --branch=dev git://github.com/JakeWharton/ActionBarSherlock.git JakeWharton/ActionBarSherlock
+$ cd JakeWharton/ActionBarSherlock
+$ git checkout -qf e9180ef9ea727e4bc0afbce682f80890ca40cd28
+$ java -version
+java version "1.7.0_09"
+OpenJDK Runtime Environment (IcedTea7 2.3.4) (7u9-2.3.4-0ubuntu1.12.04.1)
+OpenJDK 64-Bit Server VM (build 23.2-b09, mixed mode)
+$ javac -version
+javac 1.7.0_09
+$ wget http://dl.google.com/android/android-sdk_r20.0.3-linux.tgz
+--2013-03-02 03:39:29--  http://dl.google.com/android/android-sdk_r20.0.3-linux.tgz
+Resolving dl.google.com (dl.google.com)... 173.194.74.91, 173.194.74.190, 173.194.74.136, ...
+Connecting to dl.google.com (dl.google.com)|173.194.74.91|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 82616305 (79M) [application/x-tar]
+Saving to: `android-sdk_r20.0.3-linux.tgz'
+
+ 0% [                                       ] 0           --.-K/s               1% [                                       ] 903,372     4.30M/s               7% [=>                                     ] 6,297,176   13.2M/s              10% [==>                                    ] 8,396,800   9.35M/s              15% [=====>                                 ] 13,209,130  11.9M/s              20% [======>                                ] 16,777,216  7.32M/s              20% [======>                                ] 16,777,216  5.10M/s  eta 12s     20% [======>                                ] 16,777,216  3.91M/s  eta 12s     20% [======>                                ] 16,777,216  3.18M/s  eta 20s     20% [======>                                ] 16,782,936  2.87M/s  eta 20s     22% [=======>                               ] 18,881,518  3.05M/s  eta 20s     25% [========>                              ] 20,929,820  3.27M/s  eta 18s     26% [=========>                             ] 22,111,000  3.34M/s  eta 18s     28% [==========>                            ] 23,385,130  3.43M/s  eta 18s     29% [==========>                            ] 24,726,470  3.51M/s  eta 18s     31% [===========>                           ] 26,107,462  3.60M/s  eta 18s     33% [===========>                           ] 27,522,120  3.69M/s  eta 14s     34% [============>                          ] 28,909,220  3.77M/s  eta 14s     37% [=============>                         ] 30,783,562  3.90M/s  eta 14s     39% [==============>                        ] 32,768,790  4.05M/s  eta 14s     42% [===============>                       ] 34,765,070  3.91M/s  eta 14s     44% [================>                      ] 36,824,270  3.80M/s  eta 10s     47% [=================>                     ] 39,055,070  3.91M/s  eta 10s     50% [==================>                    ] 41,400,176  3.38M/s  eta 10s     53% [===================>                   ] 43,974,176  8.26M/s  eta 10s     56% [====================>                  ] 46,572,486  8.43M/s  eta 10s     59% [======================>                ] 49,213,696  8.87M/s  eta 6s      62% [=======================>               ] 51,889,226  9.25M/s  eta 6s      63% [=======================>               ] 52,436,992  8.30M/s  eta 6s      66% [=========================>             ] 55,171,418  8.65M/s  eta 6s      70% [==========================>            ] 57,982,798  9.02M/s  eta 4s      73% [===========================>           ] 60,693,690  9.34M/s  eta 4s      76% [============================>          ] 63,396,390  9.77M/s  eta 4s      80% [==============================>        ] 66,188,016  10.1M/s  eta 4s      84% [===============================>       ] 69,891,450  10.6M/s  eta 4s      88% [=================================>     ] 73,127,338  11.0M/s  eta 1s      93% [===================================>   ] 77,041,636  11.5M/s  eta 1s      97% [=====================================> ] 80,925,094  12.0M/s  eta 1s      100%[======================================>] 82,616,305  12.2M/s   in 12s     
+
+2013-03-02 03:39:41 (6.73 MB/s) - `android-sdk_r20.0.3-linux.tgz' saved [82616305/82616305]
+
+$ tar -zxf android-sdk_r20.0.3-linux.tgz
+$ export ANDROID_HOME=~/builds/JakeWharton/ActionBarSherlock/android-sdk-linux
+$ export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+$ TOOLS=$(android list sdk --no-ui | grep "Android SDK Platform-tools" | cut -d"-" -f1)
+/home/travis/build.sh: line 104: android: command not found
+$ android update sdk --filter "$TOOLS" --no-ui --force
+/home/travis/build.sh: line 107: android: command not found
+
+The command "android update sdk --filter "$TOOLS" --no-ui --force" failed and exited with 127 during before_install.
+
+Your build has been stopped.
