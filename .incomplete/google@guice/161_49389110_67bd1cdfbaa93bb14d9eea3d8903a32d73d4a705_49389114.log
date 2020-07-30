@@ -1,0 +1,1494 @@
+Using worker: worker-linux-f25aadab-2.bb.travis-ci.org:travis-linux-18
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+[34m[1mBuild image provisioning date and time[0m
+Sun Dec  7 05:49:51 UTC 2014
+[34m[1mlsb_release -a[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mCookbooks Version[0m
+5736160 https://github.com/travis-ci/travis-cookbooks/tree/5736160
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.33
+[34m[1mPre-installed Go versions[0m
+go1.3.3
+[34m[1mRedis version[0m
+redis-server 2.8.18
+[34m[1mriak version[0m
+1.4.12
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mCassandra version[0m
+2.0.9
+[34m[1mRabbitMQ Version[0m
+3.4.2
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.4
+[34m[1mDefault Sphinx version[0m
+2.1.9
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T20:58:10+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_72, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-042stab090.5", arch: "amd64", family: "unix"
+[34m[1mgradle -version[0m
+
+------------------------------------------------------------
+Gradle 2.0
+------------------------------------------------------------
+
+Build time:   2014-07-01 07:45:34 UTC
+Build number: none
+Revision:     b6ead6fa452dfdadec484059191eb641d817226c
+
+Groovy:       2.3.3
+Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013
+JVM:          1.7.0_72 (Oracle Corporation 24.72-b04)
+OS:           Linux 2.6.32-042stab090.5 amd64
+
+[34m[1mlein1 version[0m
+Using JLine for console I/O; install rlwrap for optimum experience.
+Leiningen 1.7.1 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein2 version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+[34m[1mlein version[0m
+Leiningen 2.5.0 on Java 1.7.0_72 Java HotSpot(TM) 64-Bit Server VM
+travis_fold:end:system_info[0K
+travis_fold:start:git.checkout[0Ktravis_time:start:10813623[0K$ git clone --depth=50 git://github.com/google/guice.git google/guice
+Cloning into 'google/guice'...
+remote: Counting objects: 3225, done.[K
+remote: Compressing objects:   0% (1/1972)   [Kremote: Compressing objects:   1% (20/1972)   [Kremote: Compressing objects:   2% (40/1972)   [Kremote: Compressing objects:   3% (60/1972)   [Kremote: Compressing objects:   4% (79/1972)   [Kremote: Compressing objects:   5% (99/1972)   [Kremote: Compressing objects:   6% (119/1972)   [Kremote: Compressing objects:   7% (139/1972)   [Kremote: Compressing objects:   8% (158/1972)   [Kremote: Compressing objects:   9% (178/1972)   [Kremote: Compressing objects:  10% (198/1972)   [Kremote: Compressing objects:  11% (217/1972)   [Kremote: Compressing objects:  12% (237/1972)   [Kremote: Compressing objects:  13% (257/1972)   [Kremote: Compressing objects:  14% (277/1972)   [Kremote: Compressing objects:  15% (296/1972)   [Kremote: Compressing objects:  16% (316/1972)   [Kremote: Compressing objects:  17% (336/1972)   [Kremote: Compressing objects:  18% (355/1972)   [Kremote: Compressing objects:  19% (375/1972)   [Kremote: Compressing objects:  20% (395/1972)   [Kremote: Compressing objects:  21% (415/1972)   [Kremote: Compressing objects:  22% (434/1972)   [Kremote: Compressing objects:  23% (454/1972)   [Kremote: Compressing objects:  24% (474/1972)   [Kremote: Compressing objects:  25% (493/1972)   [Kremote: Compressing objects:  26% (513/1972)   [Kremote: Compressing objects:  27% (533/1972)   [Kremote: Compressing objects:  28% (553/1972)   [Kremote: Compressing objects:  29% (572/1972)   [Kremote: Compressing objects:  30% (592/1972)   [Kremote: Compressing objects:  31% (612/1972)   [Kremote: Compressing objects:  32% (632/1972)   [Kremote: Compressing objects:  33% (651/1972)   [Kremote: Compressing objects:  34% (671/1972)   [Kremote: Compressing objects:  35% (691/1972)   [Kremote: Compressing objects:  36% (710/1972)   [Kremote: Compressing objects:  37% (730/1972)   [Kremote: Compressing objects:  38% (750/1972)   [Kremote: Compressing objects:  39% (770/1972)   [Kremote: Compressing objects:  40% (789/1972)   [Kremote: Compressing objects:  41% (809/1972)   [Kremote: Compressing objects:  42% (829/1972)   [Kremote: Compressing objects:  43% (848/1972)   [Kremote: Compressing objects:  44% (868/1972)   [Kremote: Compressing objects:  45% (888/1972)   [Kremote: Compressing objects:  46% (908/1972)   [Kremote: Compressing objects:  47% (927/1972)   [Kremote: Compressing objects:  48% (947/1972)   [Kremote: Compressing objects:  49% (967/1972)   [Kremote: Compressing objects:  50% (986/1972)   [Kremote: Compressing objects:  51% (1006/1972)   [Kremote: Compressing objects:  52% (1026/1972)   [Kremote: Compressing objects:  53% (1046/1972)   [Kremote: Compressing objects:  54% (1065/1972)   [Kremote: Compressing objects:  55% (1085/1972)   [Kremote: Compressing objects:  56% (1105/1972)   [Kremote: Compressing objects:  57% (1125/1972)   [Kremote: Compressing objects:  58% (1144/1972)   [Kremote: Compressing objects:  59% (1164/1972)   [Kremote: Compressing objects:  60% (1184/1972)   [Kremote: Compressing objects:  61% (1203/1972)   [Kremote: Compressing objects:  62% (1223/1972)   [Kremote: Compressing objects:  63% (1243/1972)   [Kremote: Compressing objects:  64% (1263/1972)   [Kremote: Compressing objects:  65% (1282/1972)   [Kremote: Compressing objects:  66% (1302/1972)   [Kremote: Compressing objects:  67% (1322/1972)   [Kremote: Compressing objects:  68% (1341/1972)   [Kremote: Compressing objects:  69% (1361/1972)   [Kremote: Compressing objects:  70% (1381/1972)   [Kremote: Compressing objects:  71% (1401/1972)   [Kremote: Compressing objects:  72% (1420/1972)   [Kremote: Compressing objects:  73% (1440/1972)   [Kremote: Compressing objects:  74% (1460/1972)   [Kremote: Compressing objects:  75% (1479/1972)   [Kremote: Compressing objects:  76% (1499/1972)   [Kremote: Compressing objects:  77% (1519/1972)   [Kremote: Compressing objects:  78% (1539/1972)   [Kremote: Compressing objects:  79% (1558/1972)   [Kremote: Compressing objects:  80% (1578/1972)   [Kremote: Compressing objects:  81% (1598/1972)   [Kremote: Compressing objects:  82% (1618/1972)   [Kremote: Compressing objects:  83% (1637/1972)   [Kremote: Compressing objects:  84% (1657/1972)   [Kremote: Compressing objects:  85% (1677/1972)   [Kremote: Compressing objects:  86% (1696/1972)   [Kremote: Compressing objects:  87% (1716/1972)   [Kremote: Compressing objects:  88% (1736/1972)   [Kremote: Compressing objects:  89% (1756/1972)   [Kremote: Compressing objects:  90% (1775/1972)   [Kremote: Compressing objects:  91% (1795/1972)   [Kremote: Compressing objects:  92% (1815/1972)   [Kremote: Compressing objects:  93% (1834/1972)   [Kremote: Compressing objects:  94% (1854/1972)   [Kremote: Compressing objects:  95% (1874/1972)   [Kremote: Compressing objects:  96% (1894/1972)   [Kremote: Compressing objects:  97% (1913/1972)   [Kremote: Compressing objects:  98% (1933/1972)   [Kremote: Compressing objects:  99% (1953/1972)   [Kremote: Compressing objects: 100% (1972/1972)   [Kremote: Compressing objects: 100% (1972/1972), done.[K
+Receiving objects:   0% (1/3225)   Receiving objects:   1% (33/3225)   Receiving objects:   2% (65/3225)   Receiving objects:   3% (97/3225)   Receiving objects:   4% (129/3225)   Receiving objects:   5% (162/3225)   Receiving objects:   6% (194/3225)   Receiving objects:   7% (226/3225)   Receiving objects:   8% (258/3225)   Receiving objects:   9% (291/3225)   Receiving objects:  10% (323/3225)   Receiving objects:  11% (355/3225)   Receiving objects:  12% (387/3225)   Receiving objects:  13% (420/3225)   Receiving objects:  14% (452/3225)   Receiving objects:  15% (484/3225)   Receiving objects:  16% (516/3225)   Receiving objects:  17% (549/3225)   Receiving objects:  18% (581/3225)   Receiving objects:  19% (613/3225)   Receiving objects:  20% (645/3225)   Receiving objects:  21% (678/3225)   Receiving objects:  22% (710/3225)   Receiving objects:  23% (742/3225)   Receiving objects:  24% (774/3225)   Receiving objects:  25% (807/3225)   Receiving objects:  26% (839/3225)   Receiving objects:  27% (871/3225)   Receiving objects:  28% (903/3225)   Receiving objects:  29% (936/3225)   Receiving objects:  30% (968/3225)   Receiving objects:  31% (1000/3225)   Receiving objects:  32% (1032/3225)   Receiving objects:  33% (1065/3225)   Receiving objects:  34% (1097/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  35% (1129/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  36% (1161/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  37% (1194/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  38% (1226/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  39% (1258/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  40% (1290/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  41% (1323/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  42% (1355/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  43% (1387/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  44% (1419/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  45% (1452/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  46% (1484/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  47% (1516/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  48% (1548/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  49% (1581/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  50% (1613/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  51% (1645/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  52% (1677/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  53% (1710/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  54% (1742/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  55% (1774/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  56% (1806/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  57% (1839/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  58% (1871/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  59% (1903/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  60% (1935/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  61% (1968/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  62% (2000/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  63% (2032/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  64% (2064/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  65% (2097/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  66% (2129/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  67% (2161/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  68% (2193/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  69% (2226/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  70% (2258/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  71% (2290/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  72% (2322/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  73% (2355/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  74% (2387/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  75% (2419/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  76% (2451/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  77% (2484/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  78% (2516/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  79% (2548/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  80% (2580/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  81% (2613/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  82% (2645/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  83% (2677/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  84% (2709/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  85% (2742/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  86% (2774/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  87% (2806/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  88% (2838/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  89% (2871/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  90% (2903/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  91% (2935/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  92% (2967/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  93% (3000/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  94% (3032/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  95% (3064/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  96% (3096/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  97% (3129/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects:  98% (3161/3225), 20.84 MiB | 41.59 MiB/s   remote: Total 3225 (delta 1506), reused 2211 (delta 780)[K
+Receiving objects:  99% (3193/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects: 100% (3225/3225), 20.84 MiB | 41.59 MiB/s   Receiving objects: 100% (3225/3225), 25.33 MiB | 41.59 MiB/s, done.
+Resolving deltas:   0% (0/1506)   Resolving deltas:   1% (27/1506)   Resolving deltas:   2% (31/1506)   Resolving deltas:   3% (46/1506)   Resolving deltas:   4% (64/1506)   Resolving deltas:   5% (79/1506)   Resolving deltas:   7% (107/1506)   Resolving deltas:   8% (122/1506)   Resolving deltas:   9% (142/1506)   Resolving deltas:  10% (152/1506)   Resolving deltas:  11% (166/1506)   Resolving deltas:  12% (184/1506)   Resolving deltas:  13% (196/1506)   Resolving deltas:  14% (211/1506)   Resolving deltas:  15% (226/1506)   Resolving deltas:  16% (242/1506)   Resolving deltas:  17% (258/1506)   Resolving deltas:  18% (273/1506)   Resolving deltas:  19% (287/1506)   Resolving deltas:  20% (302/1506)   Resolving deltas:  21% (320/1506)   Resolving deltas:  22% (332/1506)   Resolving deltas:  23% (347/1506)   Resolving deltas:  24% (364/1506)   Resolving deltas:  25% (380/1506)   Resolving deltas:  26% (396/1506)   Resolving deltas:  27% (421/1506)   Resolving deltas:  28% (434/1506)   Resolving deltas:  29% (439/1506)   Resolving deltas:  30% (452/1506)   Resolving deltas:  31% (468/1506)   Resolving deltas:  32% (482/1506)   Resolving deltas:  33% (497/1506)   Resolving deltas:  34% (514/1506)   Resolving deltas:  35% (535/1506)   Resolving deltas:  36% (543/1506)   Resolving deltas:  37% (570/1506)   Resolving deltas:  38% (576/1506)   Resolving deltas:  39% (595/1506)   Resolving deltas:  40% (606/1506)   Resolving deltas:  41% (620/1506)   Resolving deltas:  42% (635/1506)   Resolving deltas:  43% (651/1506)   Resolving deltas:  45% (686/1506)   Resolving deltas:  46% (694/1506)   Resolving deltas:  47% (711/1506)   Resolving deltas:  49% (745/1506)   Resolving deltas:  50% (765/1506)   Resolving deltas:  51% (772/1506)   Resolving deltas:  52% (784/1506)   Resolving deltas:  53% (800/1506)   Resolving deltas:  54% (816/1506)   Resolving deltas:  55% (833/1506)   Resolving deltas:  56% (849/1506)   Resolving deltas:  57% (860/1506)   Resolving deltas:  58% (875/1506)   Resolving deltas:  59% (891/1506)   Resolving deltas:  60% (907/1506)   Resolving deltas:  61% (929/1506)   Resolving deltas:  62% (938/1506)   Resolving deltas:  63% (949/1506)   Resolving deltas:  64% (967/1506)   Resolving deltas:  65% (983/1506)   Resolving deltas:  66% (996/1506)   Resolving deltas:  67% (1012/1506)   Resolving deltas:  68% (1026/1506)   Resolving deltas:  69% (1043/1506)   Resolving deltas:  72% (1092/1506)   Resolving deltas:  74% (1118/1506)   Resolving deltas:  75% (1136/1506)   Resolving deltas:  76% (1145/1506)   Resolving deltas:  77% (1167/1506)   Resolving deltas:  78% (1186/1506)   Resolving deltas:  79% (1197/1506)   Resolving deltas:  84% (1266/1506)   Resolving deltas:  85% (1284/1506)   Resolving deltas:  86% (1305/1506)   Resolving deltas:  87% (1312/1506)   Resolving deltas:  88% (1328/1506)   Resolving deltas:  89% (1347/1506)   Resolving deltas:  91% (1372/1506)   Resolving deltas:  92% (1387/1506)   Resolving deltas:  93% (1402/1506)   Resolving deltas:  94% (1421/1506)   Resolving deltas:  95% (1431/1506)   Resolving deltas:  96% (1455/1506)   Resolving deltas:  97% (1468/1506)   Resolving deltas:  98% (1478/1506)   Resolving deltas:  99% (1497/1506)   Resolving deltas: 100% (1506/1506)   Resolving deltas: 100% (1506/1506), done.
+Checking connectivity... done.
+travis_time:end:10813623:start=1423005386918833985,finish=1423005388480722896,duration=1561888911[0K$ cd google/guice
+travis_time:start:0a6e8fe2[0K$ git fetch origin +refs/pull/902/merge:
+remote: Counting objects: 68, done.[K
+remote: Compressing objects:   2% (1/34)   [Kremote: Compressing objects:   5% (2/34)   [Kremote: Compressing objects:   8% (3/34)   [Kremote: Compressing objects:  11% (4/34)   [Kremote: Compressing objects:  14% (5/34)   [Kremote: Compressing objects:  17% (6/34)   [Kremote: Compressing objects:  20% (7/34)   [Kremote: Compressing objects:  23% (8/34)   [Kremote: Compressing objects:  26% (9/34)   [Kremote: Compressing objects:  29% (10/34)   [Kremote: Compressing objects:  32% (11/34)   [Kremote: Compressing objects:  35% (12/34)   [Kremote: Compressing objects:  38% (13/34)   [Kremote: Compressing objects:  41% (14/34)   [Kremote: Compressing objects:  44% (15/34)   [Kremote: Compressing objects:  47% (16/34)   [Kremote: Compressing objects:  50% (17/34)   [Kremote: Compressing objects:  52% (18/34)   [Kremote: Compressing objects:  55% (19/34)   [Kremote: Compressing objects:  58% (20/34)   [Kremote: Compressing objects:  61% (21/34)   [Kremote: Compressing objects:  64% (22/34)   [Kremote: Compressing objects:  67% (23/34)   [Kremote: Compressing objects:  70% (24/34)   [Kremote: Compressing objects:  73% (25/34)   [Kremote: Compressing objects:  76% (26/34)   [Kremote: Compressing objects:  79% (27/34)   [Kremote: Compressing objects:  82% (28/34)   [Kremote: Compressing objects:  85% (29/34)   [Kremote: Compressing objects:  88% (30/34)   [Kremote: Compressing objects:  91% (31/34)   [Kremote: Compressing objects:  94% (32/34)   [Kremote: Compressing objects:  97% (33/34)   [Kremote: Compressing objects: 100% (34/34)   [Kremote: Compressing objects: 100% (34/34), done.[K
+Unpacking objects:   1% (1/68)   remote: Total 68 (delta 35), reused 48 (delta 16)[K
+Unpacking objects:   2% (2/68)   Unpacking objects:   4% (3/68)   Unpacking objects:   5% (4/68)   Unpacking objects:   7% (5/68)   Unpacking objects:   8% (6/68)   Unpacking objects:  10% (7/68)   Unpacking objects:  11% (8/68)   Unpacking objects:  13% (9/68)   Unpacking objects:  14% (10/68)   Unpacking objects:  16% (11/68)   Unpacking objects:  17% (12/68)   Unpacking objects:  19% (13/68)   Unpacking objects:  20% (14/68)   Unpacking objects:  22% (15/68)   Unpacking objects:  23% (16/68)   Unpacking objects:  25% (17/68)   Unpacking objects:  26% (18/68)   Unpacking objects:  27% (19/68)   Unpacking objects:  29% (20/68)   Unpacking objects:  30% (21/68)   Unpacking objects:  32% (22/68)   Unpacking objects:  33% (23/68)   Unpacking objects:  35% (24/68)   Unpacking objects:  36% (25/68)   Unpacking objects:  38% (26/68)   Unpacking objects:  39% (27/68)   Unpacking objects:  41% (28/68)   Unpacking objects:  42% (29/68)   Unpacking objects:  44% (30/68)   Unpacking objects:  45% (31/68)   Unpacking objects:  47% (32/68)   Unpacking objects:  48% (33/68)   Unpacking objects:  50% (34/68)   Unpacking objects:  51% (35/68)   Unpacking objects:  52% (36/68)   Unpacking objects:  54% (37/68)   Unpacking objects:  55% (38/68)   Unpacking objects:  57% (39/68)   Unpacking objects:  58% (40/68)   Unpacking objects:  60% (41/68)   Unpacking objects:  61% (42/68)   Unpacking objects:  63% (43/68)   Unpacking objects:  64% (44/68)   Unpacking objects:  66% (45/68)   Unpacking objects:  67% (46/68)   Unpacking objects:  69% (47/68)   Unpacking objects:  70% (48/68)   Unpacking objects:  72% (49/68)   Unpacking objects:  73% (50/68)   Unpacking objects:  75% (51/68)   Unpacking objects:  76% (52/68)   Unpacking objects:  77% (53/68)   Unpacking objects:  79% (54/68)   Unpacking objects:  80% (55/68)   Unpacking objects:  82% (56/68)   Unpacking objects:  83% (57/68)   Unpacking objects:  85% (58/68)   Unpacking objects:  86% (59/68)   Unpacking objects:  88% (60/68)   Unpacking objects:  89% (61/68)   Unpacking objects:  91% (62/68)   Unpacking objects:  92% (63/68)   Unpacking objects:  94% (64/68)   Unpacking objects:  95% (65/68)   Unpacking objects:  97% (66/68)   Unpacking objects:  98% (67/68)   Unpacking objects: 100% (68/68)   Unpacking objects: 100% (68/68), done.
+From git://github.com/google/guice
+ * branch            refs/pull/902/merge -> FETCH_HEAD
+travis_time:end:0a6e8fe2:start=1423005388489741305,finish=1423005388613102393,duration=123361088[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K
+[33;1mSetting environment variables from .travis.yml[0m
+$ export GH_TOKEN=[secure]
+$ export CI_DEPLOY_USERNAME=[secure]
+$ export CI_DEPLOY_PASSWORD=[secure]
+$ export LABEL=ant
+$ export CMD="ant dist test.dist"
+$ export INSTALL="/bin/true"
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+$ java -version
+java version "1.7.0_72"
+Java(TM) SE Runtime Environment (build 1.7.0_72-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 24.72-b04, mixed mode)
+$ javac -version
+javac 1.7.0_72
+travis_fold:start:install[0Ktravis_time:start:0c3640d2[0K$ ${INSTALL}
+travis_time:end:0c3640d2:start=1423005389222900603,finish=1423005389232409716,duration=9509113[0Ktravis_fold:end:install[0Ktravis_time:start:2694d5fa[0K$ ${CMD}
+Buildfile: /home/travis/build/google/guice/build.xml
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/build
+      [zip] Building zip: /home/travis/build/google/guice/build/guice-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/build/classes
+    [javac] Compiling 190 source files to /home/travis/build/google/guice/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Annotations.java:90: warning: [unchecked] unchecked cast
+    [javac]     return (T)cache.getUnchecked(annotationType);
+    [javac]                                 ^
+    [javac]   required: T
+    [javac]   found:    Annotation
+    [javac]   where T is a type-variable:
+    [javac]     T extends Annotation declared in method <T>generateAnnotation(Class<T>)
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Annotations.java:253: warning: [unchecked] unchecked generic array creation for varargs parameter of type Class<? extends Annotation>[]
+    [javac]       Arrays.asList(ScopeAnnotation.class, javax.inject.Scope.class));
+    [javac]                    ^
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Annotations.java:308: warning: [unchecked] unchecked generic array creation for varargs parameter of type Class<? extends Annotation>[]
+    [javac]       Arrays.asList(BindingAnnotation.class, Qualifier.class));
+    [javac]                    ^
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/MoreTypes.java:287: warning: [rawtypes] found raw type: TypeVariable
+    [javac]   public static Type resolveTypeVariable(Type type, Class<?> rawType, TypeVariable unknown) {
+    [javac]                                                                       ^
+    [javac]   missing type arguments for generic class TypeVariable<D>
+    [javac]   where D is a type-variable:
+    [javac]     D extends GenericDeclaration declared in interface TypeVariable
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/MoreTypes.java:317: warning: [rawtypes] found raw type: TypeVariable
+    [javac]   private static Class<?> declaringClassOf(TypeVariable typeVariable) {
+    [javac]                                            ^
+    [javac]   missing type arguments for generic class TypeVariable<D>
+    [javac]   where D is a type-variable:
+    [javac]     D extends GenericDeclaration declared in interface TypeVariable
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/MoreTypes.java:402: warning: [rawtypes] found raw type: Class
+    [javac]         Class rawTypeAsClass = (Class) rawType;
+    [javac]         ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/TypeLiteral.java:188: warning: [rawtypes] found raw type: TypeVariable
+    [javac]         TypeVariable original = (TypeVariable) toResolve;
+    [javac]         ^
+    [javac]   missing type arguments for generic class TypeVariable<D>
+    [javac]   where D is a type-variable:
+    [javac]     D extends GenericDeclaration declared in interface TypeVariable
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/spi/Dependency.java:108: warning: [rawtypes] found raw type: Dependency
+    [javac]       Dependency dependency = (Dependency) o;
+    [javac]       ^
+    [javac]   missing type arguments for generic class Dependency<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Dependency
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Errors.java:146: warning: [rawtypes] found raw type: Key
+    [javac]   public Errors missingImplementation(Key key) {
+    [javac]                                       ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Errors.java:150: warning: [rawtypes] found raw type: Key
+    [javac]   public Errors jitDisabled(Key key) {
+    [javac]                             ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Errors.java:161: warning: [rawtypes] found raw type: Class
+    [javac]   public Errors atInjectRequired(Class clazz) {
+    [javac]                                  ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Errors.java:229: warning: [rawtypes] found raw type: Constructor
+    [javac]   public Errors optionalConstructor(Constructor constructor) {
+    [javac]                                     ^
+    [javac]   missing type arguments for generic class Constructor<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Constructor
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Errors.java:699: warning: [rawtypes] found raw type: Class
+    [javac]       new Converter<Class>(Class.class) {
+    [javac]                     ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/Errors.java:709: warning: [rawtypes] found raw type: Key
+    [javac]       new Converter<Key>(Key.class) {
+    [javac]                     ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/spi/InjectionPoint.java:842: warning: [rawtypes] found raw type: Class
+    [javac]       for (Class parameterType : parameterTypes) {
+    [javac]            ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/util/StackTraceElements.java:63: warning: [rawtypes] found raw type: Class
+    [javac]     Class declaringClass = member.getDeclaringClass();
+    [javac]     ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/util/LineNumbers.java:47: warning: [rawtypes] found raw type: Class
+    [javac]   private final Class type;
+    [javac]                 ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/util/LineNumbers.java:59: warning: [rawtypes] found raw type: Class
+    [javac]   public LineNumbers(Class type) throws IOException {
+    [javac]                      ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/util/LineNumbers.java:110: warning: [rawtypes] found raw type: Class
+    [javac]       for (Class param : ((Constructor) member).getParameterTypes()) {
+    [javac]            ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/InjectorImpl.java:554: warning: [rawtypes] found raw type: Key
+    [javac]           cleanup(binding, new HashSet<Key>());
+    [javac]                                        ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/InjectorImpl.java:566: warning: [rawtypes] found raw type: Key
+    [javac]   private boolean cleanup(BindingImpl<?> binding, Set<Key> encountered) {
+    [javac]                                                       ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/InjectorImpl.java:569: warning: [rawtypes] found raw type: Dependency
+    [javac]     for(Dependency dep : deps) {
+    [javac]         ^
+    [javac]   missing type arguments for generic class Dependency<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Dependency
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/InjectorImpl.java:573: warning: [rawtypes] found raw type: BindingImpl
+    [javac]         BindingImpl depBinding = jitBindings.get(depKey);
+    [javac]         ^
+    [javac]   missing type arguments for generic class BindingImpl<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class BindingImpl
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/InjectorImpl.java:577: warning: [rawtypes] found raw type: ConstructorBindingImpl
+    [javac]             ConstructorBindingImpl ctorBinding = (ConstructorBindingImpl)depBinding;
+    [javac]             ^
+    [javac]   missing type arguments for generic class ConstructorBindingImpl<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class ConstructorBindingImpl
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/InjectorImpl.java:982: warning: [rawtypes] found raw type: MembersInjector
+    [javac]     MembersInjector membersInjector = getMembersInjector(instance.getClass());
+    [javac]     ^
+    [javac]   missing type arguments for generic class MembersInjector<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface MembersInjector
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/SingleParameterInjector.java:36: warning: [rawtypes] found raw type: Dependency
+    [javac]     Dependency previous = context.pushDependency(dependency, binding.getSource());
+    [javac]     ^
+    [javac]   missing type arguments for generic class Dependency<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Dependency
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ProvisionListenerStackCallback.java:39: warning: [unchecked] unchecked call to ProvisionListenerStackCallback(Binding<T>,List<ProvisionListener>) as a member of the raw type ProvisionListenerStackCallback
+    [javac]       new ProvisionListenerStackCallback(null /* unused, so ok */, ImmutableList.of());
+    [javac]       ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class ProvisionListenerStackCallback
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ConstructionContext.java:78: warning: [rawtypes] found raw type: Class
+    [javac]         new Class[] { expectedType, CircularDependencyProxy.class }, invocationHandler));
+    [javac]             ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/AbstractBindingProcessor.java:114: warning: [rawtypes] found raw type: ExposedBindingImpl
+    [javac]       ExposedBindingImpl exposed = (ExposedBindingImpl) original;
+    [javac]       ^
+    [javac]   missing type arguments for generic class ExposedBindingImpl<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class ExposedBindingImpl
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/BindingBuilder.java:100: warning: [unchecked] unchecked cast
+    [javac]     return toProvider((javax.inject.Provider<T>) provider);
+    [javac]                                                  ^
+    [javac]   required: javax.inject.Provider<T>
+    [javac]   found:    com.google.inject.Provider<CAP#1>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class BindingBuilder
+    [javac]   where CAP#1 is a fresh type-variable:
+    [javac]     CAP#1 extends T from capture of ? extends T
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ConstantFactory.java:33: warning: [rawtypes] found raw type: Dependency
+    [javac]   public T get(Errors errors, InternalContext context, Dependency dependency, boolean linked)
+    [javac]                                                        ^
+    [javac]   missing type arguments for generic class Dependency<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Dependency
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ConstructorBindingImpl.java:129: warning: [rawtypes] found raw type: Constructor
+    [javac]   private static boolean hasAtInject(Constructor cxtor) {
+    [javac]                                      ^
+    [javac]   missing type arguments for generic class Constructor<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Constructor
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ProvidedByInternalFactory.java:62: warning: [rawtypes] found raw type: Dependency
+    [javac]   public T get(Errors errors, InternalContext context, Dependency dependency, boolean linked)
+    [javac]                                                        ^
+    [javac]   missing type arguments for generic class Dependency<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Dependency
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ProviderInstanceBindingImpl.java:66: warning: [deprecation] getProviderInstance() in ProviderInstanceBinding has been deprecated
+    [javac]   public Provider<? extends T> getProviderInstance() {
+    [javac]                                ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface ProviderInstanceBinding
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/ProxyFactory.java:163: warning: [rawtypes] found raw type: Class
+    [javac]     Class<? extends Callback>[] callbackTypes = new Class[callbacks.length];
+    [javac]                                                     ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/SingleFieldInjector.java:52: warning: [rawtypes] found raw type: Dependency
+    [javac]     Dependency previous = context.pushDependency(dependency, binding.getSource());
+    [javac]     ^
+    [javac]   missing type arguments for generic class Dependency<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Dependency
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/internal/util/SourceProvider.java:71: warning: [rawtypes] found raw type: Class
+    [javac]     for (Class c : classes) {
+    [javac]          ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:184: warning: [rawtypes] found raw type: Class
+    [javac]   public static Matcher<Class> subclassesOf(final Class<?> superclass) {
+    [javac]                         ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:188: warning: [rawtypes] found raw type: Class
+    [javac]   private static class SubclassesOf extends AbstractMatcher<Class>
+    [javac]                                                             ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:196: warning: [rawtypes] found raw type: Class
+    [javac]     public boolean matches(Class subclass) {
+    [javac]                            ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:290: warning: [rawtypes] found raw type: Class
+    [javac]   public static Matcher<Class> inPackage(final Package targetPackage) {
+    [javac]                         ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:294: warning: [rawtypes] found raw type: Class
+    [javac]   private static class InPackage extends AbstractMatcher<Class> implements Serializable {
+    [javac]                                                          ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:303: warning: [rawtypes] found raw type: Class
+    [javac]     public boolean matches(Class c) {
+    [javac]                            ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:333: warning: [rawtypes] found raw type: Class
+    [javac]   public static Matcher<Class> inSubpackage(final String targetPackageName) {
+    [javac]                         ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:337: warning: [rawtypes] found raw type: Class
+    [javac]   private static class InSubpackage extends AbstractMatcher<Class> implements Serializable {
+    [javac]                                                             ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/matcher/Matchers.java:344: warning: [rawtypes] found raw type: Class
+    [javac]     public boolean matches(Class c) {
+    [javac]                            ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/core/src/com/google/inject/util/Modules.java:184: warning: [rawtypes] found raw type: Key
+    [javac]           for(Key exposed : privateElements.getExposedKeys()) {
+    [javac]               ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] 48 warnings
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/spi/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/name/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/binder/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/matcher/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/util/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/build/classes/com/google/inject/internal/package-info.class
+
+jar.withdeps:
+    [mkdir] Created dir: /home/travis/build/google/guice/build/dist
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-with-deps.jar
+
+manifest:
+  [bndwrap] classes 344 0
+    [unjar] Expanding: /home/travis/build/google/guice/build/classes.bar into /home/travis/build/google/guice/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/build/dist/guice-snapshot.jar
+
+distjars:
+
+javadoc:
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] javadoc: error - invalid flag: -Xdoclint:none
+  [javadoc] usage: javadoc [options] [packagenames] [sourcefiles] [@files]
+  [javadoc] -overview <file>          Read overview documentation from HTML file
+  [javadoc] -public                   Show only public classes and members
+  [javadoc] -protected                Show protected/public classes and members (default)
+  [javadoc] -package                  Show package/protected/public classes and members
+  [javadoc] -private                  Show all classes and members
+  [javadoc] -help                     Display command line options and exit
+  [javadoc] -doclet <class>           Generate output via alternate doclet
+  [javadoc] -docletpath <path>        Specify where to find doclet class files
+  [javadoc] -sourcepath <pathlist>    Specify where to find source files
+  [javadoc] -classpath <pathlist>     Specify where to find user class files
+  [javadoc] -exclude <pkglist>        Specify a list of packages to exclude
+  [javadoc] -subpackages <subpkglist> Specify subpackages to recursively load
+  [javadoc] -breakiterator            Compute 1st sentence with BreakIterator
+  [javadoc] -bootclasspath <pathlist> Override location of class files loaded
+  [javadoc] 			  by the bootstrap class loader
+  [javadoc] -source <release>         Provide source compatibility with specified release
+  [javadoc] -extdirs <dirlist>        Override location of installed extensions
+  [javadoc] -verbose                  Output messages about what Javadoc is doing
+  [javadoc] -locale <name>            Locale to be used, e.g. en_US or en_US_WIN
+  [javadoc] -encoding <name>          Source file encoding name
+  [javadoc] -quiet                    Do not display status messages
+  [javadoc] -J<flag>                  Pass <flag> directly to the runtime system
+  [javadoc] -X                        Print a synopsis of nonstandard options
+  [javadoc] 
+  [javadoc] Provided by Standard doclet:
+  [javadoc] -d <directory>                    Destination directory for output files
+  [javadoc] -use                              Create class and package usage pages
+  [javadoc] -version                          Include @version paragraphs
+  [javadoc] -author                           Include @author paragraphs
+  [javadoc] -docfilessubdirs                  Recursively copy doc-file subdirectories
+  [javadoc] -splitindex                       Split index into one file per letter
+  [javadoc] -windowtitle <text>               Browser window title for the documenation
+  [javadoc] -doctitle <html-code>             Include title for the overview page
+  [javadoc] -header <html-code>               Include header text for each page
+  [javadoc] -footer <html-code>               Include footer text for each page
+  [javadoc] -top    <html-code>               Include top text for each page
+  [javadoc] -bottom <html-code>               Include bottom text for each page
+  [javadoc] -link <url>                       Create links to javadoc output at <url>
+  [javadoc] -linkoffline <url> <url2>         Link to docs at <url> using package list at <url2>
+  [javadoc] -excludedocfilessubdir <name1>:.. Exclude any doc-files subdirectories with given name.
+  [javadoc] -group <name> <p1>:<p2>..         Group specified packages together in overview page
+  [javadoc] -nocomment                        Supress description and tags, generate only declarations.
+  [javadoc] -nodeprecated                     Do not include @deprecated information
+  [javadoc] -noqualifier <name1>:<name2>:...  Exclude the list of qualifiers from the output.
+  [javadoc] -nosince                          Do not include @since information
+  [javadoc] -notimestamp                      Do not include hidden time stamp
+  [javadoc] -nodeprecatedlist                 Do not generate deprecated list
+  [javadoc] -notree                           Do not generate class hierarchy
+  [javadoc] -noindex                          Do not generate index
+  [javadoc] -nohelp                           Do not generate help link
+  [javadoc] -nonavbar                         Do not generate navigation bar
+  [javadoc] -serialwarn                       Generate warning about @serial tag
+  [javadoc] -tag <name>:<locations>:<header>  Specify single argument custom tags
+  [javadoc] -taglet                           The fully qualified name of Taglet to register
+  [javadoc] -tagletpath                       The path to Taglets
+  [javadoc] -Xdocrootparent <url>             Replaces all appearances of @docRoot followed by /.. in doc comments with <url>
+  [javadoc] -charset <charset>                Charset for cross-platform viewing of generated documentation.
+  [javadoc] -helpfile <file>                  Include file that help link links to
+  [javadoc] -linksource                       Generate source in HTML
+  [javadoc] -sourcetab <tab length>           Specify the number of spaces each tab takes up in the source
+  [javadoc] -keywords                         Include HTML meta tags with package, class and member info
+  [javadoc] -stylesheetfile <path>            File to change style of the generated documentation
+  [javadoc] -docencoding <name>               Output encoding name
+  [javadoc] 1 error
+
+dist:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/servlet/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/servlet/build/guice-servlet-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/servlet/build/classes
+    [javac] Compiling 35 source files to /home/travis/build/google/guice/extensions/servlet/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/servlet/src/com/google/inject/servlet/ServletScopes.java:82: warning: [unchecked] unchecked cast
+    [javac]               T t = (T) context.map.get(key);
+    [javac]                                        ^
+    [javac]   required: T
+    [javac]   found:    Object
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>scope(Key<T>,Provider<T>)
+    [javac] /home/travis/build/google/guice/extensions/servlet/src/com/google/inject/servlet/ServletScopes.java:364: warning: [rawtypes] found raw type: Key
+    [javac]     final Map<Key, Object> map = Maps.newHashMap();
+    [javac]               ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] 3 warnings
+    [javac] Creating empty /home/travis/build/google/guice/extensions/servlet/build/classes/com/google/inject/servlet/package-info.class
+
+manifest:
+  [bndwrap] classes 67 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/servlet/build/classes.bar into /home/travis/build/google/guice/extensions/servlet/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/servlet/build/guice-servlet-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/spring/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/spring/build/guice-spring-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/spring/build/classes
+    [javac] Compiling 2 source files to /home/travis/build/google/guice/extensions/spring/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] 1 warning
+    [javac] Creating empty /home/travis/build/google/guice/extensions/spring/build/classes/com/google/inject/spring/package-info.class
+
+manifest:
+  [bndwrap] classes 4 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/spring/build/classes.bar into /home/travis/build/google/guice/extensions/spring/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/spring/build/guice-spring-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/struts2/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/struts2/build/guice-struts2-plugin-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/struts2/build/classes
+    [javac] Compiling 3 source files to /home/travis/build/google/guice/extensions/struts2/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:82: warning: [rawtypes] found raw type: Class
+    [javac]   public Class getClassInstance(String name) throws ClassNotFoundException {
+    [javac]          ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:110: warning: [rawtypes] found raw type: Class
+    [javac]   public Object buildBean(Class clazz, Map extraContext) {
+    [javac]                           ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:110: warning: [rawtypes] found raw type: Map
+    [javac]   public Object buildBean(Class clazz, Map extraContext) {
+    [javac]                                        ^
+    [javac]   missing type arguments for generic class Map<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Map
+    [javac]     V extends Object declared in interface Map
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:168: warning: [rawtypes] found raw type: Map
+    [javac]       Map interceptorRefParams) throws ConfigurationException {
+    [javac]       ^
+    [javac]   missing type arguments for generic class Map<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Map
+    [javac]     V extends Object declared in interface Map
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:184: warning: [rawtypes] found raw type: Map
+    [javac]       Map interceptorRefParams) throws ConfigurationException {
+    [javac]       ^
+    [javac]   missing type arguments for generic class Map<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Map
+    [javac]     V extends Object declared in interface Map
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:185: warning: [unchecked] unchecked conversion
+    [javac]     return super.buildInterceptor(interceptorConfig, interceptorRefParams);
+    [javac]                                                      ^
+    [javac]   required: Map<String,String>
+    [javac]   found:    Map
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:191: warning: [rawtypes] found raw type: Map
+    [javac]     final Map params;
+    [javac]           ^
+    [javac]   missing type arguments for generic class Map<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Map
+    [javac]     V extends Object declared in interface Map
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/GuiceObjectFactory.java:195: warning: [rawtypes] found raw type: Map
+    [javac]     ProvidedInterceptor(InterceptorConfig config, Map params,
+    [javac]                                                   ^
+    [javac]   missing type arguments for generic class Map<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Map
+    [javac]     V extends Object declared in interface Map
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/Struts2Factory.java:101: warning: [rawtypes] found raw type: Class
+    [javac]   public Object buildBean(Class clazz, Map<String, Object> extraContext) {
+    [javac]                           ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/extensions/struts2/src/com/google/inject/struts2/Struts2Factory.java:149: warning: [rawtypes] found raw type: Map
+    [javac]       Map interceptorRefParams) throws ConfigurationException {
+    [javac]       ^
+    [javac]   missing type arguments for generic class Map<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Map
+    [javac]     V extends Object declared in interface Map
+    [javac] 11 warnings
+     [copy] Copying 1 file to /home/travis/build/google/guice/extensions/struts2/build/classes
+
+manifest:
+  [bndwrap] classes 8 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/struts2/build/classes.bar into /home/travis/build/google/guice/extensions/struts2/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/struts2/build/guice-struts2-plugin-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/assistedinject/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/assistedinject/build/guice-assistedinject-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/assistedinject/build/classes
+    [javac] Compiling 13 source files to /home/travis/build/google/guice/extensions/assistedinject/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/assistedinject/src/com/google/inject/assistedinject/FactoryProvider.java:379: warning: [rawtypes] found raw type: Class
+    [javac]         new Class[] { factoryRawType }, invocationHandler));
+    [javac]             ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /home/travis/build/google/guice/extensions/assistedinject/src/com/google/inject/assistedinject/FactoryProvider2.java:308: warning: [rawtypes] found raw type: Class
+    [javac]         new Class[] { factoryRawType }, this));
+    [javac]             ^
+    [javac]   missing type arguments for generic class Class<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] 3 warnings
+    [javac] Creating empty /home/travis/build/google/guice/extensions/assistedinject/build/classes/com/google/inject/assistedinject/package-info.class
+
+manifest:
+  [bndwrap] classes 19 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/assistedinject/build/classes.bar into /home/travis/build/google/guice/extensions/assistedinject/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/assistedinject/build/guice-assistedinject-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/jmx/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/jmx/build/guice-jmx-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/jmx/build/classes
+    [javac] Compiling 4 source files to /home/travis/build/google/guice/extensions/jmx/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/jmx/src/com/google/inject/tools/jmx/ManagedBinding.java:23: warning: [rawtypes] found raw type: Binding
+    [javac]   final Binding binding;
+    [javac]         ^
+    [javac]   missing type arguments for generic class Binding<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface Binding
+    [javac] /home/travis/build/google/guice/extensions/jmx/src/com/google/inject/tools/jmx/ManagedBinding.java:25: warning: [rawtypes] found raw type: Binding
+    [javac]   ManagedBinding(Binding binding) {
+    [javac]                  ^
+    [javac]   missing type arguments for generic class Binding<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface Binding
+    [javac] 3 warnings
+    [javac] Creating empty /home/travis/build/google/guice/extensions/jmx/build/classes/com/google/inject/tools/jmx/package-info.class
+
+manifest:
+  [bndwrap] classes 4 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/jmx/build/classes.bar into /home/travis/build/google/guice/extensions/jmx/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/jmx/build/guice-jmx-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/jndi/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/jndi/build/guice-jndi-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/jndi/build/classes
+    [javac] Compiling 2 source files to /home/travis/build/google/guice/extensions/jndi/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] 1 warning
+    [javac] Creating empty /home/travis/build/google/guice/extensions/jndi/build/classes/com/google/inject/jndi/package-info.class
+
+manifest:
+  [bndwrap] classes 3 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/jndi/build/classes.bar into /home/travis/build/google/guice/extensions/jndi/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/jndi/build/guice-jndi-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/throwingproviders/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/throwingproviders/build/guice-throwingproviders-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/throwingproviders/build/classes
+    [javac] Compiling 10 source files to /home/travis/build/google/guice/extensions/throwingproviders/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/CheckedProvideUtils.java:79: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]       Class<? extends CheckedProvider> checkedProvider) {
+    [javac]                       ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:113: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]   public <P extends CheckedProvider> SecondaryBinder<P, ?> 
+    [javac]                     ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:118: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]   public <P extends CheckedProvider, T> SecondaryBinder<P, T> 
+    [javac]                     ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:123: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]   public <P extends CheckedProvider, T> SecondaryBinder<P, T> 
+    [javac]                     ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:128: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]   public class SecondaryBinder<P extends CheckedProvider, T> {
+    [javac]                                          ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:239: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]       Key<CheckedProvider> targetKey = Key.get(CheckedProvider.class, UniqueAnnotations.create());
+    [javac]           ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:245: warning: [rawtypes] found raw type: CheckedProviderMethod
+    [javac]       Key<CheckedProviderMethod> targetKey =
+    [javac]           ^
+    [javac]   missing type arguments for generic class CheckedProviderMethod<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class CheckedProviderMethod
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:257: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]     private ScopedBindingBuilder toInternal(final Key<? extends CheckedProvider> targetKey) {
+    [javac]                                                                 ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:260: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]       final Provider<? extends CheckedProvider> targetProvider = binder.getProvider(targetKey);
+    [javac]                                ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/ThrowingProviderBinder.java:347: warning: [deprecation] ThrowingProvider in com.google.inject.throwingproviders has been deprecated
+    [javac]       boolean tpMode = interfaceType.getInterfaces()[0] == ThrowingProvider.class;      
+    [javac]                                                            ^
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/CheckedProviderMethod.java:51: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]   private final Class<? extends CheckedProvider> checkedProvider;
+    [javac]                                 ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/CheckedProviderMethod.java:61: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]       Class<? extends CheckedProvider> checkedProvider,
+    [javac]                       ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/CheckedProviderMethodsModule.java:90: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]       Class<? extends CheckedProvider> throwingProvider) {
+    [javac]                       ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] /home/travis/build/google/guice/extensions/throwingproviders/src/com/google/inject/throwingproviders/CheckedProvides.java:44: warning: [rawtypes] found raw type: CheckedProvider
+    [javac]   Class<? extends CheckedProvider> value();
+    [javac]                   ^
+    [javac]   missing type arguments for generic class CheckedProvider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface CheckedProvider
+    [javac] 15 warnings
+    [javac] Creating empty /home/travis/build/google/guice/extensions/throwingproviders/build/classes/com/google/inject/throwingproviders/package-info.class
+
+manifest:
+  [bndwrap] Should not skip: ^
+  [bndwrap] classes 18 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/throwingproviders/build/classes.bar into /home/travis/build/google/guice/extensions/throwingproviders/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/throwingproviders/build/guice-throwingproviders-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/multibindings/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/multibindings/build/guice-multibindings-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/multibindings/build/classes
+    [javac] Compiling 11 source files to /home/travis/build/google/guice/extensions/multibindings/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:290: warning: [rawtypes] found raw type: Key
+    [javac]       Key key = (Key) collectionOfProvidersKey;
+    [javac]       ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:291: warning: [unchecked] unchecked conversion
+    [javac]       binder.bind(collectionOfJavaxProvidersKey).to(key);
+    [javac]                                                     ^
+    [javac]   required: Key<? extends Collection<Provider<T>>>
+    [javac]   found:    Key
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class RealMultibinder
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:455: warning: [rawtypes] found raw type: Provider
+    [javac]         Provider<T>[] providers = new Provider[size];
+    [javac]                                       ^
+    [javac]   missing type arguments for generic class Provider<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in interface Provider
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:468: warning: [rawtypes] found raw type: Key
+    [javac]           Key key = dependency.getKey();
+    [javac]           ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:470: warning: [unchecked] unchecked conversion
+    [javac]               Dependency.get(key.ofType(Types.providerOf(key.getTypeLiteral().getType()))));
+    [javac]                                        ^
+    [javac]   required: Key<T>
+    [javac]   found:    Key
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>get(Key<T>)
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:470: warning: [unchecked] unchecked method invocation: method get in class Dependency is applied to given types
+    [javac]               Dependency.get(key.ofType(Types.providerOf(key.getTypeLiteral().getType()))));
+    [javac]                             ^
+    [javac]   required: Key<T>
+    [javac]   found: Key
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in method <T>get(Key<T>)
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/Multibinder.java:475: warning: [rawtypes] found raw type: Key
+    [javac]       Key getCollectionKey() {
+    [javac]       ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/MapBinder.java:378: warning: [rawtypes] found raw type: Key
+    [javac]       Key massagedProviderMapKey = (Key)providerMapKey;
+    [javac]       ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/MapBinder.java:379: warning: [unchecked] unchecked conversion
+    [javac]       binder.bind(javaxProviderMapKey).to(massagedProviderMapKey);
+    [javac]                                           ^
+    [javac]   required: Key<? extends Map<K,Provider<V>>>
+    [javac]   found:    Key
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in class RealMapBinder
+    [javac]     V extends Object declared in class RealMapBinder
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/MapBinder.java:781: warning: [rawtypes] found raw type: Entry
+    [javac]            Map.Entry o = (Map.Entry)obj;
+    [javac]               ^
+    [javac]   missing type arguments for generic class Entry<K,V>
+    [javac]   where K,V are type-variables:
+    [javac]     K extends Object declared in interface Entry
+    [javac]     V extends Object declared in interface Entry
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/OptionalBinder.java:300: warning: [rawtypes] found raw type: Key
+    [javac]     private final Key javaOptionalKey;
+    [javac]                   ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/OptionalBinder.java:301: warning: [rawtypes] found raw type: Key
+    [javac]     private final Key javaOptionalJavaxProviderKey;
+    [javac]                   ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/OptionalBinder.java:302: warning: [rawtypes] found raw type: Key
+    [javac]     private final Key javaOptionalProviderKey;
+    [javac]                   ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/OptionalBinder.java:372: warning: [rawtypes] found raw type: Key
+    [javac]       Key massagedOptionalProviderKey = (Key) optionalProviderKey;
+    [javac]       ^
+    [javac]   missing type arguments for generic class Key<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Key
+    [javac] /home/travis/build/google/guice/extensions/multibindings/src/com/google/inject/multibindings/OptionalBinder.java:373: warning: [unchecked] unchecked conversion
+    [javac]       binder.bind(optionalJavaxProviderKey).to(massagedOptionalProviderKey);
+    [javac]                                                ^
+    [javac]   required: Key<? extends Optional<Provider<T>>>
+    [javac]   found:    Key
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class RealOptionalBinder
+    [javac] 16 warnings
+    [javac] Creating empty /home/travis/build/google/guice/extensions/multibindings/build/classes/com/google/inject/multibindings/package-info.class
+
+manifest:
+  [bndwrap] classes 44 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/multibindings/build/classes.bar into /home/travis/build/google/guice/extensions/multibindings/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/multibindings/build/guice-multibindings-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/persist/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/persist/build/guice-persist-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/persist/build/classes
+    [javac] Compiling 17 source files to /home/travis/build/google/guice/extensions/persist/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] /home/travis/build/google/guice/extensions/persist/src/com/google/inject/persist/finder/Finder.java:50: warning: [rawtypes] found raw type: Collection
+    [javac]   Class<? extends Collection> returnAs() default Collection.class;
+    [javac]                   ^
+    [javac]   missing type arguments for generic class Collection<E>
+    [javac]   where E is a type-variable:
+    [javac]     E extends Object declared in interface Collection
+    [javac] /home/travis/build/google/guice/extensions/persist/src/com/google/inject/persist/jpa/JpaFinderProxy.java:86: warning: [rawtypes] found raw type: List
+    [javac]       List results) {
+    [javac]       ^
+    [javac]   missing type arguments for generic class List<E>
+    [javac]   where E is a type-variable:
+    [javac]     E extends Object declared in interface List
+    [javac] /home/travis/build/google/guice/extensions/persist/src/com/google/inject/persist/jpa/JpaFinderProxy.java:104: warning: [unchecked] unchecked conversion
+    [javac]     collection.addAll(results);
+    [javac]                       ^
+    [javac]   required: Collection<? extends CAP#1>
+    [javac]   found:    List
+    [javac]   where CAP#1 is a fresh type-variable:
+    [javac]     CAP#1 extends Object from capture of ?
+    [javac] /home/travis/build/google/guice/extensions/persist/src/com/google/inject/persist/jpa/JpaFinderProxy.java:250: warning: [rawtypes] found raw type: Collection
+    [javac]     volatile Class<? extends Collection> returnCollectionType;
+    [javac]                              ^
+    [javac]   missing type arguments for generic class Collection<E>
+    [javac]   where E is a type-variable:
+    [javac]     E extends Object declared in interface Collection
+    [javac] /home/travis/build/google/guice/extensions/persist/src/com/google/inject/persist/jpa/JpaFinderProxy.java:251: warning: [rawtypes] found raw type: Constructor
+    [javac]     volatile Constructor returnCollectionTypeConstructor;
+    [javac]              ^
+    [javac]   missing type arguments for generic class Constructor<T>
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Constructor
+    [javac] 6 warnings
+    [javac] Creating empty /home/travis/build/google/guice/extensions/persist/build/classes/com/google/inject/persist/jpa/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/extensions/persist/build/classes/com/google/inject/persist/finder/package-info.class
+    [javac] Creating empty /home/travis/build/google/guice/extensions/persist/build/classes/com/google/inject/persist/package-info.class
+
+manifest:
+  [bndwrap] classes 25 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/persist/build/classes.bar into /home/travis/build/google/guice/extensions/persist/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/persist/build/guice-persist-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/grapher/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/grapher/build/guice-grapher-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/grapher/build/classes
+    [javac] Compiling 34 source files to /home/travis/build/google/guice/extensions/grapher/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] 1 warning
+
+manifest:
+  [bndwrap] classes 42 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/grapher/build/classes.bar into /home/travis/build/google/guice/extensions/grapher/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/grapher/build/guice-grapher-snapshot.jar
+
+distjars:
+
+source.jar:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/testlib/build
+      [zip] Building zip: /home/travis/build/google/guice/extensions/testlib/build/guice-testlib-snapshot-src.jar
+
+compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/extensions/testlib/build/classes
+    [javac] Compiling 2 source files to /home/travis/build/google/guice/extensions/testlib/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] 1 warning
+
+manifest:
+  [bndwrap] classes 5 0
+    [unjar] Expanding: /home/travis/build/google/guice/extensions/testlib/build/classes.bar into /home/travis/build/google/guice/extensions/testlib/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/extensions/testlib/build/guice-testlib-snapshot.jar
+
+distjars:
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 2 files to /home/travis/build/google/guice/build/dist
+     [copy] Copying 1 file to /home/travis/build/google/guice/build/dist
+     [copy] Copying 3 files to /home/travis/build/google/guice/build/dist
+      [zip] Building zip: /home/travis/build/google/guice/build/guice-snapshot.zip
+      [zip] Building zip: /home/travis/build/google/guice/build/guice-snapshot-src.zip
+
+test.dist:
+
+compile:
+
+jar.withdeps:
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-with-deps.jar
+
+manifest:
+  [bndwrap] classes 344 434229
+    [unjar] Expanding: /home/travis/build/google/guice/build/classes.bar into /home/travis/build/google/guice/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/build/dist/guice-snapshot.jar
+
+test.compile:
+    [mkdir] Created dir: /home/travis/build/google/guice/build/test
+    [javac] Compiling 86 source files to /home/travis/build/google/guice/build/test
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 warning
+
+test.withdeps:
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-snapshot-tests.jar
+
+test.dist.run:
+    [junit] Feb 03, 2015 11:16:57 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: protected void org.atinject.tck.auto.accessories.SpareTire.injectProtectedMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:16:57 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.accessories.SpareTire.injectPublicMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:16:57 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: void org.atinject.tck.auto.accessories.SpareTire.injectPackagePrivateMethod3() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:16:58 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.GasEngine.injectTwiceOverriddenWithOmissionInMiddle() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:16:58 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: void org.atinject.tck.auto.V8Engine.injectPackagePrivateMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:16:58 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.V8Engine.injectQualifiers(org.atinject.tck.auto.Seat,org.atinject.tck.auto.Seat,org.atinject.tck.auto.Tire,org.atinject.tck.auto.Tire) is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:16:58 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.V8Engine.injectTwiceOverriddenWithOmissionInSubclass() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] .........................................
+    [junit] ................................com.google.inject.CreationException: Unable to create injector, see the following errors:
+    [junit] 
+    [junit] 1) A binding to com.google.inject.BinderTest$HasImplementedBy1 was already configured at com.google.inject.BinderTest$19.configure(BinderTest.java:347).
+    [junit]   at com.google.inject.BinderTest$19.configure(BinderTest.java:346)
+    [junit] 
+    [junit] 1 error
+    [junit] 	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:96)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:73)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:62)
+    [junit] 	at com.google.inject.BinderTest.testSettingAtImplementedByTwice(BinderTest.java:343)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:606)
+    [junit] 	at junit.framework.TestCase.runTest(TestCase.java:154)
+    [junit] 	at junit.framework.TestCase.runBare(TestCase.java:127)
+    [junit] 	at junit.framework.TestResult$1.protect(TestResult.java:106)
+    [junit] 	at junit.framework.TestResult.runProtected(TestResult.java:124)
+    [junit] 	at junit.framework.TestResult.run(TestResult.java:109)
+    [junit] 	at junit.framework.TestCase.run(TestCase.java:118)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.textui.TestRunner.doRun(TestRunner.java:116)
+    [junit] 	at junit.textui.TestRunner.start(TestRunner.java:172)
+    [junit] 	at junit.textui.TestRunner.main(TestRunner.java:138)
+    [junit] .......Feb 03, 2015 11:16:58 PM com.google.inject.internal.MessageProcessor visit
+    [junit] INFO: An exception was caught and reported. Message: java.lang.IllegalArgumentException
+    [junit] java.lang.IllegalArgumentException
+    [junit] 	at com.google.inject.BinderTest$24.configure(BinderTest.java:450)
+    [junit] 	at com.google.inject.AbstractModule.configure(AbstractModule.java:62)
+    [junit] 	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:253)
+    [junit] 	at com.google.inject.spi.Elements.getElements(Elements.java:108)
+    [junit] 	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:135)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:96)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:73)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:62)
+    [junit] 	at com.google.inject.BinderTest.testUserReportedErrorsAreAlsoLogged(BinderTest.java:447)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:606)
+    [junit] 	at junit.framework.TestCase.runTest(TestCase.java:154)
+    [junit] 	at junit.framework.TestCase.runBare(TestCase.java:127)
+    [junit] 	at junit.framework.TestResult$1.protect(TestResult.java:106)
+    [junit] 	at junit.framework.TestResult.runProtected(TestResult.java:124)
+    [junit] 	at junit.framework.TestResult.run(TestResult.java:109)
+    [junit] 	at junit.framework.TestCase.run(TestCase.java:118)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.textui.TestRunner.doRun(TestRunner.java:116)
+    [junit] 	at junit.textui.TestRunner.start(TestRunner.java:172)
+    [junit] 	at junit.textui.TestRunner.main(TestRunner.java:138)
+    [junit] 
+    [junit] ..
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] ........................................Feb 03, 2015 11:17:08 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$Sub.atInject() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:08 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$Sub.atInject() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:08 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$SubSub.privateGAndPublicAt() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] .
+    [junit] .........................................
+    [junit] .........................................
+    [junit] ......................................aopalliance.jar 9 4574
+    [junit] javax.inject.jar 6 2841
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] guava.jar 1675 2199486
+    [junit] osgitests.jar 28 20711
+    [junit] ...
+    [junit] ...........
+    [junit] Time: 23.394
+    [junit] 
+    [junit] OK (872 tests)
+    [junit] 
+
+compile:
+
+jar.withdeps:
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-with-deps.jar
+
+manifest:
+  [bndwrap] classes 344 434229
+    [unjar] Expanding: /home/travis/build/google/guice/build/classes.bar into /home/travis/build/google/guice/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/build/dist/guice-snapshot.jar
+
+test.compile:
+
+test.withdeps:
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-snapshot-tests.jar
+
+test.dist.run:
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: protected void org.atinject.tck.auto.accessories.SpareTire.injectProtectedMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.accessories.SpareTire.injectPublicMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: void org.atinject.tck.auto.accessories.SpareTire.injectPackagePrivateMethod3() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.GasEngine.injectTwiceOverriddenWithOmissionInMiddle() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: void org.atinject.tck.auto.V8Engine.injectPackagePrivateMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.V8Engine.injectQualifiers(org.atinject.tck.auto.Seat,org.atinject.tck.auto.Seat,org.atinject.tck.auto.Tire,org.atinject.tck.auto.Tire) is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:32 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.V8Engine.injectTwiceOverriddenWithOmissionInSubclass() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] .........................................
+    [junit] .................................com.google.inject.CreationException: Unable to create injector, see the following errors:
+    [junit] 
+    [junit] 1) A binding to com.google.inject.BinderTest$HasImplementedBy1 was already configured at com.google.inject.BinderTest$19.configure(Unknown Source).
+    [junit]   at com.google.inject.BinderTest$19.configure(Unknown Source)
+    [junit] 
+    [junit] 1 error
+    [junit] 	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:96)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:73)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:62)
+    [junit] 	at com.google.inject.BinderTest.testSettingAtImplementedByTwice(BinderTest.java:343)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:606)
+    [junit] 	at junit.framework.TestCase.runTest(TestCase.java:154)
+    [junit] 	at junit.framework.TestCase.runBare(TestCase.java:127)
+    [junit] 	at junit.framework.TestResult$1.protect(TestResult.java:106)
+    [junit] 	at junit.framework.TestResult.runProtected(TestResult.java:124)
+    [junit] 	at junit.framework.TestResult.run(TestResult.java:109)
+    [junit] 	at junit.framework.TestCase.run(TestCase.java:118)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.textui.TestRunner.doRun(TestRunner.java:116)
+    [junit] 	at junit.textui.TestRunner.start(TestRunner.java:172)
+    [junit] 	at junit.textui.TestRunner.main(TestRunner.java:138)
+    [junit] .......Feb 03, 2015 11:17:33 PM com.google.inject.internal.MessageProcessor visit
+    [junit] INFO: An exception was caught and reported. Message: java.lang.IllegalArgumentException
+    [junit] java.lang.IllegalArgumentException
+    [junit] 	at com.google.inject.BinderTest$24.configure(BinderTest.java:450)
+    [junit] 	at com.google.inject.AbstractModule.configure(AbstractModule.java:62)
+    [junit] 	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:253)
+    [junit] 	at com.google.inject.spi.Elements.getElements(Elements.java:108)
+    [junit] 	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:135)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:96)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:73)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:62)
+    [junit] 	at com.google.inject.BinderTest.testUserReportedErrorsAreAlsoLogged(BinderTest.java:447)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:606)
+    [junit] 	at junit.framework.TestCase.runTest(TestCase.java:154)
+    [junit] 	at junit.framework.TestCase.runBare(TestCase.java:127)
+    [junit] 	at junit.framework.TestResult$1.protect(TestResult.java:106)
+    [junit] 	at junit.framework.TestResult.runProtected(TestResult.java:124)
+    [junit] 	at junit.framework.TestResult.run(TestResult.java:109)
+    [junit] 	at junit.framework.TestCase.run(TestCase.java:118)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.textui.TestRunner.doRun(TestRunner.java:116)
+    [junit] 	at junit.textui.TestRunner.start(TestRunner.java:172)
+    [junit] 	at junit.textui.TestRunner.main(TestRunner.java:138)
+    [junit] 
+    [junit] .
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] ...................................Feb 03, 2015 11:17:43 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$Sub.atInject() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:43 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$Sub.atInject() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:17:43 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$SubSub.privateGAndPublicAt() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] ......
+    [junit] .........................................
+    [junit] .........................................
+    [junit] ......................................aopalliance.jar 9 4574
+    [junit] javax.inject.jar 6 2841
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] guava.jar 1675 2199487
+    [junit] osgitests.jar 28 20711
+    [junit] ...
+    [junit] ...........
+    [junit] Time: 24.784
+    [junit] 
+    [junit] OK (872 tests)
+    [junit] 
+
+compile:
+
+jar.withdeps:
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-with-deps.jar
+
+manifest:
+  [bndwrap] classes 344 434229
+    [unjar] Expanding: /home/travis/build/google/guice/build/classes.bar into /home/travis/build/google/guice/build
+
+jar:
+      [jar] Building jar: /home/travis/build/google/guice/build/dist/guice-snapshot.jar
+
+test.compile:
+
+test.withdeps:
+   [jarjar] Building jar: /home/travis/build/google/guice/build/guice-snapshot-tests.jar
+
+test.dist.run:
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: protected void org.atinject.tck.auto.accessories.SpareTire.injectProtectedMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.accessories.SpareTire.injectPublicMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: void org.atinject.tck.auto.accessories.SpareTire.injectPackagePrivateMethod3() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.GasEngine.injectTwiceOverriddenWithOmissionInMiddle() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: void org.atinject.tck.auto.V8Engine.injectPackagePrivateMethodForOverride() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.V8Engine.injectQualifiers(org.atinject.tck.auto.Seat,org.atinject.tck.auto.Seat,org.atinject.tck.auto.Tire,org.atinject.tck.auto.Tire) is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:10 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void org.atinject.tck.auto.V8Engine.injectTwiceOverriddenWithOmissionInSubclass() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] .........................................
+    [junit] ..................................com.google.inject.CreationException: Unable to create injector, see the following errors:
+    [junit] 
+    [junit] 1) A binding to com.google.inject.BinderTest$HasImplementedBy1 was already configured at com.google.inject.BinderTest$19.configure(BinderTest.java:347).
+    [junit]   at com.google.inject.BinderTest$19.configure(BinderTest.java:346)
+    [junit] 
+    [junit] 1 error
+    [junit] 	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:96)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:73)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:62)
+    [junit] 	at com.google.inject.BinderTest.testSettingAtImplementedByTwice(BinderTest.java:343)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:606)
+    [junit] 	at junit.framework.TestCase.runTest(TestCase.java:154)
+    [junit] 	at junit.framework.TestCase.runBare(TestCase.java:127)
+    [junit] 	at junit.framework.TestResult$1.protect(TestResult.java:106)
+    [junit] 	at junit.framework.TestResult.runProtected(TestResult.java:124)
+    [junit] 	at junit.framework.TestResult.run(TestResult.java:109)
+    [junit] 	at junit.framework.TestCase.run(TestCase.java:118)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.textui.TestRunner.doRun(TestRunner.java:116)
+    [junit] 	at junit.textui.TestRunner.start(TestRunner.java:172)
+    [junit] 	at junit.textui.TestRunner.main(TestRunner.java:138)
+    [junit] .......
+    [junit] Feb 03, 2015 11:18:11 PM com.google.inject.internal.MessageProcessor visit
+    [junit] INFO: An exception was caught and reported. Message: java.lang.IllegalArgumentException
+    [junit] java.lang.IllegalArgumentException
+    [junit] 	at com.google.inject.BinderTest$24.configure(BinderTest.java:450)
+    [junit] 	at com.google.inject.AbstractModule.configure(AbstractModule.java:62)
+    [junit] 	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:253)
+    [junit] 	at com.google.inject.spi.Elements.getElements(Elements.java:108)
+    [junit] 	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:135)
+    [junit] 	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:96)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:73)
+    [junit] 	at com.google.inject.Guice.createInjector(Guice.java:62)
+    [junit] 	at com.google.inject.BinderTest.testUserReportedErrorsAreAlsoLogged(BinderTest.java:447)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    [junit] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    [junit] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    [junit] 	at java.lang.reflect.Method.invoke(Method.java:606)
+    [junit] 	at junit.framework.TestCase.runTest(TestCase.java:154)
+    [junit] 	at junit.framework.TestCase.runBare(TestCase.java:127)
+    [junit] 	at junit.framework.TestResult$1.protect(TestResult.java:106)
+    [junit] 	at junit.framework.TestResult.runProtected(TestResult.java:124)
+    [junit] 	at junit.framework.TestResult.run(TestResult.java:109)
+    [junit] 	at junit.framework.TestCase.run(TestCase.java:118)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.framework.TestSuite.runTest(TestSuite.java:208)
+    [junit] 	at junit.framework.TestSuite.run(TestSuite.java:203)
+    [junit] 	at junit.textui.TestRunner.doRun(TestRunner.java:116)
+    [junit] 	at junit.textui.TestRunner.start(TestRunner.java:172)
+    [junit] 	at junit.textui.TestRunner.main(TestRunner.java:138)
+    [junit] 
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .........................................
+    [junit] .......................................Feb 03, 2015 11:18:21 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$Sub.atInject() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:21 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$Sub.atInject() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] Feb 03, 2015 11:18:21 PM com.google.inject.spi.InjectionPoint getInjectionPoints
+    [junit] WARNING: Method: public void com.google.inject.spi.InjectionPointTest$SubSub.privateGAndPublicAt() is not annotated with @Inject but is overriding a method that is annotated with @javax.inject.Inject.  Because it is not annotated with @Inject, the method will not be injected. To fix this, annotate the method with @Inject.
+    [junit] ..
+    [junit] .........................................
+    [junit] .........................................
+    [junit] ......................................aopalliance.jar 9 4573
+    [junit] javax.inject.jar 6 2841
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] Should not skip: ^
+    [junit] guava.jar 1675 2199487
+    [junit] osgitests.jar 28 20713
+    [junit] ...
+    [junit] ...........
+    [junit] Time: 25.046
+    [junit] 
+    [junit] OK (872 tests)
+    [junit] 
+
+BUILD SUCCESSFUL
+Total time: 2 minutes 17 seconds
+travis_time:end:2694d5fa:start=1423005389240303227,finish=1423005526657982888,duration=137417679661[0K
+[32;1mThe command "${CMD}" exited with 0.[0m
+travis_fold:start:after_success.1[0Ktravis_time:start:0920cfc8[0K$ util/generate-latest-docs.sh
+travis_time:end:0920cfc8:start=1423005526666155590,finish=1423005526679453608,duration=13298018[0Ktravis_fold:end:after_success.1[0Ktravis_fold:start:after_success.2[0Ktravis_time:start:35601d10[0K$ util/compareBuilds.sh
+travis_time:end:35601d10:start=1423005526688102975,finish=1423005526698110279,duration=10007304[0Ktravis_fold:end:after_success.2[0Ktravis_fold:start:after_success.3[0Ktravis_time:start:02b61046[0K$ util/publish-snapshot-on-commit.sh
+travis_time:end:02b61046:start=1423005526706063365,finish=1423005526720082749,duration=14019384[0Ktravis_fold:end:after_success.3[0K
+Done. Your build exited with 0.

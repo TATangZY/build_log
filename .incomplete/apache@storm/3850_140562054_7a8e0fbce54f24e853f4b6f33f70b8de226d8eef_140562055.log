@@ -1,0 +1,882 @@
+Using worker: worker-linux-docker-1079d696.prod.travis-ci.org:travis-linux-6
+
+travis_fold:start:system_info[0K[33;1mBuild system information[0m
+Build language: java
+Build group: stable
+Build dist: precise
+[34m[1mBuild image provisioning date and time[0m
+Thu Feb  5 15:09:33 UTC 2015
+[34m[1mOperating System Details[0m
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.5 LTS
+Release:	12.04
+Codename:	precise
+[34m[1mLinux Version[0m
+3.13.0-29-generic
+[34m[1mCookbooks Version[0m
+a68419e https://github.com/travis-ci/travis-cookbooks/tree/a68419e
+[34m[1mGCC version[0m
+gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
+Copyright (C) 2011 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[34m[1mLLVM version[0m
+clang version 3.4 (tags/RELEASE_34/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+[34m[1mPre-installed Ruby versions[0m
+ruby-1.9.3-p551
+[34m[1mPre-installed Node.js versions[0m
+v0.10.36
+[34m[1mPre-installed Go versions[0m
+1.4.1
+[34m[1mRedis version[0m
+redis-server 2.8.19
+[34m[1mriak version[0m
+2.0.2
+[34m[1mMongoDB version[0m
+MongoDB 2.4.12
+[34m[1mCouchDB version[0m
+couchdb 1.6.1
+[34m[1mNeo4j version[0m
+1.9.4
+[34m[1mRabbitMQ Version[0m
+3.4.3
+[34m[1mElasticSearch version[0m
+1.4.0
+[34m[1mInstalled Sphinx versions[0m
+2.0.10
+2.1.9
+2.2.6
+[34m[1mDefault Sphinx version[0m
+2.2.6
+[34m[1mInstalled Firefox version[0m
+firefox 31.0esr
+[34m[1mPhantomJS version[0m
+1.9.8
+[34m[1mant -version[0m
+Apache Ant(TM) version 1.8.2 compiled on December 3 2011
+[34m[1mmvn -version[0m
+Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00)
+Maven home: /usr/local/maven
+Java version: 1.7.0_76, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-7-oracle/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.13.0-29-generic", arch: "amd64", family: "unix"
+travis_fold:end:system_info[0K
+travis_fold:start:fix.CVE-2015-7547[0K$ export DEBIAN_FRONTEND=noninteractive
+W: Size of file /var/lib/apt/lists/us.archive.ubuntu.com_ubuntu_dists_precise-backports_multiverse_source_Sources.gz is not what the server reported 5886 5888
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-amd64_Packages.gz is not what the server reported 36669 36677
+W: Size of file /var/lib/apt/lists/ppa.launchpad.net_ubuntugis_ppa_ubuntu_dists_precise_main_binary-i386_Packages.gz is not what the server reported 36729 36733
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following extra packages will be installed:
+  libc-bin libc-dev-bin libc6-dev
+Suggested packages:
+  glibc-doc
+The following packages will be upgraded:
+  libc-bin libc-dev-bin libc6 libc6-dev
+4 upgraded, 0 newly installed, 0 to remove and 247 not upgraded.
+Need to get 8,840 kB of archives.
+After this operation, 14.3 kB disk space will be freed.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6-dev amd64 2.15-0ubuntu10.15 [2,943 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-dev-bin amd64 2.15-0ubuntu10.15 [84.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc-bin amd64 2.15-0ubuntu10.15 [1,177 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ precise-updates/main libc6 amd64 2.15-0ubuntu10.15 [4,636 kB]
+Fetched 8,840 kB in 0s (11.6 MB/s)
+Preconfiguring packages ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72019 files and directories currently installed.)
+Preparing to replace libc6-dev 2.15-0ubuntu10.10 (using .../libc6-dev_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc6-dev ...
+Preparing to replace libc-dev-bin 2.15-0ubuntu10.10 (using .../libc-dev-bin_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc-dev-bin ...
+Preparing to replace libc-bin 2.15-0ubuntu10.10 (using .../libc-bin_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc-bin ...
+Processing triggers for man-db ...
+Setting up libc-bin (2.15-0ubuntu10.15) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 72018 files and directories currently installed.)
+Preparing to replace libc6 2.15-0ubuntu10.10 (using .../libc6_2.15-0ubuntu10.15_amd64.deb) ...
+Unpacking replacement libc6 ...
+Setting up libc6 (2.15-0ubuntu10.15) ...
+Setting up libc-dev-bin (2.15-0ubuntu10.15) ...
+Setting up libc6-dev (2.15-0ubuntu10.15) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+travis_fold:end:fix.CVE-2015-7547[0Ktravis_fold:start:git.checkout[0Ktravis_time:start:189ea4d0[0K$ git clone --depth=50 https://github.com/apache/storm.git apache/storm
+Cloning into 'apache/storm'...
+remote: Counting objects: 19310, done.[K
+remote: Compressing objects:   0% (1/7754)   [Kremote: Compressing objects:   1% (78/7754)   [Kremote: Compressing objects:   2% (156/7754)   [Kremote: Compressing objects:   3% (233/7754)   [Kremote: Compressing objects:   4% (311/7754)   [Kremote: Compressing objects:   5% (388/7754)   [Kremote: Compressing objects:   6% (466/7754)   [Kremote: Compressing objects:   7% (543/7754)   [Kremote: Compressing objects:   8% (621/7754)   [Kremote: Compressing objects:   9% (698/7754)   [Kremote: Compressing objects:  10% (776/7754)   [Kremote: Compressing objects:  11% (853/7754)   [Kremote: Compressing objects:  12% (931/7754)   [Kremote: Compressing objects:  13% (1009/7754)   [Kremote: Compressing objects:  14% (1086/7754)   [Kremote: Compressing objects:  15% (1164/7754)   [Kremote: Compressing objects:  16% (1241/7754)   [Kremote: Compressing objects:  17% (1319/7754)   [Kremote: Compressing objects:  18% (1396/7754)   [Kremote: Compressing objects:  19% (1474/7754)   [Kremote: Compressing objects:  20% (1551/7754)   [Kremote: Compressing objects:  21% (1629/7754)   [Kremote: Compressing objects:  22% (1706/7754)   [Kremote: Compressing objects:  23% (1784/7754)   [Kremote: Compressing objects:  24% (1861/7754)   [Kremote: Compressing objects:  25% (1939/7754)   [Kremote: Compressing objects:  26% (2017/7754)   [Kremote: Compressing objects:  27% (2094/7754)   [Kremote: Compressing objects:  28% (2172/7754)   [Kremote: Compressing objects:  29% (2249/7754)   [Kremote: Compressing objects:  30% (2327/7754)   [Kremote: Compressing objects:  31% (2404/7754)   [Kremote: Compressing objects:  32% (2482/7754)   [Kremote: Compressing objects:  33% (2559/7754)   [Kremote: Compressing objects:  34% (2637/7754)   [Kremote: Compressing objects:  35% (2714/7754)   [Kremote: Compressing objects:  36% (2792/7754)   [Kremote: Compressing objects:  37% (2869/7754)   [Kremote: Compressing objects:  38% (2947/7754)   [Kremote: Compressing objects:  39% (3025/7754)   [Kremote: Compressing objects:  40% (3102/7754)   [Kremote: Compressing objects:  41% (3180/7754)   [Kremote: Compressing objects:  42% (3257/7754)   [Kremote: Compressing objects:  43% (3335/7754)   [Kremote: Compressing objects:  44% (3412/7754)   [Kremote: Compressing objects:  45% (3490/7754)   [Kremote: Compressing objects:  46% (3567/7754)   [Kremote: Compressing objects:  47% (3645/7754)   [Kremote: Compressing objects:  48% (3722/7754)   [Kremote: Compressing objects:  49% (3800/7754)   [Kremote: Compressing objects:  50% (3877/7754)   [Kremote: Compressing objects:  51% (3955/7754)   [Kremote: Compressing objects:  52% (4033/7754)   [Kremote: Compressing objects:  53% (4110/7754)   [Kremote: Compressing objects:  54% (4188/7754)   [Kremote: Compressing objects:  55% (4265/7754)   [Kremote: Compressing objects:  56% (4343/7754)   [Kremote: Compressing objects:  57% (4420/7754)   [Kremote: Compressing objects:  58% (4498/7754)   [Kremote: Compressing objects:  59% (4575/7754)   [Kremote: Compressing objects:  60% (4653/7754)   [Kremote: Compressing objects:  61% (4730/7754)   [Kremote: Compressing objects:  62% (4808/7754)   [Kremote: Compressing objects:  63% (4886/7754)   [Kremote: Compressing objects:  64% (4963/7754)   [Kremote: Compressing objects:  65% (5041/7754)   [Kremote: Compressing objects:  66% (5118/7754)   [Kremote: Compressing objects:  67% (5196/7754)   [Kremote: Compressing objects:  68% (5273/7754)   [Kremote: Compressing objects:  69% (5351/7754)   [Kremote: Compressing objects:  70% (5428/7754)   [Kremote: Compressing objects:  71% (5506/7754)   [Kremote: Compressing objects:  72% (5583/7754)   [Kremote: Compressing objects:  73% (5661/7754)   [Kremote: Compressing objects:  74% (5738/7754)   [Kremote: Compressing objects:  75% (5816/7754)   [Kremote: Compressing objects:  76% (5894/7754)   [Kremote: Compressing objects:  77% (5971/7754)   [Kremote: Compressing objects:  78% (6049/7754)   [Kremote: Compressing objects:  79% (6126/7754)   [Kremote: Compressing objects:  80% (6204/7754)   [Kremote: Compressing objects:  81% (6281/7754)   [Kremote: Compressing objects:  82% (6359/7754)   [Kremote: Compressing objects:  83% (6436/7754)   [Kremote: Compressing objects:  84% (6514/7754)   [Kremote: Compressing objects:  85% (6591/7754)   [Kremote: Compressing objects:  86% (6669/7754)   [Kremote: Compressing objects:  87% (6746/7754)   [Kremote: Compressing objects:  88% (6824/7754)   [Kremote: Compressing objects:  89% (6902/7754)   [Kremote: Compressing objects:  90% (6979/7754)   [Kremote: Compressing objects:  91% (7057/7754)   [Kremote: Compressing objects:  92% (7134/7754)   [Kremote: Compressing objects:  93% (7212/7754)   [Kremote: Compressing objects:  94% (7289/7754)   [Kremote: Compressing objects:  95% (7367/7754)   [Kremote: Compressing objects:  96% (7444/7754)   [Kremote: Compressing objects:  97% (7522/7754)   [Kremote: Compressing objects:  98% (7599/7754)   [Kremote: Compressing objects:  99% (7677/7754)   [Kremote: Compressing objects: 100% (7754/7754)   [Kremote: Compressing objects: 100% (7754/7754), done.[K
+Receiving objects:   0% (1/19310)   Receiving objects:   1% (194/19310)   Receiving objects:   2% (387/19310)   Receiving objects:   3% (580/19310)   Receiving objects:   4% (773/19310)   Receiving objects:   5% (966/19310)   Receiving objects:   6% (1159/19310)   Receiving objects:   7% (1352/19310)   Receiving objects:   8% (1545/19310)   Receiving objects:   9% (1738/19310)   Receiving objects:  10% (1931/19310)   Receiving objects:  11% (2125/19310)   Receiving objects:  12% (2318/19310)   Receiving objects:  13% (2511/19310)   Receiving objects:  14% (2704/19310)   Receiving objects:  15% (2897/19310)   Receiving objects:  16% (3090/19310)   Receiving objects:  17% (3283/19310)   Receiving objects:  18% (3476/19310)   Receiving objects:  19% (3669/19310)   Receiving objects:  20% (3862/19310)   Receiving objects:  21% (4056/19310)   Receiving objects:  22% (4249/19310)   Receiving objects:  23% (4442/19310)   Receiving objects:  24% (4635/19310)   Receiving objects:  25% (4828/19310)   Receiving objects:  26% (5021/19310)   Receiving objects:  27% (5214/19310)   Receiving objects:  28% (5407/19310)   Receiving objects:  29% (5600/19310)   Receiving objects:  30% (5793/19310)   Receiving objects:  31% (5987/19310)   Receiving objects:  32% (6180/19310)   Receiving objects:  33% (6373/19310)   Receiving objects:  34% (6566/19310)   Receiving objects:  35% (6759/19310)   Receiving objects:  36% (6952/19310)   Receiving objects:  37% (7145/19310)   Receiving objects:  38% (7338/19310)   Receiving objects:  39% (7531/19310)   Receiving objects:  40% (7724/19310)   Receiving objects:  41% (7918/19310)   Receiving objects:  42% (8111/19310)   Receiving objects:  43% (8304/19310)   Receiving objects:  44% (8497/19310)   Receiving objects:  45% (8690/19310)   Receiving objects:  46% (8883/19310)   Receiving objects:  47% (9076/19310)   Receiving objects:  48% (9269/19310)   Receiving objects:  49% (9462/19310)   Receiving objects:  50% (9655/19310)   Receiving objects:  51% (9849/19310)   Receiving objects:  52% (10042/19310)   Receiving objects:  53% (10235/19310)   Receiving objects:  54% (10428/19310)   Receiving objects:  55% (10621/19310)   Receiving objects:  56% (10814/19310)   Receiving objects:  57% (11007/19310)   Receiving objects:  58% (11200/19310)   Receiving objects:  59% (11393/19310)   Receiving objects:  60% (11586/19310)   Receiving objects:  61% (11780/19310)   Receiving objects:  62% (11973/19310)   Receiving objects:  63% (12166/19310)   Receiving objects:  64% (12359/19310)   Receiving objects:  65% (12552/19310)   Receiving objects:  66% (12745/19310)   Receiving objects:  67% (12938/19310)   Receiving objects:  68% (13131/19310)   Receiving objects:  69% (13324/19310)   Receiving objects:  70% (13517/19310)   Receiving objects:  71% (13711/19310)   Receiving objects:  72% (13904/19310)   Receiving objects:  73% (14097/19310)   Receiving objects:  74% (14290/19310)   Receiving objects:  75% (14483/19310)   Receiving objects:  76% (14676/19310)   Receiving objects:  77% (14869/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  78% (15062/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  79% (15255/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  80% (15448/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  81% (15642/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  82% (15835/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  83% (16028/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  84% (16221/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  85% (16414/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  86% (16607/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  87% (16800/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  88% (16993/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  89% (17186/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  90% (17379/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  91% (17573/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  92% (17766/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  93% (17959/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  94% (18152/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  95% (18345/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  96% (18538/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  97% (18731/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects:  98% (18924/19310), 12.57 MiB | 25.08 MiB/s   remote: Total 19310 (delta 9272), reused 16657 (delta 7231), pack-reused 0[K
+Receiving objects:  99% (19117/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects: 100% (19310/19310), 12.57 MiB | 25.08 MiB/s   Receiving objects: 100% (19310/19310), 14.75 MiB | 25.08 MiB/s, done.
+Resolving deltas:   0% (0/9272)   Resolving deltas:   1% (128/9272)   Resolving deltas:   2% (189/9272)   Resolving deltas:   3% (280/9272)   Resolving deltas:   4% (372/9272)   Resolving deltas:   5% (466/9272)   Resolving deltas:   6% (561/9272)   Resolving deltas:   7% (711/9272)   Resolving deltas:   8% (742/9272)   Resolving deltas:   9% (838/9272)   Resolving deltas:  10% (957/9272)   Resolving deltas:  11% (1021/9272)   Resolving deltas:  12% (1113/9272)   Resolving deltas:  13% (1207/9272)   Resolving deltas:  14% (1323/9272)   Resolving deltas:  15% (1392/9272)   Resolving deltas:  16% (1488/9272)   Resolving deltas:  17% (1580/9272)   Resolving deltas:  18% (1673/9272)   Resolving deltas:  19% (1764/9272)   Resolving deltas:  20% (1856/9272)   Resolving deltas:  21% (1950/9272)   Resolving deltas:  22% (2043/9272)   Resolving deltas:  23% (2133/9272)   Resolving deltas:  24% (2228/9272)   Resolving deltas:  25% (2323/9272)   Resolving deltas:  26% (2421/9272)   Resolving deltas:  27% (2509/9272)   Resolving deltas:  30% (2869/9272)   Resolving deltas:  31% (2886/9272)   Resolving deltas:  32% (2989/9272)   Resolving deltas:  33% (3133/9272)   Resolving deltas:  34% (3157/9272)   Resolving deltas:  35% (3277/9272)   Resolving deltas:  36% (3340/9272)   Resolving deltas:  37% (3436/9272)   Resolving deltas:  38% (3530/9272)   Resolving deltas:  39% (3618/9272)   Resolving deltas:  40% (3711/9272)   Resolving deltas:  41% (3806/9272)   Resolving deltas:  42% (3905/9272)   Resolving deltas:  43% (3988/9272)   Resolving deltas:  44% (4083/9272)   Resolving deltas:  45% (4173/9272)   Resolving deltas:  46% (4270/9272)   Resolving deltas:  47% (4361/9272)   Resolving deltas:  48% (4454/9272)   Resolving deltas:  49% (4549/9272)   Resolving deltas:  50% (4642/9272)   Resolving deltas:  51% (4730/9272)   Resolving deltas:  52% (4824/9272)   Resolving deltas:  53% (4915/9272)   Resolving deltas:  54% (5009/9272)   Resolving deltas:  55% (5103/9272)   Resolving deltas:  56% (5197/9272)   Resolving deltas:  57% (5288/9272)   Resolving deltas:  58% (5382/9272)   Resolving deltas:  59% (5478/9272)   Resolving deltas:  60% (5573/9272)   Resolving deltas:  61% (5656/9272)   Resolving deltas:  62% (5749/9272)   Resolving deltas:  63% (5842/9272)   Resolving deltas:  64% (5955/9272)   Resolving deltas:  68% (6338/9272)   Resolving deltas:  69% (6401/9272)   Resolving deltas:  72% (6710/9272)   Resolving deltas:  75% (7029/9272)   Resolving deltas:  77% (7197/9272)   Resolving deltas:  78% (7233/9272)   Resolving deltas:  79% (7337/9272)   Resolving deltas:  80% (7418/9272)   Resolving deltas:  81% (7511/9272)   Resolving deltas:  82% (7617/9272)   Resolving deltas:  83% (7700/9272)   Resolving deltas:  84% (7794/9272)   Resolving deltas:  85% (7886/9272)   Resolving deltas:  86% (7986/9272)   Resolving deltas:  87% (8122/9272)   Resolving deltas:  88% (8206/9272)   Resolving deltas:  91% (8451/9272)   Resolving deltas:  92% (8556/9272)   Resolving deltas:  93% (8628/9272)   Resolving deltas:  94% (8721/9272)   Resolving deltas:  95% (8809/9272)   Resolving deltas:  96% (8902/9272)   Resolving deltas:  97% (9006/9272)   Resolving deltas:  98% (9087/9272)   Resolving deltas:  99% (9189/9272)   Resolving deltas: 100% (9272/9272)   Resolving deltas: 100% (9272/9272), done.
+Checking connectivity... done.
+
+travis_time:end:189ea4d0:start=1467040896682901768,finish=1467040899323875190,duration=2640973422[0K$ cd apache/storm
+travis_time:start:2198dcc0[0K$ git fetch origin +refs/pull/1526/merge:
+remote: Counting objects: 11, done.[K
+remote: Compressing objects:  33% (1/3)   [Kremote: Compressing objects:  66% (2/3)   [Kremote: Compressing objects: 100% (3/3)   [Kremote: Compressing objects: 100% (3/3), done.[K
+remote: Total 11 (delta 5), reused 10 (delta 5), pack-reused 0[K
+Unpacking objects:   9% (1/11)   Unpacking objects:  18% (2/11)   Unpacking objects:  27% (3/11)   Unpacking objects:  36% (4/11)   Unpacking objects:  45% (5/11)   Unpacking objects:  54% (6/11)   Unpacking objects:  63% (7/11)   Unpacking objects:  72% (8/11)   Unpacking objects:  81% (9/11)   Unpacking objects:  90% (10/11)   Unpacking objects: 100% (11/11)   Unpacking objects: 100% (11/11), done.
+From https://github.com/apache/storm
+ * branch            refs/pull/1526/merge -> FETCH_HEAD
+
+travis_time:end:2198dcc0:start=1467040899327737142,finish=1467040899659053094,duration=331315952[0K$ git checkout -qf FETCH_HEAD
+travis_fold:end:git.checkout[0K
+[33;1mThis job is running on container-based infrastructure, which does not allow use of 'sudo', setuid and setguid executables.[0m
+[33;1mIf you require sudo, add 'sudo: required' to your .travis.yml[0m
+[33;1mSee https://docs.travis-ci.com/user/workers/container-based-infrastructure/ for details.[0m
+
+[33;1mSetting environment variables from .travis.yml[0m
+$ export MODULES=storm-core
+
+$ jdk_switcher use oraclejdk7
+Switching to Oracle JDK7 (java-7-oracle), JAVA_HOME will be set to /usr/lib/jvm/java-7-oracle
+travis_fold:start:cache.1[0KSetting up build cache
+$ export CASHER_DIR=$HOME/.casher
+travis_time:start:03f4f9c8[0K$ Installing caching utilities
+
+travis_time:end:03f4f9c8:start=1467040901953986865,finish=1467040902003711603,duration=49724738[0Ktravis_time:start:101250b2[0K
+travis_time:end:101250b2:start=1467040902009983129,finish=1467040902014031782,duration=4048653[0Ktravis_time:start:0ad7564f[0K[32;1mattempting to download cache archive[0m
+[32;1mfetching PR.1526/cache-linux-precise-4722ea394922d42b2b7eb84cff6efc764d76759821ac6f6efc13232aa923f595--jdk-oraclejdk7.tgz[0m
+[32;1mfetching PR.1526/cache--jdk-oraclejdk7.tgz[0m
+[32;1mfetching master/cache-linux-precise-4722ea394922d42b2b7eb84cff6efc764d76759821ac6f6efc13232aa923f595--jdk-oraclejdk7.tgz[0m
+[32;1mfound cache[0m
+
+travis_time:end:0ad7564f:start=1467040902018376287,finish=1467040911868745184,duration=9850368897[0Ktravis_time:start:06c23dcc[0K
+travis_time:end:06c23dcc:start=1467040911872592948,finish=1467040911875871717,duration=3278769[0Ktravis_time:start:2bf1d111[0K[32;1madding /home/travis/.m2/repository to cache[0m
+[32;1madding /home/travis/.rvm to cache[0m
+[32;1madding /home/travis/.nvm to cache[0m
+
+travis_time:end:2bf1d111:start=1467040911879746219,finish=1467040924631359440,duration=12751613221[0Ktravis_fold:end:cache.1[0K$ java -Xmx32m -version
+java version "1.7.0_76"
+Java(TM) SE Runtime Environment (build 1.7.0_76-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 24.76-b04, mixed mode)
+$ javac -J-Xmx32m -version
+javac 1.7.0_76
+travis_fold:start:before_install.1[0Ktravis_time:start:10191e20[0K$ rvm use 2.1.5 --install
+[32mUsing /home/travis/.rvm/gems/ruby-2.1.5[0m
+
+travis_time:end:10191e20:start=1467040924949348172,finish=1467040925229909626,duration=280561454[0Ktravis_fold:end:before_install.1[0Ktravis_fold:start:before_install.2[0Ktravis_time:start:20a0c965[0K$ nvm install 0.12.2
+v0.12.2 is already installed.
+Now using node v0.12.2
+
+travis_time:end:20a0c965:start=1467040925234265642,finish=1467040925471827499,duration=237561857[0Ktravis_fold:end:before_install.2[0Ktravis_fold:start:before_install.3[0Ktravis_time:start:0d42ae20[0K$ nvm use 0.12.2
+Now using node v0.12.2
+
+travis_time:end:0d42ae20:start=1467040925476218764,finish=1467040925533571950,duration=57353186[0Ktravis_fold:end:before_install.3[0Ktravis_fold:start:install[0Ktravis_time:start:02655234[0K$ /bin/bash ./dev-tools/travis/travis-install.sh `pwd`
+Python version :   Python 2.7.3
+Maven version  :   Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00) Maven home: /usr/local/maven Java version: 1.7.0_76, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-7-oracle/jre Default locale: en_US, platform encoding: UTF-8 OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+['mvn', 'clean', 'install', '-DskipTests', '-Pnative', '--batch-mode'] writing to install.txt
+1 seconds 1 log lines12 seconds 241 log lines35 seconds 323 log lines45 seconds 330 log lines56 seconds 408 log lines77 seconds 652 log lines89 seconds 865 log lines100 seconds 924 log lines110 seconds 1122 log lines133 seconds 1473 log lines143 seconds 1696 log lines154 seconds 2111 log lines165 seconds 2232 log lines176 seconds 2531 log lines191 seconds 2679 log lines191 seconds 2680 log lines
+['mvn', 'clean', 'install', '-DskipTests', '-Pnative', '--batch-mode'] done 0
+
+travis_time:end:02655234:start=1467040925537939140,finish=1467041117291304514,duration=191753365374[0Ktravis_fold:end:install[0Ktravis_time:start:002f8c58[0K$ /bin/bash ./dev-tools/travis/travis-script.sh `pwd` $MODULES
+Python version :   Python 2.7.3
+Ruby version   :   ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-linux]
+NodeJs version :   v0.12.2
+Maven version  :   Apache Maven 3.2.5 (12a6b3acb947671f09b81f49094c53f426d8cea1; 2014-12-14T17:29:23+00:00) Maven home: /usr/local/maven Java version: 1.7.0_76, vendor: Oracle Corporation Java home: /usr/lib/jvm/java-7-oracle/jre Default locale: en_US, platform encoding: UTF-8 OS name: "linux", version: "3.13.0-40-generic", arch: "amd64", family: "unix"
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Storm Core 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- exec-maven-plugin:1.2.1:exec (default) @ storm-core ---
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.2.1:process (default) @ storm-core ---
+[INFO] 
+[INFO] --- storm-maven-plugins:2.0.0-SNAPSHOT:version-info (version-info) @ storm-core ---
+[WARNING] [svn, info] failed with error code 1
+[INFO] SCM: GIT
+[INFO] Computed MD5: cdaa8f486777312f6377ef55ff6bc2fb
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ storm-core ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] Copying 1 resource to META-INF
+[INFO] Copying 0 resource
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ storm-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- clojure-maven-plugin:1.7.1:compile (compile-clojure) @ storm-core ---
+Compiling org.apache.storm.daemon.worker to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.metric.testing to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.testing to /home/travis/build/apache/storm/storm-core/target/classes
+15:25:33.499 [main] WARN  o.a.s.m.StormMetricsRegistry - Metric ui:num-topology-op-response-http-requests has already been registered
+15:25:33.501 [main] WARN  o.a.s.m.StormMetricsRegistry - Metric ui:num-topology-op-response-http-requests has already been registered
+Compiling org.apache.storm.converter to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.util to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.command.heartbeats to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.blobstore to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.daemon.common to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.daemon.local-supervisor to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.command.get-errors to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.command.blobstore to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.trident.testing to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.daemon.drpc to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.config to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.testing4j to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.scheduler.IsolationScheduler to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.ui.helpers to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.log to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.daemon.executor to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.command.shell-submission to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.internal.clojure to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.internal.thrift to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.daemon.logviewer to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.daemon.nimbus to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.LocalCluster to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.local-state-converter to /home/travis/build/apache/storm/storm-core/target/classes
+Compiling org.apache.storm.ui.core to /home/travis/build/apache/storm/storm-core/target/classes
+[INFO] 
+[INFO] --- make-maven-plugin:1.0-beta-1:autoreconf (compile) @ storm-core ---
+[INFO] 
+[INFO] --- make-maven-plugin:1.0-beta-1:configure (compile) @ storm-core ---
+[INFO] /bin/sh: 14: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 22: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 32: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 42: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 3: /etc/profile.d/rvm.sh: [[: not found
+[INFO] checking for gcc... gcc
+[INFO] checking whether the C compiler works... yes
+[INFO] checking for C compiler default output file name... a.out
+[INFO] checking for suffix of executables... 
+[INFO] checking whether we are cross compiling... no
+[INFO] checking for suffix of object files... o
+[INFO] checking whether we are using the GNU C compiler... yes
+[INFO] checking whether gcc accepts -g... yes
+[INFO] checking for gcc option to accept ISO C89... none needed
+[INFO] checking how to run the C preprocessor... gcc -E
+[INFO] checking for grep that handles long lines and -e... /bin/grep
+[INFO] checking for egrep... /bin/grep -E
+[INFO] checking for ANSI C header files... yes
+[INFO] checking for sys/types.h... yes
+[INFO] checking for sys/stat.h... yes
+[INFO] checking for stdlib.h... yes
+[INFO] checking for string.h... yes
+[INFO] checking for memory.h... yes
+[INFO] checking for strings.h... yes
+[INFO] checking for inttypes.h... yes
+[INFO] checking for stdint.h... yes
+[INFO] checking for unistd.h... yes
+[INFO] checking minix/config.h usability... no
+[INFO] checking minix/config.h presence... no
+[INFO] checking for minix/config.h... no
+[INFO] checking whether it is safe to define __EXTENSIONS__... yes
+[INFO] checking for a BSD-compatible install... /usr/bin/install -c
+[INFO] checking whether build environment is sane... yes
+[INFO] checking for a thread-safe mkdir -p... /bin/mkdir -p
+[INFO] checking for gawk... gawk
+[INFO] checking whether make sets $(MAKE)... yes
+[INFO] checking for style of include used by make... GNU
+[INFO] checking dependency style of gcc... gcc3
+[INFO] checking for gcc... (cached) gcc
+[INFO] checking whether we are using the GNU C compiler... (cached) yes
+[INFO] checking whether gcc accepts -g... (cached) yes
+[INFO] checking for gcc option to accept ISO C89... (cached) none needed
+[INFO] checking whether gcc and cc understand -c and -o together... yes
+[INFO] checking for unistd.h... (cached) yes
+[INFO] checking for stdbool.h that conforms to C99... yes
+[INFO] checking for _Bool... yes
+[INFO] checking for an ANSI C-conforming const... yes
+[INFO] checking for off_t... yes
+[INFO] checking for size_t... yes
+[INFO] checking whether strerror_r is declared... yes
+[INFO] checking for strerror_r... yes
+[INFO] checking whether strerror_r returns char *... yes
+[INFO] checking for mkdir... yes
+[INFO] checking for uname... yes
+[INFO] configure: creating ./config.status
+[INFO] config.status: creating Makefile
+[INFO] config.status: executing depfiles commands
+[INFO] 
+[INFO] --- make-maven-plugin:1.0-beta-1:make-install (compile) @ storm-core ---
+[INFO] /bin/sh: 14: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 22: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 32: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 42: /home/travis/.jdk_switcher_rc: [[: not found
+[INFO] /bin/sh: 3: /etc/profile.d/rvm.sh: [[: not found
+[INFO] make[1]: Entering directory `/home/travis/build/apache/storm/storm-core/target/native/worker-launcher'
+[INFO] test -z "/usr/local/bin" || /bin/mkdir -p "/home/travis/build/apache/storm/storm-core/target/native/target/usr/local/bin"
+[INFO]   /usr/bin/install -c worker-launcher '/home/travis/build/apache/storm/storm-core/target/native/target/usr/local/bin'
+[INFO] make[1]: Nothing to be done for `install-data-am'.
+[INFO] make[1]: Leaving directory `/home/travis/build/apache/storm/storm-core/target/native/worker-launcher'
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ storm-core ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 14 resources
+[INFO] Copying 2 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:unpack (unpack) @ storm-core ---
+[INFO] Configured Artifact: org.apache.storm:multilang-ruby:2.0.0-SNAPSHOT:jar
+[INFO] Downloading: https://repository.apache.org/snapshots/org/apache/storm/multilang-ruby/2.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Configured Artifact: org.apache.storm:multilang-python:2.0.0-SNAPSHOT:jar
+[INFO] Downloading: https://repository.apache.org/snapshots/org/apache/storm/multilang-python/2.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Configured Artifact: org.apache.storm:multilang-javascript:2.0.0-SNAPSHOT:jar
+[INFO] Downloading: https://repository.apache.org/snapshots/org/apache/storm/multilang-javascript/2.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] multilang-ruby-2.0.0-SNAPSHOT.jar already unpacked.
+[INFO] multilang-python-2.0.0-SNAPSHOT.jar already unpacked.
+[INFO] multilang-javascript-2.0.0-SNAPSHOT.jar already unpacked.
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ storm-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 52 source files to /home/travis/build/apache/storm/storm-core/target/test-classes
+[WARNING] /home/travis/build/apache/storm/storm-core/test/jvm/org/apache/storm/localizer/LocalizerTest.java: Some input files use or override a deprecated API.
+[WARNING] /home/travis/build/apache/storm/storm-core/test/jvm/org/apache/storm/localizer/LocalizerTest.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /home/travis/build/apache/storm/storm-core/test/jvm/org/apache/storm/command/TestCLI.java: Some input files use unchecked or unsafe operations.
+[WARNING] /home/travis/build/apache/storm/storm-core/test/jvm/org/apache/storm/command/TestCLI.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ storm-core ---
+[INFO] Surefire report directory: /home/travis/build/apache/storm/storm-core/target/surefire-reports
+[INFO] parallel='none', perCoreThreadCount=true, threadCount=0, useUnlimitedThreads=false, threadCountSuites=0, threadCountClasses=0, threadCountMethods=0, parallelOptimized=true
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.storm.cluster.StormClusterStateImplTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 sec - in org.apache.storm.cluster.StormClusterStateImplTest
+Running org.apache.storm.serialization.GzipBridgeThriftSerializationDelegateTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.storm.serialization.GzipBridgeThriftSerializationDelegateTest
+Running org.apache.storm.serialization.GzipBridgeSerializationDelegateTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.storm.serialization.GzipBridgeSerializationDelegateTest
+Running org.apache.storm.serialization.SerializationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.466 sec - in org.apache.storm.serialization.SerializationTest
+Running org.apache.storm.serialization.ThriftBridgeSerializationDelegateTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.storm.serialization.ThriftBridgeSerializationDelegateTest
+Running org.apache.storm.grouping.PartialKeyGroupingTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.storm.grouping.PartialKeyGroupingTest
+Running org.apache.storm.command.TestCLI
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.storm.command.TestCLI
+Running org.apache.storm.command.RebalanceTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.storm.command.RebalanceTest
+Running org.apache.storm.command.SetLogLevelTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.storm.command.SetLogLevelTest
+Running org.apache.storm.utils.UtilsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec - in org.apache.storm.utils.UtilsTest
+Running org.apache.storm.utils.DisruptorQueueTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.398 sec - in org.apache.storm.utils.DisruptorQueueTest
+Running org.apache.storm.utils.DisruptorQueueBackpressureTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.storm.utils.DisruptorQueueBackpressureTest
+Running org.apache.storm.utils.StormBoundedExponentialBackoffRetryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec - in org.apache.storm.utils.StormBoundedExponentialBackoffRetryTest
+Running org.apache.storm.utils.TimeTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.storm.utils.TimeTest
+Running org.apache.storm.utils.ThriftTopologyUtilsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.storm.utils.ThriftTopologyUtilsTest
+Running org.apache.storm.utils.WorkerBackpressureThreadTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 sec - in org.apache.storm.utils.WorkerBackpressureThreadTest
+Running org.apache.storm.utils.ShellBoltMessageQueueTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.006 sec - in org.apache.storm.utils.ShellBoltMessageQueueTest
+Running org.apache.storm.metric.internal.CountStatAndMetricTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.storm.metric.internal.CountStatAndMetricTest
+Running org.apache.storm.metric.internal.RateTrackerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.storm.metric.internal.RateTrackerTest
+Running org.apache.storm.metric.internal.LatencyStatAndMetricTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec - in org.apache.storm.metric.internal.LatencyStatAndMetricTest
+Running org.apache.storm.metric.filter.FilterByMetricNameTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.apache.storm.metric.filter.FilterByMetricNameTest
+Running org.apache.storm.scheduler.resource.strategies.scheduling.TestDefaultResourceAwareStrategy
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.248 sec - in org.apache.storm.scheduler.resource.strategies.scheduling.TestDefaultResourceAwareStrategy
+Running org.apache.storm.scheduler.resource.TestResourceAwareScheduler
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.793 sec - in org.apache.storm.scheduler.resource.TestResourceAwareScheduler
+Running org.apache.storm.scheduler.resource.TestUser
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.516 sec - in org.apache.storm.scheduler.resource.TestUser
+Running org.apache.storm.localizer.LocalizerTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.42 sec - in org.apache.storm.localizer.LocalizerTest
+Running org.apache.storm.localizer.LocalizedResourceRetentionSetTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec - in org.apache.storm.localizer.LocalizedResourceRetentionSetTest
+Running org.apache.storm.localizer.LocalizedResourceSetTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.storm.localizer.LocalizedResourceSetTest
+Running org.apache.storm.spout.CheckpointSpoutTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.329 sec - in org.apache.storm.spout.CheckpointSpoutTest
+Running org.apache.storm.blobstore.ClientBlobStoreTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.storm.blobstore.ClientBlobStoreTest
+Running org.apache.storm.blobstore.BlobStoreTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.172 sec - in org.apache.storm.blobstore.BlobStoreTest
+Running org.apache.storm.blobstore.BlobSynchronizerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.612 sec - in org.apache.storm.blobstore.BlobSynchronizerTest
+Running org.apache.storm.topology.StatefulWindowedBoltExecutorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.7 sec - in org.apache.storm.topology.StatefulWindowedBoltExecutorTest
+Running org.apache.storm.topology.TopologyBuilderTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 sec - in org.apache.storm.topology.TopologyBuilderTest
+Running org.apache.storm.topology.StatefulBoltExecutorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec - in org.apache.storm.topology.StatefulBoltExecutorTest
+Running org.apache.storm.topology.WindowedBoltExecutorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec - in org.apache.storm.topology.WindowedBoltExecutorTest
+Running org.apache.storm.state.InMemoryKeyValueStateTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.storm.state.InMemoryKeyValueStateTest
+Running org.apache.storm.windowing.WaterMarkEventGeneratorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.storm.windowing.WaterMarkEventGeneratorTest
+Running org.apache.storm.windowing.WindowManagerTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.storm.windowing.WindowManagerTest
+Running org.apache.storm.trident.TestTridentTopology
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 42.73 sec - in org.apache.storm.trident.TestTridentTopology
+Running org.apache.storm.trident.TridentWindowingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.storm.trident.TridentWindowingTest
+Running org.apache.storm.nimbus.LocalNimbusTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.942 sec - in org.apache.storm.nimbus.LocalNimbusTest
+Running org.apache.storm.TestConfigValidate
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.247 sec - in org.apache.storm.TestConfigValidate
+Running org.apache.storm.PacemakerTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 sec - in org.apache.storm.PacemakerTest
+Running org.apache.storm.TestCgroups
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 sec - in org.apache.storm.TestCgroups
+Running org.apache.storm.PaceMakerStateStorageFactoryTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.306 sec - in org.apache.storm.PaceMakerStateStorageFactoryTest
+
+Results :
+
+Tests run: 212, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] 
+[INFO] --- clojure-maven-plugin:1.7.1:test (test-clojure) @ storm-core ---
+3357 [main] WARN  o.a.s.m.StormMetricsRegistry - Metric ui:num-topology-op-response-http-requests has already been registered
+3358 [main] WARN  o.a.s.m.StormMetricsRegistry - Metric ui:num-topology-op-response-http-requests has already been registered
+4122 [main] WARN  o.a.s.m.StormMetricsRegistry - Metric drpc:num-execute-http-requests has already been registered
+Running org.apache.storm.drpc-test
+22680 [Thread-2] INFO  o.a.s.u.Utils - Async loop interrupted!
+25310 [Thread-73] INFO  o.a.s.u.Utils - Async loop interrupted!
+28028 [Thread-141] INFO  o.a.s.u.Utils - Async loop interrupted!
+30395 [Thread-180] INFO  o.a.s.u.Utils - Async loop interrupted!
+37930 [Thread-231] INFO  o.a.s.u.Utils - Async loop interrupted!
+Tests run: 9, Passed: 17, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.ThriftServer-test
+Tests run: 2, Passed: 1, Failures: 0, Errors: 0
+Running org.apache.storm.messaging.netty-unit-test
+Tests run: 5, Passed: 24, Failures: 0, Errors: 0
+Running org.apache.storm.logviewer-test
+Tests run: 12, Passed: 118, Failures: 0, Errors: 0
+Running org.apache.storm.clojure-test
+Tests run: 3, Passed: 5, Failures: 0, Errors: 0
+Running org.apache.storm.trident.state-test
+Tests run: 5, Passed: 37, Failures: 0, Errors: 0
+Running org.apache.storm.tuple-test
+Tests run: 4, Passed: 13, Failures: 0, Errors: 0
+Running integration.org.apache.storm.integration-test
+Tests run: 18, Passed: 51, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.AuthUtils-test
+Tests run: 5, Passed: 6, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.drpc-auth-test
+Tests run: 4, Passed: 22, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.ReqContext-test
+Tests run: 3, Passed: 4, Failures: 0, Errors: 0
+Running org.apache.storm.security.serialization.BlowfishTupleSerializer-test
+Tests run: 3, Passed: 3, Failures: 0, Errors: 0
+Running org.apache.storm.serialization.SerializationFactory-test
+Tests run: 3, Passed: 3, Failures: 0, Errors: 0
+Running org.apache.storm.metrics-test
+104235 [Thread-1152] INFO  o.a.s.u.Utils - Async loop interrupted!
+104236 [Thread-281] INFO  o.a.s.u.Utils - Async loop interrupted!
+105500 [Thread-1168] INFO  o.a.s.u.Utils - Async loop interrupted!
+Tests run: 8, Passed: 66, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.auth-test
+Tests run: 13, Passed: 94, Failures: 0, Errors: 0
+Running org.apache.storm.messaging.netty-integration-test
+Tests run: 1, Passed: 1, Failures: 0, Errors: 0
+Running org.apache.storm.transactional-test
+Tests run: 7, Passed: 110, Failures: 0, Errors: 0
+Running org.apache.storm.messaging-test
+Tests run: 1, Passed: 2, Failures: 0, Errors: 0
+Running org.apache.storm.supervisor-test
+135263 [timer] INFO  o.a.s.d.nimbus - Cleaning up test-1-0
+135269 [timer] INFO  o.a.s.d.nimbus - ExceptionKeyNotFoundException(msg:test-1-0-stormjar.jar)
+136598 [SyncThread:0] WARN  o.a.z.s.p.FileTxnLog - fsync-ing the write ahead log in SyncThread:0 took 1064ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide
+138112 [main] INFO  o.a.s.d.nimbus - Shutting down master
+138113 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138114 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138115 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138116 [main] INFO  o.a.s.z.LeaderElectorImp - closing zookeeper connection of leader elector.
+138117 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138117 [main] INFO  o.a.s.d.nimbus - Shut down master
+138118 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138118 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138119 [main] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shutting down sup1:631e73d2-a8c5-4448-b96b-9f2b3804f4cb
+138119 [main] INFO  o.a.s.u.ConfigUtils - GET worker-user for 631e73d2-a8c5-4448-b96b-9f2b3804f4cb
+138120 [main] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shut down sup1:631e73d2-a8c5-4448-b96b-9f2b3804f4cb
+138121 [main] INFO  o.a.s.u.ConfigUtils - REMOVE worker-user 631e73d2-a8c5-4448-b96b-9f2b3804f4cb
+138121 [main] INFO  o.a.s.d.s.SupervisorManager - Shutting down supervisor sup1
+138121 [Thread-2055] INFO  o.a.s.e.EventManagerImp - Event manager interrupted
+138122 [Thread-2056] INFO  o.a.s.e.EventManagerImp - Event manager interrupted
+138122 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138123 [main] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shutting down sup2:370d1491-6092-4133-a7e4-e038a4025f54
+138123 [main] INFO  o.a.s.u.ConfigUtils - GET worker-user for 370d1491-6092-4133-a7e4-e038a4025f54
+138123 [main] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shut down sup2:370d1491-6092-4133-a7e4-e038a4025f54
+138125 [main] INFO  o.a.s.u.ConfigUtils - REMOVE worker-user 370d1491-6092-4133-a7e4-e038a4025f54
+138125 [main] INFO  o.a.s.d.s.SupervisorManager - Shutting down supervisor sup2
+138125 [Thread-2060] INFO  o.a.s.e.EventManagerImp - Event manager interrupted
+138125 [Thread-2061] INFO  o.a.s.e.EventManagerImp - Event manager interrupted
+138141 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+138143 [main] INFO  o.a.s.testing - Shutting down in process zookeeper
+138159 [main] INFO  o.a.s.testing - Done shutting down in process zookeeper
+138160 [main] INFO  o.a.s.testing - Deleting temporary path /tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47
+138161 [main] INFO  o.a.s.testing - Deleting temporary path /tmp/8d17b5a1-ab56-4dc7-b96c-04e364a80a79
+138162 [main] INFO  o.a.s.testing - Deleting temporary path /tmp/db329501-5913-4522-a491-fa2222347273
+138163 [main] INFO  o.a.s.testing - Deleting temporary path /tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299
+Tests run: 20, Passed: 51, Failures: 1, Errors: 0
+Running org.apache.storm.subtopology-test
+Tests run: 0, Passed: 0, Failures: 0, Errors: 0
+Running integration.org.apache.storm.trident.integration-test
+Tests run: 9, Passed: 141, Failures: 0, Errors: 0
+Running org.apache.storm.versioned-store-test
+Tests run: 2, Passed: 5, Failures: 0, Errors: 0
+Running org.apache.storm.utils.ZookeeperServerCnxnFactory-test
+Tests run: 2, Passed: 3, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.DefaultHttpCredentialsPlugin-test
+Tests run: 2, Passed: 8, Failures: 0, Errors: 0
+Running org.apache.storm.fields-test
+Tests run: 2, Passed: 22, Failures: 0, Errors: 0
+Running org.apache.storm.submitter-test
+Tests run: 1, Passed: 13, Failures: 0, Errors: 0
+Running org.apache.storm.cluster-test
+Tests run: 10, Passed: 92, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.authorizer.DRPCSimpleACLAuthorizer-test
+Tests run: 7, Passed: 37, Failures: 0, Errors: 0
+Running org.apache.storm.nimbus-test
+Tests run: 43, Passed: 789, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.auto-login-module-test
+Tests run: 6, Passed: 22, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.SaslTransportPlugin-test
+Tests run: 2, Passed: 8, Failures: 0, Errors: 0
+Running org.apache.storm.grouping-test
+Tests run: 5, Passed: 15, Failures: 0, Errors: 0
+Running org.apache.storm.serialization-test
+Tests run: 1, Passed: 0, Failures: 0, Errors: 0
+Running org.apache.storm.worker-test
+Tests run: 8, Passed: 35, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.nimbus-auth-test
+Tests run: 5, Passed: 39, Failures: 0, Errors: 0
+Running org.apache.storm.local-state-test
+Tests run: 2, Passed: 10, Failures: 0, Errors: 0
+Running org.apache.storm.scheduler-test
+Tests run: 4, Passed: 64, Failures: 0, Errors: 0
+Running integration.org.apache.storm.testing4j-test
+Tests run: 8, Passed: 36, Failures: 0, Errors: 0
+Running org.apache.storm.security.auth.ThriftClient-test
+Tests run: 2, Passed: 4, Failures: 0, Errors: 0
+Running org.apache.storm.tick-tuple-test
+Tests run: 1, Passed: 1, Failures: 0, Errors: 0
+Running org.apache.storm.scheduler.multitenant-scheduler-test
+Tests run: 17, Passed: 235, Failures: 0, Errors: 0
+Running org.apache.storm.trident.tuple-test
+Tests run: 6, Passed: 36, Failures: 0, Errors: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 05:32 min
+[INFO] Finished at: 2016-06-27T15:30:51+00:00
+[INFO] Final Memory: 44M/426M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.theoryinpractise:clojure-maven-plugin:1.7.1:test (test-clojure) on project storm-core: Clojure failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+Looking for errors in ./storm-core/target/surefire-reports
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.cluster.StormClusterStateImplTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.serialization.GzipBridgeThriftSerializationDelegateTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.serialization.GzipBridgeSerializationDelegateTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.serialization.SerializationTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.serialization.ThriftBridgeSerializationDelegateTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.grouping.PartialKeyGroupingTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.command.TestCLI.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.command.RebalanceTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.command.SetLogLevelTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.UtilsTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.DisruptorQueueTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.DisruptorQueueBackpressureTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.StormBoundedExponentialBackoffRetryTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.TimeTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.ThriftTopologyUtilsTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.WorkerBackpressureThreadTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.utils.ShellBoltMessageQueueTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.metric.internal.CountStatAndMetricTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.metric.internal.RateTrackerTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.metric.internal.LatencyStatAndMetricTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.metric.filter.FilterByMetricNameTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.scheduler.resource.strategies.scheduling.TestDefaultResourceAwareStrategy.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.scheduler.resource.TestResourceAwareScheduler.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.scheduler.resource.TestUser.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.localizer.LocalizerTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.localizer.LocalizedResourceRetentionSetTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.localizer.LocalizedResourceSetTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.spout.CheckpointSpoutTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.blobstore.ClientBlobStoreTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.blobstore.BlobStoreTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.blobstore.BlobSynchronizerTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.topology.StatefulWindowedBoltExecutorTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.topology.TopologyBuilderTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.topology.StatefulBoltExecutorTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.topology.WindowedBoltExecutorTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.state.InMemoryKeyValueStateTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.windowing.WaterMarkEventGeneratorTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.windowing.WindowManagerTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.trident.TestTridentTopology.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.trident.TridentWindowingTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.nimbus.LocalNimbusTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.TestConfigValidate.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.PacemakerTest.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.TestCgroups.xml
+Checking ./storm-core/target/surefire-reports/TEST-org.apache.storm.PaceMakerStateStorageFactoryTest.xml
+Looking for errors in ./storm-core/target/test-reports
+Checking ./storm-core/target/test-reports/org.apache.storm.drpc-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.ThriftServer-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.messaging.netty-unit-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.logviewer-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.clojure-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.trident.state-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.tuple-test.xml
+Checking ./storm-core/target/test-reports/integration.org.apache.storm.integration-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.AuthUtils-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.drpc-auth-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.ReqContext-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.serialization.BlowfishTupleSerializer-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.serialization.SerializationFactory-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.metrics-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.auth-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.messaging.netty-integration-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.transactional-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.messaging-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.supervisor-test.xml
+--------------------------------------------------
+classname: org.apache.storm.supervisor-test / testname: test-multiple-active-storms-multiple-supervisors
+expected: (= {["sup1" 1] 1, ["sup1" 2] 1, ["sup2" 1] 1} (:shutdown changed))
+  actual: (not (= {["sup1" 1] 1, ["sup1" 2] 1, ["sup2" 1] 1} {["sup1" 2] 1, ["sup1" 1] 1, ["sup2" 1] 1, ["sup1" nil] 1}))
+      at: test_runner.clj:105
+-------------------- system-out --------------------
+
+133346 [main] INFO  o.a.s.z.Zookeeper - Starting inprocess zookeeper at port 2000 and dir /tmp/8d17b5a1-ab56-4dc7-b96c-04e364a80a79
+133368 [main] INFO  o.a.s.d.nimbus - Starting Nimbus with conf {"topology.builtin.metrics.bucket.size.secs" 60, "nimbus.childopts" "-Xmx1024m", "ui.filter.params" nil, "storm.cluster.mode" "local", "storm.messaging.netty.client_worker_threads" 1, "logviewer.max.per.worker.logs.size.mb" 2048, "supervisor.run.worker.as.user" false, "topology.max.task.parallelism" nil, "topology.priority" 29, "zmq.threads" 1, "storm.group.mapping.service" "org.apache.storm.security.auth.ShellBasedGroupsMapping", "transactional.zookeeper.root" "/transactional", "topology.sleep.spout.wait.strategy.time.ms" 1, "scheduler.display.resource" false, "topology.max.replication.wait.time.sec" 60, "drpc.invocations.port" 3773, "supervisor.localizer.cache.target.size.mb" 10240, "topology.multilang.serializer" "org.apache.storm.multilang.JsonSerializer", "storm.messaging.netty.server_worker_threads" 1, "nimbus.blobstore.class" "org.apache.storm.blobstore.LocalFsBlobStore", "resource.aware.scheduler.eviction.strategy" "org.apache.storm.scheduler.resource.strategies.eviction.DefaultEvictionStrategy", "topology.max.error.report.per.interval" 5, "storm.thrift.transport" "org.apache.storm.security.auth.SimpleTransportPlugin", "zmq.hwm" 0, "storm.cgroup.resources" ["cpu" "memory"], "storm.group.mapping.service.params" nil, "worker.profiler.enabled" false, "storm.principal.tolocal" "org.apache.storm.security.auth.DefaultPrincipalToLocal", "supervisor.worker.shutdown.sleep.secs" 1, "pacemaker.host" "localhost", "storm.zookeeper.retry.times" 5, "ui.actions.enabled" true, "zmq.linger.millis" 0, "supervisor.enable" true, "topology.stats.sample.rate" 0.05, "storm.messaging.netty.min_wait_ms" 100, "storm.resource.isolation.plugin" "org.apache.storm.container.cgroup.CgroupManager", "worker.log.level.reset.poll.secs" 30, "storm.zookeeper.port" 2000, "supervisor.heartbeat.frequency.secs" 5, "topology.enable.message.timeouts" false, "supervisor.cpu.capacity" 400.0, "drpc.worker.threads" 64, "supervisor.blobstore.download.thread.count" 5, "drpc.queue.size" 128, "topology.backpressure.enable" true, "supervisor.blobstore.class" "org.apache.storm.blobstore.NimbusBlobStore", "storm.blobstore.inputstream.buffer.size.bytes" 65536, "topology.shellbolt.max.pending" 100, "drpc.https.keystore.password" "", "nimbus.code.sync.freq.secs" 120, "logviewer.port" 8000, "topology.scheduler.strategy" "org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy", "topology.executor.send.buffer.size" 1024, "resource.aware.scheduler.priority.strategy" "org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy", "pacemaker.auth.method" "NONE", "storm.daemon.metrics.reporter.plugins" ["org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter"], "storm.cgroup.hierarchy.dir" "/cgroup/storm_resources", "topology.worker.logwriter.childopts" "-Xmx64m", "topology.spout.wait.strategy" "org.apache.storm.spout.SleepSpoutWaitStrategy", "ui.host" "0.0.0.0", "storm.nimbus.retry.interval.millis" 2000, "nimbus.inbox.jar.expiration.secs" 3600, "dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.acker.executors" nil, "topology.fall.back.on.java.serialization" true, "topology.eventlogger.executors" nil, "supervisor.localizer.cleanup.interval.ms" 600000, "storm.zookeeper.servers" ["localhost"], "nimbus.thrift.threads" 64, "logviewer.cleanup.age.mins" 10080, "topology.worker.childopts" nil, "topology.classpath" nil, "storm.cgroup.cgexec.cmd" "/bin/cgexec", "supervisor.monitor.frequency.secs" 3, "nimbus.credential.renewers.freq.secs" 600, "topology.skip.missing.kryo.registrations" true, "drpc.authorizer.acl.filename" "drpc-auth-acl.yaml", "pacemaker.kerberos.users" [], "storm.group.mapping.service.cache.duration.secs" 120, "NIMBUS-DO-NOT-REASSIGN" true, "topology.testing.always.try.serialize" false, "nimbus.monitor.freq.secs" 10, "storm.health.check.timeout.ms" 5000, "supervisor.supervisors" [], "topology.tasks" nil, "topology.bolts.outgoing.overflow.buffer.enable" false, "storm.messaging.netty.socket.backlog" 500, "topology.workers" 1, "pacemaker.base.threads" 10, "storm.local.dir" "/tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47", "topology.disable.loadaware" false, "worker.childopts" "-Xmx%HEAP-MEM%m -XX:+PrintGCDetails -Xloggc:artifacts/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=artifacts/heapdump", "storm.auth.simple-white-list.users" [], "topology.disruptor.batch.timeout.millis" 1, "topology.message.timeout.secs" 30, "topology.state.synchronization.timeout.secs" 60, "topology.tuple.serializer" "org.apache.storm.serialization.types.ListDelegateSerializer", "supervisor.supervisors.commands" [], "nimbus.blobstore.expiration.secs" 600, "logviewer.childopts" "-Xmx128m", "topology.environment" nil, "topology.debug" false, "topology.disruptor.batch.size" 100, "storm.messaging.netty.max_retries" 300, "ui.childopts" "-Xmx768m", "storm.network.topography.plugin" "org.apache.storm.networktopography.DefaultRackDNSToSwitchMapping", "storm.zookeeper.session.timeout" 20000, "drpc.childopts" "-Xmx768m", "drpc.http.creds.plugin" "org.apache.storm.security.auth.DefaultHttpCredentialsPlugin", "storm.zookeeper.connection.timeout" 15000, "storm.zookeeper.auth.user" nil, "storm.meta.serialization.delegate" "org.apache.storm.serialization.GzipThriftSerializationDelegate", "topology.max.spout.pending" nil, "storm.codedistributor.class" "org.apache.storm.codedistributor.LocalFileSystemCodeDistributor", "nimbus.supervisor.timeout.secs" 60, "nimbus.task.timeout.secs" 30, "drpc.port" 3772, "pacemaker.max.threads" 50, "storm.zookeeper.retry.intervalceiling.millis" 30000, "nimbus.thrift.port" 6627, "storm.auth.simple-acl.admins" [], "topology.component.cpu.pcore.percent" 10.0, "supervisor.memory.capacity.mb" 4096.0, "storm.supervisor.cgroup.rootdir" "storm", "storm.nimbus.retry.times" 5, "supervisor.worker.start.timeout.secs" 5, "storm.zookeeper.retry.interval" 1000, "logs.users" nil, "storm.cluster.metrics.consumer.publish.interval.secs" 60, "worker.profiler.command" "flight.bash", "transactional.zookeeper.port" nil, "drpc.max_buffer_size" 1048576, "pacemaker.thread.timeout" 10, "storm.cgroup.hierarchy.name" "storm", "task.credentials.poll.secs" 30, "blobstore.superuser" "travis", "drpc.https.keystore.type" "JKS", "topology.worker.receiver.thread.count" 1, "topology.state.checkpoint.interval.ms" 1000, "supervisor.slots.ports" [6700 6701 6702 6703], "topology.transfer.buffer.size" 1024, "storm.health.check.dir" "healthchecks", "topology.worker.shared.thread.pool.size" 4, "drpc.authorizer.acl.strict" false, "nimbus.file.copy.expiration.secs" 600, "worker.profiler.childopts" "-XX:+UnlockCommercialFeatures -XX:+FlightRecorder", "topology.executor.receive.buffer.size" 1024, "backpressure.disruptor.low.watermark" 0.4, "nimbus.task.launch.secs" 120, "storm.local.mode.zmq" false, "storm.cgroup.memory.limit.tolerance.margin.mb" 128.0, "storm.messaging.netty.buffer_size" 5242880, "storm.cluster.state.store" "org.apache.storm.cluster.ZKStateStorageFactory", "worker.heartbeat.frequency.secs" 1, "storm.log4j2.conf.dir" "log4j2", "storm.resource.isolation.plugin.enable" false, "ui.http.creds.plugin" "org.apache.storm.security.auth.DefaultHttpCredentialsPlugin", "storm.zookeeper.root" "/storm", "topology.tick.tuple.freq.secs" nil, "drpc.https.port" -1, "storm.workers.artifacts.dir" "workers-artifacts", "supervisor.blobstore.download.max_retries" 3, "task.refresh.poll.secs" 10, "storm.exhibitor.port" 8080, "task.heartbeat.frequency.secs" 3, "pacemaker.port" 6699, "storm.messaging.netty.max_wait_ms" 1000, "topology.component.resources.offheap.memory.mb" 0.0, "drpc.http.port" 3774, "topology.error.throttle.interval.secs" 10, "storm.messaging.transport" "org.apache.storm.messaging.netty.Context", "storm.messaging.netty.authentication" false, "topology.component.resources.onheap.memory.mb" 128.0, "topology.kryo.factory" "org.apache.storm.serialization.DefaultKryoFactory", "worker.gc.childopts" "", "nimbus.topology.validator" "org.apache.storm.nimbus.DefaultTopologyValidator", "nimbus.seeds" ["localhost"], "nimbus.queue.size" 100000, "nimbus.cleanup.inbox.freq.secs" 600, "storm.blobstore.replication.factor" 3, "worker.heap.memory.mb" 768, "logviewer.max.sum.worker.logs.size.mb" 4096, "pacemaker.childopts" "-Xmx1024m", "ui.users" nil, "transactional.zookeeper.servers" nil, "supervisor.worker.timeout.secs" 15, "storm.zookeeper.auth.password" nil, "storm.blobstore.acl.validation.enabled" false, "client.blobstore.class" "org.apache.storm.blobstore.NimbusBlobStore", "supervisor.childopts" "-Xmx256m", "topology.worker.max.heap.size.mb" 768.0, "backpressure.disruptor.high.watermark" 0.9, "ui.filter" nil, "ui.header.buffer.bytes" 4096, "topology.min.replication.count" 1, "storm.supervisor.worker.manager.plugin" "org.apache.storm.daemon.supervisor.workermanager.DefaultWorkerManager", "topology.disruptor.wait.timeout.millis" 1000, "storm.nimbus.retry.intervalceiling.millis" 60000, "topology.trident.batch.emit.interval.millis" 50, "storm.auth.simple-acl.users" [], "drpc.invocations.threads" 64, "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "ui.port" 8080, "storm.exhibitor.poll.uripath" "/exhibitor/v1/cluster/list", "storm.messaging.netty.transfer.batch.size" 262144, "logviewer.appender.name" "A1", "nimbus.thrift.max_buffer_size" 1048576, "storm.auth.simple-acl.users.commands" [], "drpc.request.timeout.secs" 600}
+133368 [main] INFO  o.a.s.d.nimbus - Using default scheduler
+133368 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133371 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133371 [main] INFO  o.a.s.b.FileBlobStoreImpl - Creating new blob store based in /tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47/blobs
+133385 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133386 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133387 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133388 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133389 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133389 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133390 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133391 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133392 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133400 [main] INFO  o.a.s.z.LeaderElectorImp - Queued up for leader lock.
+133404 [main] WARN  o.a.s.m.StormMetricsRegistry - Metric nimbus:num-supervisors has already been registered
+133405 [main] INFO  o.a.s.d.m.MetricsUtils - Using statistics reporter plugin:org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter
+133405 [main] INFO  o.a.s.d.m.r.JmxPreparableReporter - Preparing...
+133408 [main] INFO  o.a.s.m.StormMetricsRegistry - Started statistics report plugin...
+133408 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133409 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133410 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133410 [main-EventThread] INFO  o.a.s.z.Zookeeper - testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org gained leadership
+133411 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133412 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133413 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133414 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133414 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133414 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133416 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133418 [Thread-1885-spout-executor[8 8]-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: SUSPENDED
+133418 [Thread-1889-spout-executor[7 7]-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: SUSPENDED
+133423 [main] INFO  o.a.s.d.local-supervisor - Starting local Supervisor with conf {"topology.builtin.metrics.bucket.size.secs" 60, "nimbus.childopts" "-Xmx1024m", "ui.filter.params" nil, "storm.cluster.mode" "local", "storm.messaging.netty.client_worker_threads" 1, "logviewer.max.per.worker.logs.size.mb" 2048, "supervisor.run.worker.as.user" false, "topology.max.task.parallelism" nil, "topology.priority" 29, "zmq.threads" 1, "storm.group.mapping.service" "org.apache.storm.security.auth.ShellBasedGroupsMapping", "transactional.zookeeper.root" "/transactional", "topology.sleep.spout.wait.strategy.time.ms" 1, "scheduler.display.resource" false, "topology.max.replication.wait.time.sec" 60, "drpc.invocations.port" 3773, "supervisor.localizer.cache.target.size.mb" 10240, "topology.multilang.serializer" "org.apache.storm.multilang.JsonSerializer", "storm.messaging.netty.server_worker_threads" 1, "nimbus.blobstore.class" "org.apache.storm.blobstore.LocalFsBlobStore", "resource.aware.scheduler.eviction.strategy" "org.apache.storm.scheduler.resource.strategies.eviction.DefaultEvictionStrategy", "topology.max.error.report.per.interval" 5, "storm.thrift.transport" "org.apache.storm.security.auth.SimpleTransportPlugin", "zmq.hwm" 0, "storm.cgroup.resources" ["cpu" "memory"], "storm.group.mapping.service.params" nil, "worker.profiler.enabled" false, "storm.principal.tolocal" "org.apache.storm.security.auth.DefaultPrincipalToLocal", "supervisor.worker.shutdown.sleep.secs" 1, "pacemaker.host" "localhost", "storm.zookeeper.retry.times" 5, "ui.actions.enabled" true, "zmq.linger.millis" 0, "supervisor.enable" true, "topology.stats.sample.rate" 0.05, "storm.messaging.netty.min_wait_ms" 100, "storm.resource.isolation.plugin" "org.apache.storm.container.cgroup.CgroupManager", "worker.log.level.reset.poll.secs" 30, "storm.zookeeper.port" 2000, "supervisor.heartbeat.frequency.secs" 5, "topology.enable.message.timeouts" false, "supervisor.cpu.capacity" 400.0, "drpc.worker.threads" 64, "supervisor.blobstore.download.thread.count" 5, "drpc.queue.size" 128, "topology.backpressure.enable" true, "supervisor.blobstore.class" "org.apache.storm.blobstore.NimbusBlobStore", "storm.blobstore.inputstream.buffer.size.bytes" 65536, "topology.shellbolt.max.pending" 100, "drpc.https.keystore.password" "", "nimbus.code.sync.freq.secs" 120, "logviewer.port" 8000, "topology.scheduler.strategy" "org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy", "topology.executor.send.buffer.size" 1024, "resource.aware.scheduler.priority.strategy" "org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy", "pacemaker.auth.method" "NONE", "storm.daemon.metrics.reporter.plugins" ["org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter"], "storm.cgroup.hierarchy.dir" "/cgroup/storm_resources", "topology.worker.logwriter.childopts" "-Xmx64m", "topology.spout.wait.strategy" "org.apache.storm.spout.SleepSpoutWaitStrategy", "ui.host" "0.0.0.0", "storm.nimbus.retry.interval.millis" 2000, "nimbus.inbox.jar.expiration.secs" 3600, "dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.acker.executors" nil, "topology.fall.back.on.java.serialization" true, "topology.eventlogger.executors" nil, "supervisor.localizer.cleanup.interval.ms" 600000, "storm.zookeeper.servers" ["localhost"], "nimbus.thrift.threads" 64, "logviewer.cleanup.age.mins" 10080, "topology.worker.childopts" nil, "topology.classpath" nil, "storm.cgroup.cgexec.cmd" "/bin/cgexec", "supervisor.monitor.frequency.secs" 3, "nimbus.credential.renewers.freq.secs" 600, "topology.skip.missing.kryo.registrations" true, "drpc.authorizer.acl.filename" "drpc-auth-acl.yaml", "pacemaker.kerberos.users" [], "storm.group.mapping.service.cache.duration.secs" 120, "NIMBUS-DO-NOT-REASSIGN" true, "topology.testing.always.try.serialize" false, "nimbus.monitor.freq.secs" 10, "storm.health.check.timeout.ms" 5000, "supervisor.supervisors" [], "topology.tasks" nil, "topology.bolts.outgoing.overflow.buffer.enable" false, "storm.messaging.netty.socket.backlog" 500, "topology.workers" 1, "pacemaker.base.threads" 10, "storm.local.dir" "/tmp/db329501-5913-4522-a491-fa2222347273", "topology.disable.loadaware" false, "worker.childopts" "-Xmx%HEAP-MEM%m -XX:+PrintGCDetails -Xloggc:artifacts/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=artifacts/heapdump", "storm.auth.simple-white-list.users" [], "topology.disruptor.batch.timeout.millis" 1, "topology.message.timeout.secs" 30, "topology.state.synchronization.timeout.secs" 60, "topology.tuple.serializer" "org.apache.storm.serialization.types.ListDelegateSerializer", "supervisor.supervisors.commands" [], "nimbus.blobstore.expiration.secs" 600, "logviewer.childopts" "-Xmx128m", "topology.environment" nil, "topology.debug" false, "topology.disruptor.batch.size" 100, "storm.messaging.netty.max_retries" 300, "ui.childopts" "-Xmx768m", "storm.network.topography.plugin" "org.apache.storm.networktopography.DefaultRackDNSToSwitchMapping", "storm.zookeeper.session.timeout" 20000, "drpc.childopts" "-Xmx768m", "drpc.http.creds.plugin" "org.apache.storm.security.auth.DefaultHttpCredentialsPlugin", "storm.zookeeper.connection.timeout" 15000, "storm.zookeeper.auth.user" nil, "storm.meta.serialization.delegate" "org.apache.storm.serialization.GzipThriftSerializationDelegate", "topology.max.spout.pending" nil, "storm.codedistributor.class" "org.apache.storm.codedistributor.LocalFileSystemCodeDistributor", "nimbus.supervisor.timeout.secs" 60, "nimbus.task.timeout.secs" 30, "drpc.port" 3772, "pacemaker.max.threads" 50, "storm.zookeeper.retry.intervalceiling.millis" 30000, "nimbus.thrift.port" 6627, "storm.auth.simple-acl.admins" [], "topology.component.cpu.pcore.percent" 10.0, "supervisor.memory.capacity.mb" 4096.0, "storm.supervisor.cgroup.rootdir" "storm", "storm.nimbus.retry.times" 5, "supervisor.worker.start.timeout.secs" 5, "storm.zookeeper.retry.interval" 1000, "logs.users" nil, "storm.cluster.metrics.consumer.publish.interval.secs" 60, "worker.profiler.command" "flight.bash", "transactional.zookeeper.port" nil, "drpc.max_buffer_size" 1048576, "pacemaker.thread.timeout" 10, "storm.cgroup.hierarchy.name" "storm", "task.credentials.poll.secs" 30, "blobstore.superuser" "travis", "drpc.https.keystore.type" "JKS", "topology.worker.receiver.thread.count" 1, "topology.state.checkpoint.interval.ms" 1000, "supervisor.slots.ports" [1 2 3 4], "topology.transfer.buffer.size" 1024, "storm.health.check.dir" "healthchecks", "topology.worker.shared.thread.pool.size" 4, "drpc.authorizer.acl.strict" false, "nimbus.file.copy.expiration.secs" 600, "worker.profiler.childopts" "-XX:+UnlockCommercialFeatures -XX:+FlightRecorder", "topology.executor.receive.buffer.size" 1024, "backpressure.disruptor.low.watermark" 0.4, "nimbus.task.launch.secs" 120, "storm.local.mode.zmq" false, "storm.cgroup.memory.limit.tolerance.margin.mb" 128.0, "storm.messaging.netty.buffer_size" 5242880, "storm.cluster.state.store" "org.apache.storm.cluster.ZKStateStorageFactory", "worker.heartbeat.frequency.secs" 1, "storm.log4j2.conf.dir" "log4j2", "storm.resource.isolation.plugin.enable" false, "ui.http.creds.plugin" "org.apache.storm.security.auth.DefaultHttpCredentialsPlugin", "storm.zookeeper.root" "/storm", "topology.tick.tuple.freq.secs" nil, "drpc.https.port" -1, "storm.workers.artifacts.dir" "workers-artifacts", "supervisor.blobstore.download.max_retries" 3, "task.refresh.poll.secs" 10, "storm.exhibitor.port" 8080, "task.heartbeat.frequency.secs" 3, "pacemaker.port" 6699, "storm.messaging.netty.max_wait_ms" 1000, "topology.component.resources.offheap.memory.mb" 0.0, "drpc.http.port" 3774, "topology.error.throttle.interval.secs" 10, "storm.messaging.transport" "org.apache.storm.messaging.netty.Context", "storm.messaging.netty.authentication" false, "topology.component.resources.onheap.memory.mb" 128.0, "topology.kryo.factory" "org.apache.storm.serialization.DefaultKryoFactory", "worker.gc.childopts" "", "nimbus.topology.validator" "org.apache.storm.nimbus.DefaultTopologyValidator", "nimbus.seeds" ["localhost"], "nimbus.queue.size" 100000, "nimbus.cleanup.inbox.freq.secs" 600, "storm.blobstore.replication.factor" 3, "worker.heap.memory.mb" 768, "logviewer.max.sum.worker.logs.size.mb" 4096, "pacemaker.childopts" "-Xmx1024m", "ui.users" nil, "transactional.zookeeper.servers" nil, "supervisor.worker.timeout.secs" 15, "storm.zookeeper.auth.password" nil, "storm.blobstore.acl.validation.enabled" false, "client.blobstore.class" "org.apache.storm.blobstore.NimbusBlobStore", "supervisor.childopts" "-Xmx256m", "topology.worker.max.heap.size.mb" 768.0, "backpressure.disruptor.high.watermark" 0.9, "ui.filter" nil, "ui.header.buffer.bytes" 4096, "topology.min.replication.count" 1, "storm.supervisor.worker.manager.plugin" "org.apache.storm.daemon.supervisor.workermanager.DefaultWorkerManager", "topology.disruptor.wait.timeout.millis" 1000, "storm.nimbus.retry.intervalceiling.millis" 60000, "topology.trident.batch.emit.interval.millis" 50, "storm.auth.simple-acl.users" [], "drpc.invocations.threads" 64, "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "ui.port" 8080, "storm.exhibitor.poll.uripath" "/exhibitor/v1/cluster/list", "storm.messaging.netty.transfer.batch.size" 262144, "logviewer.appender.name" "A1", "nimbus.thrift.max_buffer_size" 1048576, "storm.auth.simple-acl.users.commands" [], "drpc.request.timeout.secs" 600}
+133423 [main] INFO  o.a.s.d.s.Supervisor - Starting Supervisor with conf {topology.builtin.metrics.bucket.size.secs=60, nimbus.childopts=-Xmx1024m, ui.filter.params=null, storm.cluster.mode=local, storm.messaging.netty.client_worker_threads=1, logviewer.max.per.worker.logs.size.mb=2048, supervisor.run.worker.as.user=false, topology.max.task.parallelism=null, topology.priority=29, zmq.threads=1, storm.group.mapping.service=org.apache.storm.security.auth.ShellBasedGroupsMapping, transactional.zookeeper.root=/transactional, topology.sleep.spout.wait.strategy.time.ms=1, scheduler.display.resource=false, topology.max.replication.wait.time.sec=60, drpc.invocations.port=3773, supervisor.localizer.cache.target.size.mb=10240, topology.multilang.serializer=org.apache.storm.multilang.JsonSerializer, storm.messaging.netty.server_worker_threads=1, nimbus.blobstore.class=org.apache.storm.blobstore.LocalFsBlobStore, resource.aware.scheduler.eviction.strategy=org.apache.storm.scheduler.resource.strategies.eviction.DefaultEvictionStrategy, topology.max.error.report.per.interval=5, storm.thrift.transport=org.apache.storm.security.auth.SimpleTransportPlugin, zmq.hwm=0, storm.cgroup.resources=[cpu, memory], storm.group.mapping.service.params=null, worker.profiler.enabled=false, storm.principal.tolocal=org.apache.storm.security.auth.DefaultPrincipalToLocal, supervisor.worker.shutdown.sleep.secs=1, pacemaker.host=localhost, storm.zookeeper.retry.times=5, ui.actions.enabled=true, zmq.linger.millis=0, supervisor.enable=true, topology.stats.sample.rate=0.05, storm.messaging.netty.min_wait_ms=100, storm.resource.isolation.plugin=org.apache.storm.container.cgroup.CgroupManager, worker.log.level.reset.poll.secs=30, storm.zookeeper.port=2000, supervisor.heartbeat.frequency.secs=5, topology.enable.message.timeouts=false, supervisor.cpu.capacity=400.0, drpc.worker.threads=64, supervisor.blobstore.download.thread.count=5, drpc.queue.size=128, topology.backpressure.enable=true, supervisor.blobstore.class=org.apache.storm.blobstore.NimbusBlobStore, storm.blobstore.inputstream.buffer.size.bytes=65536, topology.shellbolt.max.pending=100, drpc.https.keystore.password=, nimbus.code.sync.freq.secs=120, logviewer.port=8000, topology.scheduler.strategy=org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy, topology.executor.send.buffer.size=1024, resource.aware.scheduler.priority.strategy=org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy, pacemaker.auth.method=NONE, storm.daemon.metrics.reporter.plugins=[org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter], storm.cgroup.hierarchy.dir=/cgroup/storm_resources, topology.worker.logwriter.childopts=-Xmx64m, topology.spout.wait.strategy=org.apache.storm.spout.SleepSpoutWaitStrategy, ui.host=0.0.0.0, storm.nimbus.retry.interval.millis=2000, nimbus.inbox.jar.expiration.secs=3600, dev.zookeeper.path=/tmp/dev-storm-zookeeper, topology.acker.executors=null, topology.fall.back.on.java.serialization=true, topology.eventlogger.executors=null, supervisor.localizer.cleanup.interval.ms=600000, storm.zookeeper.servers=[localhost], nimbus.thrift.threads=64, logviewer.cleanup.age.mins=10080, topology.worker.childopts=null, topology.classpath=null, storm.cgroup.cgexec.cmd=/bin/cgexec, supervisor.monitor.frequency.secs=3, nimbus.credential.renewers.freq.secs=600, topology.skip.missing.kryo.registrations=true, drpc.authorizer.acl.filename=drpc-auth-acl.yaml, pacemaker.kerberos.users=[], storm.group.mapping.service.cache.duration.secs=120, NIMBUS-DO-NOT-REASSIGN=true, topology.testing.always.try.serialize=false, nimbus.monitor.freq.secs=10, storm.health.check.timeout.ms=5000, supervisor.supervisors=[], topology.tasks=null, topology.bolts.outgoing.overflow.buffer.enable=false, storm.messaging.netty.socket.backlog=500, topology.workers=1, pacemaker.base.threads=10, storm.local.dir=/tmp/db329501-5913-4522-a491-fa2222347273, topology.disable.loadaware=false, worker.childopts=-Xmx%HEAP-MEM%m -XX:+PrintGCDetails -Xloggc:artifacts/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=artifacts/heapdump, storm.auth.simple-white-list.users=[], topology.disruptor.batch.timeout.millis=1, topology.message.timeout.secs=30, topology.state.synchronization.timeout.secs=60, topology.tuple.serializer=org.apache.storm.serialization.types.ListDelegateSerializer, supervisor.supervisors.commands=[], nimbus.blobstore.expiration.secs=600, logviewer.childopts=-Xmx128m, topology.environment=null, topology.debug=false, topology.disruptor.batch.size=100, storm.messaging.netty.max_retries=300, ui.childopts=-Xmx768m, storm.network.topography.plugin=org.apache.storm.networktopography.DefaultRackDNSToSwitchMapping, storm.zookeeper.session.timeout=20000, drpc.childopts=-Xmx768m, drpc.http.creds.plugin=org.apache.storm.security.auth.DefaultHttpCredentialsPlugin, storm.zookeeper.connection.timeout=15000, storm.zookeeper.auth.user=null, storm.meta.serialization.delegate=org.apache.storm.serialization.GzipThriftSerializationDelegate, topology.max.spout.pending=null, storm.codedistributor.class=org.apache.storm.codedistributor.LocalFileSystemCodeDistributor, nimbus.supervisor.timeout.secs=60, nimbus.task.timeout.secs=30, drpc.port=3772, pacemaker.max.threads=50, storm.zookeeper.retry.intervalceiling.millis=30000, nimbus.thrift.port=6627, storm.auth.simple-acl.admins=[], topology.component.cpu.pcore.percent=10.0, supervisor.memory.capacity.mb=4096.0, storm.supervisor.cgroup.rootdir=storm, storm.nimbus.retry.times=5, supervisor.worker.start.timeout.secs=5, storm.zookeeper.retry.interval=1000, logs.users=null, storm.cluster.metrics.consumer.publish.interval.secs=60, worker.profiler.command=flight.bash, transactional.zookeeper.port=null, drpc.max_buffer_size=1048576, pacemaker.thread.timeout=10, storm.cgroup.hierarchy.name=storm, task.credentials.poll.secs=30, blobstore.superuser=travis, drpc.https.keystore.type=JKS, topology.worker.receiver.thread.count=1, topology.state.checkpoint.interval.ms=1000, supervisor.slots.ports=[1, 2, 3, 4], topology.transfer.buffer.size=1024, storm.health.check.dir=healthchecks, topology.worker.shared.thread.pool.size=4, drpc.authorizer.acl.strict=false, nimbus.file.copy.expiration.secs=600, worker.profiler.childopts=-XX:+UnlockCommercialFeatures -XX:+FlightRecorder, topology.executor.receive.buffer.size=1024, backpressure.disruptor.low.watermark=0.4, nimbus.task.launch.secs=120, storm.local.mode.zmq=false, storm.cgroup.memory.limit.tolerance.margin.mb=128.0, storm.messaging.netty.buffer_size=5242880, storm.cluster.state.store=org.apache.storm.cluster.ZKStateStorageFactory, worker.heartbeat.frequency.secs=1, storm.log4j2.conf.dir=log4j2, storm.resource.isolation.plugin.enable=false, ui.http.creds.plugin=org.apache.storm.security.auth.DefaultHttpCredentialsPlugin, storm.zookeeper.root=/storm, topology.tick.tuple.freq.secs=null, drpc.https.port=-1, storm.workers.artifacts.dir=workers-artifacts, supervisor.blobstore.download.max_retries=3, task.refresh.poll.secs=10, storm.exhibitor.port=8080, task.heartbeat.frequency.secs=3, pacemaker.port=6699, storm.messaging.netty.max_wait_ms=1000, topology.component.resources.offheap.memory.mb=0.0, drpc.http.port=3774, topology.error.throttle.interval.secs=10, storm.messaging.transport=org.apache.storm.messaging.netty.Context, storm.messaging.netty.authentication=false, topology.component.resources.onheap.memory.mb=128.0, topology.kryo.factory=org.apache.storm.serialization.DefaultKryoFactory, worker.gc.childopts=, nimbus.topology.validator=org.apache.storm.nimbus.DefaultTopologyValidator, nimbus.seeds=[localhost], nimbus.queue.size=100000, nimbus.cleanup.inbox.freq.secs=600, storm.blobstore.replication.factor=3, worker.heap.memory.mb=768, logviewer.max.sum.worker.logs.size.mb=4096, pacemaker.childopts=-Xmx1024m, ui.users=null, transactional.zookeeper.servers=null, supervisor.worker.timeout.secs=15, storm.zookeeper.auth.password=null, storm.blobstore.acl.validation.enabled=false, client.blobstore.class=org.apache.storm.blobstore.NimbusBlobStore, supervisor.childopts=-Xmx256m, topology.worker.max.heap.size.mb=768.0, backpressure.disruptor.high.watermark=0.9, ui.filter=null, ui.header.buffer.bytes=4096, topology.min.replication.count=1, storm.supervisor.worker.manager.plugin=org.apache.storm.daemon.supervisor.workermanager.DefaultWorkerManager, topology.disruptor.wait.timeout.millis=1000, storm.nimbus.retry.intervalceiling.millis=60000, topology.trident.batch.emit.interval.millis=50, storm.auth.simple-acl.users=[], drpc.invocations.threads=64, java.library.path=/usr/local/lib:/opt/local/lib:/usr/lib, ui.port=8080, storm.exhibitor.poll.uripath=/exhibitor/v1/cluster/list, storm.messaging.netty.transfer.batch.size=262144, logviewer.appender.name=A1, nimbus.thrift.max_buffer_size=1048576, storm.auth.simple-acl.users.commands=[], drpc.request.timeout.secs=600}
+133424 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133426 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133426 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133430 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133432 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133433 [main] INFO  o.a.s.l.Localizer - Reconstruct localized resource: /tmp/db329501-5913-4522-a491-fa2222347273/supervisor/usercache
+133433 [main] WARN  o.a.s.l.Localizer - No left over resources found for any user during reconstructing of local resources at: /tmp/db329501-5913-4522-a491-fa2222347273/supervisor/usercache
+133435 [main] INFO  o.a.s.d.s.Supervisor - Starting supervisor with id sup1 at host testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org.
+133437 [main] INFO  o.a.s.d.local-supervisor - Starting local Supervisor with conf {"topology.builtin.metrics.bucket.size.secs" 60, "nimbus.childopts" "-Xmx1024m", "ui.filter.params" nil, "storm.cluster.mode" "local", "storm.messaging.netty.client_worker_threads" 1, "logviewer.max.per.worker.logs.size.mb" 2048, "supervisor.run.worker.as.user" false, "topology.max.task.parallelism" nil, "topology.priority" 29, "zmq.threads" 1, "storm.group.mapping.service" "org.apache.storm.security.auth.ShellBasedGroupsMapping", "transactional.zookeeper.root" "/transactional", "topology.sleep.spout.wait.strategy.time.ms" 1, "scheduler.display.resource" false, "topology.max.replication.wait.time.sec" 60, "drpc.invocations.port" 3773, "supervisor.localizer.cache.target.size.mb" 10240, "topology.multilang.serializer" "org.apache.storm.multilang.JsonSerializer", "storm.messaging.netty.server_worker_threads" 1, "nimbus.blobstore.class" "org.apache.storm.blobstore.LocalFsBlobStore", "resource.aware.scheduler.eviction.strategy" "org.apache.storm.scheduler.resource.strategies.eviction.DefaultEvictionStrategy", "topology.max.error.report.per.interval" 5, "storm.thrift.transport" "org.apache.storm.security.auth.SimpleTransportPlugin", "zmq.hwm" 0, "storm.cgroup.resources" ["cpu" "memory"], "storm.group.mapping.service.params" nil, "worker.profiler.enabled" false, "storm.principal.tolocal" "org.apache.storm.security.auth.DefaultPrincipalToLocal", "supervisor.worker.shutdown.sleep.secs" 1, "pacemaker.host" "localhost", "storm.zookeeper.retry.times" 5, "ui.actions.enabled" true, "zmq.linger.millis" 0, "supervisor.enable" true, "topology.stats.sample.rate" 0.05, "storm.messaging.netty.min_wait_ms" 100, "storm.resource.isolation.plugin" "org.apache.storm.container.cgroup.CgroupManager", "worker.log.level.reset.poll.secs" 30, "storm.zookeeper.port" 2000, "supervisor.heartbeat.frequency.secs" 5, "topology.enable.message.timeouts" false, "supervisor.cpu.capacity" 400.0, "drpc.worker.threads" 64, "supervisor.blobstore.download.thread.count" 5, "drpc.queue.size" 128, "topology.backpressure.enable" true, "supervisor.blobstore.class" "org.apache.storm.blobstore.NimbusBlobStore", "storm.blobstore.inputstream.buffer.size.bytes" 65536, "topology.shellbolt.max.pending" 100, "drpc.https.keystore.password" "", "nimbus.code.sync.freq.secs" 120, "logviewer.port" 8000, "topology.scheduler.strategy" "org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy", "topology.executor.send.buffer.size" 1024, "resource.aware.scheduler.priority.strategy" "org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy", "pacemaker.auth.method" "NONE", "storm.daemon.metrics.reporter.plugins" ["org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter"], "storm.cgroup.hierarchy.dir" "/cgroup/storm_resources", "topology.worker.logwriter.childopts" "-Xmx64m", "topology.spout.wait.strategy" "org.apache.storm.spout.SleepSpoutWaitStrategy", "ui.host" "0.0.0.0", "storm.nimbus.retry.interval.millis" 2000, "nimbus.inbox.jar.expiration.secs" 3600, "dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.acker.executors" nil, "topology.fall.back.on.java.serialization" true, "topology.eventlogger.executors" nil, "supervisor.localizer.cleanup.interval.ms" 600000, "storm.zookeeper.servers" ["localhost"], "nimbus.thrift.threads" 64, "logviewer.cleanup.age.mins" 10080, "topology.worker.childopts" nil, "topology.classpath" nil, "storm.cgroup.cgexec.cmd" "/bin/cgexec", "supervisor.monitor.frequency.secs" 3, "nimbus.credential.renewers.freq.secs" 600, "topology.skip.missing.kryo.registrations" true, "drpc.authorizer.acl.filename" "drpc-auth-acl.yaml", "pacemaker.kerberos.users" [], "storm.group.mapping.service.cache.duration.secs" 120, "NIMBUS-DO-NOT-REASSIGN" true, "topology.testing.always.try.serialize" false, "nimbus.monitor.freq.secs" 10, "storm.health.check.timeout.ms" 5000, "supervisor.supervisors" [], "topology.tasks" nil, "topology.bolts.outgoing.overflow.buffer.enable" false, "storm.messaging.netty.socket.backlog" 500, "topology.workers" 1, "pacemaker.base.threads" 10, "storm.local.dir" "/tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299", "topology.disable.loadaware" false, "worker.childopts" "-Xmx%HEAP-MEM%m -XX:+PrintGCDetails -Xloggc:artifacts/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=artifacts/heapdump", "storm.auth.simple-white-list.users" [], "topology.disruptor.batch.timeout.millis" 1, "topology.message.timeout.secs" 30, "topology.state.synchronization.timeout.secs" 60, "topology.tuple.serializer" "org.apache.storm.serialization.types.ListDelegateSerializer", "supervisor.supervisors.commands" [], "nimbus.blobstore.expiration.secs" 600, "logviewer.childopts" "-Xmx128m", "topology.environment" nil, "topology.debug" false, "topology.disruptor.batch.size" 100, "storm.messaging.netty.max_retries" 300, "ui.childopts" "-Xmx768m", "storm.network.topography.plugin" "org.apache.storm.networktopography.DefaultRackDNSToSwitchMapping", "storm.zookeeper.session.timeout" 20000, "drpc.childopts" "-Xmx768m", "drpc.http.creds.plugin" "org.apache.storm.security.auth.DefaultHttpCredentialsPlugin", "storm.zookeeper.connection.timeout" 15000, "storm.zookeeper.auth.user" nil, "storm.meta.serialization.delegate" "org.apache.storm.serialization.GzipThriftSerializationDelegate", "topology.max.spout.pending" nil, "storm.codedistributor.class" "org.apache.storm.codedistributor.LocalFileSystemCodeDistributor", "nimbus.supervisor.timeout.secs" 60, "nimbus.task.timeout.secs" 30, "drpc.port" 3772, "pacemaker.max.threads" 50, "storm.zookeeper.retry.intervalceiling.millis" 30000, "nimbus.thrift.port" 6627, "storm.auth.simple-acl.admins" [], "topology.component.cpu.pcore.percent" 10.0, "supervisor.memory.capacity.mb" 4096.0, "storm.supervisor.cgroup.rootdir" "storm", "storm.nimbus.retry.times" 5, "supervisor.worker.start.timeout.secs" 5, "storm.zookeeper.retry.interval" 1000, "logs.users" nil, "storm.cluster.metrics.consumer.publish.interval.secs" 60, "worker.profiler.command" "flight.bash", "transactional.zookeeper.port" nil, "drpc.max_buffer_size" 1048576, "pacemaker.thread.timeout" 10, "storm.cgroup.hierarchy.name" "storm", "task.credentials.poll.secs" 30, "blobstore.superuser" "travis", "drpc.https.keystore.type" "JKS", "topology.worker.receiver.thread.count" 1, "topology.state.checkpoint.interval.ms" 1000, "supervisor.slots.ports" [1 2], "topology.transfer.buffer.size" 1024, "storm.health.check.dir" "healthchecks", "topology.worker.shared.thread.pool.size" 4, "drpc.authorizer.acl.strict" false, "nimbus.file.copy.expiration.secs" 600, "worker.profiler.childopts" "-XX:+UnlockCommercialFeatures -XX:+FlightRecorder", "topology.executor.receive.buffer.size" 1024, "backpressure.disruptor.low.watermark" 0.4, "nimbus.task.launch.secs" 120, "storm.local.mode.zmq" false, "storm.cgroup.memory.limit.tolerance.margin.mb" 128.0, "storm.messaging.netty.buffer_size" 5242880, "storm.cluster.state.store" "org.apache.storm.cluster.ZKStateStorageFactory", "worker.heartbeat.frequency.secs" 1, "storm.log4j2.conf.dir" "log4j2", "storm.resource.isolation.plugin.enable" false, "ui.http.creds.plugin" "org.apache.storm.security.auth.DefaultHttpCredentialsPlugin", "storm.zookeeper.root" "/storm", "topology.tick.tuple.freq.secs" nil, "drpc.https.port" -1, "storm.workers.artifacts.dir" "workers-artifacts", "supervisor.blobstore.download.max_retries" 3, "task.refresh.poll.secs" 10, "storm.exhibitor.port" 8080, "task.heartbeat.frequency.secs" 3, "pacemaker.port" 6699, "storm.messaging.netty.max_wait_ms" 1000, "topology.component.resources.offheap.memory.mb" 0.0, "drpc.http.port" 3774, "topology.error.throttle.interval.secs" 10, "storm.messaging.transport" "org.apache.storm.messaging.netty.Context", "storm.messaging.netty.authentication" false, "topology.component.resources.onheap.memory.mb" 128.0, "topology.kryo.factory" "org.apache.storm.serialization.DefaultKryoFactory", "worker.gc.childopts" "", "nimbus.topology.validator" "org.apache.storm.nimbus.DefaultTopologyValidator", "nimbus.seeds" ["localhost"], "nimbus.queue.size" 100000, "nimbus.cleanup.inbox.freq.secs" 600, "storm.blobstore.replication.factor" 3, "worker.heap.memory.mb" 768, "logviewer.max.sum.worker.logs.size.mb" 4096, "pacemaker.childopts" "-Xmx1024m", "ui.users" nil, "transactional.zookeeper.servers" nil, "supervisor.worker.timeout.secs" 15, "storm.zookeeper.auth.password" nil, "storm.blobstore.acl.validation.enabled" false, "client.blobstore.class" "org.apache.storm.blobstore.NimbusBlobStore", "supervisor.childopts" "-Xmx256m", "topology.worker.max.heap.size.mb" 768.0, "backpressure.disruptor.high.watermark" 0.9, "ui.filter" nil, "ui.header.buffer.bytes" 4096, "topology.min.replication.count" 1, "storm.supervisor.worker.manager.plugin" "org.apache.storm.daemon.supervisor.workermanager.DefaultWorkerManager", "topology.disruptor.wait.timeout.millis" 1000, "storm.nimbus.retry.intervalceiling.millis" 60000, "topology.trident.batch.emit.interval.millis" 50, "storm.auth.simple-acl.users" [], "drpc.invocations.threads" 64, "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "ui.port" 8080, "storm.exhibitor.poll.uripath" "/exhibitor/v1/cluster/list", "storm.messaging.netty.transfer.batch.size" 262144, "logviewer.appender.name" "A1", "nimbus.thrift.max_buffer_size" 1048576, "storm.auth.simple-acl.users.commands" [], "drpc.request.timeout.secs" 600}
+133437 [main] INFO  o.a.s.d.s.Supervisor - Starting Supervisor with conf {topology.builtin.metrics.bucket.size.secs=60, nimbus.childopts=-Xmx1024m, ui.filter.params=null, storm.cluster.mode=local, storm.messaging.netty.client_worker_threads=1, logviewer.max.per.worker.logs.size.mb=2048, supervisor.run.worker.as.user=false, topology.max.task.parallelism=null, topology.priority=29, zmq.threads=1, storm.group.mapping.service=org.apache.storm.security.auth.ShellBasedGroupsMapping, transactional.zookeeper.root=/transactional, topology.sleep.spout.wait.strategy.time.ms=1, scheduler.display.resource=false, topology.max.replication.wait.time.sec=60, drpc.invocations.port=3773, supervisor.localizer.cache.target.size.mb=10240, topology.multilang.serializer=org.apache.storm.multilang.JsonSerializer, storm.messaging.netty.server_worker_threads=1, nimbus.blobstore.class=org.apache.storm.blobstore.LocalFsBlobStore, resource.aware.scheduler.eviction.strategy=org.apache.storm.scheduler.resource.strategies.eviction.DefaultEvictionStrategy, topology.max.error.report.per.interval=5, storm.thrift.transport=org.apache.storm.security.auth.SimpleTransportPlugin, zmq.hwm=0, storm.cgroup.resources=[cpu, memory], storm.group.mapping.service.params=null, worker.profiler.enabled=false, storm.principal.tolocal=org.apache.storm.security.auth.DefaultPrincipalToLocal, supervisor.worker.shutdown.sleep.secs=1, pacemaker.host=localhost, storm.zookeeper.retry.times=5, ui.actions.enabled=true, zmq.linger.millis=0, supervisor.enable=true, topology.stats.sample.rate=0.05, storm.messaging.netty.min_wait_ms=100, storm.resource.isolation.plugin=org.apache.storm.container.cgroup.CgroupManager, worker.log.level.reset.poll.secs=30, storm.zookeeper.port=2000, supervisor.heartbeat.frequency.secs=5, topology.enable.message.timeouts=false, supervisor.cpu.capacity=400.0, drpc.worker.threads=64, supervisor.blobstore.download.thread.count=5, drpc.queue.size=128, topology.backpressure.enable=true, supervisor.blobstore.class=org.apache.storm.blobstore.NimbusBlobStore, storm.blobstore.inputstream.buffer.size.bytes=65536, topology.shellbolt.max.pending=100, drpc.https.keystore.password=, nimbus.code.sync.freq.secs=120, logviewer.port=8000, topology.scheduler.strategy=org.apache.storm.scheduler.resource.strategies.scheduling.DefaultResourceAwareStrategy, topology.executor.send.buffer.size=1024, resource.aware.scheduler.priority.strategy=org.apache.storm.scheduler.resource.strategies.priority.DefaultSchedulingPriorityStrategy, pacemaker.auth.method=NONE, storm.daemon.metrics.reporter.plugins=[org.apache.storm.daemon.metrics.reporters.JmxPreparableReporter], storm.cgroup.hierarchy.dir=/cgroup/storm_resources, topology.worker.logwriter.childopts=-Xmx64m, topology.spout.wait.strategy=org.apache.storm.spout.SleepSpoutWaitStrategy, ui.host=0.0.0.0, storm.nimbus.retry.interval.millis=2000, nimbus.inbox.jar.expiration.secs=3600, dev.zookeeper.path=/tmp/dev-storm-zookeeper, topology.acker.executors=null, topology.fall.back.on.java.serialization=true, topology.eventlogger.executors=null, supervisor.localizer.cleanup.interval.ms=600000, storm.zookeeper.servers=[localhost], nimbus.thrift.threads=64, logviewer.cleanup.age.mins=10080, topology.worker.childopts=null, topology.classpath=null, storm.cgroup.cgexec.cmd=/bin/cgexec, supervisor.monitor.frequency.secs=3, nimbus.credential.renewers.freq.secs=600, topology.skip.missing.kryo.registrations=true, drpc.authorizer.acl.filename=drpc-auth-acl.yaml, pacemaker.kerberos.users=[], storm.group.mapping.service.cache.duration.secs=120, NIMBUS-DO-NOT-REASSIGN=true, topology.testing.always.try.serialize=false, nimbus.monitor.freq.secs=10, storm.health.check.timeout.ms=5000, supervisor.supervisors=[], topology.tasks=null, topology.bolts.outgoing.overflow.buffer.enable=false, storm.messaging.netty.socket.backlog=500, topology.workers=1, pacemaker.base.threads=10, storm.local.dir=/tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299, topology.disable.loadaware=false, worker.childopts=-Xmx%HEAP-MEM%m -XX:+PrintGCDetails -Xloggc:artifacts/gc.log -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=1M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=artifacts/heapdump, storm.auth.simple-white-list.users=[], topology.disruptor.batch.timeout.millis=1, topology.message.timeout.secs=30, topology.state.synchronization.timeout.secs=60, topology.tuple.serializer=org.apache.storm.serialization.types.ListDelegateSerializer, supervisor.supervisors.commands=[], nimbus.blobstore.expiration.secs=600, logviewer.childopts=-Xmx128m, topology.environment=null, topology.debug=false, topology.disruptor.batch.size=100, storm.messaging.netty.max_retries=300, ui.childopts=-Xmx768m, storm.network.topography.plugin=org.apache.storm.networktopography.DefaultRackDNSToSwitchMapping, storm.zookeeper.session.timeout=20000, drpc.childopts=-Xmx768m, drpc.http.creds.plugin=org.apache.storm.security.auth.DefaultHttpCredentialsPlugin, storm.zookeeper.connection.timeout=15000, storm.zookeeper.auth.user=null, storm.meta.serialization.delegate=org.apache.storm.serialization.GzipThriftSerializationDelegate, topology.max.spout.pending=null, storm.codedistributor.class=org.apache.storm.codedistributor.LocalFileSystemCodeDistributor, nimbus.supervisor.timeout.secs=60, nimbus.task.timeout.secs=30, drpc.port=3772, pacemaker.max.threads=50, storm.zookeeper.retry.intervalceiling.millis=30000, nimbus.thrift.port=6627, storm.auth.simple-acl.admins=[], topology.component.cpu.pcore.percent=10.0, supervisor.memory.capacity.mb=4096.0, storm.supervisor.cgroup.rootdir=storm, storm.nimbus.retry.times=5, supervisor.worker.start.timeout.secs=5, storm.zookeeper.retry.interval=1000, logs.users=null, storm.cluster.metrics.consumer.publish.interval.secs=60, worker.profiler.command=flight.bash, transactional.zookeeper.port=null, drpc.max_buffer_size=1048576, pacemaker.thread.timeout=10, storm.cgroup.hierarchy.name=storm, task.credentials.poll.secs=30, blobstore.superuser=travis, drpc.https.keystore.type=JKS, topology.worker.receiver.thread.count=1, topology.state.checkpoint.interval.ms=1000, supervisor.slots.ports=[1, 2], topology.transfer.buffer.size=1024, storm.health.check.dir=healthchecks, topology.worker.shared.thread.pool.size=4, drpc.authorizer.acl.strict=false, nimbus.file.copy.expiration.secs=600, worker.profiler.childopts=-XX:+UnlockCommercialFeatures -XX:+FlightRecorder, topology.executor.receive.buffer.size=1024, backpressure.disruptor.low.watermark=0.4, nimbus.task.launch.secs=120, storm.local.mode.zmq=false, storm.cgroup.memory.limit.tolerance.margin.mb=128.0, storm.messaging.netty.buffer_size=5242880, storm.cluster.state.store=org.apache.storm.cluster.ZKStateStorageFactory, worker.heartbeat.frequency.secs=1, storm.log4j2.conf.dir=log4j2, storm.resource.isolation.plugin.enable=false, ui.http.creds.plugin=org.apache.storm.security.auth.DefaultHttpCredentialsPlugin, storm.zookeeper.root=/storm, topology.tick.tuple.freq.secs=null, drpc.https.port=-1, storm.workers.artifacts.dir=workers-artifacts, supervisor.blobstore.download.max_retries=3, task.refresh.poll.secs=10, storm.exhibitor.port=8080, task.heartbeat.frequency.secs=3, pacemaker.port=6699, storm.messaging.netty.max_wait_ms=1000, topology.component.resources.offheap.memory.mb=0.0, drpc.http.port=3774, topology.error.throttle.interval.secs=10, storm.messaging.transport=org.apache.storm.messaging.netty.Context, storm.messaging.netty.authentication=false, topology.component.resources.onheap.memory.mb=128.0, topology.kryo.factory=org.apache.storm.serialization.DefaultKryoFactory, worker.gc.childopts=, nimbus.topology.validator=org.apache.storm.nimbus.DefaultTopologyValidator, nimbus.seeds=[localhost], nimbus.queue.size=100000, nimbus.cleanup.inbox.freq.secs=600, storm.blobstore.replication.factor=3, worker.heap.memory.mb=768, logviewer.max.sum.worker.logs.size.mb=4096, pacemaker.childopts=-Xmx1024m, ui.users=null, transactional.zookeeper.servers=null, supervisor.worker.timeout.secs=15, storm.zookeeper.auth.password=null, storm.blobstore.acl.validation.enabled=false, client.blobstore.class=org.apache.storm.blobstore.NimbusBlobStore, supervisor.childopts=-Xmx256m, topology.worker.max.heap.size.mb=768.0, backpressure.disruptor.high.watermark=0.9, ui.filter=null, ui.header.buffer.bytes=4096, topology.min.replication.count=1, storm.supervisor.worker.manager.plugin=org.apache.storm.daemon.supervisor.workermanager.DefaultWorkerManager, topology.disruptor.wait.timeout.millis=1000, storm.nimbus.retry.intervalceiling.millis=60000, topology.trident.batch.emit.interval.millis=50, storm.auth.simple-acl.users=[], drpc.invocations.threads=64, java.library.path=/usr/local/lib:/opt/local/lib:/usr/lib, ui.port=8080, storm.exhibitor.poll.uripath=/exhibitor/v1/cluster/list, storm.messaging.netty.transfer.batch.size=262144, logviewer.appender.name=A1, nimbus.thrift.max_buffer_size=1048576, storm.auth.simple-acl.users.commands=[], drpc.request.timeout.secs=600}
+133438 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133440 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133440 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133441 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133442 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133444 [main] INFO  o.a.s.l.Localizer - Reconstruct localized resource: /tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299/supervisor/usercache
+133444 [main] WARN  o.a.s.l.Localizer - No left over resources found for any user during reconstructing of local resources at: /tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299/supervisor/usercache
+133446 [main] INFO  o.a.s.d.s.Supervisor - Starting supervisor with id sup2 at host testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org.
+133447 [main] INFO  o.a.s.l.ThriftAccessLogger - Request ID: 1 access from: /65.66.67.68 principal: null operation: submitTopology
+133448 [main] INFO  o.a.s.d.nimbus - Received topology submission for test with conf {"topology.max.task.parallelism" nil, "topology.submitter.principal" "", "topology.acker.executors" nil, "topology.eventlogger.executors" nil, "topology.workers" 3, "topology.message.timeout.secs" 40, "storm.zookeeper.superACL" nil, "topology.users" (), "topology.submitter.user" "travis", "topology.kryo.register" nil, "topology.kryo.decorators" (), "storm.id" "test-1-0", "topology.name" "test"}
+133450 [main] INFO  o.a.s.d.nimbus - uploadedJar 
+133452 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133453 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133457 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133459 [main] INFO  o.a.s.c.StormClusterStateImpl - set-path: /blobstore/test-1-0-stormconf.ser/testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org:6627-1
+133462 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133464 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+133468 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133469 [main] INFO  o.a.s.c.StormClusterStateImpl - set-path: /blobstore/test-1-0-stormcode.ser/testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org:6627-1
+133473 [main] INFO  o.a.s.d.nimbus - desired replication count 1 achieved, current-replication-count for conf key = 1, current-replication-count for code key = 1, current-replication-count for jar key = 1
+133482 [main] INFO  o.a.s.d.nimbus - Activating test: test-1-0
+133493 [main] INFO  o.a.s.l.ThriftAccessLogger - Request ID: 1 access from: /65.66.67.68 principal: null operation: rebalance
+133494 [main] INFO  o.a.s.d.nimbus - Delaying event :do-rebalance for 0 secs for test-1-0
+133564 [timer] INFO  o.a.s.s.EvenScheduler - Available slots: [sup1:1, sup1:2, sup1:3, sup1:4, sup2:1, sup2:2]
+133566 [timer] INFO  o.a.s.d.nimbus - Setting new assignment for topology id test-1-0: #org.apache.storm.daemon.common.Assignment{:master-code-dir "/tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47", :node->host {"sup1" "testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org", "sup2" "testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org"}, :executor->node+port {[8 8] ["sup2" 1], [2 2] ["sup2" 1], [7 7] ["sup1" 1], [3 3] ["sup1" 2], [1 1] ["sup1" 1], [6 6] ["sup1" 2], [9 9] ["sup1" 2], [5 5] ["sup2" 1], [10 10] ["sup1" 1], [4 4] ["sup1" 1]}, :executor->start-time-secs {[8 8] 1, [2 2] 1, [7 7] 1, [3 3] 1, [1 1] 1, [6 6] 1, [9 9] 1, [5 5] 1, [10 10] 1, [4 4] 1}, :worker->resources {["sup1" 2] [0.0 0.0 0.0], ["sup2" 1] [0.0 0.0 0.0], ["sup1" 1] [0.0 0.0 0.0]}}
+133573 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Downloading code for storm id test-1-0.
+133573 [Thread-2055] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133574 [Thread-2055] INFO  o.a.s.b.FileBlobStoreImpl - Creating new blob store based in /tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47/blobs
+133578 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+133581 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Downloading code for storm id test-1-0.
+133581 [Thread-2060] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+133583 [Thread-2060] INFO  o.a.s.b.FileBlobStoreImpl - Creating new blob store based in /tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47/blobs
+133601 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Copying resources at file:/home/travis/build/apache/storm/storm-core/target/test-classes/resources to /tmp/db329501-5913-4522-a491-fa2222347273/supervisor/stormdist/test-1-0/resources 
+133603 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Finished downloading code for storm id test-1-0
+133604 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - Launching worker with assignment LocalAssignment(topology_id:test-1-0, executors:[ExecutorInfo(task_start:7, task_end:7), ExecutorInfo(task_start:4, task_end:4), ExecutorInfo(task_start:1, task_end:1), ExecutorInfo(task_start:10, task_end:10)], resources:WorkerResources(mem_on_heap:0.0, mem_off_heap:0.0, cpu:0.0)) for this supervisor sup1 on port 1 with id 7d60d340-1565-4736-b435-7a50a88478c2
+133604 [Thread-2056] INFO  o.a.s.testing - mk-capture-launch-fn
+133604 [Thread-2056] INFO  o.a.s.u.ConfigUtils - SET worker-user 7d60d340-1565-4736-b435-7a50a88478c2 
+133604 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - Launching worker with assignment LocalAssignment(topology_id:test-1-0, executors:[ExecutorInfo(task_start:6, task_end:6), ExecutorInfo(task_start:9, task_end:9), ExecutorInfo(task_start:3, task_end:3)], resources:WorkerResources(mem_on_heap:0.0, mem_off_heap:0.0, cpu:0.0)) for this supervisor sup1 on port 2 with id 9ae32328-24c5-4e6f-9016-0cdb03680540
+133605 [Thread-2056] INFO  o.a.s.testing - mk-capture-launch-fn
+133605 [Thread-2056] INFO  o.a.s.u.ConfigUtils - SET worker-user 9ae32328-24c5-4e6f-9016-0cdb03680540 
+133605 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - 9ae32328-24c5-4e6f-9016-0cdb03680540 still hasn't started
+133980 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Copying resources at file:/home/travis/build/apache/storm/storm-core/target/test-classes/resources to /tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299/supervisor/stormdist/test-1-0/resources 
+133981 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Finished downloading code for storm id test-1-0
+133982 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - Launching worker with assignment LocalAssignment(topology_id:test-1-0, executors:[ExecutorInfo(task_start:8, task_end:8), ExecutorInfo(task_start:2, task_end:2), ExecutorInfo(task_start:5, task_end:5)], resources:WorkerResources(mem_on_heap:0.0, mem_off_heap:0.0, cpu:0.0)) for this supervisor sup2 on port 1 with id 1795e6ff-81d8-44a0-8326-841bb20da38a
+133982 [Thread-2061] INFO  o.a.s.testing - mk-capture-launch-fn
+133982 [Thread-2061] INFO  o.a.s.u.ConfigUtils - SET worker-user 1795e6ff-81d8-44a0-8326-841bb20da38a 
+133983 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - 1795e6ff-81d8-44a0-8326-841bb20da38a still hasn't started
+133993 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - 1795e6ff-81d8-44a0-8326-841bb20da38a still hasn't started
+134000 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - 9ae32328-24c5-4e6f-9016-0cdb03680540 still hasn't started
+134012 [main] INFO  o.a.s.l.ThriftAccessLogger - Request ID: 1 access from: /65.66.67.68 principal: null operation: submitTopology
+134014 [main] INFO  o.a.s.d.nimbus - Received topology submission for test2 with conf {"topology.max.task.parallelism" nil, "topology.submitter.principal" "", "topology.acker.executors" nil, "topology.eventlogger.executors" nil, "topology.workers" 2, "storm.zookeeper.superACL" nil, "topology.users" (), "topology.submitter.user" "travis", "topology.kryo.register" nil, "topology.kryo.decorators" (), "storm.id" "test2-2-2", "topology.name" "test2"}
+134016 [main] INFO  o.a.s.d.nimbus - uploadedJar 
+134018 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+134021 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+134023 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+134024 [main] INFO  o.a.s.c.StormClusterStateImpl - set-path: /blobstore/test2-2-2-stormconf.ser/testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org:6627-1
+134027 [main] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+134028 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+134030 [Curator-Framework-0] INFO  o.a.c.f.i.CuratorFrameworkImpl - backgroundOperationsLoop exiting
+134031 [main] INFO  o.a.s.c.StormClusterStateImpl - set-path: /blobstore/test2-2-2-stormcode.ser/testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org:6627-1
+134035 [main] INFO  o.a.s.d.nimbus - desired replication count 1 achieved, current-replication-count for conf key = 1, current-replication-count for code key = 1, current-replication-count for jar key = 1
+134044 [main] INFO  o.a.s.d.nimbus - Activating test2: test2-2-2
+134050 [main] INFO  o.a.s.l.ThriftAccessLogger - Request ID: 1 access from: /65.66.67.68 principal: null operation: rebalance
+134051 [main] INFO  o.a.s.d.nimbus - Delaying event :do-rebalance for 0 secs for test2-2-2
+134120 [timer] INFO  o.a.s.s.EvenScheduler - Available slots: [sup1:3, sup1:4, sup2:2]
+134123 [timer] INFO  o.a.s.d.nimbus - Setting new assignment for topology id test2-2-2: #org.apache.storm.daemon.common.Assignment{:master-code-dir "/tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47", :node->host {"sup1" "testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org", "sup2" "testing-worker-linux-docker-1079d696-3397-linux-6.prod.travis-ci.org"}, :executor->node+port {[3 3] ["sup1" 3], [6 6] ["sup2" 2], [5 5] ["sup1" 3], [4 4] ["sup2" 2], [7 7] ["sup1" 3], [2 2] ["sup2" 2], [1 1] ["sup1" 3]}, :executor->start-time-secs {[1 1] 3, [3 3] 3, [5 5] 3, [7 7] 3, [2 2] 3, [4 4] 3, [6 6] 3}, :worker->resources {["sup1" 3] [0.0 0.0 0.0], ["sup2" 2] [0.0 0.0 0.0]}}
+134127 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Downloading code for storm id test2-2-2.
+134127 [Thread-2055] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+134128 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Downloading code for storm id test2-2-2.
+134128 [Thread-2060] INFO  o.a.c.f.i.CuratorFrameworkImpl - Starting
+134129 [Thread-2055] INFO  o.a.s.b.FileBlobStoreImpl - Creating new blob store based in /tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47/blobs
+134135 [Thread-2055-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+134135 [Thread-2060] INFO  o.a.s.b.FileBlobStoreImpl - Creating new blob store based in /tmp/4e7a2af2-bee6-47e2-87ee-93916e43ea47/blobs
+134142 [Thread-2060-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
+134143 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Copying resources at file:/home/travis/build/apache/storm/storm-core/target/test-classes/resources to /tmp/db329501-5913-4522-a491-fa2222347273/supervisor/stormdist/test2-2-2/resources 
+134145 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Finished downloading code for storm id test2-2-2
+134146 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - Launching worker with assignment LocalAssignment(topology_id:test2-2-2, executors:[ExecutorInfo(task_start:7, task_end:7), ExecutorInfo(task_start:1, task_end:1), ExecutorInfo(task_start:3, task_end:3), ExecutorInfo(task_start:5, task_end:5)], resources:WorkerResources(mem_on_heap:0.0, mem_off_heap:0.0, cpu:0.0)) for this supervisor sup1 on port 3 with id 631e73d2-a8c5-4448-b96b-9f2b3804f4cb
+134146 [Thread-2056] INFO  o.a.s.testing - mk-capture-launch-fn
+134146 [Thread-2056] INFO  o.a.s.u.ConfigUtils - SET worker-user 631e73d2-a8c5-4448-b96b-9f2b3804f4cb 
+134147 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - 631e73d2-a8c5-4448-b96b-9f2b3804f4cb still hasn't started
+134149 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Copying resources at file:/home/travis/build/apache/storm/storm-core/target/test-classes/resources to /tmp/29710ff9-d86d-4eee-ac6f-645d3d8c2299/supervisor/stormdist/test2-2-2/resources 
+134151 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Finished downloading code for storm id test2-2-2
+134152 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - Launching worker with assignment LocalAssignment(topology_id:test2-2-2, executors:[ExecutorInfo(task_start:6, task_end:6), ExecutorInfo(task_start:2, task_end:2), ExecutorInfo(task_start:4, task_end:4)], resources:WorkerResources(mem_on_heap:0.0, mem_off_heap:0.0, cpu:0.0)) for this supervisor sup2 on port 2 with id 370d1491-6092-4133-a7e4-e038a4025f54
+134152 [Thread-2061] INFO  o.a.s.testing - mk-capture-launch-fn
+134152 [Thread-2061] INFO  o.a.s.u.ConfigUtils - SET worker-user 370d1491-6092-4133-a7e4-e038a4025f54 
+134153 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - 370d1491-6092-4133-a7e4-e038a4025f54 still hasn't started
+134157 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - 631e73d2-a8c5-4448-b96b-9f2b3804f4cb still hasn't started
+134163 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - 370d1491-6092-4133-a7e4-e038a4025f54 still hasn't started
+134177 [main] INFO  o.a.s.l.ThriftAccessLogger - Request ID: 1 access from: /65.66.67.68 principal: null operation: killTopology
+134184 [main] INFO  o.a.s.d.nimbus - Delaying event :remove for 40 secs for test-1-0
+134196 [main] INFO  o.a.s.d.nimbus - Adding topo to history log: test-1-0
+134231 [Thread-1889-spout-executor[7 7]-EventThread] WARN  o.a.c.ConnectionState - Session expired event received
+134232 [Thread-1889-spout-executor[7 7]-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: LOST
+134233 [Thread-1889-spout-executor[7 7]-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: RECONNECTED
+134394 [Thread-1885-spout-executor[8 8]-EventThread] WARN  o.a.c.ConnectionState - Session expired event received
+134395 [Thread-1885-spout-executor[8 8]-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: LOST
+134396 [Thread-1885-spout-executor[8 8]-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: RECONNECTED
+134843 [timer] INFO  o.a.s.d.nimbus - Killing topology: test-1-0
+135134 [Thread-2055] INFO  o.a.s.d.s.SyncSupervisorEvent - Removing code for storm id test-1-0.
+135137 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - Shutting down and clearing state for id 9ae32328-24c5-4e6f-9016-0cdb03680540, Current supervisor time: 44, State: DISALLOWED, Heartbeat: LSWorkerHeartbeat(time_secs:36, topology_id:test-1-0, executors:[ExecutorInfo(task_start:3, task_end:3), ExecutorInfo(task_start:6, task_end:6), ExecutorInfo(task_start:9, task_end:9)], port:2)
+135137 [Thread-2060] INFO  o.a.s.d.s.SyncSupervisorEvent - Removing code for storm id test-1-0.
+135138 [Thread-2056] INFO  o.a.s.testing - mk-capture-shutdown-fn
+135138 [Thread-2056] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shutting down sup1:9ae32328-24c5-4e6f-9016-0cdb03680540
+135138 [Thread-2056] INFO  o.a.s.u.ConfigUtils - GET worker-user for 9ae32328-24c5-4e6f-9016-0cdb03680540
+135138 [Thread-2056] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shut down sup1:9ae32328-24c5-4e6f-9016-0cdb03680540
+135140 [Thread-2056] INFO  o.a.s.u.ConfigUtils - REMOVE worker-user 9ae32328-24c5-4e6f-9016-0cdb03680540
+135140 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - Shutting down and clearing state for id 7d60d340-1565-4736-b435-7a50a88478c2, Current supervisor time: 44, State: DISALLOWED, Heartbeat: LSWorkerHeartbeat(time_secs:36, topology_id:test-1-0, executors:[ExecutorInfo(task_start:7, task_end:7), ExecutorInfo(task_start:1, task_end:1), ExecutorInfo(task_start:10, task_end:10), ExecutorInfo(task_start:4, task_end:4)], port:1)
+135140 [Thread-2061] INFO  o.a.s.d.s.SyncProcessEvent - Shutting down and clearing state for id 1795e6ff-81d8-44a0-8326-841bb20da38a, Current supervisor time: 44, State: DISALLOWED, Heartbeat: LSWorkerHeartbeat(time_secs:36, topology_id:test-1-0, executors:[ExecutorInfo(task_start:8, task_end:8), ExecutorInfo(task_start:2, task_end:2), ExecutorInfo(task_start:5, task_end:5)], port:1)
+135140 [Thread-2056] INFO  o.a.s.testing - mk-capture-shutdown-fn
+135140 [Thread-2056] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shutting down sup1:7d60d340-1565-4736-b435-7a50a88478c2
+135140 [Thread-2061] INFO  o.a.s.testing - mk-capture-shutdown-fn
+135140 [Thread-2056] INFO  o.a.s.u.ConfigUtils - GET worker-user for 7d60d340-1565-4736-b435-7a50a88478c2
+135140 [Thread-2061] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shutting down sup2:1795e6ff-81d8-44a0-8326-841bb20da38a
+135140 [Thread-2061] INFO  o.a.s.u.ConfigUtils - GET worker-user for 1795e6ff-81d8-44a0-8326-841bb20da38a
+135140 [Thread-2056] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shut down sup1:7d60d340-1565-4736-b435-7a50a88478c2
+135140 [Thread-2061] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shut down sup2:1795e6ff-81d8-44a0-8326-841bb20da38a
+135141 [Thread-2056] INFO  o.a.s.u.ConfigUtils - REMOVE worker-user 7d60d340-1565-4736-b435-7a50a88478c2
+135141 [Thread-2061] INFO  o.a.s.u.ConfigUtils - REMOVE worker-user 1795e6ff-81d8-44a0-8326-841bb20da38a
+135143 [Thread-2056] INFO  o.a.s.d.s.SyncProcessEvent - Shutting down and clearing state for id 7d60d340-1565-4736-b435-7a50a88478c2, Current supervisor time: 44, State: NOT_STARTED, Heartbeat: null
+135145 [Thread-2056] INFO  o.a.s.testing - mk-capture-shutdown-fn
+135145 [Thread-2056] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shutting down sup1:7d60d340-1565-4736-b435-7a50a88478c2
+135145 [Thread-2056] INFO  o.a.s.u.ConfigUtils - GET worker-user for 7d60d340-1565-4736-b435-7a50a88478c2
+135146 [Thread-2056] ERROR o.a.s.u.ConfigUtils - Failed to get worker user for 7d60d340-1565-4736-b435-7a50a88478c2.
+135146 [Thread-2056] INFO  o.a.s.d.s.w.DefaultWorkerManager - Shut down sup1:7d60d340-1565-4736-b435-7a50a88478c2
+135146 [Thread-2056] INFO  o.a.s.u.ConfigUtils - REMOVE worker-user 7d60d340-1565-4736-b435-7a50a88478c2
+            
+--------------------------------------------------
+Checking ./storm-core/target/test-reports/org.apache.storm.subtopology-test.xml
+Checking ./storm-core/target/test-reports/integration.org.apache.storm.trident.integration-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.versioned-store-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.utils.ZookeeperServerCnxnFactory-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.DefaultHttpCredentialsPlugin-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.fields-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.submitter-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.cluster-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.authorizer.DRPCSimpleACLAuthorizer-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.nimbus-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.auto-login-module-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.SaslTransportPlugin-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.grouping-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.serialization-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.worker-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.nimbus-auth-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.local-state-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.scheduler-test.xml
+Checking ./storm-core/target/test-reports/integration.org.apache.storm.testing4j-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.security.auth.ThriftClient-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.tick-tuple-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.scheduler.multitenant-scheduler-test.xml
+Checking ./storm-core/target/test-reports/org.apache.storm.trident.tuple-test.xml
+
+travis_time:end:002f8c58:start=1467041117295419674,finish=1467041452483003137,duration=335187583463[0K
+[31;1mThe command "/bin/bash ./dev-tools/travis/travis-script.sh `pwd` $MODULES" exited with 1.[0m
+travis_fold:start:cache.2[0Kstore build cache
+travis_time:start:265201c0[0K
+travis_time:end:265201c0:start=1467041452487415580,finish=1467041452490847297,duration=3431717[0Ktravis_time:start:3c182aae[0K[32;1mchange detected (content changed, file is created, or file is deleted):
+/home/travis/.m2/repository/eigenbase/eigenbase-properties/1.1.4/eigenbase-properties-1.1.4.pom.lastUpdated
+/home/travis/.m2/repository/io/confluent/kafka-avro-serializer/1.0/kafka-avro-serializer-1.0.pom.lastUpdated
+/home/travis/.m2/repository/io/confluent/kafka-schema-registry-client/1.0/kafka-schema-registry-client-1.0.pom.lastUpdated
+/home/travis/.m2/repository/net/hydromatic/linq4j/0.4/linq4j-0.4.pom.lastUpdated
+/home/travis/.m2/repository/net/hydromatic/quidem/0.1.1/quidem-0.1.1.pom.lastUpdated
+/home/travis/.m2/repository/org/apache/storm/flux/2.0.0-SNAPSHOT/maven-metadata-local.xml
+/home/travis/.m2/repository/org/apache/storm/flux/2.0.0-SNAPSHOT/_remote.repositories
+/home/travis/.m2/repository/org/apache/storm/flux-core/2.0.0-SNAPSHOT/flux-core-2.0.0-SNAPSHOT.jar
+/home/travis/.m2/repository/org/apache/storm/flux-core/2.0.0-SNAPSHOT/maven-metadata-local.xml
+/home/travis/.m2/repository/org/apache/storm/flux-core/2.0.0-SNAPSHOT/_remote.repositories
+/home/travis/.m2/repository/org/ap
+[0m
+[32;1m...
+[0m
+[32;1mchanges detected, packing new archive[0m
+.
+.
+.
+.
+.
+.
+[32;1muploading archive[0m
+
+travis_time:end:3c182aae:start=1467041452495054206,finish=1467041501223197029,duration=48728142823[0Ktravis_fold:end:cache.2[0K
+Done. Your build exited with 1.
